@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dell EMEA Security Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; background:#f4f6f9; color:#333; }
+        .header { background:#0076CE; color:white; padding:16px 32px; }
+        .header h1 { font-size:1.4rem; }
+        .header p { font-size:0.85rem; margin-top:4px; opacity:0.9; }
+        .dashboard { display:grid; grid-template-columns:1fr 1fr; gap:24px; padding:24px; max-width:1500px; margin:auto; }
+        @media(max-width:900px){ .dashboard{ grid-template-columns:1fr; } }
+        .card { background:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.08); overflow:hidden; }
+        .card-header { background:#0076CE; color:white; padding:12px 20px; font-weight:600; font-size:1.05rem; }
+        .card-header-dark { background:#1B3A5C; color:white; padding:12px 20px; font-weight:600; font-size:1.05rem; }
+        .card-header-alert { background:#DC3545; color:white; padding:12px 20px; font-weight:600; font-size:1.05rem; }
+        .card-body { padding:16px 20px; }
+        #map { height:520px; width:100%; }
+        .map-fallback { display:none; padding:20px; }
+        .feed-tabs { display:flex; gap:0; background:#e9ecef; border-bottom:2px solid #0076CE; flex-wrap:wrap; }
+        .feed-tab { padding:10px 14px; cursor:pointer; font-size:0.82rem; font-weight:600; border:none; background:#e9ecef; color:#555; }
+        .feed-tab:hover { background:#d0d4d8; }
+        .feed-tab.active { background:#0076CE; color:white; }
+        .feed-tab-alert { padding:10px 14px; cursor:pointer; font-size:0.82rem; font-weight:600; border:none; background:#e9ecef; color:#555; }
+        .feed-tab-alert:hover { background:#f8d7da; }
+        .feed-tab-alert.active { background:#DC3545; color:white; }
+        .news-list { list-style:none; max-height:460px; overflow-y:auto; }
+        .news-item { padding:12px 0; border-bottom:1px solid #eee; }
+        .news-item:last-child { border-bottom:none; }
+        .news-item a { color:#0076CE; text-decoration:none; font-weight:600; font-size:0.95rem; }
+        .news-item a:hover { text-decoration:underline; }
+        .news-item .source { font-size:0.78rem; color:#888; margin-top:4px; }
+        .news-item .snippet { font-size:0.88rem; margin-top:4px; color:#555; }
+        .tag { display:inline-block; font-size:0.7rem; padding:2px 8px; border-radius:10px; margin-top:4px; font-weight:600; }
+        .tag-security { background:#FFF3CD; color:#856404; }
+        .tag-alert { background:#F8D7DA; color:#721C24; }
+        .location-list { list-style:none; margin-top:12px; }
+        .location-list li { padding:8px 0; font-size:0.92rem; border-bottom:1px solid #f0f0f0; }
+        .country-label { font-weight:bold; color:#0076CE; padding:14px 0 6px 0; font-size:1.05rem; border-bottom:2px solid #0076CE; margin-top:8px; }
+        .legend { background:white; padding:10px 14px; border-radius:6px; box-shadow:0 2px 6px rgba(0,0,0,0.2); font-size:13px; line-height:1.8; }
+        .legend-dot { display:inline-block; width:14px; height:14px; border-radius:50%; margin-right:6px; vertical-align:middle; border:2px solid white; box-shadow:0 1px 3px rgba(0,0,0,0.3); }
+        .alert-panel { padding:16px 20px; max-height:350px; overflow-y:auto; }
+        .alert-item { padding:10px 14px; margin-bottom:8px; border-radius:6px; border-left:4px solid #DC3545; background:#FFF5F5; }
+        .alert-item .alert-time { font-size:0.78rem; color:#888; }
+        .alert-item .alert-title { font-weight:600; color:#DC3545; margin-top:2px; }
+        .alert-item .alert-title a { color:#DC3545; text-decoration:none; }
+        .alert-item .alert-desc { font-size:0.88rem; color:#555; margin-top:4px; }
+        .alert-status { display:flex; align-items:center; gap:10px; padding:12px 20px; font-size:0.9rem; }
+        .status-dot { width:12px; height:12px; border-radius:50%; display:inline-block; }
+        .status-green { background:#28A745; box-shadow:0 0 6px rgba(40,167,69,0.5); }
+        .status-red { background:#DC3545; box-shadow:0 0 6px rgba(220,53,69,0.5); animation:pulse 1.5s infinite; }
+        @keyframes pulse { 0%{opacity:1;} 50%{opacity:0.4;} 100%{opacity:1;} }
+        .alert-links { padding:12px 20px; border-top:1px solid #eee; font-size:0.85rem; }
+        .alert-links a { color:#0076CE; text-decoration:none; margin-right:16px; }
+        .alert-links a:hover { text-decoration:underline; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>🔒 Dell EMEA Regional Security Dashboard</h1>
+        <p>Ireland | United Kingdom | Germany | Israel — Security Intelligence &amp; Alert Feed</p>
+    </div>
+
+    <div class="dashboard">
+
+        <div class="card">
+            <div class="card-header">Dell Locations Under My Remit</div>
+            <div class="card-body" style="padding:0;">
+                <div id="map"></div>
+                <div class="map-fallback" id="mapFallback">
+                    <p style="color:#DC3545; font-weight:bold;">Map is loading or unavailable.</p>
+                    <p style="margin-top:12px; font-weight:600;">Your Dell locations:</p>
+                    <div id="fallbackLocations"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header-dark" id="newsHeader">🔒 Security Intelligence Feed</div>
+            <div class="feed-tabs" id="feedTabs">
+                <button class="feed-tab active" onclick="switchFeed('all')">All</button>
+                <button class="feed-tab" onclick="switchFeed('ireland')">🇮🇪 Ireland</button>
+                <button class="feed-tab" onclick="switchFeed('uk')">🇬🇧 UK</button>
+                <button class="feed-tab" onclick="switchFeed('germany')">🇩🇪 Germany</button>
+                <button class="feed-tab" onclick="switchFeed('israel')">🇮🇱 Israel</button>
+                <button class="feed-tab-alert" onclick="switchFeed('redalert')">🚨 Red Alert</button>
+            </div>
+            <div class="card-body" style="padding:8px 16px;">
+                <ul class="news-list" id="newsFeed">
+                    <li style="text-align:center; padding:40px; color:#888;">Loading security feeds...</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" style="grid-column: 1 / -1;">
+            <div class="card-header-alert" id="redAlertHeader">
+                <span>🚨 Israel Red Alert — Tzofar / Tzeva Adom</span>
+                <span id="alertStatus" style="font-size:0.85rem;"></span>
+            </div>
+            <div class="alert-status" id="alertStatusBar">
+                <span class="status-dot status-green" id="statusDot"></span>
+                <span id="statusText">Checking alert status...</span>
+            </div>
+            <div class="alert-panel" id="alertPanel">
+                <div style="text-align:center; padding:20px; color:#888;">Loading Red Alert feed...</div>
+            </div>
+            <div class="alert-links">
+                <strong>Live Sources:</strong>
+                <a href="https://www.tzofar.com/en" target="_blank">🔗 Tzofar (English)</a>
+                <a href="https://www.oref.org.il/en" target="_blank">🔗 Home Front Command</a>
+                <a href="https://redalert.me/" target="_blank">🔗 RedAlert.me</a>
+                <a href="https://news.google.com/search?q=Israel%20red%20alert%20siren&hl=en" target="_blank">🔗 Google News</a>
+            </div>
+        </div>
+
+        <div class="card" style="grid-column: 1 / -1;">
+            <div class="card-header" id="locationCount">Location Details</div>
+            <div class="card-body">
+                <ul class="location-list" id="locationDetails"></ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        var dellLocations = [
+            { name:"Dell Technologies - Limerick (Raheen)", lat:52.6380, lng:-8.6716, address:"Raheen Business Park, Limerick, V94 YK40", type:"Campus - Manufacturing and Operations", country:"Ireland" },
+            { name:"Dell Technologies - Cork (Ovens)", lat:51.8756, lng:-8.6492, address:"Ovens, Cork, P31 DP28", type:"Office - Engineering and Sales", country:"Ireland" },
+            { name:"Dell Technologies - Dublin (Cherrywood)", lat:53.2420, lng:-6.1458, address:"Cherrywood Business Park, Loughlinstown, Dublin 18", type:"Office - Sales and Solutions", country:"Ireland" },
+            { name:"Dell Technologies - Dublin (City Centre)", lat:53.3390, lng:-6.2353, address:"Dawson Street, Dublin 2", type:"Office - Sales", country:"Ireland" },
+            { name:"Dell Technologies - Bracknell (UK HQ)", lat:51.4136, lng:-0.7536, address:"Cain Road, Bracknell, Berkshire, RG12 1LF", type:"UK Headquarters", country:"United Kingdom" },
+            { name:"Dell Technologies - London (Canary Wharf)", lat:51.5054, lng:-0.0235, address:"One Canada Square, Canary Wharf, London, E14 5AA", type:"Office - Sales and Enterprise", country:"United Kingdom" },
+            { name:"Dell Technologies - Glasgow", lat:55.8609, lng:-4.2514, address:"Glasgow, Scotland, G2", type:"Office - Solutions Centre", country:"United Kingdom" },
+            { name:"Dell Technologies - Warrington", lat:53.3900, lng:-2.5970, address:"Daresbury Park, Warrington, Cheshire, WA4 4GE", type:"Office - Enterprise Support", country:"United Kingdom" },
+            { name:"Dell Technologies - Edinburgh", lat:55.9485, lng:-3.2021, address:"Edinburgh, Scotland, EH3", type:"Office - Sales", country:"United Kingdom" },
+            { name:"Dell Technologies - Manchester", lat:53.4808, lng:-2.2426, address:"Manchester, M1", type:"Office - Enterprise Solutions", country:"United Kingdom" },
+            { name:"Dell Technologies - Birmingham", lat:52.4862, lng:-1.8904, address:"Birmingham, B1", type:"Office - Sales", country:"United Kingdom" },
+            { name:"Dell Technologies - Frankfurt (German HQ)", lat:50.0510, lng:8.5720, address:"Main Airport Center, Frankfurt am Main, 60549", type:"Germany Headquarters", country:"Germany" },
+            { name:"Dell Technologies - Halle (Saale)", lat:51.4828, lng:11.9705, address:"Halle (Saale), Sachsen-Anhalt, 06112", type:"Campus - Manufacturing and Services", country:"Germany" },
+            { name:"Dell Technologies - Munich", lat:48.1351, lng:11.5820, address:"Munich, Bavaria, 80807", type:"Office - Sales and Engineering", country:"Germany" },
+            { name:"Dell Technologies - Stuttgart", lat:48.7758, lng:9.1829, address:"Stuttgart, Baden-Wuerttemberg, 70173", type:"Office - Enterprise Solutions", country:"Germany" },
+            { name:"Dell Technologies - Berlin", lat:52.5200, lng:13.4050, address:"Berlin, 10117", type:"Office - Sales", country:"Germany" },
+            { name:"Dell Technologies - Hamburg", lat:53.5511, lng:9.9937, address:"Hamburg, 20354", type:"Office - Sales", country:"Germany" },
+            { name:"Dell Technologies - Dusseldorf", lat:51.2277, lng:6.7735, address:"Dusseldorf, Nordrhein-Westfalen, 40213", type:"Office - Enterprise", country:"Germany" },
+            { name:"Dell Technologies - Ra'anana (Israel HQ)", lat:32.1840, lng:34.8710, address:"94 Em HaMoshavot Road, Ra'anana, 4340177", type:"Israel HQ - R&D Centre", country:"Israel" },
+            { name:"Dell Technologies - Be'er Sheva", lat:31.2520, lng:34.7915, address:"Advanced Technologies Park, Be'er Sheva, 8410802", type:"R&D Centre - CyberSecurity", country:"Israel" },
+            { name:"Dell Technologies - Herzliya", lat:32.1627, lng:34.8067, address:"Herzliya Pituach, 4672515", type:"R&D Centre - Data Protection", country:"Israel" },
+            { name:"Dell Technologies - Tel Aviv", lat:32.0853, lng:34.7818, address:"Tel Aviv-Yafo, 6706000", type:"Office - Sales and Engineering", country:"Israel" },
+            { name:"Dell Technologies - Petah Tikva", lat:32.0841, lng:34.8878, address:"Petah Tikva, 4951105", type:"R&D Centre - Storage", country:"Israel" }
+        ];
+
+        var feedConfigs = [
+            { id:"ireland", label:"Ireland", tag:"security", tagLabel:"Physical Security", url:"https://news.google.com/rss/search?q=(Ireland)+AND+(security+OR+threat+OR+crime+OR+protest+OR+emergency+OR+travel+advisory+OR+safety)&hl=en-IE&gl=IE&ceid=IE:en" },
+            { id:"uk", label:"United Kingdom", tag:"security", tagLabel:"Physical Security", url:"https://news.google.com/rss/search?q=(United+Kingdom+OR+UK+OR+Britain)+AND+(security+threat+OR+terror+OR+protest+OR+crime+OR+travel+advisory+OR+emergency)&hl=en-GB&gl=GB&ceid=GB:en" },
+            { id:"germany", label:"Germany", tag:"security", tagLabel:"Physical Security", url:"https://news.google.com/rss/search?q=(Germany+OR+Berlin+OR+Frankfurt+OR+Munich)+AND+(security+OR+threat+OR+protest+OR+crime+OR+travel+advisory+OR+emergency)&hl=en&gl=DE&ceid=DE:en" },
+            { id:"israel", label:"Israel", tag:"security", tagLabel:"Physical Security", url:"https://news.google.com/rss/search?q=(Israel+OR+Tel+Aviv)+AND+(security+OR+threat+OR+conflict+OR+travel+advisory+OR+emergency)&hl=en&gl=IL&ceid=IL:en" },
+            { id:"redalert", label:"Israel Red Alert", tag:"alert", tagLabel:"Red Alert", url:"https://news.google.com/rss/search?q=(Israel)+AND+(red+alert+OR+rocket+alert+OR+siren+OR+tzeva+adom+OR+iron+dome+OR+missile+OR+rocket+fire)&hl=en&gl=IL&ceid=IL:en" }
+        ];
+
+        var allNewsItems = [];
+        var currentFilter = "all";
+        var countryColours = { "Ireland":"#00A650", "United Kingdom":"#CF142B", "Germany":"#FFCC00", "Israel":"#0038B8" };
+        var countryTextColours = { "Ireland":"white", "United Kingdom":"white", "Germany":"black", "Israel":"white" };
+
+        function initMap() {
+            if (typeof L === "undefined" || !L.map) {
+                document.getElementById("map").style.display = "none";
+                document.getElementById("mapFallback").style.display = "block";
+                buildFallbackLocations();
+                return;
+            }
+            try {
+                var map = L.map("map").setView([48.0, 8.0], 4);
+                L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                    attribution:"OpenStreetMap contributors"
+                }).addTo(map);
+                var markers = [];
+                for (var i = 0; i < dellLocations.length; i++) {
+                    var loc = dellLocations[i];
+                    var bgColour = countryColours[loc.country] || "#0076CE";
+                    var txtColour = countryTextColours[loc.country] || "white";
+                    var dellIcon = L.divIcon({
+                        className:"",
+                        html:'<div style="background:'+bgColour+'; width:30px; height:30px; border-radius:50%; border:3px solid white; box-shadow:0 2px 6px rgba(0,0,0,0.35); display:flex; align-items:center; justify-content:center; color:'+txtColour+'; font-weight:bold; font-size:11px;">D</div>',
+                        iconSize:[30,30], iconAnchor:[15,15], popupAnchor:[0,-17]
+                    });
+                    var marker = L.marker([loc.lat, loc.lng], {icon:dellIcon}).addTo(map);
+                    marker.bindPopup("<strong>"+loc.name+"</strong><br>"+loc.address+"<br><em>"+loc.type+"</em><br><strong style='color:"+bgColour+";'>"+loc.country+"</strong>");
+                    markers.push(marker);
+                }
+                if (markers.length > 1) {
+                    var group = L.featureGroup(markers);
+                    map.fitBounds(group.getBounds().pad(0.1));
+                }
+                var legend = L.control({position:"bottomright"});
+                legend.onAdd = function() {
+                    var div = L.DomUtil.create("div","legend");
+                    div.innerHTML = "<strong>Locations</strong><br>";
+                    div.innerHTML += '<span class="legend-dot" style="background:#00A650;"></span> Ireland (4)<br>';
+                    div.innerHTML += '<span class="legend-dot" style="background:#CF142B;"></span> United Kingdom (7)<br>';
+                    div.innerHTML += '<span class="legend-dot" style="background:#FFCC00;"></span> Germany (7)<br>';
+                    div.innerHTML += '<span class="legend-dot" style="background:#0038B8;"></span> Israel (5)';
+                    return div;
+                };
+                legend.addTo(map);
+            } catch(e) {
+                document.getElementById("map").style.display = "none";
+                document.getElementById("mapFallback").style.display = "block";
+                buildFallbackLocations();
+            }
+        }
+
+        function buildFallbackLocations() {
+            var fb = document.getElementById("fallbackLocations");
+            var html = "<table style='width:100%; margin-top:12px; border-collapse:collapse;'>";
+            var curCountry = "";
+            for (var i = 0; i < dellLocations.length; i++) {
+                var loc = dellLocations[i];
+                if (loc.country !== curCountry) {
+                    curCountry = loc.country;
+                    var flag = "";
+                    if (curCountry==="Ireland") flag="🇮🇪";
+                    if (curCountry==="United Kingdom") flag="🇬🇧";
+                    if (curCountry==="Germany") flag="🇩🇪";
+                    if (curCountry==="Israel") flag="🇮🇱";
+                    html += "<tr><td colspan='3' style='padding:10px 0 4px; font-weight:bold; color:#0076CE; border-bottom:2px solid #0076CE;'>"+flag+" "+curCountry+"</td></tr>";
+                }
+                html += "<tr style='border-bottom:1px solid #eee;'>";
+                html += "<td style='padding:6px 0;'><strong>"+loc.name+"</strong></td>";
+                html += "<td style='padding:6px 8px;'>"+loc.address+"</td>";
+                html += "<td style='padding:6px 0; color:#0076CE;'>["+loc.type+"]</td>";
+                html += "</tr>";
+            }
+            html += "</table>";
+            fb.innerHTML = html;
+        }
+
+        function buildLocationDetails() {
+            var detailsList = document.getElementById("locationDetails");
+            var html = "";
+            var curCountry = "";
+            var countPerCountry = {};
+            for (var c = 0; c < dellLocations.length; c++) {
+                var cn = dellLocations[c].country;
+                if (!countPerCountry[cn]) countPerCountry[cn] = 0;
+                countPerCountry[cn]++;
+            }
+            for (var j = 0; j < dellLocations.length; j++) {
+                var site = dellLocations[j];
+                if (site.country !== curCountry) {
+                    curCountry = site.country;
+                    var flag = "";
+                    if (curCountry==="Ireland") flag="🇮🇪";
+                    if (curCountry==="United Kingdom") flag="🇬🇧";
+                    if (curCountry==="Germany") flag="🇩🇪";
+                    if (curCountry==="Israel") flag="🇮🇱";
+                    html += '<li class="country-label">'+flag+" "+curCountry+" ("+countPerCountry[curCountry]+" locations)</li>";
+                }
+                html += "<li><strong>"+site.name+"</strong> — "+site.address+' <span style="color:#0076CE;">['+site.type+"]</span></li>";
+            }
+            detailsList.innerHTML = html;
+            document.getElementById("locationCount").innerHTML = "Location Details — "+dellLocations.length+" sites across 4 countries";
+        }
+
+        function loadAllFeeds() {
+            allNewsItems = [];
+            var feedsCompleted = 0;
+            var totalFeeds = feedConfigs.length;
+            for (var f = 0; f < feedConfigs.length; f++) {
+                (function(config) {
+                    var apiUrl = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(config.url);
+                    fetch(apiUrl)
+                        .then(function(r) { return r.json(); })
+                        .then(function(data) {
+                            if (data.status === "ok") {
+                                for (var i = 0; i < data.items.length; i++) {
+                                    var item = data.items[i];
+                                    allNewsItems.push({ title:item.title, link:item.link, description:item.description, pubDate:item.pubDate, author:item.author||data.feed.title, region:config.id, regionLabel:config.label, tag:config.tag, tagLabel:config.tagLabel });
+                                }
+                            }
+                            feedsCompleted++;
+                            if (feedsCompleted >= totalFeeds) { allNewsItems.sort(function(a,b){ return new Date(b.pubDate)-new Date(a.pubDate); }); renderNews(); }
+                        })
+                        .catch(function() {
+                            feedsCompleted++;
+                            if (feedsCompleted >= totalFeeds) { allNewsItems.sort(function(a,b){ return new Date(b.pubDate)-new Date(a.pubDate); }); renderNews(); }
+                        });
+                })(feedConfigs[f]);
+            }
+            setTimeout(function() {
+                if (feedsCompleted < totalFeeds) {
+                    document.getElementById("newsFeed").innerHTML = '<li style="color:#DC3545; padding:20px; text-align:center;">News feeds are unavailable on this network.</li>';
+                }
+            }, 15000);
+        }
+
+        function renderNews() {
+            var container = document.getElementById("newsFeed");
+            var filtered = [];
+            for (var i = 0; i < allNewsItems.length; i++) {
+                if (currentFilter === "all" || allNewsItems[i].region === currentFilter) filtered.push(allNewsItems[i]);
+            }
+            if (filtered.length === 0) {
+                container.innerHTML = '<li style="color:#888; text-align:center; padding:40px 0;">No items found for this filter.</li>';
+                return;
+            }
+            var html = "";
+            for (var j = 0; j < filtered.length; j++) {
+                var item = filtered[j];
+                var snippet = "";
+                if (item.description) { snippet = item.description.replace(/<[^>]*>/g,""); if(snippet.length>140) snippet=snippet.substring(0,140)+"..."; }
+                var pubDate = new Date(item.pubDate).toLocaleDateString();
+                var tagClass = item.tag==="alert" ? "tag-alert" : "tag-security";
+                var regionFlag = "";
+                if (item.region==="ireland") regionFlag="🇮🇪";
+                if (item.region==="uk") regionFlag="🇬🇧";
+                if (item.region==="germany") regionFlag="🇩🇪";
+                if (item.region==="israel") regionFlag="🇮🇱";
+                if (item.region==="redalert") regionFlag="🚨";
+                html += '<li class="news-item"><a href="'+item.link+'" target="_blank">'+item.title+'</a><div class="source">'+regionFlag+" "+item.regionLabel+" • "+item.author+" • "+pubDate+'</div><div class="snippet">'+snippet+'</div><span class="tag '+tagClass+'">'+item.tagLabel+"</span></li>";
+            }
+            container.innerHTML = html;
+            document.getElementById("newsHeader").innerHTML = '🔒 Security Intelligence Feed <span style="font-weight:normal; font-size:0.8rem; float:right;">Updated: '+new Date().toLocaleTimeString()+"</span>";
+        }
+
+        function switchFeed(region) {
+            currentFilter = region;
+            var allButtons = document.getElementById("feedTabs").getElementsByTagName("button");
+            for (var t = 0; t < allButtons.length; t++) {
+                var btn = allButtons[t];
+                var btnOnclick = btn.getAttribute("onclick") || "";
+                if (btnOnclick.indexOf(region) > -1) {
+                    btn.className = (region==="redalert") ? "feed-tab-alert active" : "feed-tab active";
+                } else {
+                    btn.className = (btn.className.indexOf("alert")>-1 || btnOnclick.indexOf("redalert")>-1) ? "feed-tab-alert" : "feed-tab";
+                }
+            }
+            renderNews();
+        }
+
+        function loadRedAlertPanel() {
+            var panel = document.getElementById("alertPanel");
+            var statusDot = document.getElementById("statusDot");
+            var statusText = document.getElementById("statusText");
+            var alertStatus = document.getElementById("alertStatus");
+            var redAlertRSS = "https://news.google.com/rss/search?q=(Israel)+AND+(red+alert+OR+rocket+siren+OR+tzeva+adom+OR+incoming+rocket+OR+iron+dome)+when:1d&hl=en&gl=IL&ceid=IL:en";
+            var apiUrl = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(redAlertRSS);
+            fetch(apiUrl)
+                .then(function(r){ return r.json(); })
+                .then(function(data) {
+                    var now = new Date();
+                    var alertsHtml = "";
+                    var recentCount = 0;
+                    if (data.status==="ok" && data.items.length>0) {
+                        for (var i=0; i<data.items.length; i++) {
+                            var item = data.items[i];
+                            var itemDate = new Date(item.pubDate);
+                            var hoursAgo = Math.round((now-itemDate)/(1000*60*60));
+                            var timeLabel = hoursAgo<1?"Less than 1 hour ago":hoursAgo===1?"1 hour ago":hoursAgo<24?hoursAgo+" hours ago":itemDate.toLocaleDateString()+" "+itemDate.toLocaleTimeString();
+                            if (hoursAgo<6) recentCount++;
+                            var desc = "";
+                            if (item.description) { desc=item.description.replace(/<[^>]*>/g,""); if(desc.length>200) desc=desc.substring(0,200)+"..."; }
+                            alertsHtml += '<div class="alert-item"><div class="alert-time">🕐 '+timeLabel+'</div><div class="alert-title"><a href="'+item.link+'" target="_blank">'+item.title+'</a></div><div class="alert-desc">'+desc+"</div></div>";
+                        }
+                        if (recentCount>0) { statusDot.className="status-dot status-red"; statusText.innerHTML="<strong style='color:#DC3545;'>"+recentCount+" alert-related reports in the last 6 hours</strong> — Check live sources"; }
+                        else { statusDot.className="status-dot status-green"; statusText.innerHTML="No recent alert reports in the last 6 hours"; }
+                    } else {
+                        alertsHtml = '<div style="text-align:center; padding:20px; color:#888;">No red alert news found in last 24 hours.</div>';
+                        statusDot.className="status-dot status-green";
+                        statusText.innerHTML="No recent alert reports found";
+                    }
+                    panel.innerHTML = alertsHtml;
+                    alertStatus.innerHTML = "Checked: "+new Date().toLocaleTimeString();
+                })
+                .catch(function() {
+                    panel.innerHTML = '<div style="text-align:center; padding:20px; color:#DC3545;">Unable to load Red Alert feed. Use the live source links below.</div>';
+                    statusDot.className="status-dot status-green";
+                    statusText.innerHTML="Feed unavailable — use live source links below";
+                    alertStatus.innerHTML="Feed error";
+                });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            initMap();
+            buildLocationDetails();
+            loadAllFeeds();
+            loadRedAlertPanel();
+            setInterval(loadAllFeeds, 15*60*1000);
+            setInterval(loadRedAlertPanel, 5*60*1000);
+        });
+    </script>
+
+</body>
+</html>
