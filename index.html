@@ -21,15 +21,9 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f4f6f9;
 @media(max-width:900px){.dashboard{grid-template-columns:1fr}}
 .card{background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden}
 .ch{color:#fff;padding:12px 20px;font-weight:600;font-size:1.02rem}
-.ch-blue{background:#0076CE}
-.ch-dark{background:#1B3A5C}
-.ch-red{background:#DC3545}
-.ch-weather{background:#17A2B8}
-.ch-travel{background:#6F42C1}
-.ch-threat{background:#343A40}
-.ch-protest{background:#E67E22}
-.ch-terror{background:#C0392B}
-.ch-health{background:#27AE60}
+.ch-blue{background:#0076CE}.ch-dark{background:#1B3A5C}.ch-red{background:#DC3545}
+.ch-weather{background:#17A2B8}.ch-travel{background:#6F42C1}.ch-threat{background:#343A40}
+.ch-protest{background:#E67E22}.ch-terror{background:#C0392B}.ch-health{background:#27AE60}
 .ch-aviation{background:#2980B9}
 .card-body{padding:16px 20px}
 #map{height:500px;width:100%}
@@ -85,11 +79,9 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f4f6f9;
 .threat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(max-width:600px){.threat-grid{grid-template-columns:1fr}}
 .tc{border-radius:8px;padding:14px;text-align:center;border:2px solid #eee}
-.tc .tf{font-size:1.5rem}
-.tc .tcn{font-size:.82rem;font-weight:600;margin-top:4px;color:#555}
+.tc .tf{font-size:1.5rem}.tc .tcn{font-size:.82rem;font-weight:600;margin-top:4px;color:#555}
 .tc .tl{font-size:.85rem;font-weight:700;margin-top:6px;padding:4px 12px;border-radius:20px;display:inline-block}
 .tc .ts{font-size:.68rem;color:#999;margin-top:6px}
-.tl-low{background:#D4EDDA;color:#155724}
 .tl-mod{background:#FFF3CD;color:#856404}
 .tl-sub{background:#FFE0CC;color:#8B4513}
 .tl-sev{background:#F8D7DA;color:#721C24}
@@ -103,7 +95,7 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f4f6f9;
 <div class="clock-bar">
 <div class="clock-item"><span class="clock-flag">🇮🇪</span><span class="clock-label">Dublin</span><span class="clock-time" id="clock-dublin">--:--:--</span></div>
 <div class="clock-item"><span class="clock-flag">🇬🇧</span><span class="clock-label">London</span><span class="clock-time" id="clock-london">--:--:--</span></div>
-<div class="clock-item"><span class="clock-flag">🇩🇪</span><span class="clock-label">Berlin</span><span class="clock-time" id="clock-frankfurt">--:--:--</span></div>
+<div class="clock-item"><span class="clock-flag">🇩🇪</span><span class="clock-label">Frankfurt</span><span class="clock-time" id="clock-frankfurt">--:--:--</span></div>
 <div class="clock-item"><span class="clock-flag">🇮🇱</span><span class="clock-label">Tel Aviv</span><span class="clock-time" id="clock-telaviv">--:--:--</span></div>
 </div>
 
@@ -177,48 +169,31 @@ var dellLocations=[
 {name:"Dell Technologies - Haifa",lat:32.78759452384866,lng:34.95768097375301,address:"Advanced Technology Centre, Gav Yam Bldg 25, 3rd Floor Haifa Haifa Israel IL 3190500",type:"R&D Centre - Storage",country:"Israel"}
 ];
 
-var feedURLs={
-sec:"https://news.google.com/rss/search?q=(Ireland+OR+UK+OR+Britain+OR+Germany+OR+Israel)+AND+(security+OR+threat+OR+crime+OR+protest+OR+emergency+OR+safety)&hl=en&ceid=US:en",
-wx:"https://news.google.com/rss/search?q=(Ireland+OR+UK+OR+Britain+OR+Germany+OR+Israel)+AND+(weather+warning+OR+storm+OR+flood+OR+severe+weather+OR+amber+warning+OR+red+warning+OR+heat+wave)&hl=en&ceid=US:en",
-tv:"https://news.google.com/rss/search?q=(Ireland+OR+UK+OR+Britain+OR+Germany+OR+Israel)+AND+(travel+advisory+OR+travel+warning+OR+FCDO+OR+airport+disruption+OR+flight+cancellation+OR+border+closure)&hl=en&ceid=US:en",
-pr:"https://news.google.com/rss/search?q=(Ireland+OR+UK+OR+Britain+OR+Germany+OR+Israel)+AND+(protest+OR+demonstration+OR+strike+action+OR+riot+OR+rally+OR+civil+unrest+OR+blockade+OR+march)&hl=en&ceid=US:en",
-tr:"https://news.google.com/rss/search?q=(Ireland+OR+UK+OR+Britain+OR+Germany+OR+Israel)+AND+(terrorism+OR+terror+attack+OR+extremism+OR+bomb+threat+OR+suspicious+package+OR+knife+attack+OR+terror+arrest)&hl=en&ceid=US:en",
-"if":"https://news.google.com/rss/search?q=(Ireland+OR+UK+OR+Britain+OR+Germany+OR+Israel)+AND+(power+outage+OR+blackout+OR+internet+outage+OR+water+disruption+OR+gas+leak+OR+infrastructure+failure+OR+telecoms+outage)&hl=en&ceid=US:en",
-hl:"https://news.google.com/rss/search?q=(Ireland+OR+UK+OR+Britain+OR+Germany+OR+Israel)+AND+(outbreak+OR+pandemic+OR+quarantine+OR+health+emergency+OR+disease+OR+contamination+OR+norovirus+OR+measles)&hl=en&ceid=US:en",
-av:"https://news.google.com/rss/search?q=(Ireland+OR+UK+OR+Britain+OR+Germany+OR+Israel)+AND+(flight+cancelled+OR+airspace+closed+OR+airport+closed+OR+airline+strike+OR+airport+security+OR+flight+disruption)&hl=en&ceid=US:en"
+var countries=[
+{id:"ireland",label:"Ireland",hl:"en-IE",gl:"IE",ceid:"IE:en"},
+{id:"uk",label:"United Kingdom",hl:"en-GB",gl:"GB",ceid:"GB:en"},
+{id:"germany",label:"Germany",hl:"en",gl:"DE",ceid:"DE:en"},
+{id:"israel",label:"Israel",hl:"en",gl:"IL",ceid:"IL:en"}
+];
+
+var topics={
+sec:{q:"security OR threat OR crime OR emergency OR public safety",title:"🔒 Security Intelligence Feed",tagClass:"t-sec",tagLabel:"Security",linkColor:"#0076CE",ac:"ab"},
+wx:{q:"weather warning OR storm warning OR flood warning OR extreme weather OR heatwave OR wildfire OR snow warning OR Met Eireann OR Status Yellow OR Status Orange OR Status Red OR Met Office amber OR Met Office red",title:"🌦️ Severe Weather Alerts",tagClass:"t-weather",tagLabel:"Weather",linkColor:"#17A2B8",ac:"aw"},
+tv:{q:"travel advisory OR travel warning OR airport disruption OR flight cancellation OR FCDO travel OR border closure",title:"✈️ Travel Advisories",tagClass:"t-travel",tagLabel:"Travel",linkColor:"#6F42C1",ac:"at"},
+pr:{q:"protest OR demonstration OR strike OR rally OR civil unrest OR riot OR march OR blockade",title:"🪧 Protest & Civil Unrest",tagClass:"t-protest",tagLabel:"Protest",linkColor:"#E67E22",ac:"ap"},
+tr:{q:"terrorism OR terror attack OR extremism OR bomb threat OR suspicious package OR knife attack OR terror arrest",title:"💣 Terrorism & Extremism",tagClass:"t-terror",tagLabel:"Terror",linkColor:"#C0392B",ac:"ar"},
+hl:{q:"disease outbreak OR health emergency OR pandemic OR quarantine OR contamination OR norovirus OR measles OR flu outbreak",title:"🦠 Public Health",tagClass:"t-health",tagLabel:"Health",linkColor:"#27AE60",ac:"ah"},
+av:{q:"flight cancelled OR airspace closed OR airport closed OR airline strike OR flight disruption OR airport security incident",title:"✈️ Aviation & Airspace",tagClass:"t-aviation",tagLabel:"Aviation",linkColor:"#2980B9",ac:"aa"}
 };
 
-var feedMeta={
-sec:{title:"🔒 Security Intelligence Feed",tagClass:"t-sec",tagLabel:"Security",linkColor:"#0076CE",activeClass:"ab"},
-wx:{title:"🌦️ Severe Weather Alerts",tagClass:"t-weather",tagLabel:"Weather",linkColor:"#17A2B8",activeClass:"aw"},
-tv:{title:"✈️ Travel Advisories",tagClass:"t-travel",tagLabel:"Travel",linkColor:"#6F42C1",activeClass:"at"},
-pr:{title:"🪧 Protest & Civil Unrest",tagClass:"t-protest",tagLabel:"Protest",linkColor:"#E67E22",activeClass:"ap"},
-tr:{title:"💣 Terrorism & Extremism",tagClass:"t-terror",tagLabel:"Terror",linkColor:"#C0392B",activeClass:"ar"},
-hl:{title:"🦠 Public Health",tagClass:"t-health",tagLabel:"Health",linkColor:"#27AE60",activeClass:"ah"},
-av:{title:"✈️ Aviation & Airspace",tagClass:"t-aviation",tagLabel:"Aviation",linkColor:"#2980B9",activeClass:"aa"}
-};
-
-var feedData={sec:[],wx:[],tv:[],pr:[],tr:[],hl:[],av:[]};
-var feedFilters={sec:"all",wx:"all",tv:"all",pr:"all",tr:"all",hl:"all",av:"all"};
-
-var countryKeywords={
-ireland:["ireland","irish","dublin","cork","limerick","galway","garda","eireann","taoiseach"],
-uk:["uk","britain","british","england","english","scotland","scottish","wales","welsh","london","manchester","birmingham","glasgow","edinburgh","warrington","bracknell","met office","jtac","mi5","metropolitan police"],
-germany:["germany","german","deutschland","berlin","frankfurt","munich","hamburg","stuttgart","dusseldorf","halle","bundeswehr","bfv","lufthansa","bavaria","saxony"],
-israel:["israel","israeli","tel aviv","jerusalem","gaza","hamas","hezbollah","idf","iron dome","negev","raanana","herzliya","petah tikva","beer sheva","mossad","shin bet","knesset","netanyahu"]
-};
+var globalLocaleTopics={"wx":true,"hl":true,"av":true};
+var feedData={};var feedFilters={};
+var topicKeys=["sec","wx","tv","pr","tr","hl","av"];
+for(var k=0;k<topicKeys.length;k++){feedData[topicKeys[k]]=[];feedFilters[topicKeys[k]]="all"}
 
 var countryColours={"Ireland":"#00A650","United Kingdom":"#CF142B","Germany":"#FFCC00","Israel":"#0038B8"};
 var countryTextColours={"Ireland":"white","United Kingdom":"white","Germany":"black","Israel":"white"};
-
-function detectCountry(text){
-var lower=text.toLowerCase();
-var scores={ireland:0,uk:0,germany:0,israel:0};
-for(var country in countryKeywords){var words=countryKeywords[country];for(var i=0;i<words.length;i++){if(lower.indexOf(words[i])>-1)scores[country]++}}
-var best="all";var bestScore=0;
-for(var c in scores){if(scores[c]>bestScore){bestScore=scores[c];best=c}}
-return bestScore>0?best:"all"
-}
+var API="https://api.rss2json.com/v1/api.json?rss_url=";
 
 function updateClocks(){
 var zones=[{id:"clock-dublin",tz:"Europe/Dublin"},{id:"clock-london",tz:"Europe/London"},{id:"clock-frankfurt",tz:"Europe/Berlin"},{id:"clock-telaviv",tz:"Asia/Jerusalem"}];
@@ -236,7 +211,7 @@ var icon=L.divIcon({className:"",html:'<div style="background:'+bg+';width:28px;
 var m=L.marker([loc.lat,loc.lng],{icon:icon}).addTo(map);
 m.bindPopup("<strong>"+loc.name+"</strong><br>"+loc.address+"<br><em>"+loc.type+"</em><br><strong style='color:"+bg+"'>"+loc.country+"</strong>");markers.push(m)}
 if(markers.length>1)map.fitBounds(L.featureGroup(markers).getBounds().pad(.1));
-var legend=L.control({position:"bottomright"});legend.onAdd=function(){var d=L.DomUtil.create("div","legend");d.innerHTML="<strong>Locations</strong><br><span class='legend-dot' style='background:#00A650'></span> Ireland (4)<br><span class='legend-dot' style='background:#CF142B'></span> UK (4)<br><span class='legend-dot' style='background:#FFCC00'></span> Germany (4)<br><span class='legend-dot' style='background:#0038B8'></span> Israel (5)";return d};legend.addTo(map)
+var legend=L.control({position:"bottomright"});legend.onAdd=function(){var d=L.DomUtil.create("div","legend");d.innerHTML="<strong>Locations</strong><br><span class='legend-dot' style='background:#00A650'></span> Ireland (4)<br><span class='legend-dot' style='background:#CF142B'></span> UK (7)<br><span class='legend-dot' style='background:#FFCC00'></span> Germany (7)<br><span class='legend-dot' style='background:#0038B8'></span> Israel (5)";return d};legend.addTo(map)
 }catch(e){document.getElementById("map").style.display="none";document.getElementById("mapFallback").style.display="block";buildFallback()}}
 
 function buildFallback(){
@@ -254,34 +229,47 @@ html+='<li class="country-label">'+f+" "+cur+" ("+counts[cur]+")</li>"}
 html+="<li><strong>"+s.name+"</strong> — "+s.address+' <span style="color:#0076CE">['+s.type+"]</span></li>"}
 list.innerHTML=html;document.getElementById("locationCount").innerHTML="Location Details — "+dellLocations.length+" sites across 4 countries"}
 
-function loadFeed(key){
-var url=feedURLs[key];var meta=feedMeta[key];var arr=feedData[key];arr.length=0;
-fetch("https://api.rss2json.com/v1/api.json?rss_url="+encodeURIComponent(url))
+function loadTopicFeeds(topicKey,callback){
+var topic=topics[topicKey];
+var arr=feedData[topicKey];arr.length=0;
+var done=0;var total=countries.length;
+var useGlobal=globalLocaleTopics[topicKey]||false;
+
+for(var c=0;c<countries.length;c++){
+(function(country,idx){
+setTimeout(function(){
+var useHl=country.hl;var useGl=country.gl;var useCeid=country.ceid;
+if(useGlobal){useHl="en";useGl="US";useCeid="US:en"}
+var rssUrl="https://news.google.com/rss/search?q="+encodeURIComponent(country.label+" "+topic.q)+"&hl="+useHl+"&gl="+useGl+"&ceid="+useCeid;
+fetch(API+encodeURIComponent(rssUrl))
 .then(function(r){return r.json()})
 .then(function(data){
-if(data.status==="ok"){
+if(data.status==="ok"&&data.items){
 for(var i=0;i<data.items.length;i++){
 var item=data.items[i];
-var searchText=(item.title||"")+" "+(item.description||"");
-var region=detectCountry(searchText);
-var regionLabel=region==="ireland"?"Ireland":region==="uk"?"United Kingdom":region==="germany"?"Germany":region==="israel"?"Israel":"EMEA";
-arr.push({title:item.title,link:item.link,description:item.description,pubDate:item.pubDate,author:item.author||data.feed.title,region:region,regionLabel:regionLabel})
+arr.push({title:item.title||"",link:item.link||"#",description:item.description||"",pubDate:item.pubDate||"",author:item.author||data.feed.title||"News",region:country.id,regionLabel:country.label})
 }}
-arr.sort(function(a,b){return new Date(b.pubDate)-new Date(a.pubDate)});
-renderFeed(key)
+done++;if(done>=total){arr.sort(function(a,b){return new Date(b.pubDate)-new Date(a.pubDate)});renderFeed(topicKey);if(callback)callback()}
 }).catch(function(){
-document.getElementById("fd-"+key).innerHTML='<li style="color:#DC3545;padding:20px;text-align:center">Feed temporarily unavailable. Will retry in 15 minutes.</li>'
-})}
+done++;if(done>=total){arr.sort(function(a,b){return new Date(b.pubDate)-new Date(a.pubDate)});renderFeed(topicKey);if(callback)callback()}
+})
+},idx*2000)
+})(countries[c],c)
+}}
 
 function renderFeed(key){
-var meta=feedMeta[key];var items=feedData[key];var filter=feedFilters[key];
+var meta=topics[key];var items=feedData[key];var filter=feedFilters[key];
 var container=document.getElementById("fd-"+key);
-var filtered=[];for(var i=0;i<items.length;i++){if(filter==="all"||items[i].region===filter)filtered.push(items[i])}
-if(filtered.length===0){container.innerHTML='<li style="color:#888;text-align:center;padding:30px">No items found for this region.</li>';return}
+var filtered=[];
+for(var i=0;i<items.length;i++){if(filter==="all"||items[i].region===filter)filtered.push(items[i])}
+if(filtered.length===0){
+if(items.length===0){container.innerHTML='<li style="color:#E67E22;padding:20px;text-align:center">Loading or API limit reached. Feeds refresh every 20 minutes.</li>'}
+else{container.innerHTML='<li style="color:#888;text-align:center;padding:30px">No items for this region. Try "All" tab.</li>'}
+return}
 var html="";for(var j=0;j<filtered.length;j++){var item=filtered[j];
 var snip="";if(item.description){snip=item.description.replace(/<[^>]*>/g,"");if(snip.length>120)snip=snip.substring(0,120)+"..."}
 var pubDate=new Date(item.pubDate).toLocaleDateString();
-var flag=item.region==="ireland"?"🇮🇪":item.region==="uk"?"🇬🇧":item.region==="germany"?"🇩🇪":item.region==="israel"?"🇮🇱":"🌍";
+var flag=item.region==="ireland"?"🇮🇪":item.region==="uk"?"🇬🇧":item.region==="germany"?"🇩🇪":"🇮🇱";
 html+='<li class="ni"><a href="'+item.link+'" target="_blank" style="color:'+meta.linkColor+'">'+item.title+'</a><div class="src">'+flag+" "+item.regionLabel+" • "+item.author+" • "+pubDate+"</div>";
 if(snip)html+='<div class="snip">'+snip+"</div>";
 html+='<span class="tag '+meta.tagClass+'">'+meta.tagLabel+"</span></li>"}
@@ -297,10 +285,11 @@ renderFeed(key)}
 
 function loadRedAlert(){
 var panel=document.getElementById("alertPanel");var dot=document.getElementById("statusDot");var txt=document.getElementById("statusText");var st=document.getElementById("alertStatus");
-fetch("https://api.rss2json.com/v1/api.json?rss_url="+encodeURIComponent("https://news.google.com/rss/search?q=(Israel)+AND+(red+alert+OR+rocket+siren+OR+tzeva+adom+OR+iron+dome)+when:1d&hl=en&gl=IL&ceid=IL:en"))
+var rssUrl="https://news.google.com/rss/search?q=Israel red alert rocket siren iron dome&hl=en&gl=US&ceid=US:en";
+fetch(API+encodeURIComponent(rssUrl))
 .then(function(r){return r.json()}).then(function(data){
 var now=new Date();var html="";var recent=0;
-if(data.status==="ok"&&data.items.length>0){
+if(data.status==="ok"&&data.items&&data.items.length>0){
 for(var i=0;i<data.items.length;i++){var item=data.items[i];var d=new Date(item.pubDate);var h=Math.round((now-d)/36e5);
 var t=h<1?"<1 hour ago":h===1?"1 hour ago":h<24?h+" hours ago":d.toLocaleDateString();
 if(h<6)recent++;var desc="";if(item.description){desc=item.description.replace(/<[^>]*>/g,"");if(desc.length>180)desc=desc.substring(0,180)+"..."}
@@ -311,18 +300,21 @@ else{html='<div style="text-align:center;padding:20px;color:#888">No red alert n
 panel.innerHTML=html;st.innerHTML="Checked: "+new Date().toLocaleTimeString()
 }).catch(function(){panel.innerHTML='<div style="text-align:center;padding:20px;color:#DC3545">Unable to load Red Alert feed.</div>';dot.className="sdot sg";txt.innerHTML="Feed unavailable";st.innerHTML="Error"})}
 
-function loadAllFeeds(){
-var keys=["sec","wx","tv","pr","tr","hl","av"];
-for(var i=0;i<keys.length;i++){
-(function(k,delay){setTimeout(function(){loadFeed(k)},delay)})(keys[i],i*2500)
-}}
+function loadAllTopics(){
+var delay=0;
+for(var i=0;i<topicKeys.length;i++){
+(function(key,d){setTimeout(function(){loadTopicFeeds(key)},d)})(topicKeys[i],delay);
+delay+=9000
+}
+setTimeout(loadRedAlert,delay+2000)
+}
 
 document.addEventListener("DOMContentLoaded",function(){
 updateClocks();setInterval(updateClocks,1000);
 document.getElementById("threatDate").textContent=new Date().toLocaleDateString();
 initMap();buildLocationDetails();
-loadAllFeeds();setTimeout(loadRedAlert,19000);
-setInterval(loadAllFeeds,15*60*1000);
+loadAllTopics();
+setInterval(loadAllTopics,20*60*1000);
 setInterval(loadRedAlert,5*60*1000)
 });
 </script>
