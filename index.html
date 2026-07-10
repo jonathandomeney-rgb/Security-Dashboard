@@ -29,7 +29,6 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f4f6f9;
 .ch-threat{background:#343A40}
 .ch-protest{background:#E67E22}
 .ch-terror{background:#C0392B}
-.ch-infra{background:#2C3E50}
 .ch-health{background:#27AE60}
 .ch-aviation{background:#2980B9}
 .card-body{padding:16px 20px}
@@ -41,7 +40,6 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f4f6f9;
 .ftabs.b-travel{border-bottom:2px solid #6F42C1}
 .ftabs.b-protest{border-bottom:2px solid #E67E22}
 .ftabs.b-terror{border-bottom:2px solid #C0392B}
-.ftabs.b-infra{border-bottom:2px solid #2C3E50}
 .ftabs.b-health{border-bottom:2px solid #27AE60}
 .ftabs.b-aviation{border-bottom:2px solid #2980B9}
 .ft{padding:9px 13px;cursor:pointer;font-size:.8rem;font-weight:600;border:none;background:#e9ecef;color:#555}
@@ -51,9 +49,8 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f4f6f9;
 .ft.at{background:#6F42C1;color:#fff}
 .ft.ap{background:#E67E22;color:#fff}
 .ft.ar{background:#C0392B;color:#fff}
-.ft.ai{background:#2C3E50;color:#fff}
 .ft.ah{background:#27AE60;color:#fff}
-.ft.av{background:#2980B9;color:#fff}
+.ft.aa{background:#2980B9;color:#fff}
 .nlist{list-style:none;max-height:380px;overflow-y:auto}
 .ni{padding:9px 0;border-bottom:1px solid #eee}
 .ni:last-child{border-bottom:none}
@@ -67,7 +64,6 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f4f6f9;
 .t-travel{background:#E2D5F1;color:#4A235A}
 .t-protest{background:#FDEBD0;color:#784212}
 .t-terror{background:#FADBD8;color:#78281F}
-.t-infra{background:#D5D8DC;color:#2C3E50}
 .t-health{background:#D5F5E3;color:#1E8449}
 .t-aviation{background:#D6EAF8;color:#1B4F72}
 .location-list{list-style:none;margin-top:12px}
@@ -86,9 +82,6 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f4f6f9;
 .sg{background:#28A745;box-shadow:0 0 6px rgba(40,167,69,.5)}
 .sr{background:#DC3545;box-shadow:0 0 6px rgba(220,53,69,.5);animation:pulse 1.5s infinite}
 @keyframes pulse{0%{opacity:1}50%{opacity:.4}100%{opacity:1}}
-.alinks{padding:12px 20px;border-top:1px solid #eee;font-size:.85rem}
-.alinks a{color:#0076CE;text-decoration:none;margin-right:16px}
-.alinks a:hover{text-decoration:underline}
 .threat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(max-width:600px){.threat-grid{grid-template-columns:1fr}}
 .tc{border-radius:8px;padding:14px;text-align:center;border:2px solid #eee}
@@ -110,7 +103,7 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f4f6f9;
 <div class="clock-bar">
 <div class="clock-item"><span class="clock-flag">🇮🇪</span><span class="clock-label">Dublin</span><span class="clock-time" id="clock-dublin">--:--:--</span></div>
 <div class="clock-item"><span class="clock-flag">🇬🇧</span><span class="clock-label">London</span><span class="clock-time" id="clock-london">--:--:--</span></div>
-<div class="clock-item"><span class="clock-flag">🇩🇪</span><span class="clock-label">Frankfurt</span><span class="clock-time" id="clock-frankfurt">--:--:--</span></div>
+<div class="clock-item"><span class="clock-flag">🇩🇪</span><span class="clock-label">Berlin</span><span class="clock-time" id="clock-frankfurt">--:--:--</span></div>
 <div class="clock-item"><span class="clock-flag">🇮🇱</span><span class="clock-label">Tel Aviv</span><span class="clock-time" id="clock-telaviv">--:--:--</span></div>
 </div>
 
@@ -146,23 +139,18 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f4f6f9;
 <div class="ftabs b-terror" id="tabs-tr"><button class="ft ar" onclick="sw('tr','all',this,'ar')">All</button><button class="ft" onclick="sw('tr','ireland',this,'ar')">🇮🇪 Ireland</button><button class="ft" onclick="sw('tr','uk',this,'ar')">🇬🇧 UK</button><button class="ft" onclick="sw('tr','germany',this,'ar')">🇩🇪 Germany</button><button class="ft" onclick="sw('tr','israel',this,'ar')">🇮🇱 Israel</button></div>
 <div class="card-body" style="padding:8px 16px"><ul class="nlist" id="fd-tr"><li style="text-align:center;padding:30px;color:#888">Loading...</li></ul></div></div>
 
-<div class="card" style="grid-column:1/-1"><div class="ch ch-infra" id="hd-if">⚡ Critical Infrastructure Disruption</div>
-<div class="ftabs b-infra" id="tabs-if"><button class="ft ai" onclick="sw('if','all',this,'ai')">All</button><button class="ft" onclick="sw('if','ireland',this,'ai')">🇮🇪 Ireland</button><button class="ft" onclick="sw('if','uk',this,'ai')">🇬🇧 UK</button><button class="ft" onclick="sw('if','germany',this,'ai')">🇩🇪 Germany</button><button class="ft" onclick="sw('if','israel',this,'ai')">🇮🇱 Israel</button></div>
-<div class="card-body" style="padding:8px 16px"><ul class="nlist" id="fd-if"><li style="text-align:center;padding:30px;color:#888">Loading...</li></ul></div></div>
-
 <div class="card" style="grid-column:1/-1"><div class="ch ch-health" id="hd-hl">🦠 Public Health Monitor</div>
 <div class="ftabs b-health" id="tabs-hl"><button class="ft ah" onclick="sw('hl','all',this,'ah')">All</button><button class="ft" onclick="sw('hl','ireland',this,'ah')">🇮🇪 Ireland</button><button class="ft" onclick="sw('hl','uk',this,'ah')">🇬🇧 UK</button><button class="ft" onclick="sw('hl','germany',this,'ah')">🇩🇪 Germany</button><button class="ft" onclick="sw('hl','israel',this,'ah')">🇮🇱 Israel</button></div>
 <div class="card-body" style="padding:8px 16px"><ul class="nlist" id="fd-hl"><li style="text-align:center;padding:30px;color:#888">Loading...</li></ul></div></div>
 
 <div class="card" style="grid-column:1/-1"><div class="ch ch-aviation" id="hd-av">✈️ Aviation &amp; Airspace Monitor</div>
-<div class="ftabs b-aviation" id="tabs-av"><button class="ft av" onclick="sw('av','all',this,'av')">All</button><button class="ft" onclick="sw('av','ireland',this,'av')">🇮🇪 Ireland</button><button class="ft" onclick="sw('av','uk',this,'av')">🇬🇧 UK</button><button class="ft" onclick="sw('av','germany',this,'av')">🇩🇪 Germany</button><button class="ft" onclick="sw('av','israel',this,'av')">🇮🇱 Israel</button></div>
+<div class="ftabs b-aviation" id="tabs-av"><button class="ft aa" onclick="sw('av','all',this,'aa')">All</button><button class="ft" onclick="sw('av','ireland',this,'aa')">🇮🇪 Ireland</button><button class="ft" onclick="sw('av','uk',this,'aa')">🇬🇧 UK</button><button class="ft" onclick="sw('av','germany',this,'aa')">🇩🇪 Germany</button><button class="ft" onclick="sw('av','israel',this,'aa')">🇮🇱 Israel</button></div>
 <div class="card-body" style="padding:8px 16px"><ul class="nlist" id="fd-av"><li style="text-align:center;padding:30px;color:#888">Loading...</li></ul></div></div>
 
 <div class="card" style="grid-column:1/-1">
 <div class="ch ch-red" id="redAlertHeader"><span>🚨 Israel Red Alert — Tzofar / Tzeva Adom</span><span id="alertStatus" style="font-size:.85rem"></span></div>
 <div class="astatus"><span class="sdot sg" id="statusDot"></span><span id="statusText">Checking...</span></div>
 <div class="alert-panel" id="alertPanel"><div style="text-align:center;padding:20px;color:#888">Loading...</div></div>
-
 </div>
 
 <div class="card" style="grid-column:1/-1"><div class="ch ch-blue" id="locationCount">Location Details</div><div class="card-body"><ul class="location-list" id="locationDetails"></ul></div></div>
@@ -171,29 +159,22 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f4f6f9;
 
 <script>
 var dellLocations=[
+{name:"Dell Technologies - Cork (Ovens)",lat:51.8756,lng:-8.6492,address:"Ovens, Cork, P31 DP28",type:"Campus - Manufacturing and Operations",country:"Ireland"},
+{name:"Dell Technologies - Cork (Carrigtwohill)",lat:51.908973,lng:-8.275993,address:"Carrigtwohill Industrial Estate, Cork T45 HW28",type:"Office - Sales",country:"Ireland"},
 {name:"Dell Technologies - Limerick (Raheen)",lat:52.638,lng:-8.6716,address:"Raheen Business Park, Limerick, V94 YK40",type:"Campus - Manufacturing and Operations",country:"Ireland"},
-{name:"Dell Technologies - Cork (Ovens)",lat:51.8756,lng:-8.6492,address:"Ovens, Cork, P31 DP28",type:"Office - Engineering and Sales",country:"Ireland"},
 {name:"Dell Technologies - Dublin (Cherrywood)",lat:53.242,lng:-6.1458,address:"Cherrywood Business Park, Dublin 18",type:"Office - Sales and Solutions",country:"Ireland"},
-{name:"Dell Technologies - Dublin (City Centre)",lat:53.339,lng:-6.2353,address:"Dawson Street, Dublin 2",type:"Office - Sales",country:"Ireland"},
-{name:"Dell Technologies - Bracknell (UK HQ)",lat:51.4136,lng:-.7536,address:"Cain Road, Bracknell, RG12 1LF",type:"UK Headquarters",country:"United Kingdom"},
-{name:"Dell Technologies - London (Canary Wharf)",lat:51.5054,lng:-.0235,address:"Canary Wharf, London, E14 5AA",type:"Office - Sales and Enterprise",country:"United Kingdom"},
-{name:"Dell Technologies - Glasgow",lat:55.8609,lng:-4.2514,address:"Glasgow, Scotland",type:"Office - Solutions Centre",country:"United Kingdom"},
-{name:"Dell Technologies - Warrington",lat:53.39,lng:-2.597,address:"Daresbury Park, Warrington, WA4 4GE",type:"Office - Enterprise Support",country:"United Kingdom"},
-{name:"Dell Technologies - Edinburgh",lat:55.9485,lng:-3.2021,address:"Edinburgh, Scotland",type:"Office - Sales",country:"United Kingdom"},
-{name:"Dell Technologies - Manchester",lat:53.4808,lng:-2.2426,address:"Manchester",type:"Office - Enterprise Solutions",country:"United Kingdom"},
-{name:"Dell Technologies - Birmingham",lat:52.4862,lng:-1.8904,address:"Birmingham",type:"Office - Sales",country:"United Kingdom"},
+{name:"Dell Technologies - London (Creechurch)",lat:51.514301182723166,lng:-0.07821815898039274,address:"Creechurch Lane, London, United Kingdom EC3A 5AY",type:"Office - Sales and Enterprise",country:"United Kingdom"},
+{name:"Dell Technologies - London (Chiswick)",lat:51.495468792510245,lng:-0.27567504728848236,address:"4 Chiswick Park, Chiswick, London, United Kingdom W4 5YE",type:"Office - Sales",country:"United Kingdom"},
+{name:"Dell Technologies - London (Clock Tower)",lat:51.492876,lng:-0.288911,address:"Great West Road, EMC Tower London, United Kingdom TW8 9AN",type:"Office - Enterprise Solutions",country:"United Kingdom"},
+{name:"Dell Technologies - Glasgow",lat:55.86417825187541,lng:-4.223070982291034,address:"368 Alexandra Parade, Glasgow, United Kingdom G31 3AU",type:"Office - Solutions Centre",country:"United Kingdom"},
 {name:"Dell Technologies - Frankfurt (German HQ)",lat:50.051,lng:8.572,address:"Main Airport Center, Frankfurt, 60549",type:"Germany Headquarters",country:"Germany"},
 {name:"Dell Technologies - Halle (Saale)",lat:51.4828,lng:11.9705,address:"Halle (Saale), 06112",type:"Campus - Manufacturing and Services",country:"Germany"},
 {name:"Dell Technologies - Munich",lat:48.1351,lng:11.582,address:"Munich, 80807",type:"Office - Sales and Engineering",country:"Germany"},
 {name:"Dell Technologies - Stuttgart",lat:48.7758,lng:9.1829,address:"Stuttgart, 70173",type:"Office - Enterprise Solutions",country:"Germany"},
-{name:"Dell Technologies - Berlin",lat:52.52,lng:13.405,address:"Berlin, 10117",type:"Office - Sales",country:"Germany"},
-{name:"Dell Technologies - Hamburg",lat:53.5511,lng:9.9937,address:"Hamburg, 20354",type:"Office - Sales",country:"Germany"},
-{name:"Dell Technologies - Dusseldorf",lat:51.2277,lng:6.7735,address:"Dusseldorf, 40213",type:"Office - Enterprise",country:"Germany"},
-{name:"Dell Technologies - Ra'anana (Israel HQ)",lat:32.184,lng:34.871,address:"Ra'anana, 4340177",type:"Israel HQ - R&D Centre",country:"Israel"},
 {name:"Dell Technologies - Be'er Sheva",lat:31.252,lng:34.7915,address:"Be'er Sheva, 8410802",type:"R&D Centre - CyberSecurity",country:"Israel"},
 {name:"Dell Technologies - Herzliya",lat:32.1627,lng:34.8067,address:"Herzliya Pituach, 4672515",type:"R&D Centre - Data Protection",country:"Israel"},
 {name:"Dell Technologies - Tel Aviv",lat:32.0853,lng:34.7818,address:"Tel Aviv-Yafo, 6706000",type:"Office - Sales and Engineering",country:"Israel"},
-{name:"Dell Technologies - Petah Tikva",lat:32.0841,lng:34.8878,address:"Petah Tikva, 4951105",type:"R&D Centre - Storage",country:"Israel"}
+{name:"Dell Technologies - Haifa",lat:32.78759452384866,lng:34.95768097375301,address:"Advanced Technology Centre, Gav Yam Bldg 25, 3rd Floor Haifa Haifa Israel IL 3190500",type:"R&D Centre - Storage",country:"Israel"}
 ];
 
 var feedURLs={
@@ -213,19 +194,18 @@ wx:{title:"🌦️ Severe Weather Alerts",tagClass:"t-weather",tagLabel:"Weather
 tv:{title:"✈️ Travel Advisories",tagClass:"t-travel",tagLabel:"Travel",linkColor:"#6F42C1",activeClass:"at"},
 pr:{title:"🪧 Protest & Civil Unrest",tagClass:"t-protest",tagLabel:"Protest",linkColor:"#E67E22",activeClass:"ap"},
 tr:{title:"💣 Terrorism & Extremism",tagClass:"t-terror",tagLabel:"Terror",linkColor:"#C0392B",activeClass:"ar"},
-"if":{title:"⚡ Infrastructure Disruption",tagClass:"t-infra",tagLabel:"Infrastructure",linkColor:"#2C3E50",activeClass:"ai"},
 hl:{title:"🦠 Public Health",tagClass:"t-health",tagLabel:"Health",linkColor:"#27AE60",activeClass:"ah"},
-av:{title:"✈️ Aviation & Airspace",tagClass:"t-aviation",tagLabel:"Aviation",linkColor:"#2980B9",activeClass:"av"}
+av:{title:"✈️ Aviation & Airspace",tagClass:"t-aviation",tagLabel:"Aviation",linkColor:"#2980B9",activeClass:"aa"}
 };
 
-var feedData={sec:[],wx:[],tv:[],pr:[],tr:[],"if":[],hl:[],av:[]};
-var feedFilters={sec:"all",wx:"all",tv:"all",pr:"all",tr:"all","if":"all",hl:"all",av:"all"};
+var feedData={sec:[],wx:[],tv:[],pr:[],tr:[],hl:[],av:[]};
+var feedFilters={sec:"all",wx:"all",tv:"all",pr:"all",tr:"all",hl:"all",av:"all"};
 
 var countryKeywords={
-ireland:["ireland","irish","dublin","cork","limerick","galway","belfast","garda","eireann"],
-uk:["uk","britain","british","england","english","scotland","scottish","wales","welsh","london","manchester","birmingham","glasgow","edinburgh","warrington","bracknell","met office","jtac"],
-germany:["germany","german","deutschland","berlin","frankfurt","munich","hamburg","stuttgart","dusseldorf","halle","bundeswehr","bfv","lufthansa"],
-israel:["israel","israeli","tel aviv","jerusalem","gaza","hamas","hezbollah","idf","iron dome","negev","raanana","herzliya","petah tikva","beer sheva","mossad","shin bet"]
+ireland:["ireland","irish","dublin","cork","limerick","galway","garda","eireann","taoiseach"],
+uk:["uk","britain","british","england","english","scotland","scottish","wales","welsh","london","manchester","birmingham","glasgow","edinburgh","warrington","bracknell","met office","jtac","mi5","metropolitan police"],
+germany:["germany","german","deutschland","berlin","frankfurt","munich","hamburg","stuttgart","dusseldorf","halle","bundeswehr","bfv","lufthansa","bavaria","saxony"],
+israel:["israel","israeli","tel aviv","jerusalem","gaza","hamas","hezbollah","idf","iron dome","negev","raanana","herzliya","petah tikva","beer sheva","mossad","shin bet","knesset","netanyahu"]
 };
 
 var countryColours={"Ireland":"#00A650","United Kingdom":"#CF142B","Germany":"#FFCC00","Israel":"#0038B8"};
@@ -234,11 +214,7 @@ var countryTextColours={"Ireland":"white","United Kingdom":"white","Germany":"bl
 function detectCountry(text){
 var lower=text.toLowerCase();
 var scores={ireland:0,uk:0,germany:0,israel:0};
-for(var country in countryKeywords){
-var words=countryKeywords[country];
-for(var i=0;i<words.length;i++){
-if(lower.indexOf(words[i])>-1)scores[country]++
-}}
+for(var country in countryKeywords){var words=countryKeywords[country];for(var i=0;i<words.length;i++){if(lower.indexOf(words[i])>-1)scores[country]++}}
 var best="all";var bestScore=0;
 for(var c in scores){if(scores[c]>bestScore){bestScore=scores[c];best=c}}
 return bestScore>0?best:"all"
@@ -260,7 +236,7 @@ var icon=L.divIcon({className:"",html:'<div style="background:'+bg+';width:28px;
 var m=L.marker([loc.lat,loc.lng],{icon:icon}).addTo(map);
 m.bindPopup("<strong>"+loc.name+"</strong><br>"+loc.address+"<br><em>"+loc.type+"</em><br><strong style='color:"+bg+"'>"+loc.country+"</strong>");markers.push(m)}
 if(markers.length>1)map.fitBounds(L.featureGroup(markers).getBounds().pad(.1));
-var legend=L.control({position:"bottomright"});legend.onAdd=function(){var d=L.DomUtil.create("div","legend");d.innerHTML="<strong>Locations</strong><br><span class='legend-dot' style='background:#00A650'></span> Ireland (4)<br><span class='legend-dot' style='background:#CF142B'></span> UK (7)<br><span class='legend-dot' style='background:#FFCC00'></span> Germany (7)<br><span class='legend-dot' style='background:#0038B8'></span> Israel (5)";return d};legend.addTo(map)
+var legend=L.control({position:"bottomright"});legend.onAdd=function(){var d=L.DomUtil.create("div","legend");d.innerHTML="<strong>Locations</strong><br><span class='legend-dot' style='background:#00A650'></span> Ireland (4)<br><span class='legend-dot' style='background:#CF142B'></span> UK (4)<br><span class='legend-dot' style='background:#FFCC00'></span> Germany (4)<br><span class='legend-dot' style='background:#0038B8'></span> Israel (5)";return d};legend.addTo(map)
 }catch(e){document.getElementById("map").style.display="none";document.getElementById("mapFallback").style.display="block";buildFallback()}}
 
 function buildFallback(){
@@ -286,7 +262,7 @@ fetch("https://api.rss2json.com/v1/api.json?rss_url="+encodeURIComponent(url))
 if(data.status==="ok"){
 for(var i=0;i<data.items.length;i++){
 var item=data.items[i];
-var searchText=item.title+" "+(item.description||"");
+var searchText=(item.title||"")+" "+(item.description||"");
 var region=detectCountry(searchText);
 var regionLabel=region==="ireland"?"Ireland":region==="uk"?"United Kingdom":region==="germany"?"Germany":region==="israel"?"Israel":"EMEA";
 arr.push({title:item.title,link:item.link,description:item.description,pubDate:item.pubDate,author:item.author||data.feed.title,region:region,regionLabel:regionLabel})
@@ -294,7 +270,7 @@ arr.push({title:item.title,link:item.link,description:item.description,pubDate:i
 arr.sort(function(a,b){return new Date(b.pubDate)-new Date(a.pubDate)});
 renderFeed(key)
 }).catch(function(){
-document.getElementById("fd-"+key).innerHTML='<li style="color:#DC3545;padding:20px;text-align:center">Feed temporarily unavailable. Will retry in 15 minutes.</li>';
+document.getElementById("fd-"+key).innerHTML='<li style="color:#DC3545;padding:20px;text-align:center">Feed temporarily unavailable. Will retry in 15 minutes.</li>'
 })}
 
 function renderFeed(key){
@@ -333,19 +309,19 @@ if(recent>0){dot.className="sdot sr";txt.innerHTML="<strong style='color:#DC3545
 else{dot.className="sdot sg";txt.innerHTML="No recent alerts in last 6 hours"}}
 else{html='<div style="text-align:center;padding:20px;color:#888">No red alert news in last 24 hours.</div>';dot.className="sdot sg";txt.innerHTML="No recent alerts"}
 panel.innerHTML=html;st.innerHTML="Checked: "+new Date().toLocaleTimeString()
-}).catch(function(){panel.innerHTML='<div style="text-align:center;padding:20px;color:#DC3545">Unable to load. Use live links.</div>';dot.className="sdot sg";txt.innerHTML="Feed unavailable";st.innerHTML="Error"})}
+}).catch(function(){panel.innerHTML='<div style="text-align:center;padding:20px;color:#DC3545">Unable to load Red Alert feed.</div>';dot.className="sdot sg";txt.innerHTML="Feed unavailable";st.innerHTML="Error"})}
 
 function loadAllFeeds(){
-var keys=["sec","wx","tv","pr","tr","if","hl","av"];
+var keys=["sec","wx","tv","pr","tr","hl","av"];
 for(var i=0;i<keys.length;i++){
-(function(k,delay){setTimeout(function(){loadFeed(k)},delay)})(keys[i],i*2000)
+(function(k,delay){setTimeout(function(){loadFeed(k)},delay)})(keys[i],i*2500)
 }}
 
 document.addEventListener("DOMContentLoaded",function(){
 updateClocks();setInterval(updateClocks,1000);
 document.getElementById("threatDate").textContent=new Date().toLocaleDateString();
 initMap();buildLocationDetails();
-loadAllFeeds();setTimeout(loadRedAlert,17000);
+loadAllFeeds();setTimeout(loadRedAlert,19000);
 setInterval(loadAllFeeds,15*60*1000);
 setInterval(loadRedAlert,5*60*1000)
 });
