@@ -329,7 +329,7 @@ function initMap(){
 if(typeof L==="undefined"||!L.map){document.getElementById("map").style.display="none";document.getElementById("mapFallback").style.display="block";buildFallback();return}
 try{
 var map=L.map("map").setView([48,8],4);
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"OpenStreetMap"}).addTo(map);
+L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",{attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>'}).addTo(map);
 var markers=[];
 for(var i=0;i<dellLocations.length;i++){var loc=dellLocations[i];var bg=countryColours[loc.country]||"#0076CE";var tx=countryTextColours[loc.country]||"white";
 var icon=L.divIcon({className:"",html:'<div style="background:'+bg+';width:28px;height:28px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;color:'+tx+';font-weight:bold;font-size:11px">D</div>',iconSize:[28,28],iconAnchor:[14,14],popupAnchor:[0,-16]});
