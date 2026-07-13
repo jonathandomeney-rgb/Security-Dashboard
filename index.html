@@ -8,89 +8,135 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f4f6f9;color:#333}
-.header{background:#0076CE;color:#fff;padding:16px 32px}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f4f6f9;color:#333;transition:background .3s,color .3s}
+body.dark{background:#1a1a2e;color:#e0e0e0}
+.header{background:#0076CE;color:#fff;padding:16px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
 .header h1{font-size:1.4rem}
 .header p{font-size:.85rem;margin-top:4px;opacity:.9}
+.header-left{flex:1}
+.dark-toggle{background:none;border:2px solid rgba(255,255,255,.5);color:#fff;padding:6px 14px;border-radius:20px;cursor:pointer;font-size:.82rem;font-weight:600;transition:all .3s}
+.dark-toggle:hover{background:rgba(255,255,255,.2);border-color:#fff}
+body.dark .dark-toggle{border-color:#ffd700;color:#ffd700}
+.ticker-bar{background:#DC3545;color:#fff;padding:0;overflow:hidden;height:36px;display:flex;align-items:center;position:relative}
+.ticker-label{background:#a71d2a;padding:0 16px;font-weight:700;font-size:.8rem;white-space:nowrap;height:100%;display:flex;align-items:center;z-index:2;flex-shrink:0}
+.ticker-wrap{overflow:hidden;flex:1;height:100%;display:flex;align-items:center}
+.ticker-content{display:flex;align-items:center;white-space:nowrap;animation:scroll-left 45s linear infinite;gap:40px;padding-left:100%}
+.ticker-content:hover{animation-play-state:paused}
+.ticker-item{font-size:.82rem;font-weight:500;white-space:nowrap}
+.ticker-item a{color:#fff;text-decoration:none}
+.ticker-item a:hover{text-decoration:underline}
+.ticker-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#fff;margin-right:8px;animation:pulse-dot 1.5s infinite}
+.ticker-empty{font-size:.82rem;padding:0 20px;opacity:.8;font-style:italic}
+@keyframes scroll-left{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+@keyframes pulse-dot{0%{opacity:1}50%{opacity:.3}100%{opacity:1}}
+body.dark .ticker-bar{background:#8B0000}
+body.dark .ticker-label{background:#6B0000}
 .clock-bar{background:#064a85;color:#fff;padding:10px 32px;display:flex;flex-wrap:wrap;gap:24px;font-size:.9rem}
+body.dark .clock-bar{background:#0d1b2a}
 .clock-item{display:flex;align-items:center;gap:8px}
 .clock-item .clock-flag{font-size:1.1rem}
 .clock-item .clock-label{opacity:.8;font-size:.8rem}
 .clock-item .clock-time{font-weight:700;font-size:1.05rem;font-variant-numeric:tabular-nums;min-width:70px}
 .dashboard{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:20px;max-width:1500px;margin:auto}
 @media(max-width:900px){.dashboard{grid-template-columns:1fr}}
-.card{background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden}
+.card{background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden;transition:background .3s,box-shadow .3s}
+body.dark .card{background:#16213e;box-shadow:0 2px 8px rgba(0,0,0,.3)}
 .ch{color:#fff;padding:12px 20px;font-weight:600;font-size:1.02rem}
 .ch-blue{background:#0076CE}.ch-dark{background:#1B3A5C}.ch-red{background:#DC3545}
-.ch-weather{background:#17A2B8}.ch-travel{background:#6F42C1}.ch-threat{background:#343A40}
-.ch-protest{background:#E67E22}.ch-terror{background:#C0392B}.ch-health{background:#27AE60}
-.ch-aviation{background:#2980B9}
+.ch-travel{background:#6F42C1}.ch-protest{background:#E67E22}
+body.dark .ch-dark{background:#0f1b33}
 .card-body{padding:16px 20px}
 #map{height:500px;width:100%}
 .map-fallback{display:none;padding:20px}
 .ftabs{display:flex;gap:0;background:#e9ecef;flex-wrap:wrap}
+body.dark .ftabs{background:#1a1a2e}
 .ftabs.b-blue{border-bottom:2px solid #0076CE}
-.ftabs.b-weather{border-bottom:2px solid #17A2B8}
 .ftabs.b-travel{border-bottom:2px solid #6F42C1}
 .ftabs.b-protest{border-bottom:2px solid #E67E22}
-.ftabs.b-terror{border-bottom:2px solid #C0392B}
-.ftabs.b-health{border-bottom:2px solid #27AE60}
-.ftabs.b-aviation{border-bottom:2px solid #2980B9}
-.ft{padding:9px 13px;cursor:pointer;font-size:.8rem;font-weight:600;border:none;background:#e9ecef;color:#555}
+.ft{padding:9px 13px;cursor:pointer;font-size:.8rem;font-weight:600;border:none;background:#e9ecef;color:#555;transition:background .2s,color .2s}
+body.dark .ft{background:#1a1a2e;color:#aaa}
 .ft:hover{background:#d0d4d8}
+body.dark .ft:hover{background:#2a2a4a}
 .ft.ab{background:#0076CE;color:#fff}
-.ft.aw{background:#17A2B8;color:#fff}
 .ft.at{background:#6F42C1;color:#fff}
 .ft.ap{background:#E67E22;color:#fff}
-.ft.ar{background:#C0392B;color:#fff}
-.ft.ah{background:#27AE60;color:#fff}
-.ft.aa{background:#2980B9;color:#fff}
 .nlist{list-style:none;max-height:380px;overflow-y:auto}
-.ni{padding:9px 0;border-bottom:1px solid #eee}
+.nlist-tall{list-style:none;max-height:458px;overflow-y:auto}
+.ni{padding:9px 0;border-bottom:1px solid #eee;transition:border-color .3s}
+body.dark .ni{border-bottom-color:#2a2a4a}
 .ni:last-child{border-bottom:none}
 .ni a{text-decoration:none;font-weight:600;font-size:.9rem}
 .ni a:hover{text-decoration:underline}
+body.dark .ni a{color:#5dade2!important}
 .ni .src{font-size:.74rem;color:#888;margin-top:3px}
+body.dark .ni .src{color:#777}
 .ni .snip{font-size:.84rem;margin-top:3px;color:#555}
+body.dark .ni .snip{color:#999}
+.ni .age{font-size:.7rem;color:#E67E22;margin-top:2px;font-weight:600}
 .tag{display:inline-block;font-size:.68rem;padding:2px 7px;border-radius:10px;margin-top:3px;font-weight:600}
 .t-sec{background:#FFF3CD;color:#856404}
-.t-weather{background:#D1ECF1;color:#0C5460}
 .t-travel{background:#E2D5F1;color:#4A235A}
 .t-protest{background:#FDEBD0;color:#784212}
-.t-terror{background:#FADBD8;color:#78281F}
-.t-health{background:#D5F5E3;color:#1E8449}
-.t-aviation{background:#D6EAF8;color:#1B4F72}
+body.dark .t-sec{background:#5a4e1a;color:#ffd700}
+body.dark .t-travel{background:#3a2560;color:#d4b5f7}
+body.dark .t-protest{background:#5a3e1a;color:#f0c070}
+.src-badge{display:inline-block;font-size:.65rem;padding:1px 6px;border-radius:8px;margin-left:6px;background:#e9ecef;color:#555}
+body.dark .src-badge{background:#2a2a4a;color:#aaa}
+.risk-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px}
+@media(max-width:900px){.risk-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.risk-grid{grid-template-columns:1fr}}
+.risk-card{border-radius:10px;padding:16px;text-align:center;border:2px solid #e0e0e0;transition:all .3s;position:relative;overflow:hidden}
+body.dark .risk-card{border-color:#2a2a4a;background:#1a1a2e}
+.risk-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.risk-flag{font-size:2rem}
+.risk-country{font-size:.85rem;font-weight:700;margin-top:6px;color:#333}
+body.dark .risk-country{color:#e0e0e0}
+.risk-count{font-size:1.8rem;font-weight:800;margin-top:8px;color:#0076CE}
+.risk-label{font-size:.7rem;color:#888;margin-top:2px}
+.risk-latest{font-size:.72rem;color:#E67E22;margin-top:8px;font-weight:600}
+.risk-breaking{font-size:.7rem;margin-top:6px;font-weight:700;color:#DC3545}
+.risk-bar{height:4px;border-radius:2px;margin-top:10px;background:#e9ecef}
+body.dark .risk-bar{background:#2a2a4a}
+.risk-bar-fill{height:100%;border-radius:2px;transition:width .5s}
 .location-list{list-style:none;margin-top:12px}
-.location-list li{padding:7px 0;font-size:.9rem;border-bottom:1px solid #f0f0f0}
+.location-list li{padding:7px 0;font-size:.9rem;border-bottom:1px solid #f0f0f0;transition:border-color .3s}
+body.dark .location-list li{border-bottom-color:#2a2a4a}
 .country-label{font-weight:700;color:#0076CE;padding:12px 0 5px;font-size:1.02rem;border-bottom:2px solid #0076CE;margin-top:8px}
 .legend{background:#fff;padding:10px 14px;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.2);font-size:13px;line-height:1.8}
+body.dark .legend{background:#16213e;color:#e0e0e0}
 .legend-dot{display:inline-block;width:14px;height:14px;border-radius:50%;margin-right:6px;vertical-align:middle;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3)}
 .alert-panel{padding:16px 20px;max-height:280px;overflow-y:auto}
-.alert-item{padding:10px 14px;margin-bottom:8px;border-radius:6px;border-left:4px solid #DC3545;background:#FFF5F5}
+.alert-item{padding:10px 14px;margin-bottom:8px;border-radius:6px;border-left:4px solid #DC3545;background:#FFF5F5;transition:background .3s}
+body.dark .alert-item{background:#2a1015}
 .alert-item .atime{font-size:.74rem;color:#888}
 .alert-item .atitle{font-weight:600;color:#DC3545;margin-top:2px}
 .alert-item .atitle a{color:#DC3545;text-decoration:none}
 .alert-item .adesc{font-size:.84rem;color:#555;margin-top:4px}
+body.dark .alert-item .adesc{color:#999}
 .astatus{display:flex;align-items:center;gap:10px;padding:12px 20px;font-size:.9rem}
 .sdot{width:12px;height:12px;border-radius:50%;display:inline-block}
 .sg{background:#28A745;box-shadow:0 0 6px rgba(40,167,69,.5)}
 .sr{background:#DC3545;box-shadow:0 0 6px rgba(220,53,69,.5);animation:pulse 1.5s infinite}
 @keyframes pulse{0%{opacity:1}50%{opacity:.4}100%{opacity:1}}
-.threat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:600px){.threat-grid{grid-template-columns:1fr}}
-.tc{border-radius:8px;padding:14px;text-align:center;border:2px solid #eee}
-.tc .tf{font-size:1.5rem}.tc .tcn{font-size:.82rem;font-weight:600;margin-top:4px;color:#555}
-.tc .tl{font-size:.85rem;font-weight:700;margin-top:6px;padding:4px 12px;border-radius:20px;display:inline-block}
-.tc .ts{font-size:.68rem;color:#999;margin-top:6px}
-.tl-mod{background:#FFF3CD;color:#856404}
-.tl-sub{background:#FFE0CC;color:#8B4513}
-.tl-sev{background:#F8D7DA;color:#721C24}
-.unote{font-size:.72rem;color:#999;margin-top:8px;font-style:italic}
+.live-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;animation:pulse 2s infinite}
+.live-dot-green{background:#28A745}
+.live-dot-red{background:#DC3545}
 </style>
 </head>
 <body>
 
-<div class="header"><h1>🔒 Regional Security Intelligence Feed</h1><p>Ireland | United Kingdom | Germany | Israel — Security Intelligence &amp; Alert Feed</p></div>
+<div class="header">
+<div class="header-left">
+<h1>🔒 Regional Security Intelligence Feed</h1>
+<p><span class="live-dot live-dot-green" id="liveDot"></span><span id="liveStatus">LIVE</span> — Ireland | United Kingdom | Germany | Israel</p>
+</div>
+<button class="dark-toggle" onclick="toggleDark()" id="darkBtn">🌙 Dark Mode</button>
+</div>
+
+<div class="ticker-bar">
+<div class="ticker-label">🔴 BREAKING</div>
+<div class="ticker-wrap"><div class="ticker-content" id="tickerContent"><span class="ticker-empty">Scanning for breaking news...</span></div></div>
+</div>
 
 <div class="clock-bar">
 <div class="clock-item"><span class="clock-flag">🇮🇪</span><span class="clock-label">Dublin</span><span class="clock-time" id="clock-dublin">--:--:--</span></div>
@@ -105,19 +151,15 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f4f6f9;
 
 <div class="card"><div class="ch ch-dark" id="hd-sec">🔒 Security Intelligence Feed</div>
 <div class="ftabs b-blue" id="tabs-sec"><button class="ft ab" onclick="sw('sec','all',this,'ab')">All</button><button class="ft" onclick="sw('sec','ireland',this,'ab')">🇮🇪 Ireland</button><button class="ft" onclick="sw('sec','uk',this,'ab')">🇬🇧 UK</button><button class="ft" onclick="sw('sec','germany',this,'ab')">🇩🇪 Germany</button><button class="ft" onclick="sw('sec','israel',this,'ab')">🇮🇱 Israel</button></div>
-<div class="card-body" style="padding:8px 16px"><ul class="nlist" id="fd-sec"><li style="text-align:center;padding:30px;color:#888">Loading...</li></ul></div></div>
+<div class="card-body" style="padding:8px 16px"><ul class="nlist-tall" id="fd-sec"><li style="text-align:center;padding:30px;color:#888">Loading from multiple sources...</li></ul></div></div>
 
-<div class="card"><div class="ch ch-threat">🛡️ Regional Threat Levels</div><div class="card-body">
-<div class="threat-grid">
-<div class="tc" style="border-color:#C3E6CB"><div class="tf">🇮🇪</div><div class="tcn">Ireland</div><div class="tl tl-mod">MODERATE</div><div class="ts">An Garda Síochána</div></div>
-<div class="tc" style="border-color:#FFD1B3"><div class="tf">🇬🇧</div><div class="tcn">United Kingdom</div><div class="tl tl-sub">SUBSTANTIAL</div><div class="ts">MI5 / JTAC</div></div>
-<div class="tc" style="border-color:#FFEEBA"><div class="tf">🇩🇪</div><div class="tcn">Germany</div><div class="tl tl-mod">MODERATE</div><div class="ts">BfV</div></div>
-<div class="tc" style="border-color:#F5C6CB"><div class="tf">🇮🇱</div><div class="tcn">Israel</div><div class="tl tl-sev">HIGH</div><div class="ts">ISA / IDF Home Front</div></div>
-</div><p class="unote">⚠️ Manually updated. Last reviewed: <span id="threatDate">--</span></p></div></div>
-
-<div class="card"><div class="ch ch-weather" id="hd-wx">🌦️ Severe Weather Alerts</div>
-<div class="ftabs b-weather" id="tabs-wx"><button class="ft aw" onclick="sw('wx','all',this,'aw')">All</button><button class="ft" onclick="sw('wx','ireland',this,'aw')">🇮🇪</button><button class="ft" onclick="sw('wx','uk',this,'aw')">🇬🇧</button><button class="ft" onclick="sw('wx','germany',this,'aw')">🇩🇪</button><button class="ft" onclick="sw('wx','israel',this,'aw')">🇮🇱</button></div>
-<div class="card-body" style="padding:8px 16px"><ul class="nlist" id="fd-wx"><li style="text-align:center;padding:30px;color:#888">Loading...</li></ul></div></div>
+<div class="card" style="grid-column:1/-1"><div class="ch ch-blue" id="riskHeader">📊 Country Risk Summary — Last 72 Hours</div>
+<div class="card-body"><div class="risk-grid" id="riskGrid">
+<div class="risk-card"><div class="risk-flag">🇮🇪</div><div class="risk-country">Ireland</div><div class="risk-count" id="rc-ireland">-</div><div class="risk-label">articles</div><div class="risk-latest" id="rl-ireland">Loading...</div><div class="risk-breaking" id="rb-ireland"></div><div class="risk-bar"><div class="risk-bar-fill" id="rbar-ireland" style="width:5%;background:#28A745"></div></div></div>
+<div class="risk-card"><div class="risk-flag">🇬🇧</div><div class="risk-country">United Kingdom</div><div class="risk-count" id="rc-uk">-</div><div class="risk-label">articles</div><div class="risk-latest" id="rl-uk">Loading...</div><div class="risk-breaking" id="rb-uk"></div><div class="risk-bar"><div class="risk-bar-fill" id="rbar-uk" style="width:5%;background:#28A745"></div></div></div>
+<div class="risk-card"><div class="risk-flag">🇩🇪</div><div class="risk-country">Germany</div><div class="risk-count" id="rc-germany">-</div><div class="risk-label">articles</div><div class="risk-latest" id="rl-germany">Loading...</div><div class="risk-breaking" id="rb-germany"></div><div class="risk-bar"><div class="risk-bar-fill" id="rbar-germany" style="width:5%;background:#28A745"></div></div></div>
+<div class="risk-card"><div class="risk-flag">🇮🇱</div><div class="risk-country">Israel</div><div class="risk-count" id="rc-israel">-</div><div class="risk-label">articles</div><div class="risk-latest" id="rl-israel">Loading...</div><div class="risk-breaking" id="rb-israel"></div><div class="risk-bar"><div class="risk-bar-fill" id="rbar-israel" style="width:5%;background:#28A745"></div></div></div>
+</div></div></div>
 
 <div class="card" style="grid-column:1/-1"><div class="ch ch-travel" id="hd-tv">✈️ Travel Advisories</div>
 <div class="ftabs b-travel" id="tabs-tv"><button class="ft at" onclick="sw('tv','all',this,'at')">All</button><button class="ft" onclick="sw('tv','ireland',this,'at')">🇮🇪 Ireland</button><button class="ft" onclick="sw('tv','uk',this,'at')">🇬🇧 UK</button><button class="ft" onclick="sw('tv','germany',this,'at')">🇩🇪 Germany</button><button class="ft" onclick="sw('tv','israel',this,'at')">🇮🇱 Israel</button></div>
@@ -126,18 +168,6 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f4f6f9;
 <div class="card" style="grid-column:1/-1"><div class="ch ch-protest" id="hd-pr">🪧 Protest &amp; Civil Unrest Monitor</div>
 <div class="ftabs b-protest" id="tabs-pr"><button class="ft ap" onclick="sw('pr','all',this,'ap')">All</button><button class="ft" onclick="sw('pr','ireland',this,'ap')">🇮🇪 Ireland</button><button class="ft" onclick="sw('pr','uk',this,'ap')">🇬🇧 UK</button><button class="ft" onclick="sw('pr','germany',this,'ap')">🇩🇪 Germany</button><button class="ft" onclick="sw('pr','israel',this,'ap')">🇮🇱 Israel</button></div>
 <div class="card-body" style="padding:8px 16px"><ul class="nlist" id="fd-pr"><li style="text-align:center;padding:30px;color:#888">Loading...</li></ul></div></div>
-
-<div class="card" style="grid-column:1/-1"><div class="ch ch-terror" id="hd-tr">💣 Terrorism &amp; Extremism Monitor</div>
-<div class="ftabs b-terror" id="tabs-tr"><button class="ft ar" onclick="sw('tr','all',this,'ar')">All</button><button class="ft" onclick="sw('tr','ireland',this,'ar')">🇮🇪 Ireland</button><button class="ft" onclick="sw('tr','uk',this,'ar')">🇬🇧 UK</button><button class="ft" onclick="sw('tr','germany',this,'ar')">🇩🇪 Germany</button><button class="ft" onclick="sw('tr','israel',this,'ar')">🇮🇱 Israel</button></div>
-<div class="card-body" style="padding:8px 16px"><ul class="nlist" id="fd-tr"><li style="text-align:center;padding:30px;color:#888">Loading...</li></ul></div></div>
-
-<div class="card" style="grid-column:1/-1"><div class="ch ch-health" id="hd-hl">🦠 Public Health Monitor</div>
-<div class="ftabs b-health" id="tabs-hl"><button class="ft ah" onclick="sw('hl','all',this,'ah')">All</button><button class="ft" onclick="sw('hl','ireland',this,'ah')">🇮🇪 Ireland</button><button class="ft" onclick="sw('hl','uk',this,'ah')">🇬🇧 UK</button><button class="ft" onclick="sw('hl','germany',this,'ah')">🇩🇪 Germany</button><button class="ft" onclick="sw('hl','israel',this,'ah')">🇮🇱 Israel</button></div>
-<div class="card-body" style="padding:8px 16px"><ul class="nlist" id="fd-hl"><li style="text-align:center;padding:30px;color:#888">Loading...</li></ul></div></div>
-
-<div class="card" style="grid-column:1/-1"><div class="ch ch-aviation" id="hd-av">✈️ Aviation &amp; Airspace Monitor</div>
-<div class="ftabs b-aviation" id="tabs-av"><button class="ft aa" onclick="sw('av','all',this,'aa')">All</button><button class="ft" onclick="sw('av','ireland',this,'aa')">🇮🇪 Ireland</button><button class="ft" onclick="sw('av','uk',this,'aa')">🇬🇧 UK</button><button class="ft" onclick="sw('av','germany',this,'aa')">🇩🇪 Germany</button><button class="ft" onclick="sw('av','israel',this,'aa')">🇮🇱 Israel</button></div>
-<div class="card-body" style="padding:8px 16px"><ul class="nlist" id="fd-av"><li style="text-align:center;padding:30px;color:#888">Loading...</li></ul></div></div>
 
 <div class="card" style="grid-column:1/-1">
 <div class="ch ch-red" id="redAlertHeader"><span>🚨 Israel Red Alert — Tzofar / Tzeva Adom</span><span id="alertStatus" style="font-size:.85rem"></span></div>
@@ -169,51 +199,125 @@ var dellLocations=[
 {name:"Dell Technologies - Haifa",lat:32.78759452384866,lng:34.95768097375301,address:"Advanced Technology Centre, Gav Yam Bldg 25, 3rd Floor Haifa Haifa Israel IL 3190500",type:"R&D Centre - Storage",country:"Israel"}
 ];
 
+
+var MAX_AGE_HOURS=72;
+var BREAKING_HOURS=2;
+var isDark=false;
+
+var securitySources=[
+{name:"Times of Israel",url:"https://www.timesofisrael.com/feed/",defaultRegion:"israel"},
+{name:"Jerusalem Post",url:"https://www.jpost.com/rss/rssfeedsfrontpage.aspx",defaultRegion:"israel"},
+{name:"BBC News",url:"https://feeds.bbci.co.uk/news/rss.xml",defaultRegion:"uk"},
+{name:"BBC UK",url:"https://feeds.bbci.co.uk/news/uk/rss.xml",defaultRegion:"uk"},
+{name:"The Guardian",url:"https://www.theguardian.com/uk/rss",defaultRegion:"uk"},
+{name:"DW News",url:"https://rss.dw.com/rss/en/top",defaultRegion:"germany"},
+{name:"DW Germany",url:"https://rss.dw.com/rss/en/germany",defaultRegion:"germany"},
+{name:"Google News Germany",url:"https://news.google.com/rss/search?q=Germany+security+OR+police+OR+crime+OR+incident+OR+attack+OR+arrest+OR+protest+OR+emergency&hl=en&gl=US&ceid=US:en",defaultRegion:"germany"},
+{name:"Google News Security",url:"https://news.google.com/rss/search?q=Ireland+OR+UK+OR+Britain+OR+Germany+OR+Israel+security+OR+threat+OR+crime+OR+emergency+OR+police+OR+incident+OR+attack+OR+arrest+OR+warning+OR+violence+OR+evacuation+OR+lockdown&hl=en&gl=US&ceid=US:en",defaultRegion:"all"}
+];
+
+var protestSources=[
+{name:"Google News Protest",url:"https://news.google.com/rss/search?q=Ireland+OR+UK+OR+Britain+OR+Germany+OR+Israel+protest+OR+demonstration+OR+rally+OR+march+OR+riot+OR+clashes+OR+civil+unrest+OR+blockade+OR+occupation+OR+sit-in&hl=en&gl=US&ceid=US:en",defaultRegion:"all"},
+{name:"Google News Strikes",url:"https://news.google.com/rss/search?q=Ireland+OR+UK+OR+Britain+OR+Germany+OR+Israel+strike+action+OR+workers+strike+OR+union+strike+OR+walkout+OR+industrial+action+OR+picket+line&hl=en&gl=US&ceid=US:en",defaultRegion:"all"},
+{name:"The Guardian Protest",url:"https://www.theguardian.com/world/protest/rss",defaultRegion:"uk"},
+{name:"BBC UK",url:"https://feeds.bbci.co.uk/news/uk/rss.xml",defaultRegion:"uk"}
+];
+
 var feedURLs={
-sec:"https://news.google.com/rss/search?q=Ireland+OR+UK+OR+Germany+OR+Israel+security+threat+crime+emergency+safety&hl=en&gl=US&ceid=US:en",
-wx:"https://news.google.com/rss/search?q=Ireland+OR+UK+OR+Germany+OR+Israel+weather+warning+storm+flood+heatwave+Met+Eireann&hl=en&gl=US&ceid=US:en",
-tv:"https://news.google.com/rss/search?q=Ireland+OR+UK+OR+Germany+OR+Israel+travel+advisory+warning+airport+disruption+flight&hl=en&gl=US&ceid=US:en",
-pr:"https://news.google.com/rss/search?q=Ireland+OR+UK+OR+Germany+OR+Israel+protest+demonstration+strike+rally+unrest+riot&hl=en&gl=US&ceid=US:en",
-tr:"https://news.google.com/rss/search?q=Ireland+OR+UK+OR+Germany+OR+Israel+terrorism+terror+attack+extremism+bomb+threat&hl=en&gl=US&ceid=US:en",
-hl:"https://news.google.com/rss/search?q=Ireland+OR+UK+OR+Germany+OR+Israel+disease+outbreak+health+emergency+pandemic&hl=en&gl=US&ceid=US:en",
-av:"https://news.google.com/rss/search?q=Ireland+OR+UK+OR+Germany+OR+Israel+flight+cancelled+airport+closed+airspace+airline+strike&hl=en&gl=US&ceid=US:en"
+tv:"https://news.google.com/rss/search?q=Ireland+OR+UK+OR+Germany+OR+Israel+travel+advisory+warning+airport+disruption+flight&hl=en&gl=US&ceid=US:en"
 };
 
 var feedMeta={
-sec:{title:"🔒 Security Intelligence Feed",tagClass:"t-sec",tagLabel:"Security",linkColor:"#0076CE",ac:"ab"},
-wx:{title:"🌦️ Severe Weather Alerts",tagClass:"t-weather",tagLabel:"Weather",linkColor:"#17A2B8",ac:"aw"},
-tv:{title:"✈️ Travel Advisories",tagClass:"t-travel",tagLabel:"Travel",linkColor:"#6F42C1",ac:"at"},
-pr:{title:"🪧 Protest & Civil Unrest",tagClass:"t-protest",tagLabel:"Protest",linkColor:"#E67E22",ac:"ap"},
-tr:{title:"💣 Terrorism & Extremism",tagClass:"t-terror",tagLabel:"Terror",linkColor:"#C0392B",ac:"ar"},
-hl:{title:"🦠 Public Health",tagClass:"t-health",tagLabel:"Health",linkColor:"#27AE60",ac:"ah"},
-av:{title:"✈️ Aviation & Airspace",tagClass:"t-aviation",tagLabel:"Aviation",linkColor:"#2980B9",ac:"aa"}
+tv:{title:"✈️ Travel Advisories",tagClass:"t-travel",tagLabel:"Travel",linkColor:"#6F42C1",ac:"at"}
 };
+
+var protestKeywords=["protest","demonstration","rally","march","riot","clashes","unrest","blockade","occupation","sit-in","strike","walkout","industrial action","picket","union","workers","activists","campaigners","demonstrators","protesters","occupied","barricade","tear gas","water cannon","arrests at","detained at","dispersed","shutdown","disruption","road blocked","traffic disruption"];
 
 var countryKeywords={
-ireland:["ireland","irish","dublin","cork","limerick","galway","garda","eireann","taoiseach","rte","shannon","met eireann","status yellow","status orange"],
-uk:["uk","u.k.","britain","british","england","english","scotland","scottish","wales","welsh","london","manchester","birmingham","glasgow","edinburgh","warrington","bracknell","heathrow","gatwick","met office","mi5","jtac","bbc","metropolitan police"],
-germany:["germany","german","deutschland","berlin","frankfurt","munich","hamburg","stuttgart","dusseldorf","halle","bundeswehr","bfv","lufthansa","bavaria","saxony"],
-israel:["israel","israeli","tel aviv","jerusalem","gaza","hamas","hezbollah","idf","iron dome","negev","raanana","herzliya","petah tikva","beer sheva","mossad","shin bet","knesset","netanyahu","ben gurion"]
+ireland:["ireland","irish","dublin","cork","limerick","galway","garda","eireann","taoiseach","rte","shannon","donegal","kerry","waterford","tipperary","wicklow","sligo","mayo","wexford","kilkenny","meath","louth","cavan","clare","offaly","laois","roscommon","longford","carlow","monaghan","sinn fein","fianna fail","fine gael"],
+uk:["uk","u.k.","britain","british","england","english","scotland","scottish","wales","welsh","london","manchester","birmingham","glasgow","edinburgh","warrington","bracknell","heathrow","gatwick","mi5","jtac","bbc","metropolitan police","nhs","liverpool","leeds","bristol","nottingham","sheffield","sussex","surrey","kent","essex","devon","cornwall","counter terrorism","home office","downing street","starmer","sunak","labour","conservative","whitehall","westminster"],
+germany:["germany","german","deutschland","berlin","frankfurt","munich","hamburg","stuttgart","dusseldorf","halle","bundeswehr","bfv","lufthansa","bavaria","saxony","cologne","hannover","nuremberg","dresden","leipzig","bonn","bundestag","scholz","merkel","zeitenwende","spd","cdu","afd","thuringia","brandenburg","rhineland","westphalia","lower saxony","schleswig","baden","wiesbaden","karlsruhe","freiburg","mannheim","dortmund","essen","duisburg","bochum","bielefeld","augsburg","rostock","mainz","potsdam","saarland","bundespolizei","polizei","autobahn"],
+israel:["israel","israeli","tel aviv","jerusalem","gaza","hamas","hezbollah","idf","iron dome","negev","raanana","herzliya","petah tikva","beer sheva","mossad","shin bet","knesset","netanyahu","ben gurion","west bank","haifa","ashkelon","ashdod","rishon","tzeva adom","red alert","rocket","siren","kibbutz","settler","jenin","nablus","ramallah","houthi","likud"]
 };
 
-var feedData={sec:[],wx:[],tv:[],pr:[],tr:[],hl:[],av:[]};
-var feedFilters={sec:"all",wx:"all",tv:"all",pr:"all",tr:"all",hl:"all",av:"all"};
-var topicKeys=["sec","wx","tv","pr","tr","hl","av"];
+var securityData=[];
+var protestData=[];
+var securityFilter="all";
+var protestFilter="all";
+var feedData={tv:[]};
+var feedFilters={tv:"all"};
 var countryColours={"Ireland":"#00A650","United Kingdom":"#CF142B","Germany":"#FFCC00","Israel":"#0038B8"};
 var countryTextColours={"Ireland":"white","United Kingdom":"white","Germany":"black","Israel":"white"};
 var API="https://api.rss2json.com/v1/api.json?rss_url=";
 
+function toggleDark(){isDark=!isDark;document.body.classList.toggle("dark",isDark);document.getElementById("darkBtn").textContent=isDark?"☀️ Light Mode":"🌙 Dark Mode";try{localStorage.setItem("darkMode",isDark?"1":"0")}catch(e){}}
+function loadDarkPref(){try{if(localStorage.getItem("darkMode")==="1"){isDark=true;document.body.classList.add("dark");document.getElementById("darkBtn").textContent="☀️ Light Mode"}}catch(e){}}
+
 function detectCountry(text){
-if(!text)return "all";
-var lower=text.toLowerCase();
+if(!text)return "all";var lower=text.toLowerCase();
 var scores={ireland:0,uk:0,germany:0,israel:0};
-for(var country in countryKeywords){
-var words=countryKeywords[country];
-for(var i=0;i<words.length;i++){if(lower.indexOf(words[i])>-1)scores[country]++}
-}
+for(var country in countryKeywords){var words=countryKeywords[country];for(var i=0;i<words.length;i++){if(lower.indexOf(words[i])>-1)scores[country]++}}
 var best="all";var bestScore=0;
 for(var c in scores){if(scores[c]>bestScore){bestScore=scores[c];best=c}}
 return bestScore>0?best:"all"
+}
+
+function isProtestRelated(text){
+if(!text)return false;var lower=text.toLowerCase();
+for(var i=0;i<protestKeywords.length;i++){if(lower.indexOf(protestKeywords[i])>-1)return true}
+return false
+}
+
+function getTimeAgo(dateStr){
+var d=new Date(dateStr);var now=new Date();var diffMs=now-d;
+var diffMins=Math.floor(diffMs/60000);var diffHours=Math.floor(diffMs/3600000);
+if(diffMins<1)return "Just now";
+if(diffMins<60)return diffMins+" min ago";
+if(diffHours===1)return "1 hour ago";
+if(diffHours<24)return diffHours+" hours ago";
+if(diffHours<48)return "Yesterday";
+if(diffHours<72)return "2 days ago";
+return null
+}
+function isWithinMaxAge(d){return(new Date()-new Date(d))/36e5<=MAX_AGE_HOURS}
+function isBreaking(d){return(new Date()-new Date(d))/36e5<=BREAKING_HOURS}
+
+function updateRiskCards(){
+var cids=["ireland","uk","germany","israel"];
+var allItems=securityData.concat(feedData.tv||[]).concat(protestData);
+for(var c=0;c<cids.length;c++){
+var cid=cids[c];var count=0;var breakingCount=0;var latestDate=null;
+for(var i=0;i<allItems.length;i++){
+if(allItems[i].region===cid){count++;
+if(isBreaking(allItems[i].pubDate))breakingCount++;
+var d=new Date(allItems[i].pubDate);
+if(!latestDate||d>latestDate)latestDate=d;
+}}
+document.getElementById("rc-"+cid).textContent=count;
+if(latestDate){var ago=getTimeAgo(latestDate.toISOString());document.getElementById("rl-"+cid).textContent="Latest: "+(ago||"72+ hrs ago")}
+else{document.getElementById("rl-"+cid).textContent="No recent articles"}
+document.getElementById("rb-"+cid).textContent=breakingCount>0?"🔴 "+breakingCount+" BREAKING":"";
+var bar=document.getElementById("rbar-"+cid);
+if(count===0){bar.style.width="5%";bar.style.background="#28A745"}
+else if(count<=5){bar.style.width="25%";bar.style.background="#28A745"}
+else if(count<=15){bar.style.width="50%";bar.style.background="#FFC107"}
+else if(count<=25){bar.style.width="75%";bar.style.background="#E67E22"}
+else{bar.style.width="100%";bar.style.background="#DC3545"}
+}}
+
+function updateTicker(){
+var breaking=[];
+var allItems=securityData.concat(feedData.tv||[]).concat(protestData);
+for(var i=0;i<allItems.length;i++){if(isBreaking(allItems[i].pubDate))breaking.push(allItems[i])}
+var ticker=document.getElementById("tickerContent");
+if(breaking.length===0){ticker.innerHTML='<span class="ticker-empty">No breaking news in the last '+BREAKING_HOURS+' hours. Dashboard is monitoring.</span>';return}
+var html="";
+for(var j=0;j<breaking.length;j++){var item=breaking[j];
+var flag=item.region==="ireland"?"🇮🇪":item.region==="uk"?"🇬🇧":item.region==="germany"?"🇩🇪":item.region==="israel"?"🇮🇱":"🌍";
+var timeAgo=getTimeAgo(item.pubDate);
+html+='<span class="ticker-item"><span class="ticker-dot"></span>'+flag+' <a href="'+item.link+'" target="_blank">'+item.title+'</a> <em style="opacity:.7;font-size:.75rem">('+timeAgo+")</em></span>"}
+ticker.innerHTML=html;
+ticker.style.animationDuration=Math.max(20,ticker.scrollWidth/50)+"s"
 }
 
 function updateClocks(){
@@ -250,53 +354,104 @@ html+='<li class="country-label">'+f+" "+cur+" ("+counts[cur]+")</li>"}
 html+="<li><strong>"+s.name+"</strong> — "+s.address+' <span style="color:#0076CE">['+s.type+"]</span></li>"}
 list.innerHTML=html;document.getElementById("locationCount").innerHTML="Location Details — "+dellLocations.length+" sites across 4 countries"}
 
+function loadMultiSourceFeed(sources,targetArray,renderFn){
+targetArray.length=0;var done=0;var total=sources.length;var seenTitles={};
+for(var s=0;s<sources.length;s++){
+(function(source,idx){setTimeout(function(){
+fetch(API+encodeURIComponent(source.url)).then(function(r){return r.json()}).then(function(data){
+if(data.status==="ok"&&data.items){for(var i=0;i<data.items.length;i++){
+var item=data.items[i];
+if(!isWithinMaxAge(item.pubDate))continue;
+var titleKey=(item.title||"").toLowerCase().substring(0,60);
+if(seenTitles[titleKey])continue;seenTitles[titleKey]=true;
+var searchText=(item.title||"")+" "+(item.description||"");
+var region=detectCountry(searchText);if(region==="all")region=source.defaultRegion;
+var regionLabel=region==="ireland"?"Ireland":region==="uk"?"United Kingdom":region==="germany"?"Germany":region==="israel"?"Israel":"EMEA";
+targetArray.push({title:item.title||"",link:item.link||"#",description:item.description||"",pubDate:item.pubDate||"",author:item.author||source.name,source:source.name,region:region,regionLabel:regionLabel})
+}}
+done++;if(done>=total){targetArray.sort(function(a,b){return new Date(b.pubDate)-new Date(a.pubDate)});renderFn();updateTicker();updateRiskCards()}
+}).catch(function(){done++;if(done>=total){targetArray.sort(function(a,b){return new Date(b.pubDate)-new Date(a.pubDate)});renderFn();updateTicker();updateRiskCards()}})
+},idx*1500)})(sources[s],s)}}
+
+function renderSecurityFeed(){
+var container=document.getElementById("fd-sec");var filtered=[];
+for(var i=0;i<securityData.length;i++){if(securityFilter==="all"||securityData[i].region===securityFilter||securityData[i].region==="all")filtered.push(securityData[i])}
+if(filtered.length===0){
+container.innerHTML=securityData.length===0?'<li style="color:#E67E22;padding:20px;text-align:center">Loading from multiple sources...</li>':'<li style="color:#888;text-align:center;padding:30px">No items for this region in last 72 hours. Try "All" tab.</li>';return}
+var html="";for(var j=0;j<filtered.length;j++){var item=filtered[j];
+var snip="";if(item.description){snip=item.description.replace(/<[^>]*>/g,"");if(snip.length>120)snip=snip.substring(0,120)+"..."}
+var timeAgo=getTimeAgo(item.pubDate);
+var flag=item.region==="ireland"?"🇮🇪":item.region==="uk"?"🇬🇧":item.region==="germany"?"🇩🇪":item.region==="israel"?"🇮🇱":"🌍";
+var breakingTag=isBreaking(item.pubDate)?'<span style="background:#DC3545;color:#fff;font-size:.6rem;padding:1px 5px;border-radius:6px;margin-left:6px;font-weight:700">BREAKING</span>':"";
+html+='<li class="ni"><a href="'+item.link+'" target="_blank" style="color:#0076CE">'+item.title+'</a>'+breakingTag+'<div class="src">'+flag+" "+item.regionLabel+" • "+item.author+'<span class="src-badge">'+item.source+"</span></div>";
+if(timeAgo)html+='<div class="age">🕐 '+timeAgo+"</div>";
+if(snip)html+='<div class="snip">'+snip+"</div>";
+html+='<span class="tag t-sec">Security</span></li>'}
+container.innerHTML=html;
+var sc=0;var sn={};for(var k=0;k<securityData.length;k++){if(!sn[securityData[k].source]){sn[securityData[k].source]=true;sc++}}
+var bc=0;for(var b=0;b<securityData.length;b++){if(isBreaking(securityData[b].pubDate))bc++}
+var bl=bc>0?' • <span style="color:#DC3545;font-weight:700">'+bc+" BREAKING</span>":"";
+document.getElementById("hd-sec").innerHTML='🔒 Security Intelligence Feed <span style="font-weight:normal;font-size:.73rem;float:right">'+sc+" sources • "+securityData.length+" articles"+bl+" • Last 72hrs • "+new Date().toLocaleTimeString()+"</span>"}
+
+function renderProtestFeed(){
+var container=document.getElementById("fd-pr");
+var filtered=[];
+for(var i=0;i<protestData.length;i++){
+var item=protestData[i];
+var searchText=(item.title||"")+" "+(item.description||"");
+if(!isProtestRelated(searchText))continue;
+if(protestFilter==="all"||item.region===protestFilter||item.region==="all")filtered.push(item)
+}
+if(filtered.length===0){
+container.innerHTML=protestData.length===0?'<li style="color:#E67E22;padding:20px;text-align:center">Loading protest & unrest feeds...</li>':'<li style="color:#888;text-align:center;padding:30px">No protest or unrest items for this region in last 72 hours. Try "All" tab.</li>';return}
+var html="";for(var j=0;j<filtered.length;j++){var item=filtered[j];
+var snip="";if(item.description){snip=item.description.replace(/<[^>]*>/g,"");if(snip.length>120)snip=snip.substring(0,120)+"..."}
+var timeAgo=getTimeAgo(item.pubDate);
+var flag=item.region==="ireland"?"🇮🇪":item.region==="uk"?"🇬🇧":item.region==="germany"?"🇩🇪":item.region==="israel"?"🇮🇱":"🌍";
+html+='<li class="ni"><a href="'+item.link+'" target="_blank" style="color:#E67E22">'+item.title+'</a><div class="src">'+flag+" "+item.regionLabel+" • "+item.author+'<span class="src-badge">'+item.source+"</span></div>";
+if(timeAgo)html+='<div class="age">🕐 '+timeAgo+"</div>";
+if(snip)html+='<div class="snip">'+snip+"</div>";
+html+='<span class="tag t-protest">Protest/Unrest</span></li>'}
+container.innerHTML=html;
+var sc=0;var sn={};for(var k=0;k<protestData.length;k++){if(!sn[protestData[k].source]){sn[protestData[k].source]=true;sc++}}
+document.getElementById("hd-pr").innerHTML='🪧 Protest & Civil Unrest Monitor <span style="font-weight:normal;font-size:.73rem;float:right">'+sc+" sources • "+filtered.length+" articles • Last 72hrs • "+new Date().toLocaleTimeString()+"</span>"}
+
 function loadFeed(key){
 var url=feedURLs[key];var meta=feedMeta[key];var arr=feedData[key];arr.length=0;
-fetch(API+encodeURIComponent(url))
-.then(function(r){return r.json()})
-.then(function(data){
-if(data.status==="ok"&&data.items&&data.items.length>0){
-for(var i=0;i<data.items.length;i++){
-var item=data.items[i];
+fetch(API+encodeURIComponent(url)).then(function(r){return r.json()}).then(function(data){
+if(data.status==="ok"&&data.items&&data.items.length>0){for(var i=0;i<data.items.length;i++){
+var item=data.items[i];if(!isWithinMaxAge(item.pubDate))continue;
 var searchText=(item.title||"")+" "+(item.description||"");
 var region=detectCountry(searchText);
 var regionLabel=region==="ireland"?"Ireland":region==="uk"?"United Kingdom":region==="germany"?"Germany":region==="israel"?"Israel":"EMEA";
 arr.push({title:item.title||"",link:item.link||"#",description:item.description||"",pubDate:item.pubDate||"",author:item.author||data.feed.title||"News",region:region,regionLabel:regionLabel})
-}
-arr.sort(function(a,b){return new Date(b.pubDate)-new Date(a.pubDate)})
-}
-renderFeed(key)
-}).catch(function(){
-document.getElementById("fd-"+key).innerHTML='<li style="color:#E67E22;padding:20px;text-align:center">Feed loading. Will retry in 20 minutes.</li>'
-})}
+}arr.sort(function(a,b){return new Date(b.pubDate)-new Date(a.pubDate)})}
+renderFeed(key);updateTicker();updateRiskCards()
+}).catch(function(){document.getElementById("fd-"+key).innerHTML='<li style="color:#E67E22;padding:20px;text-align:center">Feed loading. Will retry in 20 minutes.</li>'})}
 
 function renderFeed(key){
 var meta=feedMeta[key];var items=feedData[key];var filter=feedFilters[key];
-var container=document.getElementById("fd-"+key);
-var filtered=[];
-for(var i=0;i<items.length;i++){
-if(filter==="all"||items[i].region===filter||items[i].region==="all")filtered.push(items[i])
-}
+var container=document.getElementById("fd-"+key);var filtered=[];
+for(var i=0;i<items.length;i++){if(filter==="all"||items[i].region===filter||items[i].region==="all")filtered.push(items[i])}
 if(filtered.length===0){
-if(items.length===0){container.innerHTML='<li style="color:#E67E22;padding:20px;text-align:center">Loading or API limit reached. Refreshes every 20 minutes.</li>'}
-else{container.innerHTML='<li style="color:#888;text-align:center;padding:30px">No items for this region. Try "All" tab.</li>'}
-return}
+container.innerHTML=items.length===0?'<li style="color:#E67E22;padding:20px;text-align:center">Loading or no articles in last 72 hours.</li>':'<li style="color:#888;text-align:center;padding:30px">No items for this region. Try "All" tab.</li>';return}
 var html="";for(var j=0;j<filtered.length;j++){var item=filtered[j];
 var snip="";if(item.description){snip=item.description.replace(/<[^>]*>/g,"");if(snip.length>120)snip=snip.substring(0,120)+"..."}
-var pubDate=new Date(item.pubDate).toLocaleDateString();
+var timeAgo=getTimeAgo(item.pubDate);
 var flag=item.region==="ireland"?"🇮🇪":item.region==="uk"?"🇬🇧":item.region==="germany"?"🇩🇪":item.region==="israel"?"🇮🇱":"🌍";
-html+='<li class="ni"><a href="'+item.link+'" target="_blank" style="color:'+meta.linkColor+'">'+item.title+'</a><div class="src">'+flag+" "+item.regionLabel+" • "+item.author+" • "+pubDate+"</div>";
+html+='<li class="ni"><a href="'+item.link+'" target="_blank" style="color:'+meta.linkColor+'">'+item.title+'</a><div class="src">'+flag+" "+item.regionLabel+" • "+item.author+"</div>";
+if(timeAgo)html+='<div class="age">🕐 '+timeAgo+"</div>";
 if(snip)html+='<div class="snip">'+snip+"</div>";
 html+='<span class="tag '+meta.tagClass+'">'+meta.tagLabel+"</span></li>"}
 container.innerHTML=html;
-document.getElementById("hd-"+key).innerHTML=meta.title+' <span style="font-weight:normal;font-size:.75rem;float:right">Updated: '+new Date().toLocaleTimeString()+"</span>"}
+document.getElementById("hd-"+key).innerHTML=meta.title+' <span style="font-weight:normal;font-size:.75rem;float:right">Last 72hrs • '+new Date().toLocaleTimeString()+"</span>"}
 
 function sw(key,region,btn,activeClass){
-feedFilters[key]=region;
-var btns=document.getElementById("tabs-"+key).getElementsByTagName("button");
-for(var t=0;t<btns.length;t++){btns[t].className="ft"}
-btn.className="ft "+activeClass;
-renderFeed(key)}
+if(key==="sec"){securityFilter=region;var btns=document.getElementById("tabs-sec").getElementsByTagName("button");for(var t=0;t<btns.length;t++){btns[t].className="ft"}btn.className="ft ab";renderSecurityFeed();return}
+if(key==="pr"){protestFilter=region;var btns2=document.getElementById("tabs-pr").getElementsByTagName("button");for(var t2=0;t2<btns2.length;t2++){btns2[t2].className="ft"}btn.className="ft ap";renderProtestFeed();return}
+feedFilters[key]=region;var btns3=document.getElementById("tabs-"+key).getElementsByTagName("button");
+for(var t3=0;t3<btns3.length;t3++){btns3[t3].className="ft"}
+btn.className="ft "+activeClass;renderFeed(key)}
 
 function loadRedAlert(){
 var panel=document.getElementById("alertPanel");var dot=document.getElementById("statusDot");var txt=document.getElementById("statusText");var st=document.getElementById("alertStatus");
@@ -305,29 +460,38 @@ fetch(API+encodeURIComponent("https://news.google.com/rss/search?q=Israel+red+al
 var now=new Date();var html="";var recent=0;
 if(data.status==="ok"&&data.items&&data.items.length>0){
 for(var i=0;i<data.items.length;i++){var item=data.items[i];var d=new Date(item.pubDate);var h=Math.round((now-d)/36e5);
-var t=h<1?"<1 hour ago":h===1?"1 hour ago":h<24?h+" hours ago":d.toLocaleDateString();
+if(h>72)continue;
+var t=h<1?"<1 hour ago":h===1?"1 hour ago":h<24?h+" hours ago":h<48?"Yesterday":"2 days ago";
 if(h<6)recent++;var desc="";if(item.description){desc=item.description.replace(/<[^>]*>/g,"");if(desc.length>180)desc=desc.substring(0,180)+"..."}
 html+='<div class="alert-item"><div class="atime">🕐 '+t+'</div><div class="atitle"><a href="'+item.link+'" target="_blank">'+item.title+'</a></div><div class="adesc">'+desc+"</div></div>"}
 if(recent>0){dot.className="sdot sr";txt.innerHTML="<strong style='color:#DC3545'>"+recent+" alert reports in last 6 hours</strong>"}
 else{dot.className="sdot sg";txt.innerHTML="No recent alerts in last 6 hours"}}
-else{html='<div style="text-align:center;padding:20px;color:#888">No red alert news in last 24 hours.</div>';dot.className="sdot sg";txt.innerHTML="No recent alerts"}
+else{html='<div style="text-align:center;padding:20px;color:#888">No red alert news in last 72 hours.</div>';dot.className="sdot sg";txt.innerHTML="No recent alerts"}
 panel.innerHTML=html;st.innerHTML="Checked: "+new Date().toLocaleTimeString()
 }).catch(function(){panel.innerHTML='<div style="text-align:center;padding:20px;color:#DC3545">Unable to load Red Alert feed.</div>';dot.className="sdot sg";txt.innerHTML="Feed unavailable";st.innerHTML="Error"})}
 
-function loadAllFeeds(){
-for(var i=0;i<topicKeys.length;i++){
-(function(key,delay){setTimeout(function(){loadFeed(key)},delay)})(topicKeys[i],i*2500)
+function updateLiveStatus(){
+var dot=document.getElementById("liveDot");var txt=document.getElementById("liveStatus");
+if(securityData.length>0){dot.className="live-dot live-dot-green";txt.textContent="LIVE"}
+else{dot.className="live-dot live-dot-red";txt.textContent="CONNECTING..."}
 }
-setTimeout(loadRedAlert,topicKeys.length*2500+2000)
+
+function loadAllFeeds(){
+loadMultiSourceFeed(securitySources,securityData,renderSecurityFeed);
+setTimeout(function(){loadMultiSourceFeed(protestSources,protestData,renderProtestFeed)},12000);
+setTimeout(function(){loadFeed("tv")},18000);
+setTimeout(loadRedAlert,21000);
+setTimeout(updateLiveStatus,22000)
 }
 
 document.addEventListener("DOMContentLoaded",function(){
+loadDarkPref();
 updateClocks();setInterval(updateClocks,1000);
-document.getElementById("threatDate").textContent=new Date().toLocaleDateString();
 initMap();buildLocationDetails();
 loadAllFeeds();
 setInterval(loadAllFeeds,20*60*1000);
-setInterval(loadRedAlert,5*60*1000)
+setInterval(loadRedAlert,5*60*1000);
+setInterval(updateTicker,60000)
 });
 </script>
 </body>
