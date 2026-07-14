@@ -185,6 +185,7 @@ var dellLocations=[
 {name:"Dell Technologies - Cork (Carrigtwohill)",lat:51.908973,lng:-8.275993,address:"Carrigtwohill Industrial Estate, Cork T45 HW28",type:"Office - Sales",country:"Ireland"},
 {name:"Dell Technologies - Limerick (Raheen)",lat:52.638,lng:-8.6716,address:"Raheen Business Park, Limerick, V94 YK40",type:"Campus - Manufacturing and Operations",country:"Ireland"},
 {name:"Dell Technologies - Dublin (Cherrywood)",lat:53.242,lng:-6.1458,address:"Cherrywood Business Park, Dublin 18",type:"Office - Sales and Solutions",country:"Ireland"},
+{name:"Dell Technologies - Belfast (Belfast)",lat:54.603865260365154,lng:-5.930084384021378,address:"Room BB-02-003, Ulster University, York Street Belfast",type:"Office - Sales and Solutions",country:"Ireland"},
 {name:"Dell Technologies - London (Creechurch)",lat:51.514301182723166,lng:-0.07821815898039274,address:"Creechurch Lane, London, United Kingdom EC3A 5AY",type:"Office - Sales and Enterprise",country:"United Kingdom"},
 {name:"Dell Technologies - London (Chiswick)",lat:51.495468792510245,lng:-0.27567504728848236,address:"4 Chiswick Park, Chiswick, London, United Kingdom W4 5YE",type:"Office - Sales",country:"United Kingdom"},
 {name:"Dell Technologies - London (Clock Tower)",lat:51.492876,lng:-0.288911,address:"Great West Road, EMC Tower London, United Kingdom TW8 9AN",type:"Office - Enterprise Solutions",country:"United Kingdom"},
@@ -336,7 +337,7 @@ var icon=L.divIcon({className:"",html:'<div style="background:'+bg+';width:28px;
 var m=L.marker([loc.lat,loc.lng],{icon:icon}).addTo(map);
 m.bindPopup("<strong>"+loc.name+"</strong><br>"+loc.address+"<br><em>"+loc.type+"</em><br><strong style='color:"+bg+"'>"+loc.country+"</strong>");markers.push(m)}
 if(markers.length>1)map.fitBounds(L.featureGroup(markers).getBounds().pad(.1));
-var legend=L.control({position:"bottomright"});legend.onAdd=function(){var d=L.DomUtil.create("div","legend");d.innerHTML="<strong>Locations</strong><br><span class='legend-dot' style='background:#00A650'></span> Ireland (4)<br><span class='legend-dot' style='background:#CF142B'></span> UK (4)<br><span class='legend-dot' style='background:#FFCC00'></span> Germany (4)<br><span class='legend-dot' style='background:#0038B8'></span> Israel (5)";return d};legend.addTo(map)
+var legend=L.control({position:"bottomright"});legend.onAdd=function(){var d=L.DomUtil.create("div","legend");d.innerHTML="<strong>Locations</strong><br><span class='legend-dot' style='background:#00A650'></span> Ireland (5)<br><span class='legend-dot' style='background:#CF142B'></span> UK (4)<br><span class='legend-dot' style='background:#FFCC00'></span> Germany (4)<br><span class='legend-dot' style='background:#0038B8'></span> Israel (5)";return d};legend.addTo(map)
 }catch(e){document.getElementById("map").style.display="none";document.getElementById("mapFallback").style.display="block";buildFallback()}}
 
 function buildFallback(){
