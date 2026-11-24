@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dell EMEA Security Portal</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f0f2f5;color:#333;transition:background .3s,color .3s}body.dark{background:#121220;color:#e0e0e0}.header{background:linear-gradient(135deg,#0076CE,#004a80);color:#fff;padding:14px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}.header h1{font-size:1.3rem;letter-spacing:.5px}.header p{font-size:.82rem;margin-top:3px;opacity:.85}.header-left{flex:1}.hdr-btns{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.hdr-btn{background:none;border:2px solid rgba(255,255,255,.4);color:#fff;padding:5px 10px;border-radius:20px;cursor:pointer;font-size:.72rem;font-weight:600;transition:all .3s;white-space:nowrap}.hdr-btn:hover{background:rgba(255,255,255,.15)}body.dark .hdr-btn{border-color:rgba(255,255,255,.3)}.notif-on{border-color:#28A745!important;color:#28A745!important}body.dark .dark-toggle{border-color:#ffd700;color:#ffd700}.copied{border-color:#28A745!important;color:#28A745!important}#briefMenu.open{display:block!important}#briefMenu a:hover{background:#f0f2f5}body.dark #briefMenu{background:#16213e}body.dark #briefMenu a{color:#e0e0e0;border-bottom-color:#2a2a4a}body.dark #briefMenu a:hover{background:#2a2a4a}.ticker-bar{background:#DC3545;color:#fff;overflow:hidden;height:32px;display:flex;align-items:center}.ticker-label{background:#a71d2a;padding:0 14px;font-weight:700;font-size:.75rem;white-space:nowrap;height:100%;display:flex;align-items:center;z-index:2;flex-shrink:0}.ticker-wrap{overflow:hidden;flex:1;height:100%;display:flex;align-items:center}.ticker-content{display:flex;align-items:center;white-space:nowrap;animation:scroll-left 45s linear infinite;gap:40px;padding-left:100%}.ticker-content:hover{animation-play-state:paused}.ticker-item{font-size:.78rem;font-weight:500}.ticker-item a{color:#fff;text-decoration:none}.ticker-item a:hover{text-decoration:underline}.ticker-empty{font-size:.78rem;padding:0 20px;opacity:.8;font-style:italic}@keyframes scroll-left{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}@keyframes pdot{0%{opacity:1}50%{opacity:.3}100%{opacity:1}}body.dark .ticker-bar{background:#8B0000}body.dark .ticker-label{background:#6B0000}.team-bar{background:#e8edf2;padding:8px 32px;display:flex;flex-wrap:wrap;gap:14px;font-size:.73rem;border-bottom:1px solid #d0d4d8}body.dark .team-bar{background:#1a1a2e;border-bottom-color:#2a2a4a}.team-item{display:flex;align-items:center;gap:5px}.team-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}.team-name{font-weight:700;color:#333}body.dark .team-name{color:#e0e0e0}.team-region{color:#888;font-size:.65rem;max-width:260px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.focus-bar{padding:8px 32px;background:#1B3A5C;display:flex;gap:10px;align-items:center;flex-wrap:wrap}body.dark .focus-bar{background:#0a1628}.focus-input{flex:1;padding:7px 14px;border:2px solid rgba(255,255,255,.3);border-radius:20px;font-size:.82rem;outline:none;background:rgba(255,255,255,.1);color:#fff;min-width:200px}.focus-input::placeholder{color:rgba(255,255,255,.5)}.focus-input:focus{border-color:#0076CE;background:rgba(255,255,255,.15)}.focus-btn{background:#0076CE;color:#fff;border:none;padding:7px 16px;border-radius:20px;font-size:.76rem;font-weight:600;cursor:pointer;white-space:nowrap}.focus-btn:hover{background:#005a9e}.focus-clear{background:none;border:2px solid rgba(255,255,255,.3);color:#fff;padding:5px 12px;border-radius:20px;font-size:.72rem;cursor:pointer}.focus-clear:hover{background:rgba(255,255,255,.1)}.focus-panel{display:none;max-width:1500px;margin:auto;padding:16px}.focus-panel.active{display:block}.focus-card{background:#fff;border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.06);overflow:hidden;margin-bottom:16px}body.dark .focus-card{background:#16213e}.focus-header{background:linear-gradient(135deg,#1B3A5C,#0a1628);color:#fff;padding:16px 20px}.focus-title{font-size:1.1rem;font-weight:700}.focus-meta{font-size:.78rem;opacity:.85;margin-top:4px;display:flex;flex-wrap:wrap;gap:16px}.focus-stat{display:flex;align-items:center;gap:4px}.focus-sitrep{background:#f8f9fa;border-top:1px solid #e0e0e0;padding:14px 20px}body.dark .focus-sitrep{background:#1a1a2e;border-top-color:#2a2a4a}.sitrep-section{margin-bottom:12px}.sitrep-label{font-size:.75rem;font-weight:700;color:#1B3A5C;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}body.dark .sitrep-label{color:#5dade2}.sitrep-text{font-size:.84rem;line-height:1.5;color:#555}body.dark .sitrep-text{color:#bbb}.sitrep-timeline{list-style:none}.sitrep-timeline li{padding:6px 0 6px 20px;border-left:2px solid #0076CE;position:relative;font-size:.82rem}.sitrep-timeline li:before{content:"";position:absolute;left:-5px;top:10px;width:8px;height:8px;border-radius:50%;background:#0076CE}.sitrep-sites{list-style:none}.sitrep-sites li{padding:4px 0;font-size:.82rem;display:flex;align-items:center;gap:8px}.site-dist{font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap}.dist-close{background:#F8D7DA;color:#721C24}.dist-near{background:#FFF3CD;color:#856404}.dist-far{background:#D4EDDA;color:#155724}.focus-actions{padding:12px 20px;border-top:1px solid #e0e0e0;display:flex;gap:8px;flex-wrap:wrap}body.dark .focus-actions{border-top-color:#2a2a4a}.focus-action-btn{padding:6px 14px;border-radius:16px;font-size:.72rem;font-weight:600;cursor:pointer;border:none;transition:opacity .2s}.focus-action-btn:hover{opacity:.85}.focus-articles{padding:10px 20px;max-height:500px;overflow-y:auto}.prox-badge{display:inline-flex;align-items:center;gap:4px;font-size:.62rem;font-weight:600;padding:2px 6px;border-radius:8px;margin-left:4px}.prox-close{background:#F8D7DA;color:#721C24}.prox-near{background:#FFF3CD;color:#856404}.portal{max-width:1500px;margin:auto;padding:16px}.row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}@media(max-width:900px){.row{grid-template-columns:1fr}}.card{background:#fff;border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.06);overflow:hidden;transition:background .3s;margin-bottom:16px}body.dark .card{background:#16213e;box-shadow:0 1px 6px rgba(0,0,0,.2)}.card-row{margin-bottom:0}.ch{color:#fff;padding:11px 18px;font-weight:600;font-size:.95rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;user-select:none;transition:opacity .2s}.ch:hover{opacity:.9}.ch-blue{background:#0076CE}.ch-dark{background:#1B3A5C}.ch-red{background:#DC3545}.ch-travel{background:#6F42C1}.ch-protest{background:#E67E22}.ch-critical{background:#8B0000}.ch-weather{background:#17A2B8}body.dark .ch-dark{background:#0f1b33}.ch-count{background:rgba(255,255,255,.25);padding:2px 10px;border-radius:12px;font-size:.72rem;font-weight:700;min-width:28px;text-align:center}.ch-arrow{font-size:.8rem;margin-left:8px;transition:transform .3s}.ch-arrow.open{transform:rotate(180deg)}.collapsible{max-height:0;overflow:hidden;transition:max-height .4s ease}.collapsible.open{max-height:3000px}.card-body{padding:14px 18px}#map{height:500px;width:100%;position:relative;background:#e5e3df;z-index:0}body.dark #map{background:#1a1a2e}.map-fallback{display:none;padding:16px}.ftabs{display:flex;gap:0;background:#e9ecef;flex-wrap:wrap}body.dark .ftabs{background:#1a1a2e}.ftabs.b-blue{border-bottom:2px solid #0076CE}.ftabs.b-travel{border-bottom:2px solid #6F42C1}.ftabs.b-protest{border-bottom:2px solid #E67E22}.ftabs.b-weather{border-bottom:2px solid #17A2B8}.ft{padding:7px 10px;cursor:pointer;font-size:.72rem;font-weight:600;border:none;background:#e9ecef;color:#555;transition:background .2s}body.dark .ft{background:#1a1a2e;color:#aaa}.ft:hover{background:#d0d4d8}body.dark .ft:hover{background:#2a2a4a}.ft.ab{background:#0076CE;color:#fff}.ft.at{background:#6F42C1;color:#fff}.ft.ap{background:#E67E22;color:#fff}.ft.aw{background:#17A2B8;color:#fff}.nlist{list-style:none;max-height:400px;overflow-y:auto}.nlist-tall{list-style:none;max-height:458px;overflow-y:auto}.ni{padding:8px 0;border-bottom:1px solid #eee;transition:border-color .3s}body.dark .ni{border-bottom-color:#2a2a4a}.ni:last-child{border-bottom:none}.ni a{text-decoration:none;font-weight:600;font-size:.86rem;line-height:1.3}.ni a:hover{text-decoration:underline}body.dark .ni a{color:#5dade2!important}.ni .src{font-size:.7rem;color:#888;margin-top:2px}body.dark .ni .src{color:#777}.ni .snip{font-size:.8rem;margin-top:2px;color:#555}body.dark .ni .snip{color:#999}.ni .age{font-size:.67rem;color:#E67E22;margin-top:2px;font-weight:600}.tag{display:inline-block;font-size:.64rem;padding:2px 6px;border-radius:10px;margin-top:2px;font-weight:600}.t-sec{background:#FFF3CD;color:#856404}.t-travel{background:#E2D5F1;color:#4A235A}.t-protest{background:#FDEBD0;color:#784212}.t-weather{background:#D1ECF1;color:#0C5460}body.dark .t-sec{background:#5a4e1a;color:#ffd700}body.dark .t-travel{background:#3a2560;color:#d4b5f7}body.dark .t-protest{background:#5a3e1a;color:#f0c070}body.dark .t-weather{background:#0c3545;color:#5ddbf0}.src-badge{display:inline-block;font-size:.6rem;padding:1px 5px;border-radius:8px;margin-left:4px;background:#e9ecef;color:#555}body.dark .src-badge{background:#2a2a4a;color:#aaa}.sev{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;flex-shrink:0}.sev-crit{background:#DC3545}.sev-high{background:#E67E22}.sev-med{background:#FFC107}.sev-low{background:#28A745}.crit-list{list-style:none;max-height:300px;overflow-y:auto}.crit-item{padding:10px 14px;margin-bottom:6px;border-radius:6px;border-left:4px solid #DC3545;background:#FFF5F5;display:flex;align-items:flex-start;gap:8px}body.dark .crit-item{background:#2a1015}.crit-item a{color:#DC3545;text-decoration:none;font-weight:700;font-size:.88rem}.crit-item a:hover{text-decoration:underline}.crit-item .crit-meta{font-size:.7rem;color:#888;margin-top:2px}.crit-item .crit-sev{font-size:.6rem;font-weight:700;padding:2px 6px;border-radius:8px;color:#fff;margin-top:3px;display:inline-block}.location-list{list-style:none;margin-top:10px}.location-list li{padding:5px 0;font-size:.84rem;border-bottom:1px solid #f0f0f0}body.dark .location-list li{border-bottom-color:#2a2a4a}.country-label{font-weight:700;color:#0076CE;padding:8px 0 3px;font-size:.92rem;border-bottom:2px solid #0076CE;margin-top:6px}.legend{background:#fff;padding:7px 10px;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.15);font-size:10px;line-height:1.6}body.dark .legend{background:#16213e;color:#e0e0e0}.legend-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:middle;border:2px solid #fff;box-shadow:0 1px 2px rgba(0,0,0,.2)}.alert-panel{padding:14px 18px;max-height:220px;overflow-y:auto}.alert-item{padding:8px 12px;margin-bottom:6px;border-radius:6px;border-left:4px solid #DC3545;background:#FFF5F5}body.dark .alert-item{background:#2a1015}.alert-item .atime{font-size:.7rem;color:#888}.alert-item .atitle{font-weight:600;color:#DC3545;margin-top:2px;font-size:.88rem}.alert-item .atitle a{color:#DC3545;text-decoration:none}.alert-item .adesc{font-size:.8rem;color:#555;margin-top:3px}body.dark .alert-item .adesc{color:#999}.astatus{display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:.85rem}.sdot{width:10px;height:10px;border-radius:50%;display:inline-block}.sg{background:#28A745;box-shadow:0 0 6px rgba(40,167,69,.5)}.sr{background:#DC3545;box-shadow:0 0 6px rgba(220,53,69,.5);animation:pulse 1.5s infinite}@keyframes pulse{0%{opacity:1}50%{opacity:.4}100%{opacity:1}}.live-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;animation:pulse 2s infinite}.live-dot-green{background:#28A745}.live-dot-red{background:#DC3545}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f0f2f5;color:#333;transition:background .3s,color .3s}.header{background:linear-gradient(135deg,#0076CE,#004a80);color:#fff;padding:14px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}.header h1{font-size:1.3rem;letter-spacing:.5px}.header p{font-size:.82rem;margin-top:3px;opacity:.85}.header-left{flex:1}.hdr-btns{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.hdr-btn{background:none;border:2px solid rgba(255,255,255,.4);color:#fff;padding:5px 10px;border-radius:20px;cursor:pointer;font-size:.72rem;font-weight:600;transition:all .3s;white-space:nowrap}.hdr-btn:hover{background:rgba(255,255,255,.15)}.notif-on{border-color:#28A745!important;color:#28A745!important}.copied{border-color:#28A745!important;color:#28A745!important}#briefMenu.open{display:block!important}#briefMenu a:hover{background:#f0f2f5}.ticker-bar{background:#DC3545;color:#fff;overflow:hidden;height:32px;display:flex;align-items:center}.ticker-label{background:#a71d2a;padding:0 14px;font-weight:700;font-size:.75rem;white-space:nowrap;height:100%;display:flex;align-items:center;z-index:2;flex-shrink:0}.ticker-wrap{overflow:hidden;flex:1;height:100%;display:flex;align-items:center}.ticker-content{display:flex;align-items:center;white-space:nowrap;animation:scroll-left 45s linear infinite;gap:40px;padding-left:100%}.ticker-content:hover{animation-play-state:paused}.ticker-item{font-size:.78rem;font-weight:500}.ticker-item a{color:#fff;text-decoration:none}.ticker-item a:hover{text-decoration:underline}.ticker-empty{font-size:.78rem;padding:0 20px;opacity:.8;font-style:italic}@keyframes scroll-left{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}@keyframes pdot{0%{opacity:1}50%{opacity:.3}100%{opacity:1}}.team-bar{background:#e8edf2;padding:8px 32px;display:flex;flex-wrap:wrap;gap:14px;font-size:.73rem;border-bottom:1px solid #d0d4d8}.team-item{display:flex;align-items:center;gap:5px}.team-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}.team-name{font-weight:700;color:#333}.team-region{color:#888;font-size:.65rem;max-width:260px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.focus-bar{padding:8px 32px;background:#1B3A5C;display:flex;gap:10px;align-items:center;flex-wrap:wrap}.focus-input{flex:1;padding:7px 14px;border:2px solid rgba(255,255,255,.3);border-radius:20px;font-size:.82rem;outline:none;background:rgba(255,255,255,.1);color:#fff;min-width:200px}.focus-input::placeholder{color:rgba(255,255,255,.5)}.focus-input:focus{border-color:#0076CE;background:rgba(255,255,255,.15)}.focus-btn{background:#0076CE;color:#fff;border:none;padding:7px 16px;border-radius:20px;font-size:.76rem;font-weight:600;cursor:pointer;white-space:nowrap}.focus-btn:hover{background:#005a9e}.focus-clear{background:none;border:2px solid rgba(255,255,255,.3);color:#fff;padding:5px 12px;border-radius:20px;font-size:.72rem;cursor:pointer}.focus-clear:hover{background:rgba(255,255,255,.1)}.focus-panel{display:none;max-width:1500px;margin:auto;padding:16px}.focus-panel.active{display:block}.focus-card{background:#fff;border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.06);overflow:hidden;margin-bottom:16px}.focus-header{background:linear-gradient(135deg,#1B3A5C,#0a1628);color:#fff;padding:16px 20px}.focus-title{font-size:1.1rem;font-weight:700}.focus-meta{font-size:.78rem;opacity:.85;margin-top:4px;display:flex;flex-wrap:wrap;gap:16px}.focus-stat{display:flex;align-items:center;gap:4px}.focus-sitrep{background:#f8f9fa;border-top:1px solid #e0e0e0;padding:14px 20px}.sitrep-section{margin-bottom:12px}.sitrep-label{font-size:.75rem;font-weight:700;color:#1B3A5C;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}.sitrep-text{font-size:.84rem;line-height:1.5;color:#555}.sitrep-timeline{list-style:none}.sitrep-timeline li{padding:6px 0 6px 20px;border-left:2px solid #0076CE;position:relative;font-size:.82rem}.sitrep-timeline li:before{content:"";position:absolute;left:-5px;top:10px;width:8px;height:8px;border-radius:50%;background:#0076CE}.sitrep-sites{list-style:none}.sitrep-sites li{padding:4px 0;font-size:.82rem;display:flex;align-items:center;gap:8px}.site-dist{font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap}.dist-close{background:#F8D7DA;color:#721C24}.dist-near{background:#FFF3CD;color:#856404}.dist-far{background:#D4EDDA;color:#155724}.focus-actions{padding:12px 20px;border-top:1px solid #e0e0e0;display:flex;gap:8px;flex-wrap:wrap}.focus-action-btn{padding:6px 14px;border-radius:16px;font-size:.72rem;font-weight:600;cursor:pointer;border:none;transition:opacity .2s}.focus-action-btn:hover{opacity:.85}.focus-articles{padding:10px 20px;max-height:500px;overflow-y:auto}.prox-badge{display:inline-flex;align-items:center;gap:4px;font-size:.62rem;font-weight:600;padding:2px 6px;border-radius:8px;margin-left:4px}.prox-close{background:#F8D7DA;color:#721C24}.prox-near{background:#FFF3CD;color:#856404}.portal{max-width:1500px;margin:auto;padding:16px}.row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}@media(max-width:900px){.row{grid-template-columns:1fr}}.card{background:#fff;border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.06);overflow:hidden;transition:background .3s;margin-bottom:16px}.card-row{margin-bottom:0}.ch{color:#fff;padding:11px 18px;font-weight:600;font-size:.95rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;user-select:none;transition:opacity .2s}.ch:hover{opacity:.9}.ch-blue{background:#0076CE}.ch-dark{background:#1B3A5C}.ch-red{background:#DC3545}.ch-travel{background:#6F42C1}.ch-protest{background:#E67E22}.ch-critical{background:#8B0000}.ch-weather{background:#17A2B8}.ch-count{background:rgba(255,255,255,.25);padding:2px 10px;border-radius:12px;font-size:.72rem;font-weight:700;min-width:28px;text-align:center}.ch-arrow{font-size:.8rem;margin-left:8px;transition:transform .3s}.ch-arrow.open{transform:rotate(180deg)}.collapsible{max-height:0;overflow:hidden;transition:max-height .4s ease}.collapsible.open{max-height:3000px}.card-body{padding:14px 18px}#map{height:500px;width:100%;position:relative;background:#e5e3df;z-index:0}.map-fallback{display:none;padding:16px}.ftabs{display:flex;gap:0;background:#e9ecef;flex-wrap:wrap}.ftabs.b-blue{border-bottom:2px solid #0076CE}.ftabs.b-travel{border-bottom:2px solid #6F42C1}.ftabs.b-protest{border-bottom:2px solid #E67E22}.ftabs.b-weather{border-bottom:2px solid #17A2B8}.ft{padding:7px 10px;cursor:pointer;font-size:.72rem;font-weight:600;border:none;background:#e9ecef;color:#555;transition:background .2s}.ft:hover{background:#d0d4d8}.ft.ab{background:#0076CE;color:#fff}.ft.at{background:#6F42C1;color:#fff}.ft.ap{background:#E67E22;color:#fff}.ft.aw{background:#17A2B8;color:#fff}.nlist{list-style:none;max-height:400px;overflow-y:auto}.nlist-tall{list-style:none;max-height:458px;overflow-y:auto}.ni{padding:8px 0;border-bottom:1px solid #eee;transition:border-color .3s}.ni:last-child{border-bottom:none}.ni a{text-decoration:none;font-weight:600;font-size:.86rem;line-height:1.3}.ni a:hover{text-decoration:underline}.ni .src{font-size:.7rem;color:#888;margin-top:2px}.ni .snip{font-size:.8rem;margin-top:2px;color:#555}.ni .age{font-size:.67rem;color:#E67E22;margin-top:2px;font-weight:600}.tag{display:inline-block;font-size:.64rem;padding:2px 6px;border-radius:10px;margin-top:2px;font-weight:600}.t-sec{background:#FFF3CD;color:#856404}.t-travel{background:#E2D5F1;color:#4A235A}.t-protest{background:#FDEBD0;color:#784212}.t-weather{background:#D1ECF1;color:#0C5460}.src-badge{display:inline-block;font-size:.6rem;padding:1px 5px;border-radius:8px;margin-left:4px;background:#e9ecef;color:#555}.sev{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;flex-shrink:0}.sev-crit{background:#DC3545}.sev-high{background:#E67E22}.sev-med{background:#FFC107}.sev-low{background:#28A745}.crit-list{list-style:none;max-height:300px;overflow-y:auto}.crit-item{padding:10px 14px;margin-bottom:6px;border-radius:6px;border-left:4px solid #DC3545;background:#FFF5F5;display:flex;align-items:flex-start;gap:8px}.crit-item a{color:#DC3545;text-decoration:none;font-weight:700;font-size:.88rem}.crit-item a:hover{text-decoration:underline}.crit-item .crit-meta{font-size:.7rem;color:#888;margin-top:2px}.crit-item .crit-sev{font-size:.6rem;font-weight:700;padding:2px 6px;border-radius:8px;color:#fff;margin-top:3px;display:inline-block}.location-list{list-style:none;margin-top:10px}.location-list li{padding:5px 0;font-size:.84rem;border-bottom:1px solid #f0f0f0}.country-label{font-weight:700;color:#0076CE;padding:8px 0 3px;font-size:.92rem;border-bottom:2px solid #0076CE;margin-top:6px}.legend{background:#fff;padding:7px 10px;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.15);font-size:10px;line-height:1.6}.legend-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:middle;border:2px solid #fff;box-shadow:0 1px 2px rgba(0,0,0,.2)}.alert-panel{padding:14px 18px;max-height:220px;overflow-y:auto}.alert-item{padding:8px 12px;margin-bottom:6px;border-radius:6px;border-left:4px solid #DC3545;background:#FFF5F5}.alert-item .atime{font-size:.7rem;color:#888}.alert-item .atitle{font-weight:600;color:#DC3545;margin-top:2px;font-size:.88rem}.alert-item .atitle a{color:#DC3545;text-decoration:none}.alert-item .adesc{font-size:.8rem;color:#555;margin-top:3px}.astatus{display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:.85rem}.sdot{width:10px;height:10px;border-radius:50%;display:inline-block}.sg{background:#28A745;box-shadow:0 0 6px rgba(40,167,69,.5)}.sr{background:#DC3545;box-shadow:0 0 6px rgba(220,53,69,.5);animation:pulse 1.5s infinite}@keyframes pulse{0%{opacity:1}50%{opacity:.4}100%{opacity:1}}.live-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;animation:pulse 2s infinite}.live-dot-green{background:#28A745}.live-dot-red{background:#DC3545}
 
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
 .sr-only:focus{position:static;width:auto;height:auto;clip:auto;background:#fff;color:#000;padding:6px 12px;display:inline-block}
@@ -15,13 +15,13 @@
 #feedPanel{font-size:.72rem;background:rgba(0,0,0,.25);padding:6px 10px;border-radius:6px;margin-top:6px;max-height:160px;overflow:auto}
 .legend label{display:block;white-space:nowrap;cursor:pointer}.legend input:focus-visible+.legend-dot{outline:3px solid #FFB900}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.ticker-content{padding-left:0;white-space:normal;flex-wrap:wrap;gap:12px}}
-.tri{display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin-top:5px}.tri-btn{background:#e9ecef;border:1px solid #ced4da;color:#333;border-radius:12px;padding:2px 9px;font-size:.68rem;font-weight:600;cursor:pointer}.tri-btn:hover{background:#d0d4d8}body.dark .tri-btn{background:#2a2a4a;color:#ddd;border-color:#3a3a5a}.tri-sel{font-size:.68rem;border-radius:10px;padding:1px 4px}.tri-st{font-size:.66rem;color:#666}body.dark .tri-st{color:#aaa}.tri-ack{opacity:.6}.tri-dis{opacity:.4}details.rel{margin-top:4px;font-size:.75rem}details.rel summary{cursor:pointer;color:#0076CE}details.rel li{margin:3px 0 0 16px}details.rel span{color:#888;font-size:.68rem}.lg-cb{position:absolute;opacity:0}.hi-in{padding:5px 10px;border:1px solid #ced4da;border-radius:14px;font-size:.78rem}body.dark .hi-in{background:#1a1a2e;color:#ddd;border-color:#3a3a5a}
-.sb-sum{display:flex;gap:14px;font-size:.8rem;margin-bottom:6px;flex-wrap:wrap;font-weight:600}.sb-list{list-style:none;max-height:360px;overflow-y:auto}.sb-row{display:flex;align-items:center;gap:10px;padding:7px 4px;border-bottom:1px solid #eee;font-size:.82rem;flex-wrap:wrap}body.dark .sb-row{border-bottom-color:#2a2a4a}.sb-chip{font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:10px;color:#fff;min-width:64px;text-align:center}.sb-red{background:#DC3545}.sb-amber{background:#FFC107;color:#333}.sb-green{background:#28A745}.sb-name{font-weight:700;min-width:200px}.sb-meta{color:#888;font-size:.7rem;font-weight:400}.sb-inc{flex:1;min-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sb-inc a{color:#0076CE;text-decoration:none}.sb-inc a:hover{text-decoration:underline}body.dark .sb-inc a{color:#5dade2}.sb-imp{font-size:.62rem;letter-spacing:1px;color:#E67E22}.imp-badge{display:inline-block;font-size:.6rem;font-weight:700;padding:2px 7px;border-radius:8px;margin-left:4px;background:#1B3A5C;color:#fff}.patch-sel{background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);border-radius:20px;font-size:.72rem;font-weight:600;padding:4px 8px;cursor:pointer}.patch-sel option{color:#333}
+.tri{display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin-top:5px}.tri-btn{background:#e9ecef;border:1px solid #ced4da;color:#333;border-radius:12px;padding:2px 9px;font-size:.68rem;font-weight:600;cursor:pointer}.tri-btn:hover{background:#d0d4d8}.tri-sel{font-size:.68rem;border-radius:10px;padding:1px 4px}.tri-st{font-size:.66rem;color:#666}.tri-ack{opacity:.6}.tri-dis{opacity:.4}details.rel{margin-top:4px;font-size:.75rem}details.rel summary{cursor:pointer;color:#0076CE}details.rel li{margin:3px 0 0 16px}details.rel span{color:#888;font-size:.68rem}.lg-cb{position:absolute;opacity:0}.hi-in{padding:5px 10px;border:1px solid #ced4da;border-radius:14px;font-size:.78rem}
+.sb-sum{display:flex;gap:14px;font-size:.8rem;margin-bottom:6px;flex-wrap:wrap;font-weight:600}.sb-list{list-style:none;max-height:360px;overflow-y:auto}.sb-row{display:flex;align-items:center;gap:10px;padding:7px 4px;border-bottom:1px solid #eee;font-size:.82rem;flex-wrap:wrap}.sb-chip{font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:10px;color:#fff;min-width:64px;text-align:center}.sb-red{background:#DC3545}.sb-amber{background:#FFC107;color:#333}.sb-green{background:#28A745}.sb-name{font-weight:700;min-width:200px}.sb-meta{color:#888;font-size:.7rem;font-weight:400}.sb-inc{flex:1;min-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sb-inc a{color:#0076CE;text-decoration:none}.sb-inc a:hover{text-decoration:underline}.sb-imp{font-size:.62rem;letter-spacing:1px;color:#E67E22}.imp-badge{display:inline-block;font-size:.6rem;font-weight:700;padding:2px 7px;border-radius:8px;margin-left:4px;background:#1B3A5C;color:#fff}.patch-sel{background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);border-radius:20px;font-size:.72rem;font-weight:600;padding:4px 8px;cursor:pointer}.patch-sel option{color:#333}
 .ovd{display:inline-block;font-size:.6rem;font-weight:700;padding:2px 7px;border-radius:8px;margin-left:4px;background:#DC3545;color:#fff;animation:pulse 1.2s infinite}
-.inc-item{padding:10px 12px;border:1px solid #e0e0e0;border-radius:8px;margin-bottom:8px}body.dark .inc-item{border-color:#2a2a4a}.inc-item.inc-hl{box-shadow:0 0 0 3px #FFB900}
+.inc-item{padding:10px 12px;border:1px solid #e0e0e0;border-radius:8px;margin-bottom:8px}.inc-item.inc-hl{box-shadow:0 0 0 3px #FFB900}
 .inc-head{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.inc-title{font-weight:700;flex:1;min-width:200px}
 .inc-st{font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:10px;color:#fff}.st-new{background:#DC3545}.st-monitoring{background:#FFC107;color:#333}.st-responding{background:#E67E22}.st-closed{background:#6c757d}
-.inc-notes{list-style:none;margin:6px 0 0;font-size:.78rem;max-height:180px;overflow:auto}.inc-notes li{padding:3px 0;border-bottom:1px dashed #eee}body.dark .inc-notes li{border-bottom-color:#2a2a4a}.inc-notes time{color:#888;font-size:.68rem;margin-right:6px}
+.inc-notes{list-style:none;margin:6px 0 0;font-size:.78rem;max-height:180px;overflow:auto}.inc-notes li{padding:3px 0;border-bottom:1px dashed #eee}.inc-notes time{color:#888;font-size:.68rem;margin-right:6px}
 .inc-row{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;align-items:center}.inc-row input[type=text]{flex:1;min-width:200px}
 .set-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;font-size:.8rem}.set-grid label{display:flex;flex-direction:column;gap:3px;font-weight:600}
 .imk{width:20px;height:20px;border-radius:4px;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;font-size:11px;line-height:1}
@@ -40,36 +40,183 @@ body.wall .collapsible{max-height:none!important;overflow:visible}
 body.wall #card-crit .collapsible{overflow:auto;flex:1}
 body.wall .crit-list{max-height:none}
 body.wall .sb-list{max-height:30vh}
+/* ===================== THEME: Dell clean (default) / Ops dark (dark mode + wall mode) ===================== */
+:root{--bg:#F5F7FA;--card:#FFFFFF;--line:#DDE3EA;--line2:#EEF1F5;--tx:#0B2545;--tx2:#5B6B7F;--tx3:#8A97A8;--brand:#0672CB;--brand-d:#0A4D8C;--brand-bg:#E3F1FC;--crit:#B42318;--crit-bg:#FEE4E2;--high:#B54708;--high-bg:#FEF0C7;--med:#8A6100;--med-bg:#FEF7C3;--med-dot:#EAAA08;--low:#067647;--low-bg:#DCFAE6;--chip:#EEF2F6;--mono:Consolas,"Cascadia Mono",Menlo,monospace}
+body.dark,body.wall{--bg:#0B1220;--card:#111A2E;--line:#1E2A44;--line2:#18233A;--tx:#E6EDF7;--tx2:#8B9BB4;--tx3:#6B7A93;--brand:#38BDF8;--brand-d:#7DD3FC;--brand-bg:#0C2A44;--crit:#F87171;--crit-bg:#3B1219;--high:#FBBF24;--high-bg:#3A2A0A;--med:#FDE047;--med-bg:#3A340A;--med-dot:#FDE047;--low:#5EEAD4;--low-bg:#0B3330;--chip:#18233A}
+body{background:var(--bg);color:var(--tx);font-family:"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-variant-numeric:tabular-nums}
+.ic{width:1.05em;height:1.05em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.17em;margin-right:.35em;flex-shrink:0}
+/* header */
+.header{background:var(--card);color:var(--tx);border-top:3px solid var(--brand);border-bottom:1px solid var(--line);padding:10px 24px;position:sticky;top:0;z-index:1100}
+.header h1{font-size:1.12rem;font-weight:600;letter-spacing:0;display:flex;align-items:center}.header h1 .ic{color:var(--brand);width:1.3em;height:1.3em}
+.header p{color:var(--tx2);opacity:1;font-size:.78rem}
+.hdr-btn,.patch-sel{background:var(--card)!important;border:1px solid var(--line)!important;color:var(--tx)!important;border-radius:6px;padding:5px 10px;font-weight:600}
+.hdr-btn:hover,.patch-sel:hover{background:var(--chip)!important}
+.patch-sel option{color:var(--tx);background:var(--card)}
+.notif-on{border-color:var(--low)!important;color:var(--low)!important}.copied{border-color:var(--low)!important;color:var(--low)!important}
+#feedPanel{background:var(--chip);color:var(--tx)}
+#briefMenu{background:var(--card)!important;border:1px solid var(--line)}#briefMenu a{color:var(--tx)!important;border-bottom-color:var(--line2)!important}#briefMenu a:hover{background:var(--chip)}
+.wall-clock{display:inline-block;font-size:.8rem;font-weight:600;color:var(--tx2);font-family:var(--mono);margin-right:6px}
+.fresh{display:inline-block;font-size:.7rem;font-weight:600;padding:1px 8px;border-radius:10px;margin-left:6px;vertical-align:1px}
+.f-ok{background:var(--low-bg);color:var(--low)}.f-warn{background:var(--high-bg);color:var(--high)}.f-bad{background:var(--crit-bg);color:var(--crit)}
+/* ticker */
+.ticker-bar{background:var(--crit-bg);color:var(--tx);border-bottom:1px solid var(--line)}
+.ticker-label{background:var(--crit);color:#fff;font-weight:700;letter-spacing:.3px;gap:6px}
+body.dark .ticker-label,body.wall .ticker-label{background:#B42318}
+.tdot{width:7px;height:7px;border-radius:50%;background:#fff;display:inline-block;animation:pulse 1.5s infinite}
+.ticker-item a{color:var(--tx)}.ticker-empty{color:var(--tx2)}
+/* team + focus bars */
+.team-bar{background:var(--card);border-bottom:1px solid var(--line)}.team-name{color:var(--tx)}.team-region{color:var(--tx3)}
+.focus-bar{background:var(--card);border-bottom:1px solid var(--line)}
+.focus-input{background:var(--bg);border:1px solid var(--line);color:var(--tx);border-radius:6px}.focus-input::placeholder{color:var(--tx3)}.focus-input:focus{border-color:var(--brand);background:var(--card)}
+.focus-btn{background:var(--brand);border-radius:6px}.focus-clear{border:1px solid var(--line);color:var(--tx);border-radius:6px}.focus-clear:hover{background:var(--chip)}
+.focus-card{background:var(--card);border:1px solid var(--line);box-shadow:none;border-radius:8px}
+.focus-header{background:var(--card);color:var(--tx);border-bottom:1px solid var(--line)}.focus-meta{color:var(--tx2);opacity:1}
+.focus-sitrep{background:var(--bg);border-top-color:var(--line)}.focus-actions{border-top-color:var(--line)}
+.sitrep-label{color:var(--brand-d)}.sitrep-text{color:var(--tx2)}.sitrep-timeline li{border-left-color:var(--line)}.sitrep-timeline li:before{background:var(--brand)}
+.dist-close{background:var(--crit-bg);color:var(--crit)}.dist-near{background:var(--high-bg);color:var(--high)}.dist-far{background:var(--low-bg);color:var(--low)}
+/* buttons: one primary per group */
+.focus-action-btn{background:var(--card)!important;color:var(--tx)!important;border:1px solid var(--line)!important;border-radius:6px}
+.focus-action-btn:first-child{background:var(--brand)!important;color:#fff!important;border-color:var(--brand)!important}
+body.dark .focus-action-btn:first-child,body.wall .focus-action-btn:first-child{color:#0B1220!important}
+.tri-btn{background:var(--card);border:1px solid var(--line);color:var(--tx);border-radius:6px}.tri-btn:hover{background:var(--chip)}
+.hi-in,.tri-sel,.set-grid input,.set-grid select{background:var(--card);color:var(--tx);border:1px solid var(--line);border-radius:6px}
+/* summary strip */
+.kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:16px}
+@media(max-width:800px){.kpi{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kpi-t{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;text-align:left;cursor:pointer;color:var(--tx);font:inherit;display:flex;flex-direction:column;gap:2px}
+.kpi-t:hover{border-color:var(--brand)}
+.kpi-l{font-size:.72rem;color:var(--tx2)}
+.kpi-v{font-size:1.7rem;font-weight:600;font-family:var(--mono);line-height:1.15}.kpi-v b{font-weight:600}
+.kpi-s{font-size:.78rem;color:var(--tx2);font-family:"Segoe UI",Roboto,Arial,sans-serif;font-weight:400;margin:0 6px}
+.k-crit{color:var(--crit)}.k-high{color:var(--high)}.k-ok{color:var(--low)}
+/* cards: neutral headers, colour only for severity */
+.portal{padding:16px 24px}
+.card,.card-row{background:var(--card);border:1px solid var(--line);box-shadow:none;border-radius:8px}
+.ch{background:var(--card)!important;color:var(--tx);border-bottom:1px solid var(--line);font-size:.88rem;font-weight:600;padding:10px 16px}
+.ch .ic{color:var(--brand)}
+#card-crit .ch{box-shadow:inset 3px 0 0 var(--crit)}#card-crit .ch .ic{color:var(--crit)}
+.ch-count{background:var(--chip);color:var(--tx2);font-family:var(--mono);margin-left:auto}
+.ch-arrow{color:var(--tx3);margin-left:10px}
+.row-top{align-items:start}.row-top .crit-list{max-height:380px}
+.ftabs{background:var(--card)!important;border-bottom:1px solid var(--line)!important;padding:0 8px}
+.ft{background:transparent!important;color:var(--tx2)!important;border-bottom:2px solid transparent;padding:8px 10px}
+.ft:hover{color:var(--tx)!important}
+.ft.ab,.ft.at,.ft.ap,.ft.aw{color:var(--brand)!important;border-bottom-color:var(--brand)}
+/* lists */
+.ni{border-bottom-color:var(--line2)}
+.ni a,details.rel a,.sitrep-timeline a,.sb-inc a,.location-list a{color:var(--brand)!important}
+.ni .src{color:var(--tx3)}.ni .snip{color:var(--tx2)}.ni .age{color:var(--tx2);font-weight:500}
+.tag{background:var(--chip)!important;color:var(--tx2)!important}
+.src-badge{background:var(--chip);color:var(--tx2)}
+.sev-crit{background:var(--crit)}.sev-high{background:var(--high)}.sev-med{background:var(--med-dot)}.sev-low{border-color:var(--low)!important}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:1px}
+.d-crit{background:var(--crit)}.d-high{background:var(--high)}.d-med{background:var(--med-dot)}.d-low{background:var(--low)}
+.sumi{display:inline-flex;align-items:center}
+.crit-item{background:var(--card);border:1px solid var(--line);border-left-width:3px}
+.crit-item a{color:var(--tx);font-weight:600}.crit-item .crit-meta{color:var(--tx3)}
+.alert-item{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--crit)}
+.alert-item .atitle a{color:var(--tx)}.alert-item .adesc{color:var(--tx2)}.alert-item .atime{color:var(--tx3)}
+.prox-close{background:var(--crit-bg);color:var(--crit)}.prox-near{background:var(--high-bg);color:var(--high)}
+.prox-badge .ic{margin-right:.2em}
+.sb-row{border-bottom-color:var(--line2)}
+.sb-red{background:var(--crit-bg);color:var(--crit)}.sb-amber{background:var(--high-bg);color:var(--high)}.sb-green{background:var(--low-bg);color:var(--low)}
+.sb-meta{color:var(--tx3)}
+.imp-badge{background:var(--brand-bg);color:var(--brand-d)}
+.ovd{background:#B42318;color:#fff}.ovd .ic{margin-right:.25em}
+.inc-item{border-color:var(--line);background:var(--card)}
+.st-new{background:var(--crit-bg);color:var(--crit)}.st-responding{background:var(--high-bg);color:var(--high)}.st-monitoring{background:var(--med-bg);color:var(--med)}.st-closed{background:var(--chip);color:var(--tx2)}
+.inc-notes li{border-bottom-color:var(--line2)}
+.location-list li{border-bottom-color:var(--line2)}.country-label{color:var(--brand);border-bottom-color:var(--brand)}
+.legend{background:var(--card);color:var(--tx);border:1px solid var(--line);box-shadow:none}
+.legend .ic{margin-right:.2em}
+.imk{color:#fff}.imk .ic{margin:0;width:12px;height:12px}
+.mk .ic{margin:0;width:12px;height:12px}
+.astatus{color:var(--tx)}
+code{background:var(--chip);padding:1px 4px;border-radius:4px}
+/* wall mode: summary strip on top, map left, site status + critical alerts right */
+body.wall .portal{grid-template-rows:auto auto minmax(0,1fr);height:calc(100vh - 100px)}
+body.wall #kpi{grid-column:1/3;grid-row:1;margin:0}
+body.wall #card-map{grid-row:2/4}
+body.wall #card-sb{grid-row:2}
+body.wall #card-crit{grid-row:3}
+body.wall #map{height:calc(100vh - 250px)}
+body.wall .wall-clock{font-size:1.15rem;color:var(--tx)}
+body.wall .kpi-v{font-size:2.1rem}
+
+.tier{display:inline-block;font-size:.6rem;font-weight:600;padding:1px 6px;border-radius:8px;margin-left:4px;background:var(--chip);color:var(--tx2)}.tier-2{background:var(--brand-bg);color:var(--brand-d)}
+.conf{display:inline-flex;align-items:center;font-size:.62rem;font-weight:600;padding:1px 7px;border-radius:8px;margin-right:6px;vertical-align:1px}.conf .ic{margin-right:.25em}.conf-ok{background:var(--low-bg);color:var(--low)}.conf-un{background:var(--chip);color:var(--tx2)}
+.cat{display:inline-block;font-size:.62rem;font-weight:600;padding:1px 7px;border-radius:8px;margin-right:6px;background:var(--chip);color:var(--tx2);vertical-align:1px}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9c-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2l4-4"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+<symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M7 20h10M9 16v4M15 16v4"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3l2 3H4l2-3v-3a7 7 0 0 1 4-6"/><path d="M9 17v1a3 3 0 0 0 6 0v-1"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9a9 9 0 1 1-9-9"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+<symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11A8 8 0 0 0 5.5 6.5M4 3v4h4M4 13a8 8 0 0 0 14.5 4.5M20 21v-4h-4"/></symbol>
+<symbol id="i-building" viewBox="0 0 24 24"><path d="M3 21h18M5 21V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16M15 9h3a1 1 0 0 1 1 1v11M8 8h3M8 12h3M8 16h3"/></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 4.2L2.5 18a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 4.2a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></symbol>
+<symbol id="i-folder" viewBox="0 0 24 24"><path d="M4 5h5l2 2h9a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1"/></symbol>
+<symbol id="i-map" viewBox="0 0 24 24"><path d="M3 7l6-3l6 3l6-3v13l-6 3l-6-3l-6 3z"/><path d="M9 4v13M15 7v13"/></symbol>
+<symbol id="i-storm" viewBox="0 0 24 24"><path d="M7 17a4 4 0 0 1-.6-8A6 6 0 0 1 18 9a3.5 3.5 0 0 1 .5 7"/><path d="M13 13l-2 4h3l-2 4"/></symbol>
+<symbol id="i-plane" viewBox="0 0 24 24"><path d="M16 10h4a2 2 0 0 1 0 4h-4l-4 7H9l2-7H7l-2 2H2l2-4l-2-4h3l2 2h4L9 3h3z"/></symbol>
+<symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4l2 4H5"/></symbol>
+<symbol id="i-siren" viewBox="0 0 24 24"><path d="M7 18v-6a5 5 0 0 1 10 0v6M5 18h14v3H5zM12 2v2M20 6l-1.5 1M4 6l1.5 1"/></symbol>
+<symbol id="i-suitcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
+<symbol id="i-archive" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8M10 12h4"/></symbol>
+<symbol id="i-factory" viewBox="0 0 24 24"><path d="M3 21V11l5 3v-3l5 3V7l8 4v10zM3 21h18M8 18h1M13 18h1M17 18h1"/></symbol>
+<symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6-5.5-6-11a6 6 0 0 1 12 0c0 5.5-6 11-6 11z"/><circle cx="12" cy="10" r="2"/></symbol>
+<symbol id="i-upload" viewBox="0 0 24 24"><path d="M4 17v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-2M7 9l5-5l5 5M12 4v12"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+<symbol id="i-alarm" viewBox="0 0 24 24"><circle cx="12" cy="13" r="7"/><path d="M12 10v3l2 2M5 4L3 6M19 4l2 2"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3L4 14h7l-1 7l9-11h-7z"/></symbol>
+<symbol id="i-printer" viewBox="0 0 24 24"><path d="M7 9V3h10v6M7 17H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><rect x="7" y="14" width="10" height="7"/></symbol>
+</defs></svg>
 <a class="sr-only" href="#main">Skip to content</a>
-<div class="header"><div class="header-left"><h1>🔒 Dell EMEA Security Portal</h1><p><span class="live-dot live-dot-green" id="liveDot"></span><span id="liveStatus">LIVE</span> — Europe, Middle East &amp; Africa <button type="button" class="hdr-btn" id="feedHealth" style="margin-left:10px;padding:1px 10px" aria-expanded="false" aria-controls="feedPanel" onclick="toggleFeedPanel()">Feeds…</button></p><div id="feedPanel" style="display:none" aria-live="polite"></div></div><div class="hdr-btns"><label class="sr-only" for="patchSel">My patch</label><select id="patchSel" class="patch-sel" onchange="setPatch(this.value)" title="My patch — filters every panel to one manager's countries (remembered on this browser)"><option value="">🌍 All EMEA</option><option value="jonathan">👤 Jonathan</option><option value="maciej">👤 Maciej</option><option value="vladimir">👤 Vladimir</option><option value="mehdi">👤 Mehdi</option><option value="mohamed">👤 Mohamed</option></select><div style="position:relative;display:inline-block"><button class="hdr-btn" onclick="document.getElementById('briefMenu').classList.toggle('open')" id="briefBtn">📋 Briefing ▾</button><div id="briefMenu" style="display:none;position:absolute;right:0;top:110%;background:#fff;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.2);min-width:240px;z-index:999;overflow:hidden;font-size:.78rem"><a onclick="genBrief('all');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">📋 Full EMEA</a><a onclick="genBrief('jonathan');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">👤 Jonathan</a><a onclick="genBrief('maciej');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">👤 Maciej</a><a onclick="genBrief('vladimir');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">👤 Vladimir</a><a onclick="genBrief('mehdi');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">👤 Mehdi</a><a onclick="genBrief('mohamed');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">👤 Mohamed</a><a onclick="genBrief('critical');closeBM()" style="display:block;padding:10px 16px;color:#DC3545;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer;font-weight:700">⚠️ Critical Only</a><a onclick="openReport();closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;cursor:pointer">🖨️ Report</a></div></div><span class="wall-clock" id="wallClock" aria-live="off"></span><button class="hdr-btn" onclick="toggleWall()" id="wallBtn" title="Wall-screen mode for a SOC monitor (Esc to exit)">🖥️ Wall</button><button class="hdr-btn" onclick="toggleNotif()" id="notifBtn">🔔 Off</button><button class="hdr-btn dark-toggle" onclick="toggleDark()" id="darkBtn">🌙 Dark</button></div></div>
-<div class="ticker-bar"><div class="ticker-label">🔴 BREAKING</div><div class="ticker-wrap"><div class="ticker-content" id="tickerContent"><span class="ticker-empty">Scanning EMEA...</span></div></div></div>
+<div class="header"><div class="header-left"><h1><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg>Dell EMEA Security Portal</h1><p><span class="live-dot live-dot-green" id="liveDot"></span><span id="liveStatus">LIVE</span> — Europe, Middle East &amp; Africa <span id="fresh" class="fresh f-warn" role="status">Waiting for data</span> <button type="button" class="hdr-btn" id="feedHealth" style="margin-left:10px;padding:1px 10px" aria-expanded="false" aria-controls="feedPanel" onclick="toggleFeedPanel()">Feeds…</button></p><div id="feedPanel" style="display:none" aria-live="polite"></div></div><div class="hdr-btns"><label class="sr-only" for="patchSel">My patch</label><select id="patchSel" class="patch-sel" onchange="setPatch(this.value)" title="My patch — filters every panel to one manager's countries (remembered on this browser)"><option value="">All EMEA</option><option value="jonathan">Jonathan</option><option value="maciej">Maciej</option><option value="vladimir">Vladimir</option><option value="mehdi">Mehdi</option><option value="mohamed">Mohamed</option></select><div style="position:relative;display:inline-block"><button class="hdr-btn" onclick="document.getElementById('briefMenu').classList.toggle('open')" id="briefBtn">Briefing ▾</button><div id="briefMenu" style="display:none;position:absolute;right:0;top:110%;background:#fff;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.2);min-width:240px;z-index:999;overflow:hidden;font-size:.78rem"><a onclick="genBrief('all');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">Full EMEA</a><a onclick="genBrief('jonathan');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">Jonathan</a><a onclick="genBrief('maciej');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">Maciej</a><a onclick="genBrief('vladimir');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">Vladimir</a><a onclick="genBrief('mehdi');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">Mehdi</a><a onclick="genBrief('mohamed');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">Mohamed</a><a onclick="genBrief('critical');closeBM()" style="display:block;padding:10px 16px;color:#DC3545;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer;font-weight:700">Critical only</a><a onclick="openReport();closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;cursor:pointer">Printable report</a></div></div><span class="wall-clock" id="wallClock" aria-live="off"></span><button class="hdr-btn" onclick="toggleWall()" id="wallBtn" title="Wall-screen mode for a SOC monitor (Esc to exit)"><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg>Wall</button><button class="hdr-btn" onclick="toggleNotif()" id="notifBtn"><svg class="ic" aria-hidden="true"><use href="#i-bell"/></svg>Alerts off</button><button class="hdr-btn dark-toggle" onclick="toggleDark()" id="darkBtn"><svg class="ic" aria-hidden="true"><use href="#i-moon"/></svg>Dark</button></div></div>
+<div class="ticker-bar"><div class="ticker-label"><span class="tdot"></span>Breaking</div><div class="ticker-wrap"><div class="ticker-content" id="tickerContent"><span class="ticker-empty">Scanning EMEA...</span></div></div></div>
 <div class="team-bar"><div class="team-item"><span class="team-dot" style="background:#00A650"></span><span class="team-name">Jonathan</span><span class="team-region" title="IE, UK, DE, IL">IE, UK, DE, IL</span></div><div class="team-item"><span class="team-dot" style="background:#0076CE"></span><span class="team-name">Maciej</span><span class="team-region" title="PL, DK, SE, NO, FI">PL, DK, SE, NO, FI</span></div><div class="team-item"><span class="team-dot" style="background:#FFCC00"></span><span class="team-name">Vladimir</span><span class="team-region" title="NL, BE, LU, CH, AT, CZ, SK, SI, HU, HR, RS, MK, BG, RO, GR, TR, EE, LT, UA, KZ">NL, BE, LU, CH, AT, CZ, SK, SI, HU, HR, RS, MK, BG, RO, GR, TR, EE, LT, UA, KZ</span></div><div class="team-item"><span class="team-dot" style="background:#E67E22"></span><span class="team-name">Mehdi</span><span class="team-region" title="FR, ES, PT, IT, MA, DZ, TN, ZA, KE, NG, ET, SN, AO, GH">FR, ES, PT, IT, MA, DZ, TN, ZA, KE, NG, ET, SN, AO, GH</span></div><div class="team-item"><span class="team-dot" style="background:#DC3545"></span><span class="team-name">Mohamed</span><span class="team-region" title="UAE, SA, EG, JO, IQ, KW, QA, BH, OM, LB, LY">UAE, SA, EG, JO, IQ, KW, QA, BH, OM, LB, LY</span></div></div>
-<div class="focus-bar"><span style="font-size:.9rem">🎯</span><input type="text" class="focus-input" id="focusInput" placeholder="Event Focus: Enter country, city, or event..." onkeydown="if(event.key==='Enter')runFocus()"><button class="focus-btn" onclick="runFocus()">Focus</button><button class="focus-clear" onclick="clearFocus()" id="focusClearBtn" style="display:none">✕ Clear</button></div>
-<div class="focus-panel" id="focusPanel"><div class="focus-card"><div class="focus-header"><div class="focus-title" id="focusTitle">🎯 Event Focus</div><div class="focus-meta"><span class="focus-stat" id="focusArticles">📰 0</span><span class="focus-stat" id="focusSeverity"></span><span class="focus-stat" id="focusTimeline"></span><span class="focus-stat" id="focusManager"></span></div></div><div class="focus-sitrep" id="focusSitrep"></div><div class="focus-actions"><button class="focus-action-btn" style="background:#0076CE;color:#fff" onclick="copySitrep()">📋 Copy Sitrep</button><button class="focus-action-btn" style="background:#28A745;color:#fff" onclick="fetchFocusFeed()">🔄 Refresh</button></div><div class="focus-articles" id="focusArticleList"></div></div></div>
+<div class="focus-bar"><span style="font-size:1rem;color:var(--tx2)"><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg></span><input type="text" class="focus-input" id="focusInput" placeholder="Event Focus: Enter country, city, or event..." onkeydown="if(event.key==='Enter')runFocus()"><button class="focus-btn" onclick="runFocus()">Focus</button><button class="focus-clear" onclick="clearFocus()" id="focusClearBtn" style="display:none">✕ Clear</button></div>
+<div class="focus-panel" id="focusPanel"><div class="focus-card"><div class="focus-header"><div class="focus-title" id="focusTitle">Event focus</div><div class="focus-meta"><span class="focus-stat" id="focusArticles">0 articles</span><span class="focus-stat" id="focusSeverity"></span><span class="focus-stat" id="focusTimeline"></span><span class="focus-stat" id="focusManager"></span></div></div><div class="focus-sitrep" id="focusSitrep"></div><div class="focus-actions"><button class="focus-action-btn" style="background:#0076CE;color:#fff" onclick="copySitrep()"><svg class="ic" aria-hidden="true"><use href="#i-copy"/></svg>Copy sitrep</button><button class="focus-action-btn" style="background:#28A745;color:#fff" onclick="fetchFocusFeed()"><svg class="ic" aria-hidden="true"><use href="#i-refresh"/></svg>Refresh</button></div><div class="focus-articles" id="focusArticleList"></div></div></div>
 <div class="portal" id="main" role="main">
-<div class="card" id="card-sb"><div class="ch ch-dark" onclick="tog('sb')">🏢 Site Status<span class="ch-count" id="sbCount">-</span><span class="ch-arrow open" id="arrow-sb">▼</span></div><div class="collapsible open" id="col-sb"><div class="card-body" style="padding:10px 18px"><div class="sb-sum" id="sbSum"></div><ul class="sb-list" id="sbList"><li style="text-align:center;padding:16px;color:#888">Waiting for feeds...</li></ul></div></div></div>
-<div class="card" id="card-crit"><div class="ch ch-critical" onclick="tog('crit')">⚠️ EMEA Critical &amp; High Alerts<span class="ch-count" id="critCount">-</span><span class="ch-arrow" id="arrow-crit">▼</span></div><div class="collapsible" id="col-crit"><div class="card-body" style="padding:10px 18px"><ul class="crit-list" id="fd-crit"><li style="text-align:center;padding:16px;color:#888">Scanning...</li></ul></div></div></div>
-<div class="card" id="card-inc"><div class="ch ch-dark" onclick="tog('inc')">📁 Incidents<span class="ch-count" id="incCount">0</span><span class="ch-arrow" id="arrow-inc">▼</span></div><div class="collapsible" id="col-inc"><div class="card-body"><div class="sb-sum" id="incSum"></div><div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px"><button type="button" class="tri-btn" onclick="incNew()">＋ New incident</button><select id="incFlt" class="hi-in" onchange="rinc()" aria-label="Show incidents"><option value="open">Open</option><option value="all">All (30 days)</option><option value="closed">Closed</option></select><button type="button" class="tri-btn" onclick="incExportAll()">📋 Copy incident log</button></div><div id="incList"></div><p class="sitrep-text" style="font-size:.72rem;margin-top:6px">Incident records are stored in this browser only until the portal is hosted on a server — use “Copy timeline” or “Report” to share them.</p></div></div></div>
-<div class="row">
-<div class="card card-row" id="card-map"><div class="ch ch-blue" style="cursor:default">🗺️ Dell EMEA Locations<span class="ch-count" id="siteCount">48</span></div><div class="card-body" style="padding:0"><div id="map"></div><div class="map-fallback" id="mapFallback"><div id="fallbackLocations"></div></div></div></div>
-<div class="card card-row" id="card-sec"><div class="ch ch-dark" style="cursor:default" id="hd-sec">🔒 Security Intelligence<span class="ch-count" id="secCount">-</span></div><div class="ftabs b-blue" id="tabs-sec"><button class="ft ab" onclick="sw('sec','all',this,'ab')">All</button><button class="ft" onclick="sw('sec','jonathan',this,'ab')">Jonathan</button><button class="ft" onclick="sw('sec','maciej',this,'ab')">Maciej</button><button class="ft" onclick="sw('sec','vladimir',this,'ab')">Vladimir</button><button class="ft" onclick="sw('sec','mehdi',this,'ab')">Mehdi</button><button class="ft" onclick="sw('sec','mohamed',this,'ab')">Mohamed</button></div><div class="card-body" style="padding:6px 14px"><ul class="nlist-tall" id="fd-sec"><li style="text-align:center;padding:30px;color:#888">Loading...</li></ul></div></div>
+<div class="kpi" id="kpi" role="region" aria-label="Situation summary">
+<button type="button" class="kpi-t" onclick="kpiGo('card-crit')"><span class="kpi-l">Open critical / high</span><span class="kpi-v"><b id="kpiC">–</b><span class="kpi-s">/</span><b id="kpiH">–</b></span></button>
+<button type="button" class="kpi-t" onclick="kpiGo('card-sb')"><span class="kpi-l">Sites affected</span><span class="kpi-v"><b id="kpiS">–</b><span class="kpi-s" id="kpiS2"></span></span></button>
+<button type="button" class="kpi-t" onclick="kpiGo('card-crit')"><span class="kpi-l">Waiting past escalation time</span><span class="kpi-v"><b id="kpiO">–</b></span></button>
+<button type="button" class="kpi-t" onclick="toggleFeedPanel()"><span class="kpi-l">Feeds working</span><span class="kpi-v"><b id="kpiF">–</b><span class="kpi-s" id="kpiF2"></span></span></button>
 </div>
-<div class="card"><div class="ch ch-weather" style="cursor:default" id="hd-wx">🌦️ EMEA Critical Weather<span class="ch-count" id="wxCount">-</span></div><div class="ftabs b-weather" id="tabs-wx"><button class="ft aw" onclick="sw('wx','all',this,'aw')">All</button><button class="ft" onclick="sw('wx','jonathan',this,'aw')">Jonathan</button><button class="ft" onclick="sw('wx','maciej',this,'aw')">Maciej</button><button class="ft" onclick="sw('wx','vladimir',this,'aw')">Vladimir</button><button class="ft" onclick="sw('wx','mehdi',this,'aw')">Mehdi</button><button class="ft" onclick="sw('wx','mohamed',this,'aw')">Mohamed</button></div><div class="card-body" style="padding:6px 14px"><ul class="nlist" id="fd-wx"><li style="text-align:center;padding:20px;color:#888">Loading weather...</li></ul></div></div>
-<div class="card"><div class="ch ch-travel" onclick="tog('tv')">✈️ Travel Advisories<span class="ch-count" id="tvCount">-</span><span class="ch-arrow" id="arrow-tv">▼</span></div><div class="collapsible" id="col-tv"><div class="ftabs b-travel" id="tabs-tv"><button class="ft at" onclick="sw('tv','all',this,'at')">All</button><button class="ft" onclick="sw('tv','jonathan',this,'at')">Jonathan</button><button class="ft" onclick="sw('tv','maciej',this,'at')">Maciej</button><button class="ft" onclick="sw('tv','vladimir',this,'at')">Vladimir</button><button class="ft" onclick="sw('tv','mehdi',this,'at')">Mehdi</button><button class="ft" onclick="sw('tv','mohamed',this,'at')">Mohamed</button></div><div class="card-body" style="padding:6px 14px"><ul class="nlist" id="fd-tv"><li style="text-align:center;padding:20px;color:#888">Loading...</li></ul></div></div></div>
-<div class="card"><div class="ch ch-protest" onclick="tog('pr')">🪧 Protest &amp; Civil Unrest<span class="ch-count" id="prCount">-</span><span class="ch-arrow" id="arrow-pr">▼</span></div><div class="collapsible" id="col-pr"><div class="ftabs b-protest" id="tabs-pr"><button class="ft ap" onclick="sw('pr','all',this,'ap')">All</button><button class="ft" onclick="sw('pr','jonathan',this,'ap')">Jonathan</button><button class="ft" onclick="sw('pr','maciej',this,'ap')">Maciej</button><button class="ft" onclick="sw('pr','vladimir',this,'ap')">Vladimir</button><button class="ft" onclick="sw('pr','mehdi',this,'ap')">Mehdi</button><button class="ft" onclick="sw('pr','mohamed',this,'ap')">Mohamed</button></div><div class="card-body" style="padding:6px 14px"><ul class="nlist" id="fd-pr"><li style="text-align:center;padding:20px;color:#888">Loading...</li></ul></div></div></div>
-<div class="card"><div class="ch ch-red" onclick="tog('ra')">🚨 Israel Red Alert (news-based)<span class="ch-count" id="raCount">-</span><span class="ch-arrow" id="arrow-ra">▼</span></div><div class="collapsible" id="col-ra"><div class="astatus"><span class="sdot sg" id="statusDot"></span><span id="statusText">Checking...</span></div><div class="alert-panel" id="alertPanel"><div style="text-align:center;padding:16px;color:#888">Loading...</div></div></div></div>
-<div class="card"><div class="ch ch-dark" onclick="tog('sh')">🔄 Shift Handover<span class="ch-count" id="shCount">-</span><span class="ch-arrow" id="arrow-sh">▼</span></div><div class="collapsible" id="col-sh"><div class="card-body" id="shBody"></div></div></div>
-<div class="card"><div class="ch ch-travel" onclick="tog('trv')">🧳 Travellers<span class="ch-count" id="trvCount">0</span><span class="ch-arrow" id="arrow-trv">▼</span></div><div class="collapsible" id="col-trv"><div class="card-body"><p class="sitrep-text" style="margin-bottom:8px">Import a CSV with columns <code>name,city,lat,lng,from,to</code> (lat/lng optional if the city is known; dates as YYYY-MM-DD). Travellers appear on the map and are checked against incidents within 50km. <strong>This personal data stays in this browser only and is never sent to the server. Entries are deleted automatically the day after their end date.</strong></p><label class="tri-btn" style="display:inline-block;cursor:pointer">📂 Import CSV<input type="file" id="trvFile" accept=".csv,text/csv" onchange="trvImport(this)" class="sr-only"></label> <button type="button" class="tri-btn" onclick="trvClear()">Clear</button><ul class="location-list" id="trvList"></ul></div></div></div>
-<div class="card"><div class="ch ch-dark" onclick="tog('hi')">🗂️ History (7 days)<span class="ch-count" id="hiCount">-</span><span class="ch-arrow" id="arrow-hi">▼</span></div><div class="collapsible" id="col-hi"><div class="card-body"><div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px"><input id="hiQ" class="hi-in" placeholder="Search history…" oninput="rhist()" aria-label="Search history"><select id="hiLv" class="hi-in" onchange="rhist()" aria-label="Minimum severity"><option value="0">All severities</option><option value="1">Medium+</option><option value="2">High+</option><option value="3">Critical</option></select><select id="hiMg" class="hi-in" onchange="rhist()" aria-label="Manager"><option value="">All managers</option><option value="jonathan">Jonathan</option><option value="maciej">Maciej</option><option value="vladimir">Vladimir</option><option value="mehdi">Mehdi</option><option value="mohamed">Mohamed</option></select></div><ul class="nlist" id="fd-hi"></ul></div></div></div>
-<div class="card"><div class="ch ch-blue" onclick="tog('as')">🏭 Other Assets<span class="ch-count" id="asCount">0</span><span class="ch-arrow" id="arrow-as">▼</span></div><div class="collapsible" id="col-as"><div class="card-body"><p class="sitrep-text" style="margin-bottom:8px">Import a CSV with columns <code>name,type,city,lat,lng,country,manager,importance</code> — e.g. data centres, logistics hubs, key suppliers, ports or airports. lat/lng are optional if the city is known; manager (jonathan, maciej, vladimir, mehdi or mohamed) defaults to the nearest Dell site's manager; importance is 1–3 (default 1). Assets appear on the map (square “A” markers) and the Site Status board, and are scored like Dell sites. A new import replaces the previous list. Stored in this browser only.</p><label class="tri-btn" style="display:inline-block;cursor:pointer">📂 Import CSV<input type="file" accept=".csv,text/csv" onchange="asImport(this)" class="sr-only"></label> <button type="button" class="tri-btn" onclick="asClear()">Clear</button><ul class="location-list" id="asList"></ul></div></div></div>
-<div class="card"><div class="ch ch-dark" onclick="tog('set')">⚙️ Alert Rules &amp; Settings<span class="ch-arrow" id="arrow-set">▼</span></div><div class="collapsible" id="col-set"><div class="card-body"><div class="set-grid" id="setGrid"></div><div style="margin-top:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap"><button type="button" class="focus-action-btn" style="background:#0076CE;color:#fff" onclick="setSave()">Save rules</button><button type="button" class="focus-action-btn" style="background:#6c757d;color:#fff" onclick="setReset()">Reset to defaults</button><span id="setMsg" class="sitrep-text"></span></div><p class="sitrep-text" style="font-size:.72rem;margin-top:8px">Rules apply in this browser only. Escalation flags and desktop alerts work while the portal is open; Teams/email escalation needs the portal server.</p></div></div></div>
-<div class="card"><div class="ch ch-dark" onclick="tog('src')">ℹ️ Sources &amp; Terms<span class="ch-arrow" id="arrow-src">▼</span></div><div class="collapsible" id="col-src"><div class="card-body sitrep-text" style="font-size:.78rem">
+<div class="row row-top">
+<div class="card card-row" id="card-sb"><div class="ch ch-dark" onclick="tog('sb')"><svg class="ic" aria-hidden="true"><use href="#i-building"/></svg>Site status<span class="ch-count" id="sbCount">-</span><span class="ch-arrow open" id="arrow-sb">▼</span></div><div class="collapsible open" id="col-sb"><div class="card-body" style="padding:10px 18px"><div class="sb-sum" id="sbSum"></div><ul class="sb-list" id="sbList"><li style="text-align:center;padding:16px;color:#888">Waiting for feeds...</li></ul></div></div></div>
+<div class="card card-row" id="card-crit"><div class="ch ch-critical" onclick="tog('crit')"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg>Critical and high alerts<span class="ch-count" id="critCount">-</span><span class="ch-arrow" id="arrow-crit">▼</span></div><div class="collapsible" id="col-crit"><div class="card-body" style="padding:10px 18px"><ul class="crit-list" id="fd-crit"><li style="text-align:center;padding:16px;color:#888">Scanning...</li></ul></div></div></div>
+</div>
+<div class="card" id="card-inc"><div class="ch ch-dark" onclick="tog('inc')"><svg class="ic" aria-hidden="true"><use href="#i-folder"/></svg>Incidents<span class="ch-count" id="incCount">0</span><span class="ch-arrow" id="arrow-inc">▼</span></div><div class="collapsible" id="col-inc"><div class="card-body"><div class="sb-sum" id="incSum"></div><div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px"><button type="button" class="tri-btn" onclick="incNew()">＋ New incident</button><select id="incFlt" class="hi-in" onchange="rinc()" aria-label="Show incidents"><option value="open">Open</option><option value="all">All (30 days)</option><option value="closed">Closed</option></select><button type="button" class="tri-btn" onclick="incExportAll()"><svg class="ic" aria-hidden="true"><use href="#i-copy"/></svg>Copy incident log</button></div><div id="incList"></div><p class="sitrep-text" style="font-size:.72rem;margin-top:6px">Incident records are stored in this browser only until the portal is hosted on a server — use “Copy timeline” or “Report” to share them.</p></div></div></div>
+<div class="row">
+<div class="card card-row" id="card-map"><div class="ch ch-blue" style="cursor:default"><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg>Dell EMEA locations<span class="ch-count" id="siteCount">48</span></div><div class="card-body" style="padding:0"><div id="map"></div><div class="map-fallback" id="mapFallback"><div id="fallbackLocations"></div></div></div></div>
+<div class="card card-row" id="card-sec"><div class="ch ch-dark" style="cursor:default" id="hd-sec"><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg>Security intelligence<span class="ch-count" id="secCount">-</span></div><div class="ftabs b-blue" id="tabs-sec"><button class="ft ab" onclick="sw('sec','all',this,'ab')">All</button><button class="ft" onclick="sw('sec','jonathan',this,'ab')">Jonathan</button><button class="ft" onclick="sw('sec','maciej',this,'ab')">Maciej</button><button class="ft" onclick="sw('sec','vladimir',this,'ab')">Vladimir</button><button class="ft" onclick="sw('sec','mehdi',this,'ab')">Mehdi</button><button class="ft" onclick="sw('sec','mohamed',this,'ab')">Mohamed</button></div><div class="card-body" style="padding:6px 14px"><ul class="nlist-tall" id="fd-sec"><li style="text-align:center;padding:30px;color:#888">Loading...</li></ul></div></div>
+</div>
+<div class="card"><div class="ch ch-weather" style="cursor:default" id="hd-wx"><svg class="ic" aria-hidden="true"><use href="#i-storm"/></svg>Weather and hazards<span class="ch-count" id="wxCount">-</span></div><div class="ftabs b-weather" id="tabs-wx"><button class="ft aw" onclick="sw('wx','all',this,'aw')">All</button><button class="ft" onclick="sw('wx','jonathan',this,'aw')">Jonathan</button><button class="ft" onclick="sw('wx','maciej',this,'aw')">Maciej</button><button class="ft" onclick="sw('wx','vladimir',this,'aw')">Vladimir</button><button class="ft" onclick="sw('wx','mehdi',this,'aw')">Mehdi</button><button class="ft" onclick="sw('wx','mohamed',this,'aw')">Mohamed</button></div><div class="card-body" style="padding:6px 14px"><ul class="nlist" id="fd-wx"><li style="text-align:center;padding:20px;color:#888">Loading weather...</li></ul></div></div>
+<div class="card"><div class="ch ch-travel" onclick="tog('tv')"><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg>Travel advisories<span class="ch-count" id="tvCount">-</span><span class="ch-arrow" id="arrow-tv">▼</span></div><div class="collapsible" id="col-tv"><div class="ftabs b-travel" id="tabs-tv"><button class="ft at" onclick="sw('tv','all',this,'at')">All</button><button class="ft" onclick="sw('tv','jonathan',this,'at')">Jonathan</button><button class="ft" onclick="sw('tv','maciej',this,'at')">Maciej</button><button class="ft" onclick="sw('tv','vladimir',this,'at')">Vladimir</button><button class="ft" onclick="sw('tv','mehdi',this,'at')">Mehdi</button><button class="ft" onclick="sw('tv','mohamed',this,'at')">Mohamed</button></div><div class="card-body" style="padding:6px 14px"><ul class="nlist" id="fd-tv"><li style="text-align:center;padding:20px;color:#888">Loading...</li></ul></div></div></div>
+<div class="card"><div class="ch ch-protest" onclick="tog('pr')"><svg class="ic" aria-hidden="true"><use href="#i-flag"/></svg>Protest and civil unrest<span class="ch-count" id="prCount">-</span><span class="ch-arrow" id="arrow-pr">▼</span></div><div class="collapsible" id="col-pr"><div class="ftabs b-protest" id="tabs-pr"><button class="ft ap" onclick="sw('pr','all',this,'ap')">All</button><button class="ft" onclick="sw('pr','jonathan',this,'ap')">Jonathan</button><button class="ft" onclick="sw('pr','maciej',this,'ap')">Maciej</button><button class="ft" onclick="sw('pr','vladimir',this,'ap')">Vladimir</button><button class="ft" onclick="sw('pr','mehdi',this,'ap')">Mehdi</button><button class="ft" onclick="sw('pr','mohamed',this,'ap')">Mohamed</button></div><div class="card-body" style="padding:6px 14px"><ul class="nlist" id="fd-pr"><li style="text-align:center;padding:20px;color:#888">Loading...</li></ul></div></div></div>
+<div class="card"><div class="ch ch-red" onclick="tog('ra')"><svg class="ic" aria-hidden="true"><use href="#i-siren"/></svg>Israel red alert (news-based)<span class="ch-count" id="raCount">-</span><span class="ch-arrow" id="arrow-ra">▼</span></div><div class="collapsible" id="col-ra"><div class="astatus"><span class="sdot sg" id="statusDot"></span><span id="statusText">Checking...</span></div><div class="alert-panel" id="alertPanel"><div style="text-align:center;padding:16px;color:#888">Loading...</div></div></div></div>
+<div class="card"><div class="ch ch-dark" onclick="tog('sh')"><svg class="ic" aria-hidden="true"><use href="#i-refresh"/></svg>Shift handover<span class="ch-count" id="shCount">-</span><span class="ch-arrow" id="arrow-sh">▼</span></div><div class="collapsible" id="col-sh"><div class="card-body" id="shBody"></div></div></div>
+<div class="card"><div class="ch ch-travel" onclick="tog('trv')"><svg class="ic" aria-hidden="true"><use href="#i-suitcase"/></svg>Travellers<span class="ch-count" id="trvCount">0</span><span class="ch-arrow" id="arrow-trv">▼</span></div><div class="collapsible" id="col-trv"><div class="card-body"><p class="sitrep-text" style="margin-bottom:8px">Import a CSV with columns <code>name,city,lat,lng,from,to</code> (lat/lng optional if the city is known; dates as YYYY-MM-DD). Travellers appear on the map and are checked against incidents within 50km. <strong>This personal data stays in this browser only and is never sent to the server. Entries are deleted automatically the day after their end date.</strong></p><label class="tri-btn" style="display:inline-block;cursor:pointer"><svg class="ic" aria-hidden="true"><use href="#i-upload"/></svg>Import CSV<input type="file" id="trvFile" accept=".csv,text/csv" onchange="trvImport(this)" class="sr-only"></label> <button type="button" class="tri-btn" onclick="trvClear()">Clear</button><ul class="location-list" id="trvList"></ul></div></div></div>
+<div class="card"><div class="ch ch-dark" onclick="tog('hi')"><svg class="ic" aria-hidden="true"><use href="#i-archive"/></svg>History (7 days)<span class="ch-count" id="hiCount">-</span><span class="ch-arrow" id="arrow-hi">▼</span></div><div class="collapsible" id="col-hi"><div class="card-body"><div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px"><input id="hiQ" class="hi-in" placeholder="Search history…" oninput="rhist()" aria-label="Search history"><select id="hiLv" class="hi-in" onchange="rhist()" aria-label="Minimum severity"><option value="0">All severities</option><option value="1">Medium+</option><option value="2">High+</option><option value="3">Critical</option></select><select id="hiMg" class="hi-in" onchange="rhist()" aria-label="Manager"><option value="">All managers</option><option value="jonathan">Jonathan</option><option value="maciej">Maciej</option><option value="vladimir">Vladimir</option><option value="mehdi">Mehdi</option><option value="mohamed">Mohamed</option></select></div><ul class="nlist" id="fd-hi"></ul></div></div></div>
+<div class="card"><div class="ch ch-blue" onclick="tog('as')"><svg class="ic" aria-hidden="true"><use href="#i-factory"/></svg>Other assets<span class="ch-count" id="asCount">0</span><span class="ch-arrow" id="arrow-as">▼</span></div><div class="collapsible" id="col-as"><div class="card-body"><p class="sitrep-text" style="margin-bottom:8px">Import a CSV with columns <code>name,type,city,lat,lng,country,manager,importance</code> — e.g. data centres, logistics hubs, key suppliers, ports or airports. lat/lng are optional if the city is known; manager (jonathan, maciej, vladimir, mehdi or mohamed) defaults to the nearest Dell site's manager; importance is 1–3 (default 1). Assets appear on the map (square “A” markers) and the Site Status board, and are scored like Dell sites. A new import replaces the previous list. Stored in this browser only.</p><label class="tri-btn" style="display:inline-block;cursor:pointer"><svg class="ic" aria-hidden="true"><use href="#i-upload"/></svg>Import CSV<input type="file" accept=".csv,text/csv" onchange="asImport(this)" class="sr-only"></label> <button type="button" class="tri-btn" onclick="asClear()">Clear</button><ul class="location-list" id="asList"></ul></div></div></div>
+<div class="card"><div class="ch ch-dark" onclick="tog('set')"><svg class="ic" aria-hidden="true"><use href="#i-settings"/></svg>Alert rules and settings<span class="ch-arrow" id="arrow-set">▼</span></div><div class="collapsible" id="col-set"><div class="card-body"><div class="set-grid" id="setGrid"></div><div style="margin-top:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap"><button type="button" class="focus-action-btn" style="background:#0076CE;color:#fff" onclick="setSave()">Save rules</button><button type="button" class="focus-action-btn" style="background:#6c757d;color:#fff" onclick="setReset()">Reset to defaults</button><span id="setMsg" class="sitrep-text"></span></div><p class="sitrep-text" style="font-size:.72rem;margin-top:8px">Rules apply in this browser only. Escalation flags and desktop alerts work while the portal is open; Teams/email escalation needs the portal server.</p></div></div></div>
+<div class="card"><div class="ch ch-dark" onclick="tog('src')"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg>Sources and terms<span class="ch-arrow" id="arrow-src">▼</span></div><div class="collapsible" id="col-src"><div class="card-body sitrep-text" style="font-size:.78rem">
 <p>Headlines link to the original publisher; article content is not republished. Before wider internal rollout, confirm with Legal/Procurement that this use complies with each provider's terms (especially Google News RSS, rss2json and public map tiles).</p>
 <ul style="margin:6px 0 0 18px"><li>News: Google News RSS, BBC, The Guardian, Sky News, France 24, DW, Al Jazeera, Times of Israel, Jerusalem Post — © respective publishers.</li><li>Hazards: <a href="https://earthquake.usgs.gov" target="_blank" rel="noopener">USGS</a> (public domain); <a href="https://www.gdacs.org" target="_blank" rel="noopener">GDACS</a> (European Commission JRC / UN OCHA); <a href="https://meteoalarm.org" target="_blank" rel="noopener">MeteoAlarm</a> (CC BY 4.0 with additional terms).</li><li>Travel: <a href="https://www.gov.uk/foreign-travel-advice" target="_blank" rel="noopener">UK FCDO</a> (Open Government Licence v3.0); <a href="https://travel.state.gov" target="_blank" rel="noopener">US State Department</a> (public domain).</li><li>Maps: Leaflet (BSD-2); basemaps © Esri and © OpenStreetMap contributors (ODbL; OSM tile usage policy applies).</li><li>Feed conversion: rss2json.com (public service, rate-limited) unless portal-server.js is used.</li><li>Israel Red Alert panel is built from news reports, not the Home Front Command siren feed — it is not a real-time siren alert.</li></ul></div></div></div>
-<div class="card"><div class="ch ch-blue" onclick="tog('loc')">📍 Location Details<span class="ch-count" id="locCount">48</span><span class="ch-arrow" id="arrow-loc">▼</span></div><div class="collapsible" id="col-loc"><div class="card-body"><ul class="location-list" id="locationDetails"></ul></div></div></div>
+<div class="card"><div class="ch ch-blue" onclick="tog('loc')"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Location details<span class="ch-count" id="locCount">48</span><span class="ch-arrow" id="arrow-loc">▼</span></div><div class="collapsible" id="col-loc"><div class="card-body"><ul class="location-list" id="locationDetails"></ul></div></div></div>
 </div>
 <script>
 /* =====================================================================
@@ -159,7 +306,7 @@ var SEVW={low:1,med:2,high:3,crit:4};
    r3/r2/r1 = alert radius in km for ★★★ / ★★ / ★ sites; escMin = minutes before an unacknowledged
    critical/high incident near a site is flagged; escImp = minimum site importance for escalation;
    notify = "all" (all critical/high in my patch) or "near" (only within a site's alert radius). */
-var RULES_DEF={r3:50,r2:35,r1:25,escMin:15,escImp:2,notify:"all"};
+var RULES_DEF={r3:50,r2:35,r1:25,escMin:15,escImp:2,notify:"all",escConf:false};
 var RULES=Object.assign({},RULES_DEF);
 try{Object.assign(RULES,JSON.parse(localStorage.getItem("rules")||"{}"))}catch(e){}
 function siteRadius(s){var i=siteImp(s);return i>=3?RULES.r3:i===2?RULES.r2:RULES.r1}
@@ -214,13 +361,14 @@ function rsites(){
     h+='<li class="sb-row"><span class="sb-chip sb-'+st+'">'+(st==="green"?"CLEAR":esc(r.label))+'</span>';
     h+='<span class="sb-name">'+esc(x.s.name.replace(/^Dell - /,""))+' <span class="sb-imp" title="Site importance '+siteImp(x.s)+'/3">'+"★".repeat(siteImp(x.s))+'</span><div class="sb-meta">'+esc(x.s.country)+" · "+esc(MN[x.s.mgr]||x.s.mgr)+(st!=="green"?" · impact "+(Math.round(r.score*10)/10):"")+"</div></span>";
     h+='<span class="sb-inc">'+(top?'<a href="'+eurl(top.link)+'" target="_blank" rel="noopener" title="'+esc(top.title)+'">'+esc(top.title)+'</a> <span class="sb-meta">'+top.d+"km"+(r.n>1?" · "+r.n+" incidents":"")+"</span>":'<span class="sb-meta">No medium+ incidents within '+r.rad+"km</span>")+"</span>";
-    h+='<button type="button" class="tri-btn" onclick="focusSite('+x.j+')" aria-label="Event focus on '+esc(siteCity(x.s))+'">🎯 Focus</button></li>';
+    h+='<button type="button" class="tri-btn" onclick="focusSite('+x.j+')" aria-label="Event focus on '+esc(siteCity(x.s))+'">'+ic("target")+'Focus</button></li>';
   });
-  if(!n.red&&!n.amber&&!SB_ALL)h='<li style="text-align:center;padding:14px;color:#28A745;font-weight:600">✅ All '+rows.length+" sites clear — no medium or higher incidents within their alert radius ("+RULES.r3+"/"+RULES.r2+"/"+RULES.r1+" km for ★★★/★★/★).</li>";
+  if(!n.red&&!n.amber&&!SB_ALL)h='<li style="text-align:center;padding:14px;color:var(--low);font-weight:600">'+ic("check")+'All '+rows.length+" sites clear — no medium or higher incidents within their alert radius ("+RULES.r3+"/"+RULES.r2+"/"+RULES.r1+" km for ★★★/★★/★).</li>";
   if(n.green)h+='<li style="text-align:center;padding:6px"><button type="button" class="tri-btn" onclick="SB_ALL=!SB_ALL;rsites()">'+(SB_ALL?"Hide clear sites":"Show "+n.green+" clear site"+(n.green>1?"s":""))+"</button></li>";
   el.innerHTML=h;
-  document.getElementById("sbSum").innerHTML='<span style="color:#DC3545">🔴 '+n.red+' affected</span><span style="color:#B8860B">🟡 '+n.amber+' watch</span><span style="color:#28A745">🟢 '+n.green+" clear</span>"+(PATCH?'<span class="sb-meta">'+esc(MN[PATCH])+"'s sites only</span>":"");
+  document.getElementById("sbSum").innerHTML='<span class="sumi"><span class="dot d-crit"></span>'+n.red+' affected</span><span class="sumi"><span class="dot d-high"></span>'+n.amber+' watch</span><span class="sumi"><span class="dot d-low"></span>'+n.green+" clear</span>"+(PATCH?'<span class="sb-meta">'+esc(MN[PATCH])+"'s sites only</span>":"");
   document.getElementById("sbCount").textContent=n.red||n.amber?n.red+" red · "+n.amber+" amber":"all clear";
+  rkpi();
 }
 
 /* Google News RSS search URL. Brackets group countries vs. topics; "when:1d" keeps results to the last 24h
@@ -242,14 +390,10 @@ var SS=[
 {n:"Google W. Europe",u:gn('(France OR Spain OR Italy OR Portugal) (attack OR riot OR strike OR explosion OR evacuation OR police)'),r:"mehdi"},
 {n:"Google Africa",u:gn('("South Africa" OR Nigeria OR Kenya OR Morocco OR Algeria OR Tunisia OR Ethiopia OR Senegal OR Angola OR Ghana) (security OR attack OR unrest OR explosion OR emergency)'),r:"mehdi"},
 {n:"Google ME",u:gn('(Egypt OR Iraq OR Jordan OR Lebanon OR Saudi OR UAE OR Dubai OR Kuwait OR Bahrain OR Qatar OR Oman OR Libya) (security OR attack OR military OR missile OR drone OR explosion)'),r:"mohamed"},
-{n:"Google EMEA",u:gn('(Europe OR "Middle East" OR Africa) (terror OR attack OR explosion OR "state of emergency" OR evacuation)'),r:"all"},
 {n:"Business continuity",u:gn('(Europe OR "Middle East" OR Africa) (ransomware OR cyberattack OR "power outage" OR "port strike" OR "airspace closed" OR "Red Sea shipping" OR "supply chain disruption")'),r:"all"},
-{n:"BBC News",u:"https://feeds.bbci.co.uk/news/rss.xml",r:"jonathan",g:1},
 {n:"BBC UK",u:"https://feeds.bbci.co.uk/news/uk/rss.xml",r:"jonathan",g:1},
-{n:"The Guardian",u:"https://www.theguardian.com/uk/rss",r:"jonathan",g:1},
 {n:"Sky News",u:"https://feeds.skynews.com/feeds/rss/home.xml",r:"jonathan",g:1},
 {n:"France 24",u:"https://www.france24.com/en/rss",r:"mehdi",g:1},
-{n:"DW News",u:"https://rss.dw.com/rss/en/top",r:"jonathan",g:1},
 {n:"DW Germany",u:"https://rss.dw.com/rss/en/germany",r:"jonathan",g:1},
 {n:"Al Jazeera",u:"https://www.aljazeera.com/xml/rss/all.xml",r:"mohamed",g:1},
 {n:"Times of Israel",u:"https://www.timesofisrael.com/feed/",r:"jonathan",g:1},
@@ -312,13 +456,13 @@ function byDate(a,b){return new Date(b.pubDate)-new Date(a.pubDate)}
 function uniq(a){var s={};return a.filter(function(x){var k=ikey(x);if(s[k])return false;s[k]=1;return true})}
 function portalLink(){return CFG.portalUrl||(location.protocol==="file:"?"(Dell EMEA Security Portal)":location.href.replace(/#.*$/,""))}
 function haversine(a,b,c,d){var R=6371,dL=(c-a)*Math.PI/180,dN=(d-b)*Math.PI/180,x=Math.sin(dL/2)*Math.sin(dL/2)+Math.cos(a*Math.PI/180)*Math.cos(c*Math.PI/180)*Math.sin(dN/2)*Math.sin(dN/2);return R*2*Math.atan2(Math.sqrt(x),Math.sqrt(1-x))}
-function detectCities(t){if(!t)return[];var f=[];var l=t.toLowerCase();for(var c in CITY_COORDS){var n=c.replace(/_/g," ");if(wb(l,n))f.push({name:n,coords:CITY_COORDS[c]})}return f}
+function detectCities(t){if(!t)return[];var f=[];var l=lc(t);for(var c in CITY_COORDS){var n=c.replace(/_/g," ");if(wb(l,n))f.push({name:n,coords:CITY_COORDS[c]})}return f}
 function getProximity(t){var cs=detectCities(t);if(!cs.length)return null;var cl=null,cd=99999;for(var i=0;i<cs.length;i++){for(var j=0;j<L0.length;j++){var d=haversine(cs[i].coords.lat,cs[i].coords.lng,L0[j].lat,L0[j].lng);if(d<cd){cd=d;cl={city:cs[i].name,site:L0[j],dist:Math.round(d)}}}}return cl}
-function proxBadge(p){if(!p)return"";if(p.dist<25)return'<span class="prox-badge prox-close">📍 '+esc(p.site.name)+" "+p.dist+"km</span>";if(p.dist<100)return'<span class="prox-badge prox-near">📍 '+esc(p.site.name)+" "+p.dist+"km</span>";return""}
+function proxBadge(p){if(!p)return"";if(p.dist<25)return'<span class="prox-badge prox-close">'+ic("pin")+esc(p.site.name)+" "+p.dist+"km</span>";if(p.dist<100)return'<span class="prox-badge prox-near">'+ic("pin")+esc(p.site.name)+" "+p.dist+"km</span>";return""}
 function closeBM(){document.getElementById("briefMenu").classList.remove("open")}
 document.addEventListener("click",function(e){var m=document.getElementById("briefMenu"),b=document.getElementById("briefBtn");if(m&&!m.contains(e.target)&&e.target!==b)m.classList.remove("open")});
 function toggleNotif(){if(!("Notification" in window))return;if(Notification.permission==="denied")return;if(Notification.permission==="default"){Notification.requestPermission().then(function(p){notifEnabled=p==="granted";updateNB()});return}notifEnabled=!notifEnabled;updateNB();if(notifEnabled){try{new Notification("🔒 EMEA Portal",{body:"On",icon:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Dell_Logo.png/220px-Dell_Logo.png"})}catch(e){}}}
-function updateNB(){var b=document.getElementById("notifBtn");if(notifEnabled&&Notification.permission==="granted"){b.textContent="🔔 On";b.classList.add("notif-on")}else{b.textContent="🔔 Off";b.classList.remove("notif-on")}}
+function updateNB(){var b=document.getElementById("notifBtn");if(notifEnabled&&Notification.permission==="granted"){b.innerHTML=ic("bell")+"Alerts on";b.classList.add("notif-on")}else{b.innerHTML=ic("bell")+"Alerts off";b.classList.remove("notif-on")}}
 /* de-duplicated across reloads (24h memory) so the same alert does not pop up every refresh */
 function sendN(t,b,u,l,key){
   if(!notifEnabled||!("Notification" in window)||Notification.permission!=="granted")return;
@@ -327,32 +471,32 @@ function sendN(t,b,u,l,key){
   try{localStorage.setItem("ntf",JSON.stringify(notifiedTitles))}catch(e){}
   try{var n=new Notification((l==="crit"?"🔴":"🟠")+" EMEA",{body:t+"\n"+b,icon:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Dell_Logo.png/220px-Dell_Logo.png",tag:k,requireInteraction:l==="crit"});n.onclick=function(){window.focus();if(u)window.open(u,"_blank");n.close()};setTimeout(function(){n.close()},l==="crit"?30000:15000)}catch(e){}
 }
-function checkNA(items){if(!notifEnabled)return;for(var i=0;i<items.length;i++){var it=items[i],s=sevI(it);if((s.level==="crit"||s.level==="high")&&ib(it.pubDate)&&!isDis(it)&&inPatch(it)&&nearOk(it))sendN(it.title,(MN[it.region]||"EMEA")+" • "+s.label,it.link,s.level)}}
-function toggleDark(){dk=!dk;document.body.classList.toggle("dark",dk);document.getElementById("darkBtn").textContent=dk?"☀️ Light":"🌙 Dark";try{localStorage.setItem("dm",dk?"1":"0")}catch(e){}if(typeof MAP!=="undefined"&&MAP){var sv=null;try{sv=localStorage.getItem("basemap")}catch(e){}if(!sv)setBasemap()}}
-function loadDP(){try{if(localStorage.getItem("dm")==="1"){dk=true;document.body.classList.add("dark");document.getElementById("darkBtn").textContent="☀️ Light"}}catch(e){}}
-function runFocus(){var q=document.getElementById("focusInput").value.trim();if(!q||q.length<2)return;focusQuery=q;document.getElementById("focusClearBtn").style.display="inline-block";document.getElementById("focusPanel").classList.add("active");document.getElementById("focusTitle").textContent="🎯 "+q;document.getElementById("focusArticleList").innerHTML='<div style="text-align:center;padding:20px;color:#888">Searching...</div>';var ql=q.toLowerCase(),allI=SD.concat(WD,TD,PD);focusData=[];var seen={};for(var i=0;i<allI.length;i++){var it=allI[i],txt=(it.title||"")+" "+(it.description||"");if(txt.toLowerCase().indexOf(ql)>-1){var tk=(it.title||"").toLowerCase().substring(0,50);if(!seen[tk]){seen[tk]=true;focusData.push(it)}}}
+function checkNA(items){if(!notifEnabled)return;for(var i=0;i<items.length;i++){var it=items[i],s=sevI(it);if((s.level==="crit"||s.level==="high")&&ib(it.pubDate)&&!isDis(it)&&inPatch(it)&&nearOk(it)&&(!RULES.escConf||itemConf(it)))sendN(it.title,(MN[it.region]||"EMEA")+" • "+s.label,it.link,s.level)}}
+function toggleDark(){dk=!dk;document.body.classList.toggle("dark",dk);document.getElementById("darkBtn").innerHTML=dk?ic("sun")+"Light":ic("moon")+"Dark";try{localStorage.setItem("dm",dk?"1":"0")}catch(e){}if(typeof MAP!=="undefined"&&MAP){var sv=null;try{sv=localStorage.getItem("basemap")}catch(e){}if(!sv)setBasemap()}}
+function loadDP(){try{if(localStorage.getItem("dm")==="1"){dk=true;document.body.classList.add("dark");document.getElementById("darkBtn").innerHTML=ic("sun")+"Light"}}catch(e){}}
+function runFocus(){var q=document.getElementById("focusInput").value.trim();if(!q||q.length<2)return;focusQuery=q;document.getElementById("focusClearBtn").style.display="inline-block";document.getElementById("focusPanel").classList.add("active");document.getElementById("focusTitle").textContent="Event focus: "+q;document.getElementById("focusArticleList").innerHTML='<div style="text-align:center;padding:20px;color:#888">Searching...</div>';var ql=q.toLowerCase(),allI=SD.concat(WD,TD,PD);focusData=[];var seen={};for(var i=0;i<allI.length;i++){var it=allI[i],txt=(it.title||"")+" "+(it.description||"");if(txt.toLowerCase().indexOf(ql)>-1){var tk=(it.title||"").toLowerCase().substring(0,50);if(!seen[tk]){seen[tk]=true;focusData.push(it)}}}
 fj(gn(q,"US:en","3d")).then(function(d){(d.items||[]).forEach(function(raw){var o=normItem(raw,true);if(!o.pd||!iv(o.pd)||!o.title)return;var tk=o.title.toLowerCase().substring(0,50);if(seen[tk])return;seen[tk]=true;var rg=dc(o.title,o.desc,"all");focusData.push({title:o.title,link:raw.link||"#",description:o.desc,pubDate:o.pd,author:o.author||"News",source:"Google",region:rg,regionLabel:MN[rg]||"EMEA"})});focusData.sort(byDate);renderFocus()}).catch(function(){focusData.sort(byDate);renderFocus()})}
 function fetchFocusFeed(){if(focusQuery)runFocus()}
 function renderFocus(){var ct=focusData.length,cc=0,hc=0,ea=null,la=null,mgrs={},ns=[];for(var i=0;i<focusData.length;i++){var it=focusData[i],s=sevI(it);if(s.level==="crit")cc++;if(s.level==="high")hc++;var d=new Date(it.pubDate);if(!ea||d<ea)ea=d;if(!la||d>la)la=d;if(it.region&&it.region!=="all"&&MN[it.region])mgrs[it.region]=true;var px=getProximityI(it);if(px&&px.dist<200){var f=false;for(var s2=0;s2<ns.length;s2++){if(ns[s2].site.name===px.site.name)f=true}if(!f)ns.push(px)}}ns.sort(function(a,b){return a.dist-b.dist});
-document.getElementById("focusArticles").textContent="📰 "+ct;var sv="";if(cc)sv+="🔴 "+cc+" ";if(hc)sv+="🟠 "+hc;document.getElementById("focusSeverity").textContent=sv;document.getElementById("focusTimeline").textContent=ea?"🕐 "+(ta(ea.toISOString())||"")+" — "+(ta(la.toISOString())||""):"";var ml=[];for(var m in mgrs)ml.push(MN[m]);document.getElementById("focusManager").textContent=ml.length?"👤 "+ml.join(", "):"";
+document.getElementById("focusArticles").textContent=ct+" articles";var sv="";if(cc)sv+=cc+" critical   ";if(hc)sv+=hc+" high";document.getElementById("focusSeverity").textContent=sv;document.getElementById("focusTimeline").textContent=ea?"Window: "+(ta(ea.toISOString())||"")+" — "+(ta(la.toISOString())||""):"";var ml=[];for(var m in mgrs)ml.push(MN[m]);document.getElementById("focusManager").textContent=ml.length?"Managers: "+ml.join(", "):"";
 var sh='<div class="sitrep-section"><div class="sitrep-label">Overview</div><div class="sitrep-text">'+ct+' articles (72hrs).';if(cc)sh+=" <strong>"+cc+" critical.</strong>";sh+="</div></div>";
 if(focusData.length){sh+='<div class="sitrep-section"><div class="sitrep-label">Timeline</div><ul class="sitrep-timeline">';var shown=0;for(var t=0;t<focusData.length&&shown<8;t++){var ag=ta(focusData[t].pubDate);if(ag){sh+="<li><strong>"+ag+":</strong> "+esc(focusData[t].title)+"</li>";shown++}}sh+="</ul></div>"}
 if(ns.length){sh+='<div class="sitrep-section"><div class="sitrep-label">Dell Sites</div><ul class="sitrep-sites">';for(var n=0;n<ns.length;n++){var dc2=ns[n].dist<25?"dist-close":ns[n].dist<100?"dist-near":"dist-far";sh+='<li><span class="site-dist '+dc2+'">'+ns[n].dist+'km</span> '+esc(ns[n].site.name)+' — '+esc(MN[ns[n].site.mgr])+'</li>'}sh+="</ul></div>"}
 document.getElementById("focusSitrep").innerHTML=sh;
-var ah="";for(var j=0;j<focusData.length;j++){var it2=focusData[j],sn="";if(it2.description){sn=it2.description.replace(/<[^>]*>/g,"");if(sn.length>120)sn=sn.substring(0,120)+"..."}var ag2=ta(it2.pubDate),s3=sevI(it2),px2=getProximityI(it2);ah+='<div class="ni"><div style="display:flex;gap:6px"><span class="sev sev-'+s3.level+'" role="img" aria-label="Severity '+s3.label+'" style="margin-top:5px"></span><div style="flex:1"><a href="'+eurl(it2.link)+'" target="_blank" rel="noopener" style="color:#0076CE">'+esc(it2.title)+'</a>'+proxBadge(px2)+'<div class="src">'+(MN[it2.region]||"EMEA")+" • "+esc(it2.author||"")+"</div>";if(ag2)ah+='<div class="age">🕐 '+ag2+"</div>";if(sn)ah+='<div class="snip">'+esc(sn)+"</div>";ah+="</div></div></div>"}
+var ah="";for(var j=0;j<focusData.length;j++){var it2=focusData[j],sn="";if(it2.description){sn=it2.description.replace(/<[^>]*>/g,"");if(sn.length>120)sn=sn.substring(0,120)+"..."}var ag2=ta(it2.pubDate),s3=sevI(it2),px2=getProximityI(it2);ah+='<div class="ni"><div style="display:flex;gap:6px"><span class="sev sev-'+s3.level+'" role="img" aria-label="Severity '+s3.label+'" style="margin-top:5px"></span><div style="flex:1"><a href="'+eurl(it2.link)+'" target="_blank" rel="noopener" style="color:#0076CE">'+esc(it2.title)+'</a>'+proxBadge(px2)+'<div class="src">'+(MN[it2.region]||"EMEA")+" • "+esc(it2.author||"")+"</div>";if(ag2)ah+='<div class="age">'+ic("clock")+ag2+"</div>";if(sn)ah+='<div class="snip">'+esc(sn)+"</div>";ah+="</div></div></div>"}
 document.getElementById("focusArticleList").innerHTML=ah||'<div style="text-align:center;padding:20px;color:#888">No articles.</div>'}
 function copySitrep(){if(!focusData.length)return;var b="DELL EMEA SITREP\n"+focusQuery+"\n"+new Date().toLocaleDateString("en-GB")+"\n"+"=".repeat(50)+"\nArticles: "+focusData.length+"\n\n";for(var t=0;t<Math.min(10,focusData.length);t++){b+="• "+(ta(focusData[t].pubDate)||"")+": "+focusData[t].title+"\n  "+focusData[t].link+"\n"}b+="\n"+portalLink()+"\n";copyBrief(b)}
 function clearFocus(){document.getElementById("focusInput").value="";document.getElementById("focusPanel").classList.remove("active");document.getElementById("focusClearBtn").style.display="none";focusQuery="";focusData=[]}
 function copyFallback(b){var t=document.createElement("textarea");t.value=b;t.style.position="fixed";t.style.opacity="0";document.body.appendChild(t);t.select();var ok=false;try{ok=document.execCommand("copy")}catch(e){}document.body.removeChild(t);return ok}
 function copyBrief(b){
   var btn=document.getElementById("briefBtn");
-  function done(ok){btn.textContent=ok?"✅ Copied!":"⚠️ Copy failed";btn.classList.add("copied");setTimeout(function(){btn.textContent="📋 Briefing ▾";btn.classList.remove("copied")},3000)}
+  function done(ok){btn.textContent=ok?"Copied ✓":"Copy failed";btn.classList.add("copied");setTimeout(function(){btn.textContent="Briefing ▾";btn.classList.remove("copied")},3000)}
   if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(b).then(function(){done(true)},function(){done(copyFallback(b))});
   else done(copyFallback(b));
 }
 /* Briefings now cover all panels (security, weather, travel, protest), de-duplicated, excluding dismissed items */
-function genBrief(type){var allI=uniq(SD.concat(WD,TD,PD)).filter(function(x){return!isDis(x)});var items=(type==="all"||type==="critical")?allI:allI.filter(function(x){return x.region===type});var title=type==="all"?"FULL EMEA":type==="critical"?"CRITICAL":MN[type];var b="DELL EMEA — "+title+"\n"+new Date().toLocaleDateString("en-GB")+"\n"+"=".repeat(55)+"\n\n";var crits=[];for(var i=0;i<items.length;i++){var s=sevI(items[i]);if(s.level==="crit"||s.level==="high")crits.push({item:items[i],severity:s})}crits.sort(function(a,b2){return LVN[b2.severity.level]-LVN[a.severity.level]||byDate(a.item,b2.item)});b+="Critical/High: "+crits.length+"\n";if(!crits.length)b+="✅ None.\n\n";else{for(var c=0;c<crits.length;c++)b+=(crits[c].severity.level==="crit"?"🔴":"🟠")+" "+crits[c].item.title+"\n   "+(ta(crits[c].item.pubDate)||"")+" · "+crits[c].item.link+"\n\n"}if(type==="critical"){b+=portalLink()+"\n";copyBrief(b);return}b+="Summary:\n";var sm=type==="all"?MGRS:[type];for(var m=0;m<sm.length;m++){var id=sm[m],ct=0,ld=null;for(var j=0;j<allI.length;j++){if(allI[j].region===id){ct++;var d=new Date(allI[j].pubDate);if(!ld||d>ld)ld=d}}b+=MN[id]+": "+ct+" | "+(ld?ta(ld.toISOString()):"—")+"\n"}b+="\nHeadlines:\n";var sorted=items.slice().sort(byDate);for(var k=0;k<Math.min(10,sorted.length);k++)b+=(k+1)+". "+sorted[k].title+"\n   "+sorted[k].link+"\n";b+="\n"+portalLink()+"\n";copyBrief(b)}
-function openReport(){var allI=uniq(SD.concat(WD,TD,PD)).filter(function(x){return!isDis(x)});var items=allI.slice().sort(function(a,b){return LVN[sevI(b).level]-LVN[sevI(a).level]||byDate(a,b)});var w=window.open("","_blank");if(!w)return;var h='<!DOCTYPE html><html><head><title>EMEA Briefing</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Segoe UI,sans-serif;padding:40px;max-width:900px;margin:auto;color:#333}h1{font-size:1.5rem;color:#0076CE}h2{font-size:1.1rem;margin:24px 0 8px;color:#1B3A5C;border-bottom:2px solid #0076CE;padding-bottom:4px}table{width:100%;border-collapse:collapse;margin:10px 0}th,td{padding:8px 12px;text-align:left;border-bottom:1px solid #eee;font-size:.85rem}th{background:#f0f2f5}.ar{padding:8px 0;border-bottom:1px solid #eee}.ar a{color:#0076CE;text-decoration:none;font-weight:600}.sv2{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.7rem;font-weight:700;color:#fff;margin-right:6px}.sc2{background:#DC3545}.sh2{background:#E67E22}.sm2{background:#FFC107;color:#333}.sl2{background:#28A745}.pb{background:#0076CE;color:#fff;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-weight:600;margin:20px 8px 20px 0}@media print{.pb{display:none}}</style></head><body>';h+='<h1>🔒 EMEA Briefing</h1><p style="color:#888;margin-bottom:20px">'+new Date().toLocaleDateString("en-GB")+'</p><button class="pb" onclick="window.print()">🖨️ Print</button>';h+='<h2>Summary</h2><table><tr><th>Manager</th><th>Articles</th><th>Latest</th></tr>';for(var m=0;m<MGRS.length;m++){var id=MGRS[m],ct=0,ld=null;for(var j=0;j<allI.length;j++){if(allI[j].region===id){ct++;var d=new Date(allI[j].pubDate);if(!ld||d>ld)ld=d}}h+='<tr><td><strong>'+MN[id]+'</strong></td><td>'+ct+'</td><td>'+(ld?ta(ld.toISOString()):"—")+'</td></tr>'}h+='</table><h2>Top 15 (by severity)</h2>';for(var k=0;k<Math.min(15,items.length);k++){var it=items[k],s=sevI(it);h+='<div class="ar"><span class="sv2 s'+(s.level==="crit"?"c2":s.level==="high"?"h2":s.level==="med"?"m2":"l2")+'">'+s.label+'</span><a href="'+eurl(it.link)+'" target="_blank" rel="noopener">'+esc(it.title)+'</a> <small style="color:#888">'+esc(it.source||"")+'</small></div>'}h+='</body></html>';w.document.write(h);w.document.close()}
+function genBrief(type){var allI=uniq(SD.concat(WD,TD,PD)).filter(function(x){return!isDis(x)});var items=(type==="all"||type==="critical")?allI:allI.filter(function(x){return x.region===type});var title=type==="all"?"FULL EMEA":type==="critical"?"CRITICAL":MN[type];var b="DELL EMEA — "+title+"\n"+new Date().toLocaleDateString("en-GB")+"\n"+"=".repeat(55)+"\n\n";var crits=[];for(var i=0;i<items.length;i++){var s=sevI(items[i]);if(s.level==="crit"||s.level==="high")crits.push({item:items[i],severity:s})}crits.sort(function(a,b2){return LVN[b2.severity.level]-LVN[a.severity.level]||byDate(a.item,b2.item)});b+="Critical/High: "+crits.length+"\n";if(!crits.length)b+="None.\n\n";else{for(var c=0;c<crits.length;c++)b+=(crits[c].severity.level==="crit"?"[CRITICAL]":"[HIGH]")+" "+crits[c].item.title+"\n   "+(ta(crits[c].item.pubDate)||"")+" · "+crits[c].item.link+"\n\n"}if(type==="critical"){b+=portalLink()+"\n";copyBrief(b);return}b+="Summary:\n";var sm=type==="all"?MGRS:[type];for(var m=0;m<sm.length;m++){var id=sm[m],ct=0,ld=null;for(var j=0;j<allI.length;j++){if(allI[j].region===id){ct++;var d=new Date(allI[j].pubDate);if(!ld||d>ld)ld=d}}b+=MN[id]+": "+ct+" | "+(ld?ta(ld.toISOString()):"—")+"\n"}b+="\nHeadlines:\n";var sorted=items.slice().sort(byDate);for(var k=0;k<Math.min(10,sorted.length);k++)b+=(k+1)+". "+sorted[k].title+"\n   "+sorted[k].link+"\n";b+="\n"+portalLink()+"\n";copyBrief(b)}
+function openReport(){var allI=uniq(SD.concat(WD,TD,PD)).filter(function(x){return!isDis(x)});var items=allI.slice().sort(function(a,b){return LVN[sevI(b).level]-LVN[sevI(a).level]||byDate(a,b)});var w=window.open("","_blank");if(!w)return;var h='<!DOCTYPE html><html><head><title>EMEA Briefing</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Segoe UI,sans-serif;padding:40px;max-width:900px;margin:auto;color:#333}h1{font-size:1.5rem;color:#0076CE}h2{font-size:1.1rem;margin:24px 0 8px;color:#1B3A5C;border-bottom:2px solid #0076CE;padding-bottom:4px}table{width:100%;border-collapse:collapse;margin:10px 0}th,td{padding:8px 12px;text-align:left;border-bottom:1px solid #eee;font-size:.85rem}th{background:#f0f2f5}.ar{padding:8px 0;border-bottom:1px solid #eee}.ar a{color:#0076CE;text-decoration:none;font-weight:600}.sv2{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.7rem;font-weight:700;color:#fff;margin-right:6px}.sc2{background:#DC3545}.sh2{background:#E67E22}.sm2{background:#FFC107;color:#333}.sl2{background:#28A745}.pb{background:#0076CE;color:#fff;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-weight:600;margin:20px 8px 20px 0}@media print{.pb{display:none}}</style></head><body>';h+='<h1>Dell EMEA security briefing</h1><p style="color:#888;margin-bottom:20px">'+new Date().toLocaleDateString("en-GB")+'</p><button class="pb" onclick="window.print()">Print</button>';h+='<h2>Summary</h2><table><tr><th>Manager</th><th>Articles</th><th>Latest</th></tr>';for(var m=0;m<MGRS.length;m++){var id=MGRS[m],ct=0,ld=null;for(var j=0;j<allI.length;j++){if(allI[j].region===id){ct++;var d=new Date(allI[j].pubDate);if(!ld||d>ld)ld=d}}h+='<tr><td><strong>'+MN[id]+'</strong></td><td>'+ct+'</td><td>'+(ld?ta(ld.toISOString()):"—")+'</td></tr>'}h+='</table><h2>Top 15 (by severity)</h2>';for(var k=0;k<Math.min(15,items.length);k++){var it=items[k],s=sevI(it);h+='<div class="ar"><span class="sv2 s'+(s.level==="crit"?"c2":s.level==="high"?"h2":s.level==="med"?"m2":"l2")+'">'+s.label+'</span><a href="'+eurl(it.link)+'" target="_blank" rel="noopener">'+esc(it.title)+'</a> <small style="color:#888">'+esc(it.source||"")+'</small></div>'}h+='</body></html>';w.document.write(h);w.document.close()}
 function tog(id){var col=document.getElementById("col-"+id),ar=document.getElementById("arrow-"+id),op=col.classList.contains("open");col.classList.toggle("open");ar.classList.toggle("open");if(col.previousElementSibling)col.previousElementSibling.setAttribute("aria-expanded",String(!op));if(id==="crit"&&op)loaded.critUser=true;if(!op){if(id==="hi")loadHist();if(id==="sh")rshift();if(id==="trv")rtrav();if(id==="inc")rinc();if(id==="set")rset();if(id==="as")ras()}if(!op&&!loaded[id]){loaded[id]=true;if(id==="tv")lms(TS,TD,rtf);if(id==="pr")lms(PS,PD,rpf);if(id==="ra")lra();if(id==="loc")bld();if(id==="crit")ucrit()}}
 function ip(t){if(!t)return false;var l=t.toLowerCase();for(var i=0;i<PK.length;i++){if(kwm(l,PK[i]))return true}return false}
 function ta(d){var x=new Date(d),n=new Date(),m=Math.floor((n-x)/60000),h=Math.floor((n-x)/3600000);if(isNaN(m))return null;if(m<1)return"Just now";if(m<60)return m+"m ago";if(h===1)return"1hr ago";if(h<24)return h+"hr ago";if(h<48)return"Yesterday";if(h<72)return"2d ago";return null}
@@ -362,12 +506,12 @@ function ib(d){var a=(new Date()-new Date(d))/36e5;return a<=BH&&a>-1}
 
 var EMPTY='<li style="color:#888;text-align:center;padding:20px">No items in the last 72 hours. If this persists, open the <strong>Feeds</strong> panel in the header.</li>';
 function loadingLi(c,t){return'<li style="color:'+c+';padding:20px;text-align:center">'+t+'</li>'}
-function renderList(items,cid,filter,linkColor,tagClass,tagLabel){var c=document.getElementById(cid),fl=[];for(var i=0;i<items.length;i++){if((filter==="all"||items[i].region===filter)&&!isDis(items[i]))fl.push(items[i])}if(!fl.length){c.innerHTML=EMPTY;return 0}var h="";for(var j=0;j<fl.length;j++){var it=fl[j],sn="";if(it.description){sn=it.description.replace(/<[^>]*>/g,"");if(sn.length>100)sn=sn.substring(0,100)+"..."}var ag=ta(it.pubDate),s=sevI(it),bt=ib(it.pubDate)?'<span style="background:#DC3545;color:#fff;font-size:.55rem;padding:1px 4px;border-radius:5px;margin-left:4px;font-weight:700">NEW</span>':"",px=getProximityI(it);h+='<li class="ni"><div style="display:flex;gap:6px"><span class="sev sev-'+s.level+'" role="img" aria-label="Severity '+s.label+'" style="margin-top:5px"></span><div style="flex:1"><a href="'+eurl(it.link)+'" target="_blank" rel="noopener" style="color:'+linkColor+'">'+esc(it.title)+'</a>'+bt+offBadge(it)+langBadge(it)+proxBadge(px)+'<div class="src">'+(MN[it.region]||"EMEA")+" • "+esc(it.author)+'<span class="src-badge">'+esc(it.source)+"</span></div>";if(ag)h+='<div class="age">🕐 '+ag+"</div>";if(sn)h+='<div class="snip">'+esc(sn)+"</div>";h+='<span class="tag '+tagClass+'">'+tagLabel+"</span></div></div></li>"}c.innerHTML=h;return fl.length}
+function renderList(items,cid,filter,linkColor,tagClass,tagLabel){var c=document.getElementById(cid),fl=[];for(var i=0;i<items.length;i++){if((filter==="all"||items[i].region===filter)&&!isDis(items[i]))fl.push(items[i])}if(!fl.length){c.innerHTML=EMPTY;return 0}var h="";for(var j=0;j<fl.length;j++){var it=fl[j],sn="";if(it.description){sn=it.description.replace(/<[^>]*>/g,"");if(sn.length>100)sn=sn.substring(0,100)+"..."}var ag=ta(it.pubDate),s=sevI(it),bt=ib(it.pubDate)?'<span style="background:#DC3545;color:#fff;font-size:.55rem;padding:1px 4px;border-radius:5px;margin-left:4px;font-weight:700">NEW</span>':"",px=getProximityI(it);h+='<li class="ni"><div style="display:flex;gap:6px"><span class="sev sev-'+s.level+'" role="img" aria-label="Severity '+s.label+'" style="margin-top:5px"></span><div style="flex:1"><a href="'+eurl(it.link)+'" target="_blank" rel="noopener" style="color:'+linkColor+'">'+esc(it.title)+'</a>'+bt+offBadge(it)+tierBadge(it)+langBadge(it)+proxBadge(px)+'<div class="src">'+(MN[it.region]||"EMEA")+" • "+esc(it.author)+'<span class="src-badge">'+esc(it.source)+"</span></div>";if(ag)h+='<div class="age">'+ic("clock")+ag+"</div>";if(sn)h+='<div class="snip">'+esc(sn)+"</div>";h+='<span class="tag '+tagClass+'">'+esc(CATS[catOf(it)])+"</span></div></div></li>"}c.innerHTML=h;return fl.length}
 function rsf(){if(!SD.length&&!SD._done){document.getElementById("fd-sec").innerHTML=loadingLi("#E67E22","Loading...");return}var ct=renderList(SD,"fd-sec",SF,"#0076CE","t-sec","Security");document.getElementById("secCount").textContent=ct}
 /* FIX: no longer rewrites the header (which deleted #wxCount and crashed every later refresh) */
 function rwf(){if(!WD.length&&!WD._done){document.getElementById("fd-wx").innerHTML=loadingLi("#17A2B8","Loading weather...");return}var ct=renderList(WD,"fd-wx",WF,"#17A2B8","t-weather","Weather");document.getElementById("wxCount").textContent=ct}
 function rtf(){if(!TD.length&&!TD._done){document.getElementById("fd-tv").innerHTML=loadingLi("#6F42C1","Loading...");return}var ct=renderList(TD,"fd-tv",TF,"#6F42C1","t-travel","Travel");document.getElementById("tvCount").textContent=ct}
-function rpf(){var c=document.getElementById("fd-pr"),fl=[];if(!PD.length&&!PD._done){c.innerHTML=loadingLi("#E67E22","Loading...");return}for(var i=0;i<PD.length;i++){var txt=(PD[i].title||"")+" "+(PD[i].description||"");if(!ip(txt)||isDis(PD[i]))continue;if(PF==="all"||PD[i].region===PF)fl.push(PD[i])}if(!fl.length){c.innerHTML=EMPTY;document.getElementById("prCount").textContent=0;return}var h="";for(var j=0;j<fl.length;j++){var it=fl[j],sn="",s=sevI(it);if(it.description){sn=it.description.replace(/<[^>]*>/g,"");if(sn.length>100)sn=sn.substring(0,100)+"..."}var ag=ta(it.pubDate);h+='<li class="ni"><div style="display:flex;gap:6px"><span class="sev sev-'+s.level+'" role="img" aria-label="Severity '+s.label+'" style="margin-top:5px"></span><div style="flex:1"><a href="'+eurl(it.link)+'" target="_blank" rel="noopener" style="color:#E67E22">'+esc(it.title)+'</a>'+proxBadge(getProximityI(it))+'<div class="src">'+(MN[it.region]||"EMEA")+" • "+esc(it.author)+'<span class="src-badge">'+esc(it.source)+"</span></div>";if(ag)h+='<div class="age">🕐 '+ag+"</div>";if(sn)h+='<div class="snip">'+esc(sn)+"</div>";h+='<span class="tag t-protest">Protest</span></div></div></li>'}c.innerHTML=h;document.getElementById("prCount").textContent=fl.length}
+function rpf(){var c=document.getElementById("fd-pr"),fl=[];if(!PD.length&&!PD._done){c.innerHTML=loadingLi("#E67E22","Loading...");return}for(var i=0;i<PD.length;i++){var txt=(PD[i].title||"")+" "+(PD[i].description||"");if(!ip(txt)||isDis(PD[i]))continue;if(PF==="all"||PD[i].region===PF)fl.push(PD[i])}if(!fl.length){c.innerHTML=EMPTY;document.getElementById("prCount").textContent=0;return}var h="";for(var j=0;j<fl.length;j++){var it=fl[j],sn="",s=sevI(it);if(it.description){sn=it.description.replace(/<[^>]*>/g,"");if(sn.length>100)sn=sn.substring(0,100)+"..."}var ag=ta(it.pubDate);h+='<li class="ni"><div style="display:flex;gap:6px"><span class="sev sev-'+s.level+'" role="img" aria-label="Severity '+s.label+'" style="margin-top:5px"></span><div style="flex:1"><a href="'+eurl(it.link)+'" target="_blank" rel="noopener" style="color:#E67E22">'+esc(it.title)+'</a>'+proxBadge(getProximityI(it))+'<div class="src">'+(MN[it.region]||"EMEA")+" • "+esc(it.author)+'<span class="src-badge">'+esc(it.source)+"</span></div>";if(ag)h+='<div class="age">'+ic("clock")+ag+"</div>";if(sn)h+='<div class="snip">'+esc(sn)+"</div>";h+='<span class="tag t-protest">'+esc(CATS[catOf(it)])+'</span></div></div></li>'}c.innerHTML=h;document.getElementById("prCount").textContent=fl.length}
 function sw(k,r,btn,ac){if(k==="sec")SF=r;if(k==="wx")WF=r;if(k==="tv")TF=r;if(k==="pr")PF=r;var bs=document.getElementById("tabs-"+k).getElementsByTagName("button");for(var t=0;t<bs.length;t++){bs[t].className="ft";bs[t].setAttribute("aria-pressed","false")}btn.className="ft "+ac;btn.setAttribute("aria-pressed","true");if(k==="sec")rsf();if(k==="wx")rwf();if(k==="tv")rtf();if(k==="pr")rpf()}
 /* Israel Red Alert — NOTE: news-based (Google News), not the Home Front Command siren feed. Now loaded at start-up and on every refresh. */
 function lra(){
@@ -378,7 +522,7 @@ function lra(){
       var o=normItem(raw,true);if(!o.pd||!o.title)return;
       var hr=Math.round((nw-new Date(o.pd).getTime())/36e5);if(hr>72)return;
       total++;var t=hr<1?"<1hr":hr===1?"1hr":hr<24?hr+"hr":hr<48?"Yesterday":"2d ago";if(hr<6)rc++;
-      h+='<div class="alert-item"><div class="atime">🕐 '+t+(o.author?" · "+esc(o.author):"")+'</div><div class="atitle"><a href="'+eurl(raw.link)+'" target="_blank" rel="noopener">'+esc(o.title)+'</a></div>'+(o.desc?'<div class="adesc">'+esc(trunc(o.desc,140))+"</div>":"")+"</div>";
+      h+='<div class="alert-item"><div class="atime">'+ic("clock")+t+(o.author?" · "+esc(o.author):"")+'</div><div class="atitle"><a href="'+eurl(raw.link)+'" target="_blank" rel="noopener">'+esc(o.title)+'</a></div>'+(o.desc?'<div class="adesc">'+esc(trunc(o.desc,140))+"</div>":"")+"</div>";
     });
     if(!total){h='<div style="text-align:center;padding:14px;color:#888">No alerts.</div>'}
     if(rc>0){dt.className="sdot sr";tx.innerHTML="<strong style='color:#DC3545'>"+rc+" reports in last 6h</strong>"}else{dt.className="sdot sg";tx.innerHTML="Clear (last 6h)"}
@@ -397,6 +541,8 @@ function uls(){
 /* =====================================================================
    SECTION: utilities (sanitising, escaping, dates, keyword matching)
    ===================================================================== */
+/* inline SVG icons (sprite at top of <body>) — consistent on every OS, works offline */
+function ic(n){return'<svg class="ic" aria-hidden="true"><use href="#i-'+n+'"/></svg>'}
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 /* Decode entities + strip all markup from feed text (inert DOMParser: nothing executes or loads) */
 function clean(s){
@@ -539,7 +685,7 @@ function setBasemap(idx){
   if(idx==null){
     var saved=null;try{saved=localStorage.getItem("basemap")}catch(e){}
     idx=0;
-    for(var i=0;i<list.length;i++){if(saved?list[i].n===saved:(dk?list[i].n==="Esri Dark Gray":list[i].n===list[0].n)){idx=i;break}}
+    for(var i=0;i<list.length;i++){if(saved?list[i].n===saved:((dk||document.body.classList.contains("wall"))?list[i].n==="Esri Dark Gray":list[i].n===list[0].n)){idx=i;break}}
   }
   if(idx>=list.length){var n=document.getElementById("mapNote");if(n)n.style.display="block";return}
   if(MAPTILE)MAP.removeLayer(MAPTILE);
@@ -641,7 +787,7 @@ function rawJson(u){
    ===================================================================== */
 var LVN={low:0,med:1,high:2,crit:3},LVA=["low","med","high","crit"],
     LVLAB={low:"LOW",med:"MEDIUM",high:"HIGH",crit:"CRITICAL"},
-    LVBG={low:"#28A745",med:"#FFC107",high:"#E67E22",crit:"#DC3545"};
+    LVBG={low:"#067647",med:"#8A6100",high:"#B54708",crit:"#B42318"};
 /* phrases that indicate the situation is calming / historical -> one level lower (whole-word match) */
 var DEESC=["passed calmly","passes calmly","calm night","calm returns","quiet night","restrictions lifted","curfew lifted","lifted","eased","easing","called off","all clear","no injuries","no one injured","nobody injured","false alarm","drill","exercise","anniversary","memorial","commemorat*","sentenced","convicted","jailed","on trial","verdict","inquiry","inquest","years after","documentary","review:","insurance claims"];
 /* sport / entertainment noise: "striker", "shootout", "box office" etc. drop two levels */
@@ -668,7 +814,7 @@ function sev(title,desc){
 function sevI(it){return it.fixedLv?mkSev(LVN[it.fixedLv]):sev(it.title,it.description||"")}
 /* Manager assignment: headline hits x3, description hits x1; ties go to the source's own region. Whole-word only. */
 function dc(title,desc,fb){
-  var t=(title||"").toLowerCase(),d=(desc||"").toLowerCase(),best=fb||"all",bs=0;
+  var t=lc(title),d=lc(desc),best=fb||"all",bs=0;
   for(var m in CK){
     var ws=CK[m],sc=0;
     for(var i=0;i<ws.length;i++){if(wb(t,ws[i]))sc+=3;else if(d&&wb(d,ws[i]))sc+=1}
@@ -696,7 +842,7 @@ function nearestSite(lat,lng){
 function getProximityI(it){return it.lat!=null?nearestSite(it.lat,it.lng):getProximity(it.title||"")}
 function offBadge(it){return it.off?'<span class="src-badge" style="background:#1B3A5C;color:#fff">OFFICIAL</span>':""}
 function langBadge(it){
-  return it.lang?' <a class="src-badge" href="https://translate.google.com/?sl=auto&tl=en&op=translate&text='+encodeURIComponent(it.title||"")+'" target="_blank" rel="noopener" title="Translate headline">🌐 '+esc(it.lang.toUpperCase())+" → EN</a>":"";
+  return it.lang?' <a class="src-badge" href="https://translate.google.com/?sl=auto&tl=en&op=translate&text='+encodeURIComponent(it.title||"")+'" target="_blank" rel="noopener" title="Translate headline">'+ic("globe")+esc(it.lang.toUpperCase())+" → EN</a>":"";
 }
 
 /* =====================================================================
@@ -722,7 +868,7 @@ var TOPICS={unrest:["riot","rioting","rioters","loot","curfew","protest","unrest
  hazard:["storm","flood","wildfire","heatwave","snow","earthquake","quake","tsunami","landslide","weather"],
  transport:["airport","flight","airspace","rail","train","derail","walkout"],cyber:["ransomware","cyber","hack","outage","blackout"],crime:["arrest","murder","police","gang","raid","manhunt"]};
 var STOP=["after","with","from","that","this","have","been","were","into","over","says","said","their","they","about","what","when","more","than","amid","will","year","week","first","night","calls","could","would","under","near"];
-function placeOf(t){var l=(t||"").toLowerCase();for(var p in PLACEW){for(var i=0;i<PLACEW[p].length;i++)if(wb(l,PLACEW[p][i]))return p}return""}
+function placeOf(t){var l=lc(t);for(var p in PLACEW){for(var i=0;i<PLACEW[p].length;i++)if(wb(l,PLACEW[p][i]))return p}return""}
 function topicOf(t){var l=(t||"").toLowerCase();for(var p in TOPICS){for(var i=0;i<TOPICS[p].length;i++)if(l.indexOf(TOPICS[p][i])>-1)return p}return""}
 function toks(t){return(t||"").toLowerCase().replace(/[^a-z0-9À-ɏ؀-ۿ ]/g," ").split(/\s+/).filter(function(w){return w.length>3&&STOP.indexOf(w)<0})}
 function jac(a,b){if(!a.length||!b.length)return 0;var s={},n=0,u={};a.forEach(function(w){s[w]=1;u[w]=1});b.forEach(function(w){if(s[w])n++;u[w]=1});return n/Object.keys(u).length}
@@ -747,40 +893,174 @@ function clusterItems(items){
 /* =====================================================================
    SECTION: feed loading + health
    ===================================================================== */
+/* =====================================================================
+   SECTION: relevance + reliability (no new sources)
+   ===================================================================== */
+/* lower-case for matching; Turkish "İ" lower-cases to i + a combining dot, which broke "İstanbul" */
+function lc(t){return String(t||"").toLowerCase().replace(/̇/g,"")}
+
+/* -- ~170 more EMEA cities and local-language names, so headlines land on the map and near the right site.
+      Deliberately left out: words that are also common English (nice, reading, split, florence) and Gaza-strip
+      place names, which would keep the Be'er Sheva site permanently red on general conflict coverage. -- */
+(function(add,alias){
+  for(var k in add)if(!CITY_COORDS[k])CITY_COORDS[k]={lat:add[k][0],lng:add[k][1]};
+  for(var a in alias)if(CITY_COORDS[alias[a]]&&!CITY_COORDS[a])CITY_COORDS[a]=CITY_COORDS[alias[a]];
+})({
+ /* UK + Ireland */
+ cardiff:[51.481,-3.179],bristol:[51.454,-2.588],leeds:[53.801,-1.549],liverpool:[53.408,-2.991],newcastle:[54.978,-1.618],sheffield:[53.381,-1.470],nottingham:[52.954,-1.158],leicester:[52.637,-1.135],coventry:[52.408,-1.510],southampton:[50.910,-1.404],oxford:[51.752,-1.258],cambridge:[52.205,0.122],brighton:[50.822,-0.137],aberdeen:[57.149,-2.094],dundee:[56.462,-2.971],derry:[54.997,-7.309],heathrow:[51.470,-0.454],gatwick:[51.153,-0.182],stansted:[51.886,0.239],luton:[51.879,-0.376],galway:[53.270,-9.057],waterford:[52.259,-7.110],sligo:[54.277,-8.476],kilkenny:[52.654,-7.252],shannon:[52.702,-8.864],
+ /* Germany */
+ "düsseldorf":[51.227,6.774],dusseldorf:[51.227,6.774],leipzig:[51.340,12.375],dresden:[51.050,13.738],hannover:[52.375,9.732],hanover:[52.375,9.732],bremen:[53.079,8.802],dortmund:[51.514,7.468],duisburg:[51.434,6.762],bonn:[50.737,7.098],mannheim:[49.487,8.466],karlsruhe:[49.007,8.404],augsburg:[48.371,10.898],wiesbaden:[50.082,8.240],mainz:[49.993,8.247],magdeburg:[52.120,11.628],erfurt:[50.978,11.029],rostock:[54.092,12.099],kiel:[54.323,10.123],
+ /* Israel, West Bank, Lebanon */
+ ashdod:[31.804,34.655],ashkelon:[31.668,34.571],sderot:[31.525,34.596],eilat:[29.558,34.952],netanya:[32.332,34.860],rishon_lezion:[31.964,34.804],petah_tikva:[32.087,34.887],ramat_gan:[32.068,34.824],nazareth:[32.700,35.298],tiberias:[32.795,35.531],kiryat_shmona:[33.207,35.570],nahariya:[33.006,35.095],ben_gurion_airport:[32.009,34.877],ramallah:[31.903,35.204],nablus:[32.222,35.262],jenin:[32.461,35.300],hebron:[31.532,35.099],sidon:[33.563,35.371],
+ /* Poland + Nordics */
+ krakow:[50.065,19.945],gdansk:[54.352,18.646],wroclaw:[51.108,17.039],poznan:[52.406,16.925],katowice:[50.264,19.024],szczecin:[53.428,14.553],lublin:[51.246,22.568],rzeszow:[50.041,21.999],bialystok:[53.132,23.169],gothenburg:[57.709,11.975],malmo:[55.605,13.004],uppsala:[59.858,17.639],aarhus:[56.163,10.204],odense:[55.404,10.402],bergen:[60.391,5.322],trondheim:[63.430,10.395],stavanger:[58.970,5.733],tampere:[61.498,23.761],turku:[60.452,22.267],vantaa:[60.294,25.040],arlanda:[59.652,17.919],kastrup:[55.618,12.656],
+ /* Benelux, Switzerland, Austria */
+ rotterdam:[51.924,4.478],the_hague:[52.070,4.300],utrecht:[52.091,5.122],eindhoven:[51.441,5.470],schiphol:[52.310,4.768],antwerp:[51.219,4.402],ghent:[51.054,3.717],liege:[50.633,5.567],charleroi:[50.411,4.444],luxembourg:[49.611,6.130],zurich:[47.377,8.541],basel:[47.560,7.589],bern:[46.948,7.447],lausanne:[46.520,6.633],salzburg:[47.810,13.055],graz:[47.071,15.439],linz:[48.306,14.286],innsbruck:[47.269,11.404],
+ /* Central + Eastern Europe, Baltics, Ukraine, Kazakhstan */
+ brno:[49.195,16.607],ostrava:[49.820,18.262],kosice:[48.716,21.261],ljubljana:[46.056,14.506],debrecen:[47.532,21.627],cluj:[46.771,23.624],timisoara:[45.748,21.209],iasi:[47.159,27.587],constanta:[44.160,28.635],varna:[43.214,27.915],plovdiv:[42.144,24.750],skopje:[41.998,21.425],novi_sad:[45.267,19.833],tallinn:[59.437,24.754],vilnius:[54.687,25.280],kaunas:[54.898,23.904],riga:[56.950,24.106],odesa:[46.482,30.723],odessa:[46.482,30.723],kharkiv:[49.994,36.230],lviv:[49.839,24.030],dnipro:[48.464,35.046],zaporizhzhia:[47.839,35.140],astana:[51.169,71.449],almaty:[43.238,76.946],
+ /* Greece + Turkey */
+ thessaloniki:[40.640,22.944],piraeus:[37.942,23.646],heraklion:[35.339,25.144],patras:[38.246,21.735],ankara:[39.933,32.860],izmir:[38.423,27.143],antalya:[36.897,30.713],bursa:[40.188,29.061],adana:[37.000,35.321],gaziantep:[37.066,37.383],diyarbakir:[37.914,40.230],
+ /* Iberia, Italy, France */
+ seville:[37.389,-5.984],valencia:[39.470,-0.376],bilbao:[43.263,-2.935],malaga:[36.721,-4.421],zaragoza:[41.649,-0.889],porto:[41.158,-8.629],faro:[37.019,-7.930],naples:[40.852,14.268],turin:[45.070,7.687],bologna:[44.494,11.343],firenze:[43.770,11.256],genoa:[44.405,8.946],venice:[45.441,12.316],palermo:[38.116,13.361],bari:[41.117,16.872],catania:[37.502,15.087],toulouse:[43.605,1.444],nantes:[47.218,-1.554],strasbourg:[48.573,7.752],bordeaux:[44.837,-0.579],lille:[50.629,3.057],rennes:[48.117,-1.678],grenoble:[45.188,5.724],la_defense:[48.892,2.236],charles_de_gaulle:[49.009,2.548],roissy:[49.009,2.548],orly:[48.726,2.365],nanterre:[48.892,2.207],saint_denis:[48.936,2.357],
+ /* Middle East */
+ abu_dhabi:[24.454,54.377],sharjah:[25.346,55.420],manama:[26.229,50.586],kuwait_city:[29.376,47.977],muscat:[23.588,58.383],jeddah:[21.485,39.193],dammam:[26.433,50.103],mecca:[21.389,39.858],basra:[30.508,47.783],erbil:[36.191,44.009],mosul:[36.340,43.130],alexandria:[31.200,29.919],sharm_el_sheikh:[27.916,34.330],suez:[29.967,32.550],benghazi:[32.116,20.068],aqaba:[29.532,35.006],damascus:[33.513,36.276],aleppo:[36.202,37.134],tehran:[35.689,51.389],sanaa:[15.369,44.191],aden:[12.785,45.019],hodeidah:[14.798,42.954],
+ /* Africa */
+ cape_town:[-33.925,18.424],durban:[-29.858,31.022],pretoria:[-25.747,28.229],sandton:[-26.107,28.057],rabat:[34.021,-6.841],tangier:[35.759,-5.834],marrakech:[31.629,-7.981],algiers:[36.754,3.059],tunis:[36.806,10.182],abuja:[9.058,7.495],port_harcourt:[4.816,7.050],kano:[12.000,8.517],mombasa:[-4.043,39.668],addis_ababa:[9.030,38.740],dakar:[14.716,-17.467],accra:[5.604,-0.187],luanda:[-8.839,13.289],kampala:[0.347,32.582],kigali:[-1.944,30.062],dar_es_salaam:[-6.792,39.208],khartoum:[15.501,32.560],kinshasa:[-4.441,15.266],abidjan:[5.360,-4.008],mogadishu:[2.047,45.318]
+},{
+ /* local-language spellings -> canonical city */
+ "münchen":"munich","köln":"cologne","wien":"vienna","warszawa":"warsaw","praha":"prague","bruxelles":"brussels","brussel":"brussels","lisboa":"lisbon","roma":"rome","milano":"milan","napoli":"naples","torino":"turin","genova":"genoa","venezia":"venice","sevilla":"seville","kraków":"krakow","gdańsk":"gdansk","wrocław":"wroclaw","poznań":"poznan","rzeszów":"rzeszow","białystok":"bialystok","göteborg":"gothenburg","malmö":"malmo","københavn":"copenhagen","antwerpen":"antwerp","gent":"ghent","liège":"liege","zürich":"zurich","genève":"geneva","den_haag":"the_hague","košice":"kosice","timișoara":"timisoara","iași":"iasi","constanța":"constanta","málaga":"malaga","beersheva":"be'er_sheva","tel_aviv-yafo":"tel_aviv","athína":"athens","αθήνα":"athens","القاهرة":"cairo","دبي":"dubai","الرياض":"riyadh","بيروت":"beirut","بغداد":"baghdad","الدوحة":"doha","أبوظبي":"abu_dhabi","جدة":"jeddah"
+});
+
+/* -- relevance filters -- */
+var JUNK=/\b(opinion|editorial|op-ed|podcast|quiz|crossword|horoscope|obituary|recipe|sponsored|letters to the editor|in pictures|livestream)\b|^(watch|video|photos?|gallery|analysis|comment|review|explainer|explained)\s*[:|\-–]/i;
+var NONEMEA=["united states","u.s.","usa","america","american","washington","new york","california","texas","florida","chicago","los angeles","canada","canadian","mexico","brazil","argentina","colombia","venezuela","china","chinese","beijing","shanghai","hong kong","taiwan","japan","japanese","tokyo","korea","korean","seoul","india","indian","delhi","mumbai","pakistan","pakistani","bangladesh","afghanistan","myanmar","thailand","vietnam","philippines","indonesia","malaysia","singapore","australia","australian","sydney","melbourne","new zealand"];
+var EMEAW=null;
+function emeaIn(l){
+  if(!EMEAW){
+    EMEAW=["europe","european","eu","middle east","africa","african","gulf","red sea","mediterranean","nato","iran","syria","yemen","russia","russian","moscow","belarus","georgia","armenia","azerbaijan","sudan","somalia"];
+    for(var m in CK)EMEAW=EMEAW.concat(CK[m]);
+    for(var p in PLACEW)EMEAW=EMEAW.concat(PLACEW[p]);
+  }
+  for(var i=0;i<EMEAW.length;i++)if(wb(l,EMEAW[i]))return true;
+  return detectCities(l).length>0;
+}
+/* the headline names somewhere outside EMEA and nowhere inside it */
+function offRegion(t){var l=lc(t);for(var i=0;i<NONEMEA.length;i++)if(wb(l,NONEMEA[i]))return!emeaIn(l);return false}
+
+/* -- source reliability tiers: 3 official, 2 wire service, 1 major outlet, 0 other -- */
+var WIRES=["reuters","associated press","ap news","afp","agence france-presse","bloomberg","dpa","anadolu","ansa","efe","pa media","press association","wam","kuna","pap"];
+var MAJOR=["bbc","rte","rté","sky news","itv","channel 4","guardian","the times","financial times","irish times","irish independent","irish examiner","deutsche welle","dw","tagesschau","zdf","ard","spiegel","süddeutsche","faz","welt","n-tv","france 24","le monde","le figaro","le parisien","franceinfo","bfmtv","ouest-france","euronews","rfi","el país","el pais","el mundo","la vanguardia","rtve","corriere della sera","la repubblica","rai","sky tg24","rtbf","swissinfo","srf","orf","tvp","tvn24","gazeta wyborcza","notes from poland","svt","nrk","yle","kathimerini","ekathimerini","hürriyet","hurriyet","daily sabah","trt","ntv","times of israel","haaretz","jerusalem post","ynet","ynetnews","al jazeera","al arabiya","asharq al-awsat","the national","gulf news","khaleej times","arab news","ahram","news24","daily maverick","premium times","nation africa","cnn","new york times","washington post","politico","telegraph","the independent","kyiv independent","ukrinform","radio free europe","rfe/rl","balkan insight"];
+var TIERL=["","Major outlet","Wire","Official"];
+function tierOf(it){
+  if(it.off)return 3;
+  if(it._tier!=null)return it._tier;
+  var a=lc((it.author||"")+" | "+(it.source||"")),t=0,i;
+  for(i=0;i<WIRES.length&&!t;i++)if(wb(a,WIRES[i]))t=2;
+  for(i=0;i<MAJOR.length&&!t;i++)if(wb(a,MAJOR[i]))t=1;
+  return it._tier=t;
+}
+function tierBadge(it){var t=tierOf(it);return t===1||t===2?'<span class="tier tier-'+t+'">'+TIERL[t]+"</span>":""}
+function pubOf(x){return lc(x.author||x.source||"").replace(/\.(com|co\.uk|de|fr|it|es|pl|nl|be|ie|net|org)$/,"").trim()}
+/* confirmed = an official source, 3+ independent publishers, or 2+ publishers incl. a wire/major outlet */
+function confOf(cl){
+  if(cl._conf)return cl._conf;
+  var pubs={},off=false,best=0;
+  cl.items.forEach(function(x){var t=tierOf(x);if(t===3)off=true;if(t>best)best=t;pubs[pubOf(x)]=1});
+  var n=Object.keys(pubs).length;
+  return cl._conf={ok:off||n>=3||(n>=2&&best>=1),n:n,off:off,best:best};
+}
+function confBadge(cl){
+  var c=confOf(cl);
+  return c.ok?'<span class="conf conf-ok" title="Official source, or several independent publishers">'+ic("check")+"Confirmed"+(c.off?" · official":" · "+c.n+" sources")+"</span>":'<span class="conf conf-un" title="Only one publisher so far — treat as unverified">Single source</span>';
+}
+function itemConf(it){var k=ikey(it);for(var i=0;i<CLS.length;i++)if(CLS[i].items.some(function(x){return ikey(x)===k}))return confOf(CLS[i]).ok;return tierOf(it)>=2}
+function firstOf(cl){return cl.items.reduce(function(m,x){return!m||new Date(x.pubDate)<new Date(m)?x.pubDate:m},"")}
+function lastOf(cl){return cl.items.reduce(function(m,x){return!m||new Date(x.pubDate)>new Date(m)?x.pubDate:m},"")}
+
+/* -- event categories (drive the chips on every item and the map layers) -- */
+var CATS={conflict:"Conflict",attack:"Terrorism and attack",unrest:"Civil unrest",hazard:"Natural hazard",cyber:"Cyber",infra:"Infrastructure and outages",transport:"Transport and travel",health:"Health",crime:"Crime",other:"General"};
+var CATORD=["conflict","attack","unrest","hazard","cyber","infra","transport","health","crime"];
+var CATKW={
+ conflict:["missile*","rocket*","drone*","airstrike*","air strike","shelling","troops","military","army","idf","hamas","hezbollah","houthi*","ceasefire","siren*","interceptor*","war"],
+ attack:["terror*","attack*","shooting","stabbing","bomb*","explosion*","gunman","gunmen","hostage*","knife","ramming","assassinat*","anschlag","attentat*","zamach*","atentado","attentato","saldırı","explosión","esplosione","patlama","wybuch*","fusillade","tiroteo","sparatoria","strzelanina","schießerei","messerangriff"],
+ unrest:["protest*","riot*","demonstrat*","rally","rallies","clash*","unrest","curfew","loot*","strike","walkout","picket*","émeutes","manifestation","grève","strajk","streik","huelga","sciopero","protesto"],
+ hazard:["earthquake*","quake","flood*","storm","wildfire*","heatwave","snow","landslide*","tsunami","weather","cyclone","hail","avalanche","volcano","eruption","deprem"],
+ cyber:["cyber*","ransomware","hack","hacked","hacker*","data breach","malware","ddos","phishing"],
+ infra:["outage*","blackout*","power cut*","power failure","grid","water supply","gas leak","pipeline","telecom*","internet disruption"],
+ transport:["airport*","flight*","airspace","airline*","rail","railway","trains","metro","ferry","motorway","road closure","travel advice","travel warning","border crossing"],
+ health:["outbreak*","epidemic","pandemic","cholera","ebola","mpox","measles","virus","disease"],
+ crime:["arrest*","murder*","police","gang*","raid*","manhunt","kidnap*","robbery","shot dead","detained","organised crime","organized crime"]};
+function catOf(it){
+  if(it._cat)return it._cat;
+  var c="other",s=String(it.source||"");
+  if(s==="USGS Earthquakes"||s==="GDACS"||s.indexOf("MeteoAlarm")===0)c="hazard";
+  else if(s==="UK FCDO"||s==="US State Dept")c="transport";
+  else{var l=lc(it.title);for(var i=0;i<CATORD.length&&c==="other";i++){var w=CATKW[CATORD[i]];for(var j=0;j<w.length;j++)if(kwm(l,w[j])){c=CATORD[i];break}}}
+  return it._cat=c;
+}
+function catChip(it){return'<span class="cat">'+esc(CATS[catOf(it)])+"</span>"}
+
+/* -- failing feeds pause themselves for an hour after 3 failures (saves the public converter's quota) -- */
+var FAILS={};
+try{FAILS=JSON.parse(localStorage.getItem("fails")||"{}")}catch(e){}
+function feedPaused(n){var f=FAILS[n];return f&&f.until&&f.until>Date.now()?f.until:0}
+function feedResult(n,ok){
+  if(ok)delete FAILS[n];
+  else{var f=FAILS[n]||{c:0};f.c=(f.c||0)+1;if(f.c>=3){f.until=Date.now()+36e5;f.c=0}FAILS[n]=f}
+  try{localStorage.setItem("fails",JSON.stringify(FAILS))}catch(e){}
+}
+function retryFeeds(){FAILS={};try{localStorage.removeItem("fails")}catch(e){}if(window.reloadFeeds)window.reloadFeeds()}
+function hhmm(t){return new Date(t).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit",hour12:false})}
+
 var FH={};
 /* FIX: results are built in a temporary array and swapped in when every source has answered, so panels no longer
    go blank for ~1 minute on each refresh. A newer refresh supersedes an older one still in flight. */
 function lms(sources,arr,fn){
-  var run=arr._run=(arr._run||0)+1,tmp=[],dn=0,tt=sources.length,seen={};
+  var run=arr._run=(arr._run||0)+1,tmp=[],dn=0,tt=sources.length,seen={},slot=0;
   if(!tt){arr._done=true;fn();return}
   function fin(){
     if(++dn<tt||run!==arr._run)return;
     tmp.sort(byDate);arr.length=0;Array.prototype.push.apply(arr,tmp);arr._done=true;
     fn();refreshAll();checkNA(arr);
   }
-  sources.forEach(function(sr,ix){
+  function proc(sr,d){
+    var n=0,f=0,google=isGN(sr.u);
+    (d.items||[]).forEach(function(it){
+      var o=normItem(it,google);
+      if(!o.pd||!iv(o.pd))return;
+      var title=o.title,tk=title.toLowerCase().substring(0,50);
+      if(!title||seen[tk])return;
+      if(JUNK.test(title)){f++;return}                           /* opinion, podcasts, galleries, explainers */
+      var lt=lc(title);if(noisy(lt)&&kwLevel(lt)<3){f++;return}   /* sport and entertainment */
+      if(sr.g&&!relevant(title)){f++;return}                      /* general-news feed: keep only security-relevant headlines */
+      if(!sr.off&&offRegion(title)){f++;return}                   /* about somewhere outside EMEA */
+      var desc=o.desc,rg=dc(title,desc,sr.r),lv=null;
+      if(sr.emea&&rg==="all"){f++;return}                         /* official worldwide feeds: EMEA countries only */
+      if(sr.lvl==="state"){var m=/level\s*(\d)/i.exec(title);lv=m?["low","low","med","high","crit"][+m[1]]:null}
+      if(sr.meteo){var c=/\b(red|orange|yellow)\b/i.exec(title);lv=c?{red:"crit",orange:"high",yellow:"med"}[c[1].toLowerCase()]:"med"}
+      seen[tk]=true;
+      tmp.push({title:title,link:it.link||"#",description:desc,pubDate:o.pd,author:o.author||sr.n,source:sr.n,region:rg,regionLabel:MN[rg]||"EMEA",lang:sr.lang||"",off:sr.off||0,fixedLv:lv});
+      n++;
+    });
+    return{n:n,f:f};
+  }
+  sources.forEach(function(sr){
+    var pu=feedPaused(sr.n);
     setTimeout(function(){
+      if(pu){   /* paused: no network call, but keep showing its last cached items */
+        var c=null;try{c=JSON.parse(localStorage.getItem("fc:"+sr.u)||"null")}catch(e){}
+        var r=c?proc(sr,slimFeed(c.d)):{n:0,f:0};
+        FH[sr.n]={ok:false,stale:!!c,paused:true,n:r.n,f:r.f,err:"paused after 3 failures, retrying at "+hhmm(pu),t:Date.now()};
+        fin();return;
+      }
       fj(sr.u).then(function(d){
-        var n=0,f=0,google=isGN(sr.u);
-        (d.items||[]).forEach(function(it){
-          var o=normItem(it,google);
-          if(!o.pd||!iv(o.pd))return;
-          var title=o.title,tk=title.toLowerCase().substring(0,50);
-          if(!title||seen[tk])return;
-          if(sr.g&&!relevant(title)){f++;return}           /* general-news feed: keep only security-relevant headlines */
-          var desc=o.desc,rg=dc(title,desc,sr.r),lv=null;
-          if(sr.emea&&rg==="all"){f++;return}              /* official worldwide feeds: EMEA countries only */
-          if(sr.lvl==="state"){var m=/level\s*(\d)/i.exec(title);lv=m?["low","low","med","high","crit"][+m[1]]:null}
-          if(sr.meteo){var c=/\b(red|orange|yellow)\b/i.exec(title);lv=c?{red:"crit",orange:"high",yellow:"med"}[c[1].toLowerCase()]:"med"}
-          seen[tk]=true;
-          tmp.push({title:title,link:it.link||"#",description:desc,pubDate:o.pd,author:o.author||sr.n,source:sr.n,region:rg,regionLabel:MN[rg]||"EMEA",lang:sr.lang||"",off:sr.off||0,fixedLv:lv});
-          n++;
-        });
-        FH[sr.n]={ok:!d.stale,stale:!!d.stale,cached:!!d.cached,n:n,f:f,err:d.err||"",t:Date.now()};
+        var r=proc(sr,d);
+        FH[sr.n]={ok:!d.stale,stale:!!d.stale,cached:!!d.cached,n:r.n,f:r.f,err:d.err||"",t:Date.now()};
+        if(!d.cached)feedResult(sr.n,!d.stale);
       }).catch(function(e){
-        FH[sr.n]={ok:false,err:String((e&&e.message)||e),t:Date.now()};
+        FH[sr.n]={ok:false,err:String((e&&e.message)||e),t:Date.now()};feedResult(sr.n,false);
       }).then(fin);
-    },ix*STAG);
+    },pu?0:(slot++)*STAG);
   });
 }
 function updHealth(){
@@ -788,11 +1068,13 @@ function updHealth(){
   var k=Object.keys(FH),ok=0,last=0,h="";
   k.sort().forEach(function(n){
     var f=FH[n];if(f.ok)ok++;if(f.t>last)last=f.t;
-    h+="<div>"+(f.ok?"✅":f.stale?"🟡":"❌")+" "+esc(n)+" — "+(f.ok||f.stale?f.n+" items"+(f.f?" ("+f.f+" filtered)":"")+(f.cached?" · cached":"")+(f.stale?" · STALE cache, live fetch failed: "+esc(f.err):""):esc(f.err))+"</div>";
+    h+="<div>"+'<span class="dot '+(f.ok?"d-low":f.stale?"d-high":"d-crit")+'"></span>'+esc(n)+" — "+(f.ok||f.stale?f.n+" items"+(f.f?" ("+f.f+" filtered)":"")+(f.cached?" · cached":"")+(f.stale?" · STALE cache, live fetch failed: "+esc(f.err):""):esc(f.err))+"</div>";
   });
   var bad=k.length-ok;
-  el.textContent=(bad?"⚠️ ":"")+"Feeds "+ok+"/"+k.length+(last?" · updated "+new Date(last).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):"");
+  el.textContent="Feeds "+ok+"/"+k.length+(last?" · updated "+new Date(last).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit",hour12:false}):"");
   el.style.borderColor=bad?"#FFC107":"rgba(255,255,255,.4)";
+  rkpi();
+  if(k.some(function(n){return FH[n].paused}))h+='<div style="margin-top:4px"><button type="button" class="tri-btn" onclick="retryFeeds()">Retry paused feeds now</button></div>';
   if(pn)pn.innerHTML=(h||"No feeds loaded yet.")+(CFG.api?"":'<div style="margin-top:4px;opacity:.85">Tip: failures are usually public rss2json rate limits or publisher bot-protection — host the portal with portal-server.js (or set CFG.rss2jsonKey) to remove them.</div>');
 }
 function toggleFeedPanel(){
@@ -884,7 +1166,7 @@ function triHtml(k,st,extra){
   var q="'"+k+"'";
   var opts='<option value="">Assign…</option>'+MGRS.map(function(g){return'<option value="'+g+'"'+(st.as===g?" selected":"")+">"+esc(MN[g])+"</option>"}).join("");
   var b=st.s==="ack"||st.s==="dismissed"?'<button type="button" class="tri-btn" onclick="triage('+q+',\'reopen\')">↺ Reopen</button>':'<button type="button" class="tri-btn" onclick="triage('+q+',\'ack\')">✔ Ack</button><button type="button" class="tri-btn" onclick="triage('+q+',\'dismiss\')">✖ Dismiss</button>';
-  var info=st.at?'<span class="tri-st">'+(st.s==="ack"?"acked":st.s==="dismissed"?"dismissed":st.s==="partial"?"new reports since ack":"updated")+" by "+esc(st.by)+" "+new Date(st.at).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})+(st.as?" · assigned "+esc(MN[st.as]||st.as):"")+"</span>":"";
+  var info=st.at?'<span class="tri-st">'+(st.s==="ack"?"acked":st.s==="dismissed"?"dismissed":st.s==="partial"?"new reports since ack":"updated")+" by "+esc(st.by)+" "+new Date(st.at).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit",hour12:false})+(st.as?" · assigned "+esc(MN[st.as]||st.as):"")+"</span>":"";
   return'<div class="tri">'+b+'<select class="tri-sel" aria-label="Assign to manager" onchange="triage('+q+',\'assign\',this.value)">'+opts+"</select>"+(extra||"")+info+"</div>";
 }
 
@@ -914,7 +1196,8 @@ function ucrit(){
     h+='<li class="crit-item'+(st.s==="ack"?" tri-ack":"")+(st.s==="dismissed"?" tri-dis":"")+'" style="border-left-color:'+s.bg+'"><div><span class="sev sev-'+s.level+'" role="img" aria-label="Severity '+s.label+'"></span></div><div style="flex:1;min-width:0">';
     h+='<a href="'+eurl(it.link)+'" target="_blank" rel="noopener">'+esc(it.title)+"</a>"+offBadge(it)+proxBadge(px)+langBadge(it);
     h+='<div class="crit-meta">'+esc(MN[it.region]||"EMEA")+(ag?" • "+ag:"")+" • "+esc(it.source||"")+(it.author&&it.author!==it.source?" ("+esc(it.author)+")":"")+(cl.items.length>1?" • <strong>"+cl.items.length+" reports</strong>":"")+"</div>";
-    h+='<span class="crit-sev" style="background:'+s.bg+'">'+s.label+"</span>"+impBadge(cl.imp)+(od?'<span class="ovd" title="Unacknowledged beyond the '+RULES.escMin+'-minute escalation rule">⏰ UNACKNOWLEDGED '+od+" MIN</span>":"")+triHtml(ikey(it),st,incBtn(cl,it));
+    h+='<div class="crit-meta" style="margin-top:3px">'+catChip(it)+confBadge(cl)+(cl.items.length>1?"First reported "+esc(ta(firstOf(cl))||"over 3 days ago")+" · latest "+esc(ta(lastOf(cl))||""):"")+"</div>";
+    h+='<span class="crit-sev" style="background:'+s.bg+'">'+s.label+"</span>"+impBadge(cl.imp)+(od?'<span class="ovd" title="Unacknowledged beyond the '+RULES.escMin+'-minute escalation rule">'+ic("alarm")+'Unacknowledged '+od+" min</span>":"")+triHtml(ikey(it),st,incBtn(cl,it));
     if(cl.items.length>1){
       h+='<details class="rel"><summary>+'+(cl.items.length-1)+" related report"+(cl.items.length>2?"s":"")+"</summary><ul>";
       cl.items.forEach(function(x){if(x===it)return;h+='<li><a href="'+eurl(x.link)+'" target="_blank" rel="noopener">'+esc(x.title)+"</a> <span>"+esc(x.source||"")+" · "+esc(ta(x.pubDate)||"")+"</span></li>"});
@@ -922,10 +1205,11 @@ function ucrit(){
     }
     h+="</div></li>";
   });
-  if(!nc&&!nh&&!SHOWDIS)h='<li style="text-align:center;padding:16px;color:#28A745;font-weight:600">✅ No open critical or high incidents.</li>'+h;
+  if(!nc&&!nh&&!SHOWDIS)h='<li style="text-align:center;padding:16px;color:var(--low);font-weight:600">'+ic("check")+'No open critical or high incidents.</li>'+h;
   if(dis||SHOWDIS)h+='<li style="text-align:center;padding:6px"><button type="button" class="tri-btn" onclick="SHOWDIS=!SHOWDIS;ucrit()">'+(SHOWDIS?"Hide dismissed":"Show "+dis+" dismissed")+"</button></li>";
   /* local escalation: flag in the tab title and send a desktop notification once per incident */
   document.title=(ovd.length?"("+ovd.length+") ⏰ ":"")+"Dell EMEA Security Portal";
+  KPI.c=nc;KPI.h=nh;KPI.o=ovd.length;rkpi();
   ovd.forEach(function(o){sendN("⏰ Unacknowledged "+o.m+" min: "+o.cl.lead.title,(o.cl.imp.site?o.cl.imp.site.name+" "+o.cl.imp.dist+"km · ":"")+o.cl.sev.label,o.cl.lead.link,"crit","esc:"+ikey(o.cl.lead))});
   if(hid)h+='<li style="text-align:center;padding:6px;font-size:.72rem;color:#888">'+hid+" incident"+(hid>1?"s":"")+" outside "+esc(MN[PATCH])+'\'s patch hidden — <a href="#" onclick="setPatch(\'\');return false">show all EMEA</a></li>';
   c.innerHTML=h;
@@ -997,7 +1281,7 @@ function rhist(){
     if(q&&String(x.t).toLowerCase().indexOf(q)<0)return;
     if(LVN[x.v]<lv)return;if(mg&&x.r!==mg)return;
     n++;if(n>300)return;
-    h+='<li class="ni"><span class="sev sev-'+x.v+'" role="img" aria-label="Severity '+LVLAB[x.v]+'"></span><a href="'+eurl(x.l)+'" target="_blank" rel="noopener" style="color:#0076CE">'+esc(x.t)+'</a><div class="src">'+esc(new Date(x.p).toLocaleString([],{weekday:"short",day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"}))+" • "+esc(MN[x.r]||"EMEA")+" • "+esc(x.s)+"</div></li>";
+    h+='<li class="ni"><span class="sev sev-'+x.v+'" role="img" aria-label="Severity '+LVLAB[x.v]+'"></span><a href="'+eurl(x.l)+'" target="_blank" rel="noopener" style="color:#0076CE">'+esc(x.t)+'</a><div class="src">'+esc(new Date(x.p).toLocaleString([],{weekday:"short",day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit",hour12:false}))+" • "+esc(MN[x.r]||"EMEA")+" • "+esc(x.s)+"</div></li>";
   });
   el.innerHTML=h||'<li style="color:#888;text-align:center;padding:20px">No matching items.</li>';
   document.getElementById("hiCount").textContent=HIST.length;
@@ -1027,7 +1311,7 @@ function shiftData(){
 }
 function rshift(){
   var el=document.getElementById("shBody");if(!el)return;
-  var d=shiftData(),h='<p class="sitrep-text">Since <strong>'+esc(d.sn.why)+"</strong> ("+esc(new Date(d.sn.t).toLocaleString([],{weekday:"short",hour:"2-digit",minute:"2-digit"}))+"): <strong>"+d.items.length+"</strong> items — 🔴 "+d.byL.crit+" critical · 🟠 "+d.byL.high+" high · 🟡 "+d.byL.med+" medium.</p>";
+  var d=shiftData(),h='<p class="sitrep-text">Since <strong>'+esc(d.sn.why)+"</strong> ("+esc(new Date(d.sn.t).toLocaleString([],{weekday:"short",hour:"2-digit",minute:"2-digit",hour12:false}))+"): <strong>"+d.items.length+"</strong> items — <span class='dot d-crit'></span>"+d.byL.crit+" critical · <span class='dot d-high'></span>"+d.byL.high+" high · <span class='dot d-med'></span>"+d.byL.med+" medium.</p>";
   h+='<p class="sitrep-text">By manager: '+esc(Object.keys(d.byM).map(function(m){return m+" "+d.byM[m]}).join(" · ")||"—")+"</p>";
   h+='<p class="sitrep-text">Triage: '+d.acts.ack+" acked · "+d.acts.dismissed+" dismissed · "+d.acts.assigned+" assigned"+(d.who.length?" (by "+esc(d.who.join(", "))+")":"")+"</p>";
   if(d.trav.length)h+='<p class="sitrep-text" style="color:#DC3545"><strong>⚠ '+d.trav.length+" traveller(s) near HIGH/CRITICAL incidents:</strong> "+esc(d.trav.map(function(t){return t.name+" ("+t.city+")"}).join(", "))+"</p>";
@@ -1038,10 +1322,10 @@ function rshift(){
   }
   if(d.cls.length){
     h+='<div class="sitrep-label" style="margin-top:8px">Critical / high incidents</div><ul class="sitrep-timeline">';
-    d.cls.slice(0,15).forEach(function(cl){var st=clState(cl);h+="<li>"+(cl.sev.level==="crit"?"🔴":"🟠")+' <a href="'+eurl(cl.lead.link)+'" target="_blank" rel="noopener">'+esc(cl.lead.title)+"</a>"+(cl.items.length>1?" ("+cl.items.length+" reports)":"")+" — <em>"+(st.s==="ack"?"acked":st.s==="dismissed"?"dismissed":"OPEN")+(st.as?", "+esc(MN[st.as]):"")+"</em></li>"});
+    d.cls.slice(0,15).forEach(function(cl){var st=clState(cl);h+="<li>"+(cl.sev.level==="crit"?"<span class='dot d-crit'></span>":"<span class='dot d-high'></span>")+' <a href="'+eurl(cl.lead.link)+'" target="_blank" rel="noopener">'+esc(cl.lead.title)+"</a>"+(cl.items.length>1?" ("+cl.items.length+" reports)":"")+" — <em>"+(st.s==="ack"?"acked":st.s==="dismissed"?"dismissed":"OPEN")+(st.as?", "+esc(MN[st.as]):"")+"</em></li>"});
     h+="</ul>";
   }
-  h+='<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="focus-action-btn" style="background:#0076CE;color:#fff" onclick="copyHandover()">📋 Copy handover</button><button type="button" class="focus-action-btn" style="background:#1B3A5C;color:#fff" onclick="startShift()">▶ Start my shift now</button></div>';
+  h+='<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="focus-action-btn" style="background:#0076CE;color:#fff" onclick="copyHandover()">'+ic("copy")+'Copy handover</button><button type="button" class="focus-action-btn" style="background:#1B3A5C;color:#fff" onclick="startShift()">▶ Start my shift now</button></div>';
   el.innerHTML=h;
   document.getElementById("shCount").textContent=d.cls.length;
 }
@@ -1055,7 +1339,7 @@ function copyHandover(){
   d.inc.forEach(function(x){var ln=x.notes[x.notes.length-1];b+="• "+x.id+" "+x.title+" — "+INCSL[x.status]+(x.owner?", owner "+(MN[x.owner]||x.owner):"")+(ln?"\n   Last update "+fmtT(ln.t)+": "+ln.text:"")+"\n"});
   b+="\nCRITICAL / HIGH INCIDENTS\n";
   if(!d.cls.length)b+="None.\n";
-  d.cls.forEach(function(cl){var st=clState(cl);b+=(cl.sev.level==="crit"?"🔴 ":"🟠 ")+cl.lead.title+(cl.items.length>1?" ("+cl.items.length+" reports)":"")+" — "+(st.s==="ack"?"acked":st.s==="dismissed"?"dismissed":"OPEN")+(st.as?", assigned "+MN[st.as]:"")+"\n   "+cl.lead.link+"\n"});
+  d.cls.forEach(function(cl){var st=clState(cl);b+=(cl.sev.level==="crit"?"[CRITICAL] ":"[HIGH] ")+cl.lead.title+(cl.items.length>1?" ("+cl.items.length+" reports)":"")+" — "+(st.s==="ack"?"acked":st.s==="dismissed"?"dismissed":"OPEN")+(st.as?", assigned "+MN[st.as]:"")+"\n   "+cl.lead.link+"\n"});
   b+="\n"+portalLink()+"\n";
   copyBrief(b);
 }
@@ -1127,7 +1411,7 @@ function popupHtml(i){
   var lo=L0[i],bg=MC[lo.mgr]||"#0076CE",r=SITERISK[i];
   var h="<strong>"+esc(lo.name)+"</strong><br>"+esc(lo.address)+"<br><em>"+esc(lo.type)+"</em><br><strong style='color:"+bg+"'>"+esc(lo.country)+"</strong><br><span style='font-size:.75em;color:#666'>"+esc(MN[lo.mgr]||lo.mgr)+(lo.approx?" · approximate location, verify":"")+"</span>";
   h+=riskHtml(r);
-  return h+"<div style='margin-top:6px'><button type='button' class='focus-btn' style='padding:4px 10px;font-size:.7rem' onclick='focusSite("+i+")'>🎯 Focus: "+esc(siteCity(lo))+"</button></div>";
+  return h+"<div style='margin-top:6px'><button type='button' class='focus-btn' style='padding:4px 10px;font-size:.7rem' onclick='focusSite("+i+")'>"+ic("target")+"Focus: "+esc(siteCity(lo))+"</button></div>";
 }
 function riskHtml(r){
   if(!r||!r.n)return"";
@@ -1193,8 +1477,8 @@ function mapRisk(){
   TRVL.clearLayers();
   TRAV.filter(trvActive).forEach(function(t){
     var lv=t.risk?t.risk.lv:"none";
-    L.marker([t.lat,t.lng],{icon:L.divIcon({className:"",html:'<div class="mk" style="background:#6F42C1;color:#fff;border:2px solid '+RINGC[lv]+';border-radius:4px">🧳</div>',iconSize:[22,22],iconAnchor:[11,11]}),title:t.name})
-      .bindPopup("<strong>🧳 "+esc(t.name)+"</strong><br>"+esc(t.city)+(t.from||t.to?"<br><span style='font-size:.75em'>"+esc(t.from)+" → "+esc(t.to)+"</span>":"")+riskHtml(t.risk)).addTo(TRVL);
+    L.marker([t.lat,t.lng],{icon:L.divIcon({className:"",html:'<div class="mk" style="background:#6F42C1;color:#fff;border:2px solid '+RINGC[lv]+';border-radius:4px">'+ic("suitcase")+'</div>',iconSize:[22,22],iconAnchor:[11,11]}),title:t.name})
+      .bindPopup("<strong>"+ic("suitcase")+esc(t.name)+"</strong><br>"+esc(t.city)+(t.from||t.to?"<br><span style='font-size:.75em'>"+esc(t.from)+" → "+esc(t.to)+"</span>":"")+riskHtml(t.risk)).addTo(TRVL);
   });
   var hit=R.filter(function(r){return r.lv==="crit"||r.lv==="high"}).length,n=document.getElementById("mapRiskNote");
   if(n){n.textContent=hit?hit+" site"+(hit>1?"s":"")+" with HIGH/CRITICAL incidents within alert radius":"";n.style.display=hit?"block":"none"}
@@ -1227,11 +1511,11 @@ function initMap(){
       var d=L.DomUtil.create("div","legend"),h="<strong>Managers</strong> <small>(click to toggle)</small>";
       MGRS.forEach(function(g){h+='<label><input type="checkbox" checked data-m="'+g+'" class="lg-cb"><span class="legend-dot" style="background:'+MC[g]+'"></span>'+esc(MN[g])+"</label>"});
       h+='<hr style="margin:4px 0"><strong>Layers</strong>';
-      h+='<label><input type="checkbox" checked data-l="rings"> ◎ Proximity rings</label>';
-      h+='<label><input type="checkbox" checked data-l="haz"> ⚠ Official hazards (USGS/GDACS)</label>';
-      h+='<label><input type="checkbox" checked data-l="trv"> 🧳 Travellers</label>';
+      h+='<label><input type="checkbox" checked data-l="rings"> Proximity rings</label>';
+      h+='<label><input type="checkbox" checked data-l="haz"> Official hazards (USGS/GDACS)</label>';
+      h+='<label><input type="checkbox" checked data-l="trv"> Travellers</label>';
       h+='<hr style="margin:4px 0"><strong>News incidents</strong> <select id="mapWin" aria-label="Incident time window" style="font-size:10px">'+[1,6,24,72].map(function(x){return'<option value="'+x+'"'+(x===MAPWIN?" selected":"")+">last "+x+"h</option>"}).join("")+"</select>";
-      [["sec","🔒 Security"],["wx","⛈ Weather"],["tv","✈ Travel"],["pr","🪧 Protest"]].forEach(function(c){h+='<label><input type="checkbox" checked data-c="'+c[0]+'"> '+c[1]+"</label>"});
+      CATORD.concat(["other"]).forEach(function(c){h+='<label><input type="checkbox" checked data-c="'+c+'"> '+ic(CATI[c])+esc(CATS[c])+"</label>"});
       h+='<hr style="margin:4px 0"><span class="legend-dot" style="background:#fff;border-color:#FFC107"></span>Med <span class="legend-dot" style="background:#fff;border-color:#E67E22"></span>High <span class="legend-dot" style="background:#fff;border-color:#DC3545"></span>Crit';
       h+='<br><a href="#" id="mapReset" style="color:#0076CE">Reset view</a>';
       d.innerHTML=h;L.DomEvent.disableClickPropagation(d);
@@ -1261,32 +1545,30 @@ function initMap(){
    SECTION: VCC-style features that need no server
    (map incidents, local escalation, incident records, assets, rules, wall screen)
    ===================================================================== */
-function fmtT(t){return new Date(t).toLocaleString([],{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"})}
+function fmtT(t){return new Date(t).toLocaleString([],{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit",hour12:false})}
 
 /* ---- news incidents plotted on the map (official USGS/GDACS hazards keep their own layer) ---- */
-var INCL=null,MAPWIN=24,MAPCAT={sec:true,wx:true,tv:true,pr:true},CATI={sec:"🔒",wx:"⛈",tv:"✈",pr:"🪧"};
+var INCL=null,MAPWIN=24,MAPCAT={},CATI={conflict:"siren",attack:"alert",unrest:"flag",hazard:"storm",cyber:"monitor",infra:"bolt",transport:"plane",health:"info",crime:"lock",other:"info"};
 function jit(s){var n=parseInt(s||"0",36);return isNaN(n)?0:(n%100-50)/1500}   /* small fixed offset so stacked markers stay clickable */
 function drawIncidents(){
   if(!MAP||!INCL)return;
   INCL.clearLayers();
   var cut=Date.now()-MAPWIN*36e5,seen={};
-  [[SD,"sec"],[WD,"wx"],[TD,"tv"],[PD,"pr"]].forEach(function(pair){
-    if(!MAPCAT[pair[1]])return;
-    pair[0].forEach(function(it){
+  SD.concat(WD,TD,PD).forEach(function(it){
+      var cat=catOf(it);if(MAPCAT[cat]===false)return;
       if(it.lat!=null||isDis(it)||!inPatch(it))return;
       if(!(new Date(it.pubDate).getTime()>=cut))return;
       var k=ikey(it);if(seen[k])return;seen[k]=1;
       var s=sevI(it);if(s.level==="low")return;
       var cs=detectCities(it.title);if(!cs.length)return;
       var c=cs[0].coords;
-      L.marker([c.lat+jit(k.slice(4,7)),c.lng+jit(k.slice(1,4))],{icon:L.divIcon({className:"",html:'<div class="imk" style="background:'+s.bg+'">'+CATI[pair[1]]+"</div>",iconSize:[20,20],iconAnchor:[10,10]}),title:it.title,zIndexOffset:LVN[s.level]*100})
+      L.marker([c.lat+jit(k.slice(4,7)),c.lng+jit(k.slice(1,4))],{icon:L.divIcon({className:"",html:'<div class="imk" style="background:'+s.bg+'">'+ic(CATI[cat])+"</div>",iconSize:[20,20],iconAnchor:[10,10]}),title:it.title,zIndexOffset:LVN[s.level]*100})
         .bindPopup(function(){return incPopup(it,s)},{maxWidth:300}).addTo(INCL);
-    });
   });
 }
 function incPopup(it,s){
   var im=impactOf(it);
-  return"<strong style='color:"+s.bg+"'>"+esc(s.label)+"</strong> · "+esc(it.source||"")+" · "+esc(ta(it.pubDate)||"")+"<br><a href='"+eurl(it.link)+"' target='_blank' rel='noopener'>"+esc(it.title)+"</a><br>"+impBadge(im)+"<div style='margin-top:6px'><button type='button' class='tri-btn' onclick='incFromKey(\""+ikey(it)+"\")'>📁 Open incident</button></div>";
+  return"<strong style='color:"+s.bg+"'>"+esc(s.label)+"</strong> · "+esc(CATS[catOf(it)])+" · "+esc(it.source||"")+" · "+esc(ta(it.pubDate)||"")+"<br><a href='"+eurl(it.link)+"' target='_blank' rel='noopener'>"+esc(it.title)+"</a><br>"+impBadge(im)+"<div style='margin-top:6px'><button type='button' class='tri-btn' onclick='incFromKey(\""+ikey(it)+"\")'>"+ic("folder")+"Open incident</button></div>";
 }
 /* notification rule: "near" = only within a site's alert radius */
 function nearOk(it){if(RULES.notify!=="near")return true;var im=impactOf(it);return!!(im.site&&im.dist<=siteRadius(im.site))}
@@ -1298,6 +1580,7 @@ function saveFirst(){var cut=Date.now()-8*864e5;for(var k in FIRST)if(FIRST[k]<c
 /* minutes an incident has been waiting, if it breaks the escalation rule; 0 otherwise */
 function overdue(cl,st,now){
   if(st.s==="ack"||st.s==="dismissed"||cl.incId)return 0;
+  if(RULES.escConf&&!confOf(cl).ok)return 0;
   var im=cl.imp;if(!im||!im.site||siteImp(im.site)<RULES.escImp||im.dist>siteRadius(im.site))return 0;
   if(now-new Date(cl.lead.pubDate).getTime()>24*36e5)return 0;
   var f=now;cl.items.forEach(function(x){var k=ikey(x),t=TRI[k];if(t&&t.s)return;if(FIRST[k]&&FIRST[k]<f)f=FIRST[k]});
@@ -1361,7 +1644,7 @@ function incNote(id,kind){
 }
 function incBtn(cl,it){
   var x=cl.incId?incFind(cl.incId):null;
-  return'<button type="button" class="tri-btn" onclick="incFromKey(\''+ikey(it)+'\')">📁 '+(x?esc(x.id)+" · "+INCSL[x.status]:"Open incident")+"</button>";
+  return'<button type="button" class="tri-btn" onclick="incFromKey(\''+ikey(it)+'\')">'+ic("folder")+(x?esc(x.id)+" · "+INCSL[x.status]:"Open incident")+"</button>";
 }
 /* keep open incidents linked to their alert cluster: new related reports and severity rises are logged automatically */
 function incSync(){
@@ -1394,7 +1677,7 @@ function rinc(){
     h+='<div class="inc-row"><label class="sb-meta">Status <select class="tri-sel" onchange="incSet('+q+',\'status\',this.value)">'+INCST.map(function(s){return'<option value="'+s+'"'+(x.status===s?" selected":"")+">"+INCSL[s]+"</option>"}).join("")+"</select></label>";
     h+='<label class="sb-meta">Severity <select class="tri-sel" onchange="incSet('+q+',\'sev\',this.value)">'+LVA.map(function(s){return'<option value="'+s+'"'+(x.sev===s?" selected":"")+">"+LVLAB[s]+"</option>"}).join("")+"</select></label>";
     h+='<label class="sb-meta">Owner <select class="tri-sel" onchange="incSet('+q+',\'owner\',this.value)"><option value="">Unassigned</option>'+MGRS.map(function(g){return'<option value="'+g+'"'+(x.owner===g?" selected":"")+">"+esc(MN[g])+"</option>"}).join("")+"</select></label>";
-    h+='<button type="button" class="tri-btn" onclick="incCopy('+q+')">📋 Copy timeline</button><button type="button" class="tri-btn" onclick="incPrint('+q+')">🖨️ Report</button></div>';
+    h+='<button type="button" class="tri-btn" onclick="incCopy('+q+')">'+ic("copy")+'Copy timeline</button><button type="button" class="tri-btn" onclick="incPrint('+q+')">'+ic("printer")+'Report</button></div>';
     if(x.status!=="closed")h+='<div class="inc-row"><input type="text" class="hi-in" id="incn-'+x.id+'" aria-label="Add update to '+esc(x.id)+'" placeholder="Add update or action…" onkeydown="if(event.key===\'Enter\')incNote('+q+',\'note\')"><button type="button" class="tri-btn" onclick="incNote('+q+',\'note\')">＋ Update</button><button type="button" class="tri-btn" onclick="incNote('+q+',\'action\')">⚑ Action</button></div>';
     h+='<ul class="inc-notes">'+x.notes.slice().reverse().map(function(n){return"<li><time>"+esc(fmtT(n.t))+"</time><strong>"+esc(n.by)+"</strong> "+(n.kind==="action"?"⚑ <strong>ACTION:</strong> ":"")+esc(n.text)+"</li>"}).join("")+"</ul>";
     if(x.reports.length)h+='<details class="rel"><summary>Linked reports ('+x.reports.length+")</summary><ul>"+x.reports.map(function(r){return'<li><a href="'+eurl(r.l)+'" target="_blank" rel="noopener">'+esc(r.t)+"</a> <span>"+esc(r.s)+"</span></li>"}).join("")+"</ul></details>";
@@ -1414,7 +1697,7 @@ function incText(x){
   if(x.site)b+="Nearest site: "+x.site+(x.dist!=null?" ("+x.dist+" km)":"")+"\n";
   b+="Opened:   "+new Date(x.created).toLocaleString("en-GB")+"\nUpdated:  "+new Date(x.updated).toLocaleString("en-GB")+(x.closedAt?"\nClosed:   "+new Date(x.closedAt).toLocaleString("en-GB"):"")+"\n";
   b+="\nTIMELINE\n";
-  x.notes.forEach(function(n){b+=new Date(n.t).toLocaleString("en-GB",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"})+"  "+n.by+": "+(n.kind==="action"?"ACTION: ":"")+n.text+"\n"});
+  x.notes.forEach(function(n){b+=new Date(n.t).toLocaleString("en-GB",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false})+"  "+n.by+": "+(n.kind==="action"?"ACTION: ":"")+n.text+"\n"});
   if(x.reports.length){b+="\nLINKED REPORTS\n";x.reports.forEach(function(r){b+="• "+r.t+(r.s?" ("+r.s+")":"")+"\n  "+r.l+"\n"})}
   return b;
 }
@@ -1426,7 +1709,7 @@ function incExportAll(){
 function incPrint(id){
   var x=incFind(id);if(!x)return;var w=window.open("","_blank");if(!w)return;
   var h='<!DOCTYPE html><html><head><meta charset="UTF-8"><title>'+esc(x.id)+'</title><style>body{font-family:Segoe UI,sans-serif;max-width:860px;margin:30px auto;color:#333;padding:0 20px}h1{color:#0076CE;font-size:1.3rem}table{border-collapse:collapse;margin:10px 0}td{padding:4px 12px 4px 0;font-size:.9rem;vertical-align:top}h2{font-size:1rem;border-bottom:2px solid #0076CE;margin-top:22px}li{margin:4px 0;font-size:.88rem}.t{color:#888;font-size:.8rem;margin-right:6px}.pb{background:#0076CE;color:#fff;border:none;padding:8px 20px;border-radius:6px;cursor:pointer}@media print{.pb{display:none}}</style></head><body>';
-  h+='<h1>🔒 Dell EMEA Security — Incident '+esc(x.id)+'</h1><button class="pb" onclick="window.print()">🖨️ Print / save as PDF</button><table>';
+  h+='<h1>Dell EMEA Security — Incident '+esc(x.id)+'</h1><button class="pb" onclick="window.print()">Print / save as PDF</button><table>';
   [["Title",x.title],["Severity",LVLAB[x.sev]],["Status",INCSL[x.status]],["Owner",MN[x.owner]||"Unassigned"],["Nearest site",x.site?x.site+(x.dist!=null?" ("+x.dist+" km)":""):"—"],["Opened",new Date(x.created).toLocaleString("en-GB")],["Last updated",new Date(x.updated).toLocaleString("en-GB")]].forEach(function(r){h+="<tr><td><strong>"+r[0]+"</strong></td><td>"+esc(r[1])+"</td></tr>"});
   h+="</table><h2>Timeline</h2><ul>"+x.notes.map(function(n){return'<li><span class="t">'+esc(new Date(n.t).toLocaleString("en-GB"))+"</span><strong>"+esc(n.by)+"</strong>: "+(n.kind==="action"?"<strong>ACTION:</strong> ":"")+esc(n.text)+"</li>"}).join("")+"</ul>";
   if(x.reports.length)h+="<h2>Linked reports</h2><ul>"+x.reports.map(function(r){return'<li><a href="'+eurl(r.l)+'">'+esc(r.t)+"</a> "+esc(r.s)+"</li>"}).join("")+"</ul>";
@@ -1471,11 +1754,12 @@ function rset(){
   g.innerHTML=num("r3","Alert radius ★★★ sites (km)",RULES.r3,5,300,"Manufacturing / R&amp;D")+num("r2","Alert radius ★★ sites (km)",RULES.r2,5,300,"HQ / engineering")+num("r1","Alert radius ★ sites (km)",RULES.r1,5,300,"Other offices and imported assets")+
     num("escMin","Escalate if unacknowledged after (min)",RULES.escMin,1,240,"Critical/high incidents inside a site's alert radius")+
     '<label>Escalate for sites rated<select class="hi-in" id="set-escImp">'+[1,2,3].map(function(i){return'<option value="'+i+'"'+(+RULES.escImp===i?" selected":"")+">"+"★".repeat(i)+" and above</option>"}).join("")+'</select><span class="sb-meta">Lower = more escalations</span></label>'+
-    '<label>Desktop notifications<select class="hi-in" id="set-notify"><option value="all"'+(RULES.notify!=="near"?" selected":"")+'>All critical/high in my patch</option><option value="near"'+(RULES.notify==="near"?" selected":"")+">Only inside a site's alert radius</option></select><span class=\"sb-meta\">Turn on with 🔔 in the header</span></label>";
+    '<label>Escalate and notify<select class="hi-in" id="set-escConf"><option value="0"'+(RULES.escConf?"":" selected")+'>All incidents</option><option value="1"'+(RULES.escConf?" selected":"")+'>Confirmed incidents only</option></select><span class="sb-meta">Confirmed = official source or several independent publishers</span></label>'+
+    '<label>Desktop notifications<select class="hi-in" id="set-notify"><option value="all"'+(RULES.notify!=="near"?" selected":"")+'>All critical/high in my patch</option><option value="near"'+(RULES.notify==="near"?" selected":"")+">Only inside a site's alert radius</option></select><span class=\"sb-meta\">Turn on with Alerts in the header</span></label>";
 }
 function setSave(){
   ["r3","r2","r1","escMin"].forEach(function(k){var e=document.getElementById("set-"+k),v=e?parseInt(e.value,10):NaN;if(!isNaN(v)&&v>0)RULES[k]=Math.min(v,k==="escMin"?240:300)});
-  var ei=document.getElementById("set-escImp"),nt=document.getElementById("set-notify");if(ei)RULES.escImp=+ei.value;if(nt)RULES.notify=nt.value;
+  var ei=document.getElementById("set-escImp"),nt=document.getElementById("set-notify");if(ei)RULES.escImp=+ei.value;if(nt)RULES.notify=nt.value;var ec=document.getElementById("set-escConf");if(ec)RULES.escConf=ec.value==="1";
   try{localStorage.setItem("rules",JSON.stringify(RULES))}catch(e){}
   var m=document.getElementById("setMsg");if(m){m.textContent="Saved ✓";setTimeout(function(){m.textContent=""},2500)}
   rset();mapRisk();if(SD._done)ucrit();
@@ -1486,17 +1770,49 @@ function setReset(){RULES=Object.assign({},RULES_DEF);try{localStorage.removeIte
 function toggleWall(force){
   var on=force!=null?!!force:!document.body.classList.contains("wall");
   document.body.classList.toggle("wall",on);
-  var b=document.getElementById("wallBtn");if(b)b.textContent=on?"✕ Exit wall":"🖥️ Wall";
+  var b=document.getElementById("wallBtn");if(b)b.innerHTML=on?ic("x")+"Exit wall":ic("monitor")+"Wall";
   try{localStorage.setItem("wall",on?"1":"0")}catch(e){}
   try{
     if(on&&force==null&&document.documentElement.requestFullscreen&&!document.fullscreenElement)document.documentElement.requestFullscreen().catch(function(){});
     if(!on&&document.fullscreenElement&&document.exitFullscreen)document.exitFullscreen().catch(function(){});
   }catch(e){}
   wallClock();
-  setTimeout(function(){if(MAP){MAP.invalidateSize();if(PATCH)patchFit();else mapFit()}},350);
+  setTimeout(function(){if(MAP){var sv=null;try{sv=localStorage.getItem("basemap")}catch(e){}if(!sv)setBasemap();MAP.invalidateSize();if(PATCH)patchFit();else mapFit()}},350);
 }
 document.addEventListener("keydown",function(e){if(e.key==="Escape"&&document.body.classList.contains("wall"))toggleWall(false)});
-function wallClock(){var c=document.getElementById("wallClock");if(!c)return;var d=new Date();c.textContent=d.toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})+" · "+d.toISOString().substr(11,5)+" UTC"}
+/* one clock: local time, plus UTC only when the local time zone differs from UTC */
+function wallClock(){
+  var c=document.getElementById("wallClock");if(!c)return;
+  var d=new Date(),loc=d.toLocaleTimeString([],{hour:"2-digit",minute:"2-digit",hour12:false}),utc=d.toISOString().substr(11,5);
+  c.textContent=d.getTimezoneOffset()===0?utc+" UTC":loc+" local · "+utc+" UTC";
+  c.title="Local time and UTC";
+}
+
+/* ---- situation summary strip + data freshness ---- */
+var KPI={c:0,h:0,o:0};
+function kpiGo(id){var e=document.getElementById(id);if(e&&e.scrollIntoView)e.scrollIntoView({behavior:"smooth",block:"start"})}
+function rkpi(){
+  function set(id,v,cls){var e=document.getElementById(id);if(!e)return;e.textContent=v;if(cls!==undefined)e.className=cls}
+  if(SD._done){set("kpiC",KPI.c,KPI.c?"k-crit":"k-ok");set("kpiH",KPI.h,KPI.h?"k-high":"k-ok");set("kpiO",KPI.o,KPI.o?"k-crit":"k-ok")}
+  if(SITERISK.length){
+    var red=0,amb=0;L0.forEach(function(s,j){if(PATCH&&s.mgr!==PATCH)return;var st=stOf(SITERISK[j]);if(st==="red")red++;else if(st==="amber")amb++});
+    set("kpiS",red,red?"k-crit":"k-ok");set("kpiS2",amb?"+ "+amb+" watch":"red");
+  }
+  var k=Object.keys(FH),ok=k.filter(function(n){return FH[n].ok||FH[n].stale}).length;
+  if(k.length)set("kpiF",ok+"/"+k.length,ok===k.length?"k-ok":ok<k.length*.75?"k-crit":"k-high");
+  fresh();
+}
+/* "Updated x min ago" — turns amber after 10 min and red after 30 min so a stale screen is never mistaken for a quiet one */
+function fresh(){
+  var e=document.getElementById("fresh");if(!e)return;
+  var t=0;for(var n in FH)if(FH[n].ok&&FH[n].t>t)t=FH[n].t;
+  var f2=document.getElementById("kpiF2");
+  if(!t){e.textContent="Waiting for data";e.className="fresh f-warn";return}
+  var m=Math.floor((Date.now()-t)/6e4);
+  e.textContent=m>10?"Data "+m+" min old":m<1?"Updated just now":"Updated "+m+" min ago";
+  e.className="fresh "+(m>30?"f-bad":m>10?"f-warn":"f-ok");
+  if(f2)f2.textContent=m>10?m+" min old":"";
+}
 
 /* =====================================================================
    SECTION: hosting auto-detect — when served by portal-server.js, use it for feeds/state/Teams
@@ -1517,7 +1833,7 @@ function detectServer(){
 document.addEventListener("DOMContentLoaded",function(){
 purgeStorage();loadDP();a11y();applyPatch();ras();
 try{if(localStorage.getItem("wall")==="1")toggleWall(true)}catch(e){}
-wallClock();setInterval(wallClock,10000);
+wallClock();setInterval(wallClock,10000);setInterval(fresh,30000);
 document.getElementById("siteCount").textContent=L0.length;
 document.getElementById("locCount").textContent=L0.length;
 loadLibs().then(initMap,initMap);
@@ -1535,9 +1851,10 @@ detectServer().then(function(){
     setTimeout(function(){lms(TS,TD,rtf)},SS.length*STAG);
     setTimeout(function(){lms(PS,PD,rpf)},(SS.length+TS.length)*STAG);
     setTimeout(lra,(SS.length+TS.length+PS.length)*STAG);
-    loadOfficial();
   }
+  window.reloadFeeds=loadAll;
   loadAll();
+  loadOfficial();setInterval(loadOfficial,5*6e4);   /* USGS/GDACS: direct, no converter quota */
   pullTri();
   setTimeout(uls,24000);
   setInterval(function(){trvPurge();loadAll()},(CFG.proxy?5:20)*6e4);
