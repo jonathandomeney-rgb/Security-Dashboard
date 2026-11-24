@@ -167,7 +167,7 @@ function stOf(r){return r.lv==="crit"||r.lv==="high"?"red":r.lv==="med"?"amber":
 function rsites(){
   var el=document.getElementById("sbList");if(!el||!SITERISK.length)return;
   var rows=L0.map(function(s,j){return{s:s,j:j,r:SITERISK[j]}}).filter(function(x){return!PATCH||x.s.mgr===PATCH});
-  rows.sort(function(a,b){return b.r.score-a.r.score||siteImp(b.s)-siteImp(a.s)||a.s.name.localeCompare(b.s.name)});
+  rows.sort(function(a,b){return LVL[b.r.lv]-LVL[a.r.lv]||b.r.score-a.r.score||siteImp(b.s)-siteImp(a.s)||a.s.name.localeCompare(b.s.name)}); /* worst severity first; impact breaks ties */
   var n={red:0,amber:0,green:0},h="";
   rows.forEach(function(x){n[stOf(x.r)]++});
   rows.forEach(function(x){
@@ -860,7 +860,7 @@ function ucrit(){
   CLS=clusterItems(pool);
   /* rank by business impact (severity x site importance x proximity), newest first on ties */
   CLS.forEach(function(cl){cl.imp=cl.items.reduce(function(b,x){var v=impactOf(x);return v.score>b.score?v:b},{score:0,site:null,dist:null})});
-  CLS.sort(function(a,b){return b.imp.score-a.imp.score||(new Date(b.lead.pubDate)-new Date(a.lead.pubDate))});
+  CLS.sort(function(a,b){return LVN[b.sev.level]-LVN[a.sev.level]||b.imp.score-a.imp.score||(new Date(b.lead.pubDate)-new Date(a.lead.pubDate))}); /* severity first; impact breaks ties */
   var h="",dis=0,nc=0,nh=0,hid=0;
   CLS.forEach(function(cl){
     if(PATCH&&!(cl.items.some(inPatch)||(cl.imp.site&&cl.imp.site.mgr===PATCH))){hid++;return}
