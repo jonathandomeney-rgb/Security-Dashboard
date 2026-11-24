@@ -17,21 +17,45 @@
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.ticker-content{padding-left:0;white-space:normal;flex-wrap:wrap;gap:12px}}
 .tri{display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin-top:5px}.tri-btn{background:#e9ecef;border:1px solid #ced4da;color:#333;border-radius:12px;padding:2px 9px;font-size:.68rem;font-weight:600;cursor:pointer}.tri-btn:hover{background:#d0d4d8}body.dark .tri-btn{background:#2a2a4a;color:#ddd;border-color:#3a3a5a}.tri-sel{font-size:.68rem;border-radius:10px;padding:1px 4px}.tri-st{font-size:.66rem;color:#666}body.dark .tri-st{color:#aaa}.tri-ack{opacity:.6}.tri-dis{opacity:.4}details.rel{margin-top:4px;font-size:.75rem}details.rel summary{cursor:pointer;color:#0076CE}details.rel li{margin:3px 0 0 16px}details.rel span{color:#888;font-size:.68rem}.lg-cb{position:absolute;opacity:0}.hi-in{padding:5px 10px;border:1px solid #ced4da;border-radius:14px;font-size:.78rem}body.dark .hi-in{background:#1a1a2e;color:#ddd;border-color:#3a3a5a}
 .sb-sum{display:flex;gap:14px;font-size:.8rem;margin-bottom:6px;flex-wrap:wrap;font-weight:600}.sb-list{list-style:none;max-height:360px;overflow-y:auto}.sb-row{display:flex;align-items:center;gap:10px;padding:7px 4px;border-bottom:1px solid #eee;font-size:.82rem;flex-wrap:wrap}body.dark .sb-row{border-bottom-color:#2a2a4a}.sb-chip{font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:10px;color:#fff;min-width:64px;text-align:center}.sb-red{background:#DC3545}.sb-amber{background:#FFC107;color:#333}.sb-green{background:#28A745}.sb-name{font-weight:700;min-width:200px}.sb-meta{color:#888;font-size:.7rem;font-weight:400}.sb-inc{flex:1;min-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sb-inc a{color:#0076CE;text-decoration:none}.sb-inc a:hover{text-decoration:underline}body.dark .sb-inc a{color:#5dade2}.sb-imp{font-size:.62rem;letter-spacing:1px;color:#E67E22}.imp-badge{display:inline-block;font-size:.6rem;font-weight:700;padding:2px 7px;border-radius:8px;margin-left:4px;background:#1B3A5C;color:#fff}.patch-sel{background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);border-radius:20px;font-size:.72rem;font-weight:600;padding:4px 8px;cursor:pointer}.patch-sel option{color:#333}
+.ovd{display:inline-block;font-size:.6rem;font-weight:700;padding:2px 7px;border-radius:8px;margin-left:4px;background:#DC3545;color:#fff;animation:pulse 1.2s infinite}
+.inc-item{padding:10px 12px;border:1px solid #e0e0e0;border-radius:8px;margin-bottom:8px}body.dark .inc-item{border-color:#2a2a4a}.inc-item.inc-hl{box-shadow:0 0 0 3px #FFB900}
+.inc-head{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.inc-title{font-weight:700;flex:1;min-width:200px}
+.inc-st{font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:10px;color:#fff}.st-new{background:#DC3545}.st-monitoring{background:#FFC107;color:#333}.st-responding{background:#E67E22}.st-closed{background:#6c757d}
+.inc-notes{list-style:none;margin:6px 0 0;font-size:.78rem;max-height:180px;overflow:auto}.inc-notes li{padding:3px 0;border-bottom:1px dashed #eee}body.dark .inc-notes li{border-bottom-color:#2a2a4a}.inc-notes time{color:#888;font-size:.68rem;margin-right:6px}
+.inc-row{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;align-items:center}.inc-row input[type=text]{flex:1;min-width:200px}
+.set-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;font-size:.8rem}.set-grid label{display:flex;flex-direction:column;gap:3px;font-weight:600}
+.imk{width:20px;height:20px;border-radius:4px;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;font-size:11px;line-height:1}
+.wall-clock{display:none;font-size:1.3rem;font-weight:700;font-variant-numeric:tabular-nums;margin-right:8px}
+body.wall .team-bar,body.wall .focus-bar,body.wall .focus-panel{display:none}
+body.wall .wall-clock{display:inline-block}
+body.wall .portal{display:grid;grid-template-columns:minmax(0,2fr) minmax(340px,1fr);grid-template-rows:auto minmax(0,1fr);gap:12px;max-width:none;height:calc(100vh - 110px);padding:12px}
+body.wall .portal>.card{display:none}
+body.wall .row{display:contents}
+body.wall #card-sec{display:none}
+body.wall #card-map{display:block;grid-column:1;grid-row:1/3;margin:0}
+body.wall #card-sb{display:block;grid-column:2;grid-row:1;margin:0}
+body.wall #card-crit{display:flex;flex-direction:column;grid-column:2;grid-row:2;margin:0;min-height:0}
+body.wall #map{height:calc(100vh - 175px)}
+body.wall .collapsible{max-height:none!important;overflow:visible}
+body.wall #card-crit .collapsible{overflow:auto;flex:1}
+body.wall .crit-list{max-height:none}
+body.wall .sb-list{max-height:30vh}
 </style>
 </head>
 <body>
 <a class="sr-only" href="#main">Skip to content</a>
-<div class="header"><div class="header-left"><h1>🔒 Dell EMEA Security Portal</h1><p><span class="live-dot live-dot-green" id="liveDot"></span><span id="liveStatus">LIVE</span> — Europe, Middle East &amp; Africa <button type="button" class="hdr-btn" id="feedHealth" style="margin-left:10px;padding:1px 10px" aria-expanded="false" aria-controls="feedPanel" onclick="toggleFeedPanel()">Feeds…</button></p><div id="feedPanel" style="display:none" aria-live="polite"></div></div><div class="hdr-btns"><label class="sr-only" for="patchSel">My patch</label><select id="patchSel" class="patch-sel" onchange="setPatch(this.value)" title="My patch — filters every panel to one manager's countries (remembered on this browser)"><option value="">🌍 All EMEA</option><option value="jonathan">👤 Jonathan</option><option value="maciej">👤 Maciej</option><option value="vladimir">👤 Vladimir</option><option value="mehdi">👤 Mehdi</option><option value="mohamed">👤 Mohamed</option></select><div style="position:relative;display:inline-block"><button class="hdr-btn" onclick="document.getElementById('briefMenu').classList.toggle('open')" id="briefBtn">📋 Briefing ▾</button><div id="briefMenu" style="display:none;position:absolute;right:0;top:110%;background:#fff;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.2);min-width:240px;z-index:999;overflow:hidden;font-size:.78rem"><a onclick="genBrief('all');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">📋 Full EMEA</a><a onclick="genBrief('jonathan');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">👤 Jonathan</a><a onclick="genBrief('maciej');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">👤 Maciej</a><a onclick="genBrief('vladimir');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">👤 Vladimir</a><a onclick="genBrief('mehdi');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">👤 Mehdi</a><a onclick="genBrief('mohamed');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">👤 Mohamed</a><a onclick="genBrief('critical');closeBM()" style="display:block;padding:10px 16px;color:#DC3545;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer;font-weight:700">⚠️ Critical Only</a><a onclick="openReport();closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;cursor:pointer">🖨️ Report</a></div></div><button class="hdr-btn" onclick="toggleNotif()" id="notifBtn">🔔 Off</button><button class="hdr-btn dark-toggle" onclick="toggleDark()" id="darkBtn">🌙 Dark</button></div></div>
+<div class="header"><div class="header-left"><h1>🔒 Dell EMEA Security Portal</h1><p><span class="live-dot live-dot-green" id="liveDot"></span><span id="liveStatus">LIVE</span> — Europe, Middle East &amp; Africa <button type="button" class="hdr-btn" id="feedHealth" style="margin-left:10px;padding:1px 10px" aria-expanded="false" aria-controls="feedPanel" onclick="toggleFeedPanel()">Feeds…</button></p><div id="feedPanel" style="display:none" aria-live="polite"></div></div><div class="hdr-btns"><label class="sr-only" for="patchSel">My patch</label><select id="patchSel" class="patch-sel" onchange="setPatch(this.value)" title="My patch — filters every panel to one manager's countries (remembered on this browser)"><option value="">🌍 All EMEA</option><option value="jonathan">👤 Jonathan</option><option value="maciej">👤 Maciej</option><option value="vladimir">👤 Vladimir</option><option value="mehdi">👤 Mehdi</option><option value="mohamed">👤 Mohamed</option></select><div style="position:relative;display:inline-block"><button class="hdr-btn" onclick="document.getElementById('briefMenu').classList.toggle('open')" id="briefBtn">📋 Briefing ▾</button><div id="briefMenu" style="display:none;position:absolute;right:0;top:110%;background:#fff;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.2);min-width:240px;z-index:999;overflow:hidden;font-size:.78rem"><a onclick="genBrief('all');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">📋 Full EMEA</a><a onclick="genBrief('jonathan');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">👤 Jonathan</a><a onclick="genBrief('maciej');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">👤 Maciej</a><a onclick="genBrief('vladimir');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">👤 Vladimir</a><a onclick="genBrief('mehdi');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">👤 Mehdi</a><a onclick="genBrief('mohamed');closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer">👤 Mohamed</a><a onclick="genBrief('critical');closeBM()" style="display:block;padding:10px 16px;color:#DC3545;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer;font-weight:700">⚠️ Critical Only</a><a onclick="openReport();closeBM()" style="display:block;padding:10px 16px;color:#333;text-decoration:none;cursor:pointer">🖨️ Report</a></div></div><span class="wall-clock" id="wallClock" aria-live="off"></span><button class="hdr-btn" onclick="toggleWall()" id="wallBtn" title="Wall-screen mode for a SOC monitor (Esc to exit)">🖥️ Wall</button><button class="hdr-btn" onclick="toggleNotif()" id="notifBtn">🔔 Off</button><button class="hdr-btn dark-toggle" onclick="toggleDark()" id="darkBtn">🌙 Dark</button></div></div>
 <div class="ticker-bar"><div class="ticker-label">🔴 BREAKING</div><div class="ticker-wrap"><div class="ticker-content" id="tickerContent"><span class="ticker-empty">Scanning EMEA...</span></div></div></div>
 <div class="team-bar"><div class="team-item"><span class="team-dot" style="background:#00A650"></span><span class="team-name">Jonathan</span><span class="team-region" title="IE, UK, DE, IL">IE, UK, DE, IL</span></div><div class="team-item"><span class="team-dot" style="background:#0076CE"></span><span class="team-name">Maciej</span><span class="team-region" title="PL, DK, SE, NO, FI">PL, DK, SE, NO, FI</span></div><div class="team-item"><span class="team-dot" style="background:#FFCC00"></span><span class="team-name">Vladimir</span><span class="team-region" title="NL, BE, LU, CH, AT, CZ, SK, SI, HU, HR, RS, MK, BG, RO, GR, TR, EE, LT, UA, KZ">NL, BE, LU, CH, AT, CZ, SK, SI, HU, HR, RS, MK, BG, RO, GR, TR, EE, LT, UA, KZ</span></div><div class="team-item"><span class="team-dot" style="background:#E67E22"></span><span class="team-name">Mehdi</span><span class="team-region" title="FR, ES, PT, IT, MA, DZ, TN, ZA, KE, NG, ET, SN, AO, GH">FR, ES, PT, IT, MA, DZ, TN, ZA, KE, NG, ET, SN, AO, GH</span></div><div class="team-item"><span class="team-dot" style="background:#DC3545"></span><span class="team-name">Mohamed</span><span class="team-region" title="UAE, SA, EG, JO, IQ, KW, QA, BH, OM, LB, LY">UAE, SA, EG, JO, IQ, KW, QA, BH, OM, LB, LY</span></div></div>
 <div class="focus-bar"><span style="font-size:.9rem">🎯</span><input type="text" class="focus-input" id="focusInput" placeholder="Event Focus: Enter country, city, or event..." onkeydown="if(event.key==='Enter')runFocus()"><button class="focus-btn" onclick="runFocus()">Focus</button><button class="focus-clear" onclick="clearFocus()" id="focusClearBtn" style="display:none">✕ Clear</button></div>
 <div class="focus-panel" id="focusPanel"><div class="focus-card"><div class="focus-header"><div class="focus-title" id="focusTitle">🎯 Event Focus</div><div class="focus-meta"><span class="focus-stat" id="focusArticles">📰 0</span><span class="focus-stat" id="focusSeverity"></span><span class="focus-stat" id="focusTimeline"></span><span class="focus-stat" id="focusManager"></span></div></div><div class="focus-sitrep" id="focusSitrep"></div><div class="focus-actions"><button class="focus-action-btn" style="background:#0076CE;color:#fff" onclick="copySitrep()">📋 Copy Sitrep</button><button class="focus-action-btn" style="background:#28A745;color:#fff" onclick="fetchFocusFeed()">🔄 Refresh</button></div><div class="focus-articles" id="focusArticleList"></div></div></div>
 <div class="portal" id="main" role="main">
-<div class="card"><div class="ch ch-dark" onclick="tog('sb')">🏢 Site Status<span class="ch-count" id="sbCount">-</span><span class="ch-arrow open" id="arrow-sb">▼</span></div><div class="collapsible open" id="col-sb"><div class="card-body" style="padding:10px 18px"><div class="sb-sum" id="sbSum"></div><ul class="sb-list" id="sbList"><li style="text-align:center;padding:16px;color:#888">Waiting for feeds...</li></ul></div></div></div>
-<div class="card"><div class="ch ch-critical" onclick="tog('crit')">⚠️ EMEA Critical &amp; High Alerts<span class="ch-count" id="critCount">-</span><span class="ch-arrow" id="arrow-crit">▼</span></div><div class="collapsible" id="col-crit"><div class="card-body" style="padding:10px 18px"><ul class="crit-list" id="fd-crit"><li style="text-align:center;padding:16px;color:#888">Scanning...</li></ul></div></div></div>
+<div class="card" id="card-sb"><div class="ch ch-dark" onclick="tog('sb')">🏢 Site Status<span class="ch-count" id="sbCount">-</span><span class="ch-arrow open" id="arrow-sb">▼</span></div><div class="collapsible open" id="col-sb"><div class="card-body" style="padding:10px 18px"><div class="sb-sum" id="sbSum"></div><ul class="sb-list" id="sbList"><li style="text-align:center;padding:16px;color:#888">Waiting for feeds...</li></ul></div></div></div>
+<div class="card" id="card-crit"><div class="ch ch-critical" onclick="tog('crit')">⚠️ EMEA Critical &amp; High Alerts<span class="ch-count" id="critCount">-</span><span class="ch-arrow" id="arrow-crit">▼</span></div><div class="collapsible" id="col-crit"><div class="card-body" style="padding:10px 18px"><ul class="crit-list" id="fd-crit"><li style="text-align:center;padding:16px;color:#888">Scanning...</li></ul></div></div></div>
+<div class="card" id="card-inc"><div class="ch ch-dark" onclick="tog('inc')">📁 Incidents<span class="ch-count" id="incCount">0</span><span class="ch-arrow" id="arrow-inc">▼</span></div><div class="collapsible" id="col-inc"><div class="card-body"><div class="sb-sum" id="incSum"></div><div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px"><button type="button" class="tri-btn" onclick="incNew()">＋ New incident</button><select id="incFlt" class="hi-in" onchange="rinc()" aria-label="Show incidents"><option value="open">Open</option><option value="all">All (30 days)</option><option value="closed">Closed</option></select><button type="button" class="tri-btn" onclick="incExportAll()">📋 Copy incident log</button></div><div id="incList"></div><p class="sitrep-text" style="font-size:.72rem;margin-top:6px">Incident records are stored in this browser only until the portal is hosted on a server — use “Copy timeline” or “Report” to share them.</p></div></div></div>
 <div class="row">
-<div class="card card-row"><div class="ch ch-blue" style="cursor:default">🗺️ Dell EMEA Locations<span class="ch-count" id="siteCount">48</span></div><div class="card-body" style="padding:0"><div id="map"></div><div class="map-fallback" id="mapFallback"><div id="fallbackLocations"></div></div></div></div>
-<div class="card card-row"><div class="ch ch-dark" style="cursor:default" id="hd-sec">🔒 Security Intelligence<span class="ch-count" id="secCount">-</span></div><div class="ftabs b-blue" id="tabs-sec"><button class="ft ab" onclick="sw('sec','all',this,'ab')">All</button><button class="ft" onclick="sw('sec','jonathan',this,'ab')">Jonathan</button><button class="ft" onclick="sw('sec','maciej',this,'ab')">Maciej</button><button class="ft" onclick="sw('sec','vladimir',this,'ab')">Vladimir</button><button class="ft" onclick="sw('sec','mehdi',this,'ab')">Mehdi</button><button class="ft" onclick="sw('sec','mohamed',this,'ab')">Mohamed</button></div><div class="card-body" style="padding:6px 14px"><ul class="nlist-tall" id="fd-sec"><li style="text-align:center;padding:30px;color:#888">Loading...</li></ul></div></div>
+<div class="card card-row" id="card-map"><div class="ch ch-blue" style="cursor:default">🗺️ Dell EMEA Locations<span class="ch-count" id="siteCount">48</span></div><div class="card-body" style="padding:0"><div id="map"></div><div class="map-fallback" id="mapFallback"><div id="fallbackLocations"></div></div></div></div>
+<div class="card card-row" id="card-sec"><div class="ch ch-dark" style="cursor:default" id="hd-sec">🔒 Security Intelligence<span class="ch-count" id="secCount">-</span></div><div class="ftabs b-blue" id="tabs-sec"><button class="ft ab" onclick="sw('sec','all',this,'ab')">All</button><button class="ft" onclick="sw('sec','jonathan',this,'ab')">Jonathan</button><button class="ft" onclick="sw('sec','maciej',this,'ab')">Maciej</button><button class="ft" onclick="sw('sec','vladimir',this,'ab')">Vladimir</button><button class="ft" onclick="sw('sec','mehdi',this,'ab')">Mehdi</button><button class="ft" onclick="sw('sec','mohamed',this,'ab')">Mohamed</button></div><div class="card-body" style="padding:6px 14px"><ul class="nlist-tall" id="fd-sec"><li style="text-align:center;padding:30px;color:#888">Loading...</li></ul></div></div>
 </div>
 <div class="card"><div class="ch ch-weather" style="cursor:default" id="hd-wx">🌦️ EMEA Critical Weather<span class="ch-count" id="wxCount">-</span></div><div class="ftabs b-weather" id="tabs-wx"><button class="ft aw" onclick="sw('wx','all',this,'aw')">All</button><button class="ft" onclick="sw('wx','jonathan',this,'aw')">Jonathan</button><button class="ft" onclick="sw('wx','maciej',this,'aw')">Maciej</button><button class="ft" onclick="sw('wx','vladimir',this,'aw')">Vladimir</button><button class="ft" onclick="sw('wx','mehdi',this,'aw')">Mehdi</button><button class="ft" onclick="sw('wx','mohamed',this,'aw')">Mohamed</button></div><div class="card-body" style="padding:6px 14px"><ul class="nlist" id="fd-wx"><li style="text-align:center;padding:20px;color:#888">Loading weather...</li></ul></div></div>
 <div class="card"><div class="ch ch-travel" onclick="tog('tv')">✈️ Travel Advisories<span class="ch-count" id="tvCount">-</span><span class="ch-arrow" id="arrow-tv">▼</span></div><div class="collapsible" id="col-tv"><div class="ftabs b-travel" id="tabs-tv"><button class="ft at" onclick="sw('tv','all',this,'at')">All</button><button class="ft" onclick="sw('tv','jonathan',this,'at')">Jonathan</button><button class="ft" onclick="sw('tv','maciej',this,'at')">Maciej</button><button class="ft" onclick="sw('tv','vladimir',this,'at')">Vladimir</button><button class="ft" onclick="sw('tv','mehdi',this,'at')">Mehdi</button><button class="ft" onclick="sw('tv','mohamed',this,'at')">Mohamed</button></div><div class="card-body" style="padding:6px 14px"><ul class="nlist" id="fd-tv"><li style="text-align:center;padding:20px;color:#888">Loading...</li></ul></div></div></div>
@@ -40,6 +64,8 @@
 <div class="card"><div class="ch ch-dark" onclick="tog('sh')">🔄 Shift Handover<span class="ch-count" id="shCount">-</span><span class="ch-arrow" id="arrow-sh">▼</span></div><div class="collapsible" id="col-sh"><div class="card-body" id="shBody"></div></div></div>
 <div class="card"><div class="ch ch-travel" onclick="tog('trv')">🧳 Travellers<span class="ch-count" id="trvCount">0</span><span class="ch-arrow" id="arrow-trv">▼</span></div><div class="collapsible" id="col-trv"><div class="card-body"><p class="sitrep-text" style="margin-bottom:8px">Import a CSV with columns <code>name,city,lat,lng,from,to</code> (lat/lng optional if the city is known; dates as YYYY-MM-DD). Travellers appear on the map and are checked against incidents within 50km. <strong>This personal data stays in this browser only and is never sent to the server. Entries are deleted automatically the day after their end date.</strong></p><label class="tri-btn" style="display:inline-block;cursor:pointer">📂 Import CSV<input type="file" id="trvFile" accept=".csv,text/csv" onchange="trvImport(this)" class="sr-only"></label> <button type="button" class="tri-btn" onclick="trvClear()">Clear</button><ul class="location-list" id="trvList"></ul></div></div></div>
 <div class="card"><div class="ch ch-dark" onclick="tog('hi')">🗂️ History (7 days)<span class="ch-count" id="hiCount">-</span><span class="ch-arrow" id="arrow-hi">▼</span></div><div class="collapsible" id="col-hi"><div class="card-body"><div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px"><input id="hiQ" class="hi-in" placeholder="Search history…" oninput="rhist()" aria-label="Search history"><select id="hiLv" class="hi-in" onchange="rhist()" aria-label="Minimum severity"><option value="0">All severities</option><option value="1">Medium+</option><option value="2">High+</option><option value="3">Critical</option></select><select id="hiMg" class="hi-in" onchange="rhist()" aria-label="Manager"><option value="">All managers</option><option value="jonathan">Jonathan</option><option value="maciej">Maciej</option><option value="vladimir">Vladimir</option><option value="mehdi">Mehdi</option><option value="mohamed">Mohamed</option></select></div><ul class="nlist" id="fd-hi"></ul></div></div></div>
+<div class="card"><div class="ch ch-blue" onclick="tog('as')">🏭 Other Assets<span class="ch-count" id="asCount">0</span><span class="ch-arrow" id="arrow-as">▼</span></div><div class="collapsible" id="col-as"><div class="card-body"><p class="sitrep-text" style="margin-bottom:8px">Import a CSV with columns <code>name,type,city,lat,lng,country,manager,importance</code> — e.g. data centres, logistics hubs, key suppliers, ports or airports. lat/lng are optional if the city is known; manager (jonathan, maciej, vladimir, mehdi or mohamed) defaults to the nearest Dell site's manager; importance is 1–3 (default 1). Assets appear on the map (square “A” markers) and the Site Status board, and are scored like Dell sites. A new import replaces the previous list. Stored in this browser only.</p><label class="tri-btn" style="display:inline-block;cursor:pointer">📂 Import CSV<input type="file" accept=".csv,text/csv" onchange="asImport(this)" class="sr-only"></label> <button type="button" class="tri-btn" onclick="asClear()">Clear</button><ul class="location-list" id="asList"></ul></div></div></div>
+<div class="card"><div class="ch ch-dark" onclick="tog('set')">⚙️ Alert Rules &amp; Settings<span class="ch-arrow" id="arrow-set">▼</span></div><div class="collapsible" id="col-set"><div class="card-body"><div class="set-grid" id="setGrid"></div><div style="margin-top:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap"><button type="button" class="focus-action-btn" style="background:#0076CE;color:#fff" onclick="setSave()">Save rules</button><button type="button" class="focus-action-btn" style="background:#6c757d;color:#fff" onclick="setReset()">Reset to defaults</button><span id="setMsg" class="sitrep-text"></span></div><p class="sitrep-text" style="font-size:.72rem;margin-top:8px">Rules apply in this browser only. Escalation flags and desktop alerts work while the portal is open; Teams/email escalation needs the portal server.</p></div></div></div>
 <div class="card"><div class="ch ch-dark" onclick="tog('src')">ℹ️ Sources &amp; Terms<span class="ch-arrow" id="arrow-src">▼</span></div><div class="collapsible" id="col-src"><div class="card-body sitrep-text" style="font-size:.78rem">
 <p>Headlines link to the original publisher; article content is not republished. Before wider internal rollout, confirm with Legal/Procurement that this use complies with each provider's terms (especially Google News RSS, rss2json and public map tiles).</p>
 <ul style="margin:6px 0 0 18px"><li>News: Google News RSS, BBC, The Guardian, Sky News, France 24, DW, Al Jazeera, Times of Israel, Jerusalem Post — © respective publishers.</li><li>Hazards: <a href="https://earthquake.usgs.gov" target="_blank" rel="noopener">USGS</a> (public domain); <a href="https://www.gdacs.org" target="_blank" rel="noopener">GDACS</a> (European Commission JRC / UN OCHA); <a href="https://meteoalarm.org" target="_blank" rel="noopener">MeteoAlarm</a> (CC BY 4.0 with additional terms).</li><li>Travel: <a href="https://www.gov.uk/foreign-travel-advice" target="_blank" rel="noopener">UK FCDO</a> (Open Government Licence v3.0); <a href="https://travel.state.gov" target="_blank" rel="noopener">US State Department</a> (public domain).</li><li>Maps: Leaflet (BSD-2); basemaps © Esri and © OpenStreetMap contributors (ODbL; OSM tile usage policy applies).</li><li>Feed conversion: rss2json.com (public service, rate-limited) unless portal-server.js is used.</li><li>Israel Red Alert panel is built from news reports, not the Home Front Command siren feed — it is not a real-time siren alert.</li></ul></div></div></div>
@@ -112,6 +138,10 @@ var L0=[
 {name:"Dell - Cairo",lat:30.0444,lng:31.2357,address:"Cairo (address unconfirmed)",type:"Office",country:"Egypt",mgr:"mohamed",approx:true},
 {name:"Dell - Doha",lat:25.3220,lng:51.5300,address:"Al Fardan Office Tower, West Bay, Doha (third-party listing, unconfirmed)",type:"Office",country:"Qatar",mgr:"mohamed",approx:true}
 ];
+/* Other assets imported via CSV (data centres, logistics hubs, suppliers...) are treated like sites everywhere */
+var ASSETS=[];
+try{ASSETS=JSON.parse(localStorage.getItem("assets")||"[]")}catch(e){}
+ASSETS.forEach(function(a){a.custom=true;L0.push(a)});
 var MX=72,BH=4,dk=false,AP="https://api.rss2json.com/v1/api.json?rss_url=";
 var MC={"jonathan":"#00A650","maciej":"#0076CE","vladimir":"#FFCC00","mehdi":"#E67E22","mohamed":"#DC3545"};
 var MT={"jonathan":"white","maciej":"white","vladimir":"black","mehdi":"white","mohamed":"white"};
@@ -125,6 +155,14 @@ var MGRS=["jonathan","maciej","vladimir","mehdi","mohamed"];
    Impact score = severity weight (low 1, med 2, high 3, crit 4) x site importance x proximity factor.
    ===================================================================== */
 var SEVW={low:1,med:2,high:3,crit:4};
+/* Alert rules (editable in the "Alert Rules & Settings" panel, saved per browser).
+   r3/r2/r1 = alert radius in km for ★★★ / ★★ / ★ sites; escMin = minutes before an unacknowledged
+   critical/high incident near a site is flagged; escImp = minimum site importance for escalation;
+   notify = "all" (all critical/high in my patch) or "near" (only within a site's alert radius). */
+var RULES_DEF={r3:50,r2:35,r1:25,escMin:15,escImp:2,notify:"all"};
+var RULES=Object.assign({},RULES_DEF);
+try{Object.assign(RULES,JSON.parse(localStorage.getItem("rules")||"{}"))}catch(e){}
+function siteRadius(s){var i=siteImp(s);return i>=3?RULES.r3:i===2?RULES.r2:RULES.r1}
 function siteImp(s){if(s.imp)return s.imp;if(/manufactur|r&d/i.test(s.type))return 3;if(/hq|engineering/i.test(s.type))return 2;return 1}
 function proxF(d){return d==null?.1:d<=10?1:d<=25?.8:d<=50?.5:d<=100?.25:.1}
 /* best (site, distance) for an incident, weighted by importance; incidents with no location still score by severity */
@@ -155,8 +193,8 @@ function applyPatch(){
     for(var i=0;i<bs.length;i++){if((bs[i].getAttribute("onclick")||"").indexOf("'"+key+"'")>-1){sw(k,key,bs[i],ac[k]);break}}
   }
   if(SD._done){ucrit();utk()}
-  rsites();
-  if(MAP)patchFit();
+  rsites();rinc();
+  if(MAP){patchFit();drawIncidents()}
 }
 function patchFit(){
   var b=L0.filter(function(s){return!PATCH||s.mgr===PATCH}).map(function(s){return[s.lat,s.lng]});
@@ -175,10 +213,10 @@ function rsites(){
     if(st==="green"&&!SB_ALL)return;
     h+='<li class="sb-row"><span class="sb-chip sb-'+st+'">'+(st==="green"?"CLEAR":esc(r.label))+'</span>';
     h+='<span class="sb-name">'+esc(x.s.name.replace(/^Dell - /,""))+' <span class="sb-imp" title="Site importance '+siteImp(x.s)+'/3">'+"★".repeat(siteImp(x.s))+'</span><div class="sb-meta">'+esc(x.s.country)+" · "+esc(MN[x.s.mgr]||x.s.mgr)+(st!=="green"?" · impact "+(Math.round(r.score*10)/10):"")+"</div></span>";
-    h+='<span class="sb-inc">'+(top?'<a href="'+eurl(top.link)+'" target="_blank" rel="noopener" title="'+esc(top.title)+'">'+esc(top.title)+'</a> <span class="sb-meta">'+top.d+"km"+(r.n>1?" · "+r.n+" incidents":"")+"</span>":'<span class="sb-meta">No medium+ incidents within '+CFG.radiusKm+"km</span>")+"</span>";
+    h+='<span class="sb-inc">'+(top?'<a href="'+eurl(top.link)+'" target="_blank" rel="noopener" title="'+esc(top.title)+'">'+esc(top.title)+'</a> <span class="sb-meta">'+top.d+"km"+(r.n>1?" · "+r.n+" incidents":"")+"</span>":'<span class="sb-meta">No medium+ incidents within '+r.rad+"km</span>")+"</span>";
     h+='<button type="button" class="tri-btn" onclick="focusSite('+x.j+')" aria-label="Event focus on '+esc(siteCity(x.s))+'">🎯 Focus</button></li>';
   });
-  if(!n.red&&!n.amber&&!SB_ALL)h='<li style="text-align:center;padding:14px;color:#28A745;font-weight:600">✅ All '+rows.length+" sites clear — no medium or higher incidents within "+CFG.radiusKm+"km.</li>";
+  if(!n.red&&!n.amber&&!SB_ALL)h='<li style="text-align:center;padding:14px;color:#28A745;font-weight:600">✅ All '+rows.length+" sites clear — no medium or higher incidents within their alert radius ("+RULES.r3+"/"+RULES.r2+"/"+RULES.r1+" km for ★★★/★★/★).</li>";
   if(n.green)h+='<li style="text-align:center;padding:6px"><button type="button" class="tri-btn" onclick="SB_ALL=!SB_ALL;rsites()">'+(SB_ALL?"Hide clear sites":"Show "+n.green+" clear site"+(n.green>1?"s":""))+"</button></li>";
   el.innerHTML=h;
   document.getElementById("sbSum").innerHTML='<span style="color:#DC3545">🔴 '+n.red+' affected</span><span style="color:#B8860B">🟡 '+n.amber+' watch</span><span style="color:#28A745">🟢 '+n.green+" clear</span>"+(PATCH?'<span class="sb-meta">'+esc(MN[PATCH])+"'s sites only</span>":"");
@@ -263,7 +301,7 @@ var MED_KW=["arrest","detained","protest","strike","security incident","suspicio
 var CK={jonathan:["ireland","irish","dublin","cork","limerick","garda","eireann","taoiseach","uk","u.k.","britain","british","england","scotland","scottish","wales","welsh","london","manchester","birmingham","glasgow","edinburgh","heathrow","belfast","bracknell","mi5","nhs","home office","downing street","germany","german","germans","berlin","frankfurt","munich","hamburg","stuttgart","dusseldorf","bundeswehr","bfv","bundestag","merz","polizei","cologne","nuremberg","nürnberg","dresden","dortmund","essen","halle","israel","israeli","israelis","tel aviv","jerusalem","haifa","herzliya","beersheba","be'er sheva","gaza","hamas","hezbollah","idf","iron dome","netanyahu","west bank","rocket","rockets","siren","sirens","mossad","shin bet","knesset"],maciej:["poland","polish","warsaw","krakow","lodz","gdansk","wroclaw","poznan","denmark","danish","copenhagen","sweden","swedish","stockholm","malmo","gothenburg","norway","norwegian","oslo","finland","finnish","helsinki","espoo"],vladimir:["slovakia","slovak","bratislava","slovenia","slovenian","ljubljana","austria","austrian","vienna","salzburg","bulgaria","bulgarian","sofia","croatia","croatian","zagreb","czech","prague","brno","hungary","hungarian","budapest","estonia","estonian","tallinn","kazakhstan","kazakh","astana","almaty","lithuania","lithuanian","vilnius","macedonia","north macedonia","skopje","ukraine","ukrainian","kyiv","kiev","kharkiv","odesa","serbia","serbian","belgrade","romania","romanian","bucharest","greece","greek","athens","thessaloniki","turkey","türkiye","turkish","istanbul","ankara","erdogan","switzerland","swiss","zurich","geneva","bern","netherlands","dutch","amsterdam","rotterdam","schiphol","hague","belgium","belgian","brussels","nato hq","luxembourg"],mehdi:["algeria","algerian","algiers","tunisia","tunisian","tunis","morocco","moroccan","casablanca","rabat","south africa","johannesburg","cape town","pretoria","ramaphosa","kenya","kenyan","nairobi","nigeria","nigerian","lagos","abuja","ethiopia","ethiopian","addis ababa","senegal","senegalese","dakar","angola","angolan","luanda","ghana","ghanaian","accra","spain","spanish","madrid","barcelona","seville","portugal","portuguese","lisbon","porto","italy","italian","rome","milan","naples","carabinieri","france","french","paris","lyon","marseille","macron","gendarmerie","toulouse","montpellier"],mohamed:["bahrain","bahraini","manama","egypt","egyptian","cairo","suez","alexandria","iraq","iraqi","baghdad","jordanian","amman","libya","libyan","tripoli","benghazi","kuwait","kuwaiti","lebanon","lebanese","beirut","oman","omani","muscat","qatar","qatari","doha","saudi","riyadh","jeddah","mecca","mbs","uae","dubai","abu dhabi","emirates","sharjah"]};
 var CITY_COORDS={espoo:{lat:60.205,lng:24.655},bratislava:{lat:48.149,lng:17.107},budapest:{lat:47.498,lng:19.04},doha:{lat:25.285,lng:51.531},bracknell:{lat:51.416,lng:-.754},montpellier:{lat:43.611,lng:3.877},london:{lat:51.507,lng:-.128},paris:{lat:48.857,lng:2.352},berlin:{lat:52.52,lng:13.405},madrid:{lat:40.417,lng:-3.704},rome:{lat:41.903,lng:12.496},dublin:{lat:53.35,lng:-6.26},amsterdam:{lat:52.37,lng:4.895},brussels:{lat:50.85,lng:4.357},vienna:{lat:48.208,lng:16.374},warsaw:{lat:52.23,lng:21.012},prague:{lat:50.075,lng:14.438},stockholm:{lat:59.329,lng:18.069},oslo:{lat:59.914,lng:10.752},copenhagen:{lat:55.676,lng:12.568},helsinki:{lat:60.17,lng:24.941},lisbon:{lat:38.722,lng:-9.139},barcelona:{lat:41.386,lng:2.17},milan:{lat:45.464,lng:9.19},athens:{lat:37.984,lng:23.728},istanbul:{lat:41.009,lng:28.978},cairo:{lat:30.044,lng:31.236},dubai:{lat:25.205,lng:55.271},riyadh:{lat:24.713,lng:46.675},tel_aviv:{lat:32.085,lng:34.782},jerusalem:{lat:31.769,lng:35.216},beirut:{lat:33.889,lng:35.495},baghdad:{lat:33.315,lng:44.366},amman:{lat:31.952,lng:35.934},johannesburg:{lat:-26.205,lng:28.05},casablanca:{lat:33.573,lng:-7.589},nairobi:{lat:-1.286,lng:36.817},lagos:{lat:6.455,lng:3.384},bucharest:{lat:44.426,lng:26.103},sofia:{lat:42.698,lng:23.322},zagreb:{lat:45.815,lng:15.982},belgrade:{lat:44.787,lng:20.457},kyiv:{lat:50.45,lng:30.524},munich:{lat:48.135,lng:11.582},frankfurt:{lat:50.11,lng:8.682},hamburg:{lat:53.551,lng:9.994},cologne:{lat:50.938,lng:6.957},lyon:{lat:45.764,lng:4.836},marseille:{lat:43.296,lng:5.369},glasgow:{lat:55.861,lng:-4.251},edinburgh:{lat:55.949,lng:-3.202},manchester:{lat:53.481,lng:-2.243},birmingham:{lat:52.486,lng:-1.89},cork:{lat:51.876,lng:-8.649},limerick:{lat:52.668,lng:-8.63}};
 /* Every Dell site city is matchable in headlines (Haifa, Herzliya, Be'er Sheva, Halle, Stuttgart, Belfast, Lodz, Geneva...), plus common spellings */
-L0.forEach(function(s){var k=siteCity(s).toLowerCase().trim().replace(/\s+/g,"_");if(k&&!CITY_COORDS[k])CITY_COORDS[k]={lat:s.lat,lng:s.lng}});
+L0.forEach(function(s){if(s.custom&&!s.city)return;var k=(s.custom?s.city:siteCity(s)).toLowerCase().trim().replace(/\s+/g,"_");if(k&&!CITY_COORDS[k])CITY_COORDS[k]={lat:s.lat,lng:s.lng}});
 (function(a){for(var k in a)if(CITY_COORDS[a[k]]&&!CITY_COORDS[k])CITY_COORDS[k]=CITY_COORDS[a[k]]})({beersheba:"be'er_sheva",beer_sheva:"be'er_sheva",nuremberg:"nurnberg","nürnberg":"nurnberg","łódź":"lodz",porto_salvo:"lisbon",oeiras:"lisbon",tel_aviv_yafo:"tel_aviv"});
 var SD=[],WD=[],TD=[],PD=[],SF="all",WF="all",TF="all",PF="all";
 var loaded={tv:false,pr:false,ra:false,loc:false,crit:false};
@@ -282,14 +320,14 @@ document.addEventListener("click",function(e){var m=document.getElementById("bri
 function toggleNotif(){if(!("Notification" in window))return;if(Notification.permission==="denied")return;if(Notification.permission==="default"){Notification.requestPermission().then(function(p){notifEnabled=p==="granted";updateNB()});return}notifEnabled=!notifEnabled;updateNB();if(notifEnabled){try{new Notification("🔒 EMEA Portal",{body:"On",icon:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Dell_Logo.png/220px-Dell_Logo.png"})}catch(e){}}}
 function updateNB(){var b=document.getElementById("notifBtn");if(notifEnabled&&Notification.permission==="granted"){b.textContent="🔔 On";b.classList.add("notif-on")}else{b.textContent="🔔 Off";b.classList.remove("notif-on")}}
 /* de-duplicated across reloads (24h memory) so the same alert does not pop up every refresh */
-function sendN(t,b,u,l){
+function sendN(t,b,u,l,key){
   if(!notifEnabled||!("Notification" in window)||Notification.permission!=="granted")return;
-  var k=t.substring(0,40).toLowerCase(),now=Date.now();if(notifiedTitles[k])return;
+  var k=key||t.substring(0,40).toLowerCase(),now=Date.now();if(notifiedTitles[k])return;
   notifiedTitles[k]=now;for(var x in notifiedTitles)if(now-notifiedTitles[x]>864e5)delete notifiedTitles[x];
   try{localStorage.setItem("ntf",JSON.stringify(notifiedTitles))}catch(e){}
   try{var n=new Notification((l==="crit"?"🔴":"🟠")+" EMEA",{body:t+"\n"+b,icon:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Dell_Logo.png/220px-Dell_Logo.png",tag:k,requireInteraction:l==="crit"});n.onclick=function(){window.focus();if(u)window.open(u,"_blank");n.close()};setTimeout(function(){n.close()},l==="crit"?30000:15000)}catch(e){}
 }
-function checkNA(items){if(!notifEnabled)return;for(var i=0;i<items.length;i++){var it=items[i],s=sevI(it);if((s.level==="crit"||s.level==="high")&&ib(it.pubDate)&&!isDis(it)&&inPatch(it))sendN(it.title,(MN[it.region]||"EMEA")+" • "+s.label,it.link,s.level)}}
+function checkNA(items){if(!notifEnabled)return;for(var i=0;i<items.length;i++){var it=items[i],s=sevI(it);if((s.level==="crit"||s.level==="high")&&ib(it.pubDate)&&!isDis(it)&&inPatch(it)&&nearOk(it))sendN(it.title,(MN[it.region]||"EMEA")+" • "+s.label,it.link,s.level)}}
 function toggleDark(){dk=!dk;document.body.classList.toggle("dark",dk);document.getElementById("darkBtn").textContent=dk?"☀️ Light":"🌙 Dark";try{localStorage.setItem("dm",dk?"1":"0")}catch(e){}if(typeof MAP!=="undefined"&&MAP){var sv=null;try{sv=localStorage.getItem("basemap")}catch(e){}if(!sv)setBasemap()}}
 function loadDP(){try{if(localStorage.getItem("dm")==="1"){dk=true;document.body.classList.add("dark");document.getElementById("darkBtn").textContent="☀️ Light"}}catch(e){}}
 function runFocus(){var q=document.getElementById("focusInput").value.trim();if(!q||q.length<2)return;focusQuery=q;document.getElementById("focusClearBtn").style.display="inline-block";document.getElementById("focusPanel").classList.add("active");document.getElementById("focusTitle").textContent="🎯 "+q;document.getElementById("focusArticleList").innerHTML='<div style="text-align:center;padding:20px;color:#888">Searching...</div>';var ql=q.toLowerCase(),allI=SD.concat(WD,TD,PD);focusData=[];var seen={};for(var i=0;i<allI.length;i++){var it=allI[i],txt=(it.title||"")+" "+(it.description||"");if(txt.toLowerCase().indexOf(ql)>-1){var tk=(it.title||"").toLowerCase().substring(0,50);if(!seen[tk]){seen[tk]=true;focusData.push(it)}}}
@@ -315,7 +353,7 @@ function copyBrief(b){
 /* Briefings now cover all panels (security, weather, travel, protest), de-duplicated, excluding dismissed items */
 function genBrief(type){var allI=uniq(SD.concat(WD,TD,PD)).filter(function(x){return!isDis(x)});var items=(type==="all"||type==="critical")?allI:allI.filter(function(x){return x.region===type});var title=type==="all"?"FULL EMEA":type==="critical"?"CRITICAL":MN[type];var b="DELL EMEA — "+title+"\n"+new Date().toLocaleDateString("en-GB")+"\n"+"=".repeat(55)+"\n\n";var crits=[];for(var i=0;i<items.length;i++){var s=sevI(items[i]);if(s.level==="crit"||s.level==="high")crits.push({item:items[i],severity:s})}crits.sort(function(a,b2){return LVN[b2.severity.level]-LVN[a.severity.level]||byDate(a.item,b2.item)});b+="Critical/High: "+crits.length+"\n";if(!crits.length)b+="✅ None.\n\n";else{for(var c=0;c<crits.length;c++)b+=(crits[c].severity.level==="crit"?"🔴":"🟠")+" "+crits[c].item.title+"\n   "+(ta(crits[c].item.pubDate)||"")+" · "+crits[c].item.link+"\n\n"}if(type==="critical"){b+=portalLink()+"\n";copyBrief(b);return}b+="Summary:\n";var sm=type==="all"?MGRS:[type];for(var m=0;m<sm.length;m++){var id=sm[m],ct=0,ld=null;for(var j=0;j<allI.length;j++){if(allI[j].region===id){ct++;var d=new Date(allI[j].pubDate);if(!ld||d>ld)ld=d}}b+=MN[id]+": "+ct+" | "+(ld?ta(ld.toISOString()):"—")+"\n"}b+="\nHeadlines:\n";var sorted=items.slice().sort(byDate);for(var k=0;k<Math.min(10,sorted.length);k++)b+=(k+1)+". "+sorted[k].title+"\n   "+sorted[k].link+"\n";b+="\n"+portalLink()+"\n";copyBrief(b)}
 function openReport(){var allI=uniq(SD.concat(WD,TD,PD)).filter(function(x){return!isDis(x)});var items=allI.slice().sort(function(a,b){return LVN[sevI(b).level]-LVN[sevI(a).level]||byDate(a,b)});var w=window.open("","_blank");if(!w)return;var h='<!DOCTYPE html><html><head><title>EMEA Briefing</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Segoe UI,sans-serif;padding:40px;max-width:900px;margin:auto;color:#333}h1{font-size:1.5rem;color:#0076CE}h2{font-size:1.1rem;margin:24px 0 8px;color:#1B3A5C;border-bottom:2px solid #0076CE;padding-bottom:4px}table{width:100%;border-collapse:collapse;margin:10px 0}th,td{padding:8px 12px;text-align:left;border-bottom:1px solid #eee;font-size:.85rem}th{background:#f0f2f5}.ar{padding:8px 0;border-bottom:1px solid #eee}.ar a{color:#0076CE;text-decoration:none;font-weight:600}.sv2{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.7rem;font-weight:700;color:#fff;margin-right:6px}.sc2{background:#DC3545}.sh2{background:#E67E22}.sm2{background:#FFC107;color:#333}.sl2{background:#28A745}.pb{background:#0076CE;color:#fff;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-weight:600;margin:20px 8px 20px 0}@media print{.pb{display:none}}</style></head><body>';h+='<h1>🔒 EMEA Briefing</h1><p style="color:#888;margin-bottom:20px">'+new Date().toLocaleDateString("en-GB")+'</p><button class="pb" onclick="window.print()">🖨️ Print</button>';h+='<h2>Summary</h2><table><tr><th>Manager</th><th>Articles</th><th>Latest</th></tr>';for(var m=0;m<MGRS.length;m++){var id=MGRS[m],ct=0,ld=null;for(var j=0;j<allI.length;j++){if(allI[j].region===id){ct++;var d=new Date(allI[j].pubDate);if(!ld||d>ld)ld=d}}h+='<tr><td><strong>'+MN[id]+'</strong></td><td>'+ct+'</td><td>'+(ld?ta(ld.toISOString()):"—")+'</td></tr>'}h+='</table><h2>Top 15 (by severity)</h2>';for(var k=0;k<Math.min(15,items.length);k++){var it=items[k],s=sevI(it);h+='<div class="ar"><span class="sv2 s'+(s.level==="crit"?"c2":s.level==="high"?"h2":s.level==="med"?"m2":"l2")+'">'+s.label+'</span><a href="'+eurl(it.link)+'" target="_blank" rel="noopener">'+esc(it.title)+'</a> <small style="color:#888">'+esc(it.source||"")+'</small></div>'}h+='</body></html>';w.document.write(h);w.document.close()}
-function tog(id){var col=document.getElementById("col-"+id),ar=document.getElementById("arrow-"+id),op=col.classList.contains("open");col.classList.toggle("open");ar.classList.toggle("open");if(col.previousElementSibling)col.previousElementSibling.setAttribute("aria-expanded",String(!op));if(id==="crit"&&op)loaded.critUser=true;if(!op){if(id==="hi")loadHist();if(id==="sh")rshift();if(id==="trv")rtrav()}if(!op&&!loaded[id]){loaded[id]=true;if(id==="tv")lms(TS,TD,rtf);if(id==="pr")lms(PS,PD,rpf);if(id==="ra")lra();if(id==="loc")bld();if(id==="crit")ucrit()}}
+function tog(id){var col=document.getElementById("col-"+id),ar=document.getElementById("arrow-"+id),op=col.classList.contains("open");col.classList.toggle("open");ar.classList.toggle("open");if(col.previousElementSibling)col.previousElementSibling.setAttribute("aria-expanded",String(!op));if(id==="crit"&&op)loaded.critUser=true;if(!op){if(id==="hi")loadHist();if(id==="sh")rshift();if(id==="trv")rtrav();if(id==="inc")rinc();if(id==="set")rset();if(id==="as")ras()}if(!op&&!loaded[id]){loaded[id]=true;if(id==="tv")lms(TS,TD,rtf);if(id==="pr")lms(PS,PD,rpf);if(id==="ra")lra();if(id==="loc")bld();if(id==="crit")ucrit()}}
 function ip(t){if(!t)return false;var l=t.toLowerCase();for(var i=0;i<PK.length;i++){if(kwm(l,PK[i]))return true}return false}
 function ta(d){var x=new Date(d),n=new Date(),m=Math.floor((n-x)/60000),h=Math.floor((n-x)/3600000);if(isNaN(m))return null;if(m<1)return"Just now";if(m<60)return m+"m ago";if(h===1)return"1hr ago";if(h<24)return h+"hr ago";if(h<48)return"Yesterday";if(h<72)return"2d ago";return null}
 function iv(d){var a=(new Date()-new Date(d))/36e5;return a<=MX&&a>-1}
@@ -426,7 +464,7 @@ function purgeStorage(){
    ===================================================================== */
 function bld(){
   var ls=document.getElementById("locationDetails"),groups={},order=[];
-  L0.forEach(function(s){if(!groups[s.country]){groups[s.country]=[];order.push(s.country)}groups[s.country].push(s)});
+  L0.forEach(function(s){var c=s.custom?"Other assets":s.country;if(!groups[c]){groups[c]=[];order.push(c)}groups[c].push(s)});
   var h="";
   order.forEach(function(c){
     var g=groups[c],mg={};g.forEach(function(s){mg[MN[s.mgr]||s.mgr]=1});
@@ -529,10 +567,10 @@ function mapFit(){
   MAPMK.forEach(function(m,i){if(!MAPHIDDEN[L0[i].mgr])b.push(m.getLatLng())});
   if(b.length)MAP.fitBounds(L.latLngBounds(b).pad(.1),{maxZoom:6});
 }
-function siteCity(s){var m=/-\s*([^(]+?)\s*(\(|$)/.exec(s.name);return m?m[1]:s.country}
+function siteCity(s){if(s.custom)return s.city||s.name;var m=/-\s*([^(]+?)\s*(\(|$)/.exec(s.name);return m?m[1]:s.country}
 function mkIcon(lo,lv){
   var bg=MC[lo.mgr]||"#0076CE",tx=MT[lo.mgr]||"white",rc=RINGC[lv||"none"],w=(lv==="crit"||lv==="high")?3:2;
-  return L.divIcon({className:"",html:'<div class="mk'+(lv==="crit"?" mk-pulse":"")+'" style="background:'+bg+";border:"+w+"px solid "+rc+";color:"+tx+'">D</div>',iconSize:[22,22],iconAnchor:[11,11],popupAnchor:[0,-12]});
+  return L.divIcon({className:"",html:'<div class="mk'+(lv==="crit"?" mk-pulse":"")+'" style="background:'+bg+";border:"+w+"px solid "+rc+";color:"+tx+(lo.custom?";border-radius:3px":"")+'">'+(lo.custom?"A":"D")+'</div>',iconSize:[22,22],iconAnchor:[11,11],popupAnchor:[0,-12]});
 }
 function focusSite(i){
   document.getElementById("focusInput").value=siteCity(L0[i]);
@@ -842,12 +880,12 @@ function pullTri(){
     if(ch){try{localStorage.setItem("tri",JSON.stringify(TRI))}catch(e){}ucrit();rsf();utk()}
   }).catch(function(){});
 }
-function triHtml(k,st){
+function triHtml(k,st,extra){
   var q="'"+k+"'";
   var opts='<option value="">Assign…</option>'+MGRS.map(function(g){return'<option value="'+g+'"'+(st.as===g?" selected":"")+">"+esc(MN[g])+"</option>"}).join("");
   var b=st.s==="ack"||st.s==="dismissed"?'<button type="button" class="tri-btn" onclick="triage('+q+',\'reopen\')">↺ Reopen</button>':'<button type="button" class="tri-btn" onclick="triage('+q+',\'ack\')">✔ Ack</button><button type="button" class="tri-btn" onclick="triage('+q+',\'dismiss\')">✖ Dismiss</button>';
   var info=st.at?'<span class="tri-st">'+(st.s==="ack"?"acked":st.s==="dismissed"?"dismissed":st.s==="partial"?"new reports since ack":"updated")+" by "+esc(st.by)+" "+new Date(st.at).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})+(st.as?" · assigned "+esc(MN[st.as]||st.as):"")+"</span>":"";
-  return'<div class="tri">'+b+'<select class="tri-sel" aria-label="Assign to manager" onchange="triage('+q+',\'assign\',this.value)">'+opts+"</select>"+info+"</div>";
+  return'<div class="tri">'+b+'<select class="tri-sel" aria-label="Assign to manager" onchange="triage('+q+',\'assign\',this.value)">'+opts+"</select>"+(extra||"")+info+"</div>";
 }
 
 /* =====================================================================
@@ -861,17 +899,22 @@ function ucrit(){
   /* rank by business impact (severity x site importance x proximity), newest first on ties */
   CLS.forEach(function(cl){cl.imp=cl.items.reduce(function(b,x){var v=impactOf(x);return v.score>b.score?v:b},{score:0,site:null,dist:null})});
   CLS.sort(function(a,b){return LVN[b.sev.level]-LVN[a.sev.level]||b.imp.score-a.imp.score||(new Date(b.lead.pubDate)-new Date(a.lead.pubDate))}); /* severity first; impact breaks ties */
+  incSync();
+  var now=Date.now(),fch=false,ovd=[];
+  pool.forEach(function(it){var k=ikey(it);if(!FIRST[k]){FIRST[k]=now;fch=true}});
+  if(fch)saveFirst();
   var h="",dis=0,nc=0,nh=0,hid=0;
   CLS.forEach(function(cl){
     if(PATCH&&!(cl.items.some(inPatch)||(cl.imp.site&&cl.imp.site.mgr===PATCH))){hid++;return}
     var st=clState(cl);
     if(st.s==="dismissed"&&!SHOWDIS){dis++;return}
     if(st.s!=="dismissed"){if(cl.sev.level==="crit")nc++;else nh++}
+    var od=overdue(cl,st,now);if(od)ovd.push({cl:cl,m:od});
     var it=cl.lead,s=cl.sev,ag=ta(it.pubDate),px=getProximityI(it);
     h+='<li class="crit-item'+(st.s==="ack"?" tri-ack":"")+(st.s==="dismissed"?" tri-dis":"")+'" style="border-left-color:'+s.bg+'"><div><span class="sev sev-'+s.level+'" role="img" aria-label="Severity '+s.label+'"></span></div><div style="flex:1;min-width:0">';
     h+='<a href="'+eurl(it.link)+'" target="_blank" rel="noopener">'+esc(it.title)+"</a>"+offBadge(it)+proxBadge(px)+langBadge(it);
     h+='<div class="crit-meta">'+esc(MN[it.region]||"EMEA")+(ag?" • "+ag:"")+" • "+esc(it.source||"")+(it.author&&it.author!==it.source?" ("+esc(it.author)+")":"")+(cl.items.length>1?" • <strong>"+cl.items.length+" reports</strong>":"")+"</div>";
-    h+='<span class="crit-sev" style="background:'+s.bg+'">'+s.label+"</span>"+impBadge(cl.imp)+triHtml(ikey(it),st);
+    h+='<span class="crit-sev" style="background:'+s.bg+'">'+s.label+"</span>"+impBadge(cl.imp)+(od?'<span class="ovd" title="Unacknowledged beyond the '+RULES.escMin+'-minute escalation rule">⏰ UNACKNOWLEDGED '+od+" MIN</span>":"")+triHtml(ikey(it),st,incBtn(cl,it));
     if(cl.items.length>1){
       h+='<details class="rel"><summary>+'+(cl.items.length-1)+" related report"+(cl.items.length>2?"s":"")+"</summary><ul>";
       cl.items.forEach(function(x){if(x===it)return;h+='<li><a href="'+eurl(x.link)+'" target="_blank" rel="noopener">'+esc(x.title)+"</a> <span>"+esc(x.source||"")+" · "+esc(ta(x.pubDate)||"")+"</span></li>"});
@@ -881,6 +924,9 @@ function ucrit(){
   });
   if(!nc&&!nh&&!SHOWDIS)h='<li style="text-align:center;padding:16px;color:#28A745;font-weight:600">✅ No open critical or high incidents.</li>'+h;
   if(dis||SHOWDIS)h+='<li style="text-align:center;padding:6px"><button type="button" class="tri-btn" onclick="SHOWDIS=!SHOWDIS;ucrit()">'+(SHOWDIS?"Hide dismissed":"Show "+dis+" dismissed")+"</button></li>";
+  /* local escalation: flag in the tab title and send a desktop notification once per incident */
+  document.title=(ovd.length?"("+ovd.length+") ⏰ ":"")+"Dell EMEA Security Portal";
+  ovd.forEach(function(o){sendN("⏰ Unacknowledged "+o.m+" min: "+o.cl.lead.title,(o.cl.imp.site?o.cl.imp.site.name+" "+o.cl.imp.dist+"km · ":"")+o.cl.sev.label,o.cl.lead.link,"crit","esc:"+ikey(o.cl.lead))});
   if(hid)h+='<li style="text-align:center;padding:6px;font-size:.72rem;color:#888">'+hid+" incident"+(hid>1?"s":"")+" outside "+esc(MN[PATCH])+'\'s patch hidden — <a href="#" onclick="setPatch(\'\');return false">show all EMEA</a></li>';
   c.innerHTML=h;
   document.getElementById("critCount").textContent=nc+" crit · "+nh+" high"+(PATCH?" · "+MN[PATCH]:"");
@@ -977,7 +1023,7 @@ function shiftData(){
   items.forEach(function(it){byL[sevI(it).level]++;var m=MN[it.region]||"EMEA";byM[m]=(byM[m]||0)+1});
   var acts={ack:0,dismissed:0,assigned:0},who={};
   for(var k in TRI){var x=TRI[k];if((x.at||0)<sn.t)continue;if(x.s==="ack")acts.ack++;if(x.s==="dismissed")acts.dismissed++;if(x.as)acts.assigned++;who[x.by]=1}
-  return{sn:sn,items:items,cls:cls,byM:byM,byL:byL,acts:acts,who:Object.keys(who),trav:TRAV.filter(function(t){return t.risk&&LVN[t.risk.lv]>=2})};
+  return{sn:sn,items:items,cls:cls,byM:byM,byL:byL,acts:acts,who:Object.keys(who),trav:TRAV.filter(function(t){return t.risk&&LVN[t.risk.lv]>=2}),inc:INC.filter(function(x){return x.status!=="closed"})};
 }
 function rshift(){
   var el=document.getElementById("shBody");if(!el)return;
@@ -985,6 +1031,11 @@ function rshift(){
   h+='<p class="sitrep-text">By manager: '+esc(Object.keys(d.byM).map(function(m){return m+" "+d.byM[m]}).join(" · ")||"—")+"</p>";
   h+='<p class="sitrep-text">Triage: '+d.acts.ack+" acked · "+d.acts.dismissed+" dismissed · "+d.acts.assigned+" assigned"+(d.who.length?" (by "+esc(d.who.join(", "))+")":"")+"</p>";
   if(d.trav.length)h+='<p class="sitrep-text" style="color:#DC3545"><strong>⚠ '+d.trav.length+" traveller(s) near HIGH/CRITICAL incidents:</strong> "+esc(d.trav.map(function(t){return t.name+" ("+t.city+")"}).join(", "))+"</p>";
+  if(d.inc.length){
+    h+='<div class="sitrep-label" style="margin-top:8px">Open incident records</div><ul class="sitrep-timeline">';
+    d.inc.forEach(function(x){var ln=x.notes[x.notes.length-1];h+="<li><strong>"+esc(x.id)+"</strong> "+esc(x.title)+" — <em>"+INCSL[x.status]+(x.owner?", "+esc(MN[x.owner]||x.owner):"")+"</em>"+(ln?'<div class="sb-meta">Last update '+esc(fmtT(ln.t))+": "+esc(trunc(ln.text,120))+"</div>":"")+"</li>"});
+    h+="</ul>";
+  }
   if(d.cls.length){
     h+='<div class="sitrep-label" style="margin-top:8px">Critical / high incidents</div><ul class="sitrep-timeline">';
     d.cls.slice(0,15).forEach(function(cl){var st=clState(cl);h+="<li>"+(cl.sev.level==="crit"?"🔴":"🟠")+' <a href="'+eurl(cl.lead.link)+'" target="_blank" rel="noopener">'+esc(cl.lead.title)+"</a>"+(cl.items.length>1?" ("+cl.items.length+" reports)":"")+" — <em>"+(st.s==="ack"?"acked":st.s==="dismissed"?"dismissed":"OPEN")+(st.as?", "+esc(MN[st.as]):"")+"</em></li>"});
@@ -999,6 +1050,9 @@ function copyHandover(){
   b+="Items: "+d.items.length+" | Critical "+d.byL.crit+" | High "+d.byL.high+" | Medium "+d.byL.med+"\n";
   b+="Triage: "+d.acts.ack+" acked, "+d.acts.dismissed+" dismissed, "+d.acts.assigned+" assigned\n";
   if(d.trav.length)b+="Travellers near incidents: "+d.trav.map(function(t){return t.name+" ("+t.city+")"}).join(", ")+"\n";
+  b+="\nOPEN INCIDENT RECORDS\n";
+  if(!d.inc.length)b+="None.\n";
+  d.inc.forEach(function(x){var ln=x.notes[x.notes.length-1];b+="• "+x.id+" "+x.title+" — "+INCSL[x.status]+(x.owner?", owner "+(MN[x.owner]||x.owner):"")+(ln?"\n   Last update "+fmtT(ln.t)+": "+ln.text:"")+"\n"});
   b+="\nCRITICAL / HIGH INCIDENTS\n";
   if(!d.cls.length)b+="None.\n";
   d.cls.forEach(function(cl){var st=clState(cl);b+=(cl.sev.level==="crit"?"🔴 ":"🟠 ")+cl.lead.title+(cl.items.length>1?" ("+cl.items.length+" reports)":"")+" — "+(st.s==="ack"?"acked":st.s==="dismissed"?"dismissed":"OPEN")+(st.as?", assigned "+MN[st.as]:"")+"\n   "+cl.lead.link+"\n"});
@@ -1077,7 +1131,7 @@ function popupHtml(i){
 }
 function riskHtml(r){
   if(!r||!r.n)return"";
-  var h="<hr style='margin:6px 0'><div style='font-size:.8em'><strong>"+r.n+" nearby incident"+(r.n>1?"s":"")+"</strong> (highest: "+esc(r.label)+", within "+CFG.radiusKm+"km)<ul style='margin:3px 0 0 14px'>";
+  var h="<hr style='margin:6px 0'><div style='font-size:.8em'><strong>"+r.n+" nearby incident"+(r.n>1?"s":"")+"</strong> (highest: "+esc(r.label)+", within "+(r.rad||CFG.radiusKm)+"km)<ul style='margin:3px 0 0 14px'>";
   r.items.slice(0,3).forEach(function(it){h+="<li><a href='"+eurl(it.link)+"' target='_blank' rel='noopener'>"+esc(trunc(it.title,70))+"</a> ("+it.d+"km)</li>"});
   return h+"</ul></div>";
 }
@@ -1093,11 +1147,12 @@ function incidentPoints(){
   });
   return pts;
 }
-function riskAt(lat,lng,pts){
-  var r={n:0,lv:"none",label:"",items:[]};
+function riskAt(lat,lng,pts,rad){
+  rad=rad||CFG.radiusKm;
+  var r={n:0,lv:"none",label:"",items:[],rad:rad};
   pts.forEach(function(p){
     var best=1e9;p.cs.forEach(function(c){var d=haversine(c.coords.lat,c.coords.lng,lat,lng);if(d<best)best=d});
-    if(best<=CFG.radiusKm){
+    if(best<=rad){
       r.n++;r.items.push({title:p.it.title,link:p.it.link,d:Math.round(best),lv:p.s.level});
       if(LVL[p.s.level]>LVL[r.lv]){r.lv=p.s.level;r.label=p.s.label}
     }
@@ -1112,7 +1167,7 @@ function mapRisk(){
   if(document.getElementById("trvList"))rtrav();
   /* per-site risk is computed even when the map failed to load, so the Site Status board always works */
   var R=L0.map(function(lo){
-    var r=riskAt(lo.lat,lo.lng,pts);r.imp=siteImp(lo);
+    var r=riskAt(lo.lat,lo.lng,pts,siteRadius(lo));r.imp=siteImp(lo);
     r.score=r.items.reduce(function(m,x){return Math.max(m,SEVW[x.lv]*proxF(x.d)*r.imp)},0);
     return r;
   });
@@ -1124,7 +1179,7 @@ function mapRisk(){
     if(r.lv==="crit"||r.lv==="high"){
       var c=RINGC[r.lv],p=[L0[j].lat,L0[j].lng];
       L.circle(p,{radius:25000,color:c,weight:2,fillOpacity:.08,interactive:false}).addTo(RINGS);
-      L.circle(p,{radius:CFG.radiusKm*1000,color:c,weight:1,dashArray:"4 4",fillOpacity:.03,interactive:false}).addTo(RINGS);
+      L.circle(p,{radius:r.rad*1000,color:c,weight:1,dashArray:"4 4",fillOpacity:.03,interactive:false}).addTo(RINGS);
     }
   });
   /* official hazards with real coordinates */
@@ -1142,7 +1197,8 @@ function mapRisk(){
       .bindPopup("<strong>🧳 "+esc(t.name)+"</strong><br>"+esc(t.city)+(t.from||t.to?"<br><span style='font-size:.75em'>"+esc(t.from)+" → "+esc(t.to)+"</span>":"")+riskHtml(t.risk)).addTo(TRVL);
   });
   var hit=R.filter(function(r){return r.lv==="crit"||r.lv==="high"}).length,n=document.getElementById("mapRiskNote");
-  if(n){n.textContent=hit?hit+" site"+(hit>1?"s":"")+" with HIGH/CRITICAL incidents within "+CFG.radiusKm+"km":"";n.style.display=hit?"block":"none"}
+  if(n){n.textContent=hit?hit+" site"+(hit>1?"s":"")+" with HIGH/CRITICAL incidents within alert radius":"";n.style.display=hit?"block":"none"}
+  drawIncidents();
 }
 function initMap(){
   if(typeof L==="undefined"||!L.map){mapFallback("Map library could not be loaded (network/CDN blocked) — showing location list instead.");return}
@@ -1158,6 +1214,7 @@ function initMap(){
     el.appendChild(rn);
     MGRS.forEach(function(g){MAPGRP[g]=L.markerClusterGroup?L.markerClusterGroup({maxClusterRadius:35,showCoverageOnHover:false}):L.featureGroup()});
     RINGS=L.layerGroup().addTo(MAP);HAZ=L.layerGroup().addTo(MAP);TRVL=L.layerGroup().addTo(MAP);
+    INCL=(L.markerClusterGroup?L.markerClusterGroup({maxClusterRadius:30,disableClusteringAtZoom:8,showCoverageOnHover:false}):L.layerGroup()).addTo(MAP);
     L0.forEach(function(lo,j){
       var mr=L.marker([lo.lat,lo.lng],{icon:mkIcon(lo,"none"),title:lo.name,alt:lo.name,keyboard:true});
       mr.bindPopup(function(){return popupHtml(j)},{maxWidth:280});
@@ -1173,12 +1230,16 @@ function initMap(){
       h+='<label><input type="checkbox" checked data-l="rings"> ◎ Proximity rings</label>';
       h+='<label><input type="checkbox" checked data-l="haz"> ⚠ Official hazards (USGS/GDACS)</label>';
       h+='<label><input type="checkbox" checked data-l="trv"> 🧳 Travellers</label>';
+      h+='<hr style="margin:4px 0"><strong>News incidents</strong> <select id="mapWin" aria-label="Incident time window" style="font-size:10px">'+[1,6,24,72].map(function(x){return'<option value="'+x+'"'+(x===MAPWIN?" selected":"")+">last "+x+"h</option>"}).join("")+"</select>";
+      [["sec","🔒 Security"],["wx","⛈ Weather"],["tv","✈ Travel"],["pr","🪧 Protest"]].forEach(function(c){h+='<label><input type="checkbox" checked data-c="'+c[0]+'"> '+c[1]+"</label>"});
       h+='<hr style="margin:4px 0"><span class="legend-dot" style="background:#fff;border-color:#FFC107"></span>Med <span class="legend-dot" style="background:#fff;border-color:#E67E22"></span>High <span class="legend-dot" style="background:#fff;border-color:#DC3545"></span>Crit';
       h+='<br><a href="#" id="mapReset" style="color:#0076CE">Reset view</a>';
       d.innerHTML=h;L.DomEvent.disableClickPropagation(d);
       d.addEventListener("change",function(e){
-        var t=e.target,g=t.getAttribute("data-m"),ly=t.getAttribute("data-l");
+        var t=e.target,g=t.getAttribute("data-m"),ly=t.getAttribute("data-l"),cat=t.getAttribute("data-c");
+        if(t.id==="mapWin"){MAPWIN=+t.value;drawIncidents();return}
         t.parentNode.style.opacity=t.checked?"1":".4";
+        if(cat){MAPCAT[cat]=t.checked;drawIncidents();return}
         if(ly){var layer={rings:RINGS,haz:HAZ,trv:TRVL}[ly];if(t.checked)layer.addTo(MAP);else MAP.removeLayer(layer);return}
         if(!g)return;
         MAPHIDDEN[g]=!t.checked;
@@ -1197,6 +1258,247 @@ function initMap(){
 }
 
 /* =====================================================================
+   SECTION: VCC-style features that need no server
+   (map incidents, local escalation, incident records, assets, rules, wall screen)
+   ===================================================================== */
+function fmtT(t){return new Date(t).toLocaleString([],{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"})}
+
+/* ---- news incidents plotted on the map (official USGS/GDACS hazards keep their own layer) ---- */
+var INCL=null,MAPWIN=24,MAPCAT={sec:true,wx:true,tv:true,pr:true},CATI={sec:"🔒",wx:"⛈",tv:"✈",pr:"🪧"};
+function jit(s){var n=parseInt(s||"0",36);return isNaN(n)?0:(n%100-50)/1500}   /* small fixed offset so stacked markers stay clickable */
+function drawIncidents(){
+  if(!MAP||!INCL)return;
+  INCL.clearLayers();
+  var cut=Date.now()-MAPWIN*36e5,seen={};
+  [[SD,"sec"],[WD,"wx"],[TD,"tv"],[PD,"pr"]].forEach(function(pair){
+    if(!MAPCAT[pair[1]])return;
+    pair[0].forEach(function(it){
+      if(it.lat!=null||isDis(it)||!inPatch(it))return;
+      if(!(new Date(it.pubDate).getTime()>=cut))return;
+      var k=ikey(it);if(seen[k])return;seen[k]=1;
+      var s=sevI(it);if(s.level==="low")return;
+      var cs=detectCities(it.title);if(!cs.length)return;
+      var c=cs[0].coords;
+      L.marker([c.lat+jit(k.slice(4,7)),c.lng+jit(k.slice(1,4))],{icon:L.divIcon({className:"",html:'<div class="imk" style="background:'+s.bg+'">'+CATI[pair[1]]+"</div>",iconSize:[20,20],iconAnchor:[10,10]}),title:it.title,zIndexOffset:LVN[s.level]*100})
+        .bindPopup(function(){return incPopup(it,s)},{maxWidth:300}).addTo(INCL);
+    });
+  });
+}
+function incPopup(it,s){
+  var im=impactOf(it);
+  return"<strong style='color:"+s.bg+"'>"+esc(s.label)+"</strong> · "+esc(it.source||"")+" · "+esc(ta(it.pubDate)||"")+"<br><a href='"+eurl(it.link)+"' target='_blank' rel='noopener'>"+esc(it.title)+"</a><br>"+impBadge(im)+"<div style='margin-top:6px'><button type='button' class='tri-btn' onclick='incFromKey(\""+ikey(it)+"\")'>📁 Open incident</button></div>";
+}
+/* notification rule: "near" = only within a site's alert radius */
+function nearOk(it){if(RULES.notify!=="near")return true;var im=impactOf(it);return!!(im.site&&im.dist<=siteRadius(im.site))}
+
+/* ---- local escalation + time-to-acknowledge ---- */
+var FIRST={};
+try{FIRST=JSON.parse(localStorage.getItem("first")||"{}")}catch(e){}
+function saveFirst(){var cut=Date.now()-8*864e5;for(var k in FIRST)if(FIRST[k]<cut)delete FIRST[k];try{localStorage.setItem("first",JSON.stringify(FIRST))}catch(e){}}
+/* minutes an incident has been waiting, if it breaks the escalation rule; 0 otherwise */
+function overdue(cl,st,now){
+  if(st.s==="ack"||st.s==="dismissed"||cl.incId)return 0;
+  var im=cl.imp;if(!im||!im.site||siteImp(im.site)<RULES.escImp||im.dist>siteRadius(im.site))return 0;
+  if(now-new Date(cl.lead.pubDate).getTime()>24*36e5)return 0;
+  var f=now;cl.items.forEach(function(x){var k=ikey(x),t=TRI[k];if(t&&t.s)return;if(FIRST[k]&&FIRST[k]<f)f=FIRST[k]});
+  var m=Math.floor((now-f)/6e4);return m>=RULES.escMin?m:0;
+}
+function ackStats(){
+  var cut=Date.now()-7*864e5,n=0,sum=0;
+  for(var k in TRI){var t=TRI[k];if(t.s==="ack"&&t.at>cut&&FIRST[k]&&t.at>=FIRST[k]){n++;sum+=t.at-FIRST[k]}}
+  return n?{n:n,avg:Math.round(sum/n/6e4)}:null;
+}
+
+/* ---- incident records ---- */
+var INC=[];
+try{INC=JSON.parse(localStorage.getItem("inc")||"[]")}catch(e){}
+var INCST=["new","responding","monitoring","closed"],INCSL={new:"NEW",responding:"RESPONDING",monitoring:"MONITORING",closed:"CLOSED"},INCHL="";
+function newIncId(){var d=new Date(),p=function(n){return("0"+n).slice(-2)};return"INC-"+String(d.getFullYear()).slice(2)+p(d.getMonth()+1)+p(d.getDate())+"-"+Math.random().toString(36).slice(2,5).toUpperCase()}
+function incSave(){
+  var cut=Date.now()-30*864e5;INC=INC.filter(function(x){return x.status!=="closed"||(x.closedAt||x.updated)>cut});
+  try{localStorage.setItem("inc",JSON.stringify(INC))}catch(e){}
+}
+function incFind(id){for(var i=0;i<INC.length;i++)if(INC[i].id===id)return INC[i];return null}
+function incLog(x,text,kind){x.notes.push({t:Date.now(),by:kind==="system"?"System":me(),text:text,kind:kind||"note"});x.updated=Date.now()}
+function incRep(r){return{k:ikey(r),t:r.title,l:r.link,s:r.source||"",p:r.pubDate}}
+/* open (or jump to) the incident for an alert; linked reports come from its cluster and the alert is acknowledged */
+function incFromKey(k){
+  for(var j=0;j<INC.length;j++)if(INC[j].status!=="closed"&&INC[j].keys.indexOf(k)>-1){incShow(INC[j].id);return}
+  var all=SD.concat(WD,TD,PD),it=null;for(var i=0;i<all.length;i++)if(ikey(all[i])===k){it=all[i];break}
+  if(!it)return;
+  var cl=null;for(var c=0;c<CLS.length&&!cl;c++)if(CLS[c].items.some(function(x){return ikey(x)===k}))cl=CLS[c];
+  var items=cl?cl.items:[it],sv=cl?cl.sev.level:sevI(it).level,im=cl&&cl.imp?cl.imp:impactOf(it);
+  var x={id:newIncId(),title:it.title,sev:sv,status:"new",owner:PATCH||(MN[it.region]?it.region:""),site:im.site?im.site.name:"",dist:im.dist,created:Date.now(),updated:Date.now(),keys:items.map(ikey),reports:items.map(incRep),notes:[]};
+  incLog(x,"Incident opened from alert ("+LVLAB[sv]+"): "+it.title,"open");
+  INC.unshift(x);incSave();
+  if(cl)triage(k,"ack");
+  incShow(x.id);
+}
+function incNew(){
+  var t=window.prompt&&prompt("Incident title:");if(!t||!t.trim())return;
+  var x={id:newIncId(),title:t.trim(),sev:"med",status:"new",owner:PATCH||"",site:"",dist:null,created:Date.now(),updated:Date.now(),keys:[],reports:[],notes:[]};
+  incLog(x,"Incident opened manually","open");INC.unshift(x);incSave();incShow(x.id);
+}
+function incShow(id){
+  var col=document.getElementById("col-inc");if(col&&!col.classList.contains("open"))tog("inc");
+  var f=document.getElementById("incFlt");if(f&&f.value==="closed")f.value="open";
+  INCHL=id;rinc();
+  var e=document.getElementById("inc-"+id);if(e&&e.scrollIntoView)e.scrollIntoView({behavior:"smooth",block:"center"});
+  setTimeout(function(){INCHL="";var e2=document.getElementById("inc-"+id);if(e2)e2.classList.remove("inc-hl")},4000);
+}
+function incSet(id,field,val){
+  var x=incFind(id);if(!x||x[field]===val)return;var old=x[field];x[field]=val;
+  if(field==="status"){incLog(x,"Status: "+INCSL[old]+" → "+INCSL[val],"status");if(val==="closed")x.closedAt=Date.now();else delete x.closedAt}
+  if(field==="owner")incLog(x,"Owner: "+(MN[old]||"unassigned")+" → "+(MN[val]||"unassigned"),"owner");
+  if(field==="sev")incLog(x,"Severity: "+LVLAB[old]+" → "+LVLAB[val],"sev");
+  incSave();rinc();if(SD._done)ucrit();
+}
+function incNote(id,kind){
+  var inp=document.getElementById("incn-"+id),v=inp&&inp.value.trim();if(!v)return;
+  var x=incFind(id);if(!x)return;inp.value="";
+  incLog(x,v,kind);incSave();rinc();
+  var i2=document.getElementById("incn-"+id);if(i2)i2.focus();
+}
+function incBtn(cl,it){
+  var x=cl.incId?incFind(cl.incId):null;
+  return'<button type="button" class="tri-btn" onclick="incFromKey(\''+ikey(it)+'\')">📁 '+(x?esc(x.id)+" · "+INCSL[x.status]:"Open incident")+"</button>";
+}
+/* keep open incidents linked to their alert cluster: new related reports and severity rises are logged automatically */
+function incSync(){
+  var ch=false;
+  CLS.forEach(function(cl){cl.incId=null});
+  INC.forEach(function(x){
+    if(x.status==="closed")return;
+    CLS.forEach(function(cl){
+      if(!cl.items.some(function(it){return x.keys.indexOf(ikey(it))>-1}))return;
+      cl.incId=x.id;
+      cl.items.forEach(function(it){var k=ikey(it);if(x.keys.indexOf(k)<0){x.keys.push(k);x.reports.push(incRep(it));incLog(x,"New related report: "+it.title+(it.source?" ("+it.source+")":""),"system");ch=true}});
+      if(LVN[cl.sev.level]>LVN[x.sev]){incLog(x,"Severity raised by new reporting: "+LVLAB[x.sev]+" → "+cl.sev.label,"system");x.sev=cl.sev.level;ch=true}
+    });
+  });
+  if(ch){incSave();rinc()}
+}
+function rinc(){
+  var el=document.getElementById("incList");if(!el)return;
+  var keep={},fid=document.activeElement&&document.activeElement.id;
+  Array.prototype.forEach.call(el.querySelectorAll("input[id^=incn-]"),function(i){if(i.value)keep[i.id]=i.value});
+  var f=(document.getElementById("incFlt")||{}).value||"open",ord={new:0,responding:1,monitoring:2,closed:3};
+  var list=INC.filter(function(x){return f==="all"||(f==="closed"?x.status==="closed":x.status!=="closed")}).filter(function(x){return!PATCH||!x.owner||x.owner===PATCH});
+  list.sort(function(a,b){return ord[a.status]-ord[b.status]||LVN[b.sev]-LVN[a.sev]||b.updated-a.updated});
+  var h="";
+  list.forEach(function(x){
+    var q="'"+x.id+"'";
+    h+='<div class="inc-item'+(INCHL===x.id?" inc-hl":"")+'" id="inc-'+x.id+'">';
+    h+='<div class="inc-head"><span class="sev sev-'+x.sev+'" role="img" aria-label="Severity '+LVLAB[x.sev]+'"></span><span class="inc-title">'+esc(x.title)+'</span><span class="inc-st st-'+x.status+'">'+INCSL[x.status]+"</span></div>";
+    h+='<div class="sb-meta" style="margin-top:3px">'+esc(x.id)+" · opened "+esc(fmtT(x.created))+" · updated "+esc(fmtT(x.updated))+(x.site?" · "+esc(x.site.replace(/^Dell - /,""))+(x.dist!=null?" "+x.dist+"km":""):"")+" · "+x.reports.length+" linked report"+(x.reports.length===1?"":"s")+"</div>";
+    h+='<div class="inc-row"><label class="sb-meta">Status <select class="tri-sel" onchange="incSet('+q+',\'status\',this.value)">'+INCST.map(function(s){return'<option value="'+s+'"'+(x.status===s?" selected":"")+">"+INCSL[s]+"</option>"}).join("")+"</select></label>";
+    h+='<label class="sb-meta">Severity <select class="tri-sel" onchange="incSet('+q+',\'sev\',this.value)">'+LVA.map(function(s){return'<option value="'+s+'"'+(x.sev===s?" selected":"")+">"+LVLAB[s]+"</option>"}).join("")+"</select></label>";
+    h+='<label class="sb-meta">Owner <select class="tri-sel" onchange="incSet('+q+',\'owner\',this.value)"><option value="">Unassigned</option>'+MGRS.map(function(g){return'<option value="'+g+'"'+(x.owner===g?" selected":"")+">"+esc(MN[g])+"</option>"}).join("")+"</select></label>";
+    h+='<button type="button" class="tri-btn" onclick="incCopy('+q+')">📋 Copy timeline</button><button type="button" class="tri-btn" onclick="incPrint('+q+')">🖨️ Report</button></div>';
+    if(x.status!=="closed")h+='<div class="inc-row"><input type="text" class="hi-in" id="incn-'+x.id+'" aria-label="Add update to '+esc(x.id)+'" placeholder="Add update or action…" onkeydown="if(event.key===\'Enter\')incNote('+q+',\'note\')"><button type="button" class="tri-btn" onclick="incNote('+q+',\'note\')">＋ Update</button><button type="button" class="tri-btn" onclick="incNote('+q+',\'action\')">⚑ Action</button></div>';
+    h+='<ul class="inc-notes">'+x.notes.slice().reverse().map(function(n){return"<li><time>"+esc(fmtT(n.t))+"</time><strong>"+esc(n.by)+"</strong> "+(n.kind==="action"?"⚑ <strong>ACTION:</strong> ":"")+esc(n.text)+"</li>"}).join("")+"</ul>";
+    if(x.reports.length)h+='<details class="rel"><summary>Linked reports ('+x.reports.length+")</summary><ul>"+x.reports.map(function(r){return'<li><a href="'+eurl(r.l)+'" target="_blank" rel="noopener">'+esc(r.t)+"</a> <span>"+esc(r.s)+"</span></li>"}).join("")+"</ul></details>";
+    h+="</div>";
+  });
+  el.innerHTML=h||'<p style="color:#888;text-align:center;padding:12px">No '+(f==="closed"?"closed ":f==="open"?"open ":"")+"incidents"+(PATCH?" for "+esc(MN[PATCH]):"")+".</p>";
+  for(var id in keep){var i=document.getElementById(id);if(i)i.value=keep[id]}
+  if(fid&&fid.indexOf("incn-")===0){var fe=document.getElementById(fid);if(fe&&fe.focus)fe.focus()}
+  var op=INC.filter(function(x){return x.status!=="closed"}),cnt={new:0,responding:0,monitoring:0};op.forEach(function(x){cnt[x.status]++});
+  var as=ackStats();
+  document.getElementById("incSum").innerHTML='<span style="color:#DC3545">'+cnt.new+' new</span><span style="color:#E67E22">'+cnt.responding+' responding</span><span style="color:#B8860B">'+cnt.monitoring+' monitoring</span><span class="sb-meta">'+(as?"Avg time to acknowledge (7 days): "+as.avg+" min over "+as.n+" alerts":"Time to acknowledge appears once alerts are acknowledged")+"</span>";
+  document.getElementById("incCount").textContent=op.length;
+}
+function incText(x){
+  var b="DELL EMEA SECURITY — INCIDENT "+x.id+"\n"+"=".repeat(55)+"\n";
+  b+="Title:    "+x.title+"\nSeverity: "+LVLAB[x.sev]+"\nStatus:   "+INCSL[x.status]+"\nOwner:    "+(MN[x.owner]||"Unassigned")+"\n";
+  if(x.site)b+="Nearest site: "+x.site+(x.dist!=null?" ("+x.dist+" km)":"")+"\n";
+  b+="Opened:   "+new Date(x.created).toLocaleString("en-GB")+"\nUpdated:  "+new Date(x.updated).toLocaleString("en-GB")+(x.closedAt?"\nClosed:   "+new Date(x.closedAt).toLocaleString("en-GB"):"")+"\n";
+  b+="\nTIMELINE\n";
+  x.notes.forEach(function(n){b+=new Date(n.t).toLocaleString("en-GB",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"})+"  "+n.by+": "+(n.kind==="action"?"ACTION: ":"")+n.text+"\n"});
+  if(x.reports.length){b+="\nLINKED REPORTS\n";x.reports.forEach(function(r){b+="• "+r.t+(r.s?" ("+r.s+")":"")+"\n  "+r.l+"\n"})}
+  return b;
+}
+function incCopy(id){var x=incFind(id);if(x)copyBrief(incText(x)+"\n"+portalLink()+"\n")}
+function incExportAll(){
+  var f=(document.getElementById("incFlt")||{}).value||"open",list=INC.filter(function(x){return f==="all"||(f==="closed"?x.status==="closed":x.status!=="closed")});
+  copyBrief(list.length?"DELL EMEA SECURITY — INCIDENT LOG ("+f.toUpperCase()+")\n"+new Date().toLocaleString("en-GB")+"\n\n"+list.map(incText).join("\n\n")+"\n"+portalLink()+"\n":"No incidents.");
+}
+function incPrint(id){
+  var x=incFind(id);if(!x)return;var w=window.open("","_blank");if(!w)return;
+  var h='<!DOCTYPE html><html><head><meta charset="UTF-8"><title>'+esc(x.id)+'</title><style>body{font-family:Segoe UI,sans-serif;max-width:860px;margin:30px auto;color:#333;padding:0 20px}h1{color:#0076CE;font-size:1.3rem}table{border-collapse:collapse;margin:10px 0}td{padding:4px 12px 4px 0;font-size:.9rem;vertical-align:top}h2{font-size:1rem;border-bottom:2px solid #0076CE;margin-top:22px}li{margin:4px 0;font-size:.88rem}.t{color:#888;font-size:.8rem;margin-right:6px}.pb{background:#0076CE;color:#fff;border:none;padding:8px 20px;border-radius:6px;cursor:pointer}@media print{.pb{display:none}}</style></head><body>';
+  h+='<h1>🔒 Dell EMEA Security — Incident '+esc(x.id)+'</h1><button class="pb" onclick="window.print()">🖨️ Print / save as PDF</button><table>';
+  [["Title",x.title],["Severity",LVLAB[x.sev]],["Status",INCSL[x.status]],["Owner",MN[x.owner]||"Unassigned"],["Nearest site",x.site?x.site+(x.dist!=null?" ("+x.dist+" km)":""):"—"],["Opened",new Date(x.created).toLocaleString("en-GB")],["Last updated",new Date(x.updated).toLocaleString("en-GB")]].forEach(function(r){h+="<tr><td><strong>"+r[0]+"</strong></td><td>"+esc(r[1])+"</td></tr>"});
+  h+="</table><h2>Timeline</h2><ul>"+x.notes.map(function(n){return'<li><span class="t">'+esc(new Date(n.t).toLocaleString("en-GB"))+"</span><strong>"+esc(n.by)+"</strong>: "+(n.kind==="action"?"<strong>ACTION:</strong> ":"")+esc(n.text)+"</li>"}).join("")+"</ul>";
+  if(x.reports.length)h+="<h2>Linked reports</h2><ul>"+x.reports.map(function(r){return'<li><a href="'+eurl(r.l)+'">'+esc(r.t)+"</a> "+esc(r.s)+"</li>"}).join("")+"</ul>";
+  w.document.write(h+"</body></html>");w.document.close();
+}
+
+/* ---- other assets (CSV import; merged into the site list on reload) ---- */
+function asImport(inp){
+  var f=inp.files&&inp.files[0];if(!f)return;
+  var rd=new FileReader();
+  rd.onload=function(){
+    var rows=csvRows(String(rd.result));inp.value="";if(!rows.length)return;
+    var hd=rows[0].map(function(x){return x.toLowerCase().trim()}),hasHd=hd.indexOf("name")>-1;
+    var col=function(n,d){var i=hd.indexOf(n);return hasHd?i:d};
+    var iN=col("name",0),iT=col("type",1),iC=col("city",2),iA=col("lat",3),iO=col("lng",4),iCo=col("country",5),iM=col("manager",6),iI=col("importance",7),out=[],bad=0;
+    rows.slice(hasHd?1:0).forEach(function(c){
+      var g=function(i){return i>-1&&c[i]!=null?String(c[i]).trim():""};
+      var lat=parseFloat(g(iA)),lng=parseFloat(g(iO));
+      if(isNaN(lat)||isNaN(lng)){var cc=cityCoords(g(iC));if(cc){lat=cc.lat;lng=cc.lng}}
+      if(isNaN(lat)||isNaN(lng)){bad++;return}
+      var m=g(iM).toLowerCase();if(!MN[m])m=nearestSite(lat,lng).site.mgr;
+      var imp=parseInt(g(iI),10);
+      out.push({name:g(iN)||"Asset",type:g(iT)||"Asset",city:g(iC),lat:lat,lng:lng,address:g(iC)||lat.toFixed(3)+", "+lng.toFixed(3),country:g(iCo),mgr:m,imp:imp>=1&&imp<=3?imp:1});
+    });
+    try{localStorage.setItem("assets",JSON.stringify(out))}catch(e){}
+    alert(out.length+" asset(s) imported"+(bad?", "+bad+" skipped (no lat/lng and city not recognised)":"")+". The page will now reload to add them.");
+    location.reload();
+  };
+  rd.readAsText(f);
+}
+function asClear(){if(!ASSETS.length||!confirm("Remove all imported assets?"))return;try{localStorage.removeItem("assets")}catch(e){}location.reload()}
+function ras(){
+  var el=document.getElementById("asList");if(!el)return;
+  el.innerHTML=ASSETS.length?ASSETS.map(function(a){return"<li><strong>"+esc(a.name)+"</strong> — "+esc(a.type)+" · "+esc(a.city||(a.lat.toFixed(2)+", "+a.lng.toFixed(2)))+(a.country?" · "+esc(a.country):"")+" · "+esc(MN[a.mgr]||a.mgr)+' <span class="sb-imp">'+"★".repeat(siteImp(a))+"</span></li>"}).join(""):'<li style="color:#888">No assets imported.</li>';
+  document.getElementById("asCount").textContent=ASSETS.length;
+}
+
+/* ---- alert rules & settings ---- */
+function rset(){
+  var g=document.getElementById("setGrid");if(!g)return;
+  function num(id,label,v,min,max,help){return'<label>'+label+'<input type="number" class="hi-in" id="set-'+id+'" value="'+v+'" min="'+min+'" max="'+max+'"><span class="sb-meta">'+help+"</span></label>"}
+  g.innerHTML=num("r3","Alert radius ★★★ sites (km)",RULES.r3,5,300,"Manufacturing / R&amp;D")+num("r2","Alert radius ★★ sites (km)",RULES.r2,5,300,"HQ / engineering")+num("r1","Alert radius ★ sites (km)",RULES.r1,5,300,"Other offices and imported assets")+
+    num("escMin","Escalate if unacknowledged after (min)",RULES.escMin,1,240,"Critical/high incidents inside a site's alert radius")+
+    '<label>Escalate for sites rated<select class="hi-in" id="set-escImp">'+[1,2,3].map(function(i){return'<option value="'+i+'"'+(+RULES.escImp===i?" selected":"")+">"+"★".repeat(i)+" and above</option>"}).join("")+'</select><span class="sb-meta">Lower = more escalations</span></label>'+
+    '<label>Desktop notifications<select class="hi-in" id="set-notify"><option value="all"'+(RULES.notify!=="near"?" selected":"")+'>All critical/high in my patch</option><option value="near"'+(RULES.notify==="near"?" selected":"")+">Only inside a site's alert radius</option></select><span class=\"sb-meta\">Turn on with 🔔 in the header</span></label>";
+}
+function setSave(){
+  ["r3","r2","r1","escMin"].forEach(function(k){var e=document.getElementById("set-"+k),v=e?parseInt(e.value,10):NaN;if(!isNaN(v)&&v>0)RULES[k]=Math.min(v,k==="escMin"?240:300)});
+  var ei=document.getElementById("set-escImp"),nt=document.getElementById("set-notify");if(ei)RULES.escImp=+ei.value;if(nt)RULES.notify=nt.value;
+  try{localStorage.setItem("rules",JSON.stringify(RULES))}catch(e){}
+  var m=document.getElementById("setMsg");if(m){m.textContent="Saved ✓";setTimeout(function(){m.textContent=""},2500)}
+  rset();mapRisk();if(SD._done)ucrit();
+}
+function setReset(){RULES=Object.assign({},RULES_DEF);try{localStorage.removeItem("rules")}catch(e){}rset();setSave()}
+
+/* ---- wall-screen mode (map + site status + critical alerts, for a SOC monitor) ---- */
+function toggleWall(force){
+  var on=force!=null?!!force:!document.body.classList.contains("wall");
+  document.body.classList.toggle("wall",on);
+  var b=document.getElementById("wallBtn");if(b)b.textContent=on?"✕ Exit wall":"🖥️ Wall";
+  try{localStorage.setItem("wall",on?"1":"0")}catch(e){}
+  try{
+    if(on&&force==null&&document.documentElement.requestFullscreen&&!document.fullscreenElement)document.documentElement.requestFullscreen().catch(function(){});
+    if(!on&&document.fullscreenElement&&document.exitFullscreen)document.exitFullscreen().catch(function(){});
+  }catch(e){}
+  wallClock();
+  setTimeout(function(){if(MAP){MAP.invalidateSize();if(PATCH)patchFit();else mapFit()}},350);
+}
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&document.body.classList.contains("wall"))toggleWall(false)});
+function wallClock(){var c=document.getElementById("wallClock");if(!c)return;var d=new Date();c.textContent=d.toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})+" · "+d.toISOString().substr(11,5)+" UTC"}
+
+/* =====================================================================
    SECTION: hosting auto-detect — when served by portal-server.js, use it for feeds/state/Teams
    ===================================================================== */
 function detectServer(){
@@ -1213,7 +1515,9 @@ function detectServer(){
    SECTION: start-up — every panel loads immediately and refreshes on a timer
    ===================================================================== */
 document.addEventListener("DOMContentLoaded",function(){
-purgeStorage();loadDP();a11y();applyPatch();
+purgeStorage();loadDP();a11y();applyPatch();ras();
+try{if(localStorage.getItem("wall")==="1")toggleWall(true)}catch(e){}
+wallClock();setInterval(wallClock,10000);
 document.getElementById("siteCount").textContent=L0.length;
 document.getElementById("locCount").textContent=L0.length;
 loadLibs().then(initMap,initMap);
@@ -1239,7 +1543,7 @@ detectServer().then(function(){
   setInterval(function(){trvPurge();loadAll()},(CFG.proxy?5:20)*6e4);
   if(CFG.api)setInterval(pullTri,60000);
 });
-setInterval(utk,60000);
+setInterval(function(){utk();if(SD._done)ucrit()},60000);   /* also re-checks escalation timers */
 });
 </script>
 </body>
