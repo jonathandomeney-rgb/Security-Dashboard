@@ -32,30 +32,31 @@
 <div class="card card-row"><div class="ch ch-dark" style="cursor:default" id="hd-sec">🔒 Security Intelligence<span class="ch-count" id="secCount">-</span></div><div class="ftabs b-blue" id="tabs-sec"><button class="ft ab" onclick="sw('sec','all',this,'ab')">All</button><button class="ft" onclick="sw('sec','jonathan',this,'ab')">Jonathan</button><button class="ft" onclick="sw('sec','maciej',this,'ab')">Maciej</button><button class="ft" onclick="sw('sec','vladimir',this,'ab')">Vladimir</button><button class="ft" onclick="sw('sec','mehdi',this,'ab')">Mehdi</button><button class="ft" onclick="sw('sec','mohamed',this,'ab')">Mohamed</button></div><div class="card-body" style="padding:6px 14px"><ul class="nlist-tall" id="fd-sec"><li style="text-align:center;padding:30px;color:#888">Loading...</li></ul></div></div>
 </div>
 <div class="card"><div class="ch ch-weather" style="cursor:default" id="hd-wx">🌦️ EMEA Critical Weather<span class="ch-count" id="wxCount">-</span></div><div class="ftabs b-weather" id="tabs-wx"><button class="ft aw" onclick="sw('wx','all',this,'aw')">All</button><button class="ft" onclick="sw('wx','jonathan',this,'aw')">Jonathan</button><button class="ft" onclick="sw('wx','maciej',this,'aw')">Maciej</button><button class="ft" onclick="sw('wx','vladimir',this,'aw')">Vladimir</button><button class="ft" onclick="sw('wx','mehdi',this,'aw')">Mehdi</button><button class="ft" onclick="sw('wx','mohamed',this,'aw')">Mohamed</button></div><div class="card-body" style="padding:6px 14px"><ul class="nlist" id="fd-wx"><li style="text-align:center;padding:20px;color:#888">Loading weather...</li></ul></div></div>
-<div class="card"><div class="ch ch-travel" onclick="tog('tv')">✈️ Travel Advisories<span class="ch-count" id="tvCount">-</span><span class="ch-arrow" id="arrow-tv">▼</span></div><div class="collapsible" id="col-tv"><div class="ftabs b-travel" id="tabs-tv"><button class="ft at" onclick="sw('tv','all',this,'at')">All</button><button class="ft" onclick="sw('tv','jonathan',this,'at')">Jonathan</button><button class="ft" onclick="sw('tv','maciej',this,'at')">Maciej</button><button class="ft" onclick="sw('tv','vladimir',this,'at')">Vladimir</button><button class="ft" onclick="sw('tv','mehdi',this,'at')">Mehdi</button><button class="ft" onclick="sw('tv','mohamed',this,'at')">Mohamed</button></div><div class="card-body" style="padding:6px 14px"><ul class="nlist" id="fd-tv"><li style="text-align:center;padding:20px;color:#888">Click to load...</li></ul></div></div></div>
-<div class="card"><div class="ch ch-protest" onclick="tog('pr')">🪧 Protest &amp; Civil Unrest<span class="ch-count" id="prCount">-</span><span class="ch-arrow" id="arrow-pr">▼</span></div><div class="collapsible" id="col-pr"><div class="ftabs b-protest" id="tabs-pr"><button class="ft ap" onclick="sw('pr','all',this,'ap')">All</button><button class="ft" onclick="sw('pr','jonathan',this,'ap')">Jonathan</button><button class="ft" onclick="sw('pr','maciej',this,'ap')">Maciej</button><button class="ft" onclick="sw('pr','vladimir',this,'ap')">Vladimir</button><button class="ft" onclick="sw('pr','mehdi',this,'ap')">Mehdi</button><button class="ft" onclick="sw('pr','mohamed',this,'ap')">Mohamed</button></div><div class="card-body" style="padding:6px 14px"><ul class="nlist" id="fd-pr"><li style="text-align:center;padding:20px;color:#888">Click to load...</li></ul></div></div></div>
-<div class="card"><div class="ch ch-red" onclick="tog('ra')">🚨 Israel Red Alert<span class="ch-count" id="raCount">-</span><span class="ch-arrow" id="arrow-ra">▼</span></div><div class="collapsible" id="col-ra"><div class="astatus"><span class="sdot sg" id="statusDot"></span><span id="statusText">Click to check...</span></div><div class="alert-panel" id="alertPanel"><div style="text-align:center;padding:16px;color:#888">Click to load.</div></div></div></div>
+<div class="card"><div class="ch ch-travel" onclick="tog('tv')">✈️ Travel Advisories<span class="ch-count" id="tvCount">-</span><span class="ch-arrow" id="arrow-tv">▼</span></div><div class="collapsible" id="col-tv"><div class="ftabs b-travel" id="tabs-tv"><button class="ft at" onclick="sw('tv','all',this,'at')">All</button><button class="ft" onclick="sw('tv','jonathan',this,'at')">Jonathan</button><button class="ft" onclick="sw('tv','maciej',this,'at')">Maciej</button><button class="ft" onclick="sw('tv','vladimir',this,'at')">Vladimir</button><button class="ft" onclick="sw('tv','mehdi',this,'at')">Mehdi</button><button class="ft" onclick="sw('tv','mohamed',this,'at')">Mohamed</button></div><div class="card-body" style="padding:6px 14px"><ul class="nlist" id="fd-tv"><li style="text-align:center;padding:20px;color:#888">Loading...</li></ul></div></div></div>
+<div class="card"><div class="ch ch-protest" onclick="tog('pr')">🪧 Protest &amp; Civil Unrest<span class="ch-count" id="prCount">-</span><span class="ch-arrow" id="arrow-pr">▼</span></div><div class="collapsible" id="col-pr"><div class="ftabs b-protest" id="tabs-pr"><button class="ft ap" onclick="sw('pr','all',this,'ap')">All</button><button class="ft" onclick="sw('pr','jonathan',this,'ap')">Jonathan</button><button class="ft" onclick="sw('pr','maciej',this,'ap')">Maciej</button><button class="ft" onclick="sw('pr','vladimir',this,'ap')">Vladimir</button><button class="ft" onclick="sw('pr','mehdi',this,'ap')">Mehdi</button><button class="ft" onclick="sw('pr','mohamed',this,'ap')">Mohamed</button></div><div class="card-body" style="padding:6px 14px"><ul class="nlist" id="fd-pr"><li style="text-align:center;padding:20px;color:#888">Loading...</li></ul></div></div></div>
+<div class="card"><div class="ch ch-red" onclick="tog('ra')">🚨 Israel Red Alert (news-based)<span class="ch-count" id="raCount">-</span><span class="ch-arrow" id="arrow-ra">▼</span></div><div class="collapsible" id="col-ra"><div class="astatus"><span class="sdot sg" id="statusDot"></span><span id="statusText">Checking...</span></div><div class="alert-panel" id="alertPanel"><div style="text-align:center;padding:16px;color:#888">Loading...</div></div></div></div>
 <div class="card"><div class="ch ch-dark" onclick="tog('sh')">🔄 Shift Handover<span class="ch-count" id="shCount">-</span><span class="ch-arrow" id="arrow-sh">▼</span></div><div class="collapsible" id="col-sh"><div class="card-body" id="shBody"></div></div></div>
-<div class="card"><div class="ch ch-travel" onclick="tog('trv')">🧳 Travellers<span class="ch-count" id="trvCount">0</span><span class="ch-arrow" id="arrow-trv">▼</span></div><div class="collapsible" id="col-trv"><div class="card-body"><p class="sitrep-text" style="margin-bottom:8px">Import a CSV with columns <code>name,city,lat,lng,from,to</code> (lat/lng optional if the city is known; dates as YYYY-MM-DD). Travellers appear on the map and are checked against incidents within 50km. <strong>This personal data stays in this browser only and is never sent to the server.</strong></p><label class="tri-btn" style="display:inline-block;cursor:pointer">📂 Import CSV<input type="file" id="trvFile" accept=".csv,text/csv" onchange="trvImport(this)" class="sr-only"></label> <button type="button" class="tri-btn" onclick="trvClear()">Clear</button><ul class="location-list" id="trvList"></ul></div></div></div>
+<div class="card"><div class="ch ch-travel" onclick="tog('trv')">🧳 Travellers<span class="ch-count" id="trvCount">0</span><span class="ch-arrow" id="arrow-trv">▼</span></div><div class="collapsible" id="col-trv"><div class="card-body"><p class="sitrep-text" style="margin-bottom:8px">Import a CSV with columns <code>name,city,lat,lng,from,to</code> (lat/lng optional if the city is known; dates as YYYY-MM-DD). Travellers appear on the map and are checked against incidents within 50km. <strong>This personal data stays in this browser only and is never sent to the server. Entries are deleted automatically the day after their end date.</strong></p><label class="tri-btn" style="display:inline-block;cursor:pointer">📂 Import CSV<input type="file" id="trvFile" accept=".csv,text/csv" onchange="trvImport(this)" class="sr-only"></label> <button type="button" class="tri-btn" onclick="trvClear()">Clear</button><ul class="location-list" id="trvList"></ul></div></div></div>
 <div class="card"><div class="ch ch-dark" onclick="tog('hi')">🗂️ History (7 days)<span class="ch-count" id="hiCount">-</span><span class="ch-arrow" id="arrow-hi">▼</span></div><div class="collapsible" id="col-hi"><div class="card-body"><div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px"><input id="hiQ" class="hi-in" placeholder="Search history…" oninput="rhist()" aria-label="Search history"><select id="hiLv" class="hi-in" onchange="rhist()" aria-label="Minimum severity"><option value="0">All severities</option><option value="1">Medium+</option><option value="2">High+</option><option value="3">Critical</option></select><select id="hiMg" class="hi-in" onchange="rhist()" aria-label="Manager"><option value="">All managers</option><option value="jonathan">Jonathan</option><option value="maciej">Maciej</option><option value="vladimir">Vladimir</option><option value="mehdi">Mehdi</option><option value="mohamed">Mohamed</option></select></div><ul class="nlist" id="fd-hi"></ul></div></div></div>
 <div class="card"><div class="ch ch-dark" onclick="tog('src')">ℹ️ Sources &amp; Terms<span class="ch-arrow" id="arrow-src">▼</span></div><div class="collapsible" id="col-src"><div class="card-body sitrep-text" style="font-size:.78rem">
 <p>Headlines link to the original publisher; article content is not republished. Before wider internal rollout, confirm with Legal/Procurement that this use complies with each provider's terms (especially Google News RSS, rss2json and public map tiles).</p>
-<ul style="margin:6px 0 0 18px"><li>News: Google News RSS, BBC, The Guardian, Sky News, France 24, DW, Al Jazeera, Times of Israel, Jerusalem Post — © respective publishers.</li><li>Hazards: <a href="https://earthquake.usgs.gov" target="_blank" rel="noopener">USGS</a> (public domain); <a href="https://www.gdacs.org" target="_blank" rel="noopener">GDACS</a> (European Commission JRC / UN OCHA); <a href="https://meteoalarm.org" target="_blank" rel="noopener">MeteoAlarm</a> (CC BY 4.0 with additional terms).</li><li>Travel: <a href="https://www.gov.uk/foreign-travel-advice" target="_blank" rel="noopener">UK FCDO</a> (Open Government Licence v3.0); <a href="https://travel.state.gov" target="_blank" rel="noopener">US State Department</a> (public domain).</li><li>Maps: Leaflet (BSD-2); basemaps © Esri and © OpenStreetMap contributors (ODbL; OSM tile usage policy applies).</li><li>Feed conversion: rss2json.com (public service, rate-limited) unless portal-server.js is used.</li></ul></div></div></div>
+<ul style="margin:6px 0 0 18px"><li>News: Google News RSS, BBC, The Guardian, Sky News, France 24, DW, Al Jazeera, Times of Israel, Jerusalem Post — © respective publishers.</li><li>Hazards: <a href="https://earthquake.usgs.gov" target="_blank" rel="noopener">USGS</a> (public domain); <a href="https://www.gdacs.org" target="_blank" rel="noopener">GDACS</a> (European Commission JRC / UN OCHA); <a href="https://meteoalarm.org" target="_blank" rel="noopener">MeteoAlarm</a> (CC BY 4.0 with additional terms).</li><li>Travel: <a href="https://www.gov.uk/foreign-travel-advice" target="_blank" rel="noopener">UK FCDO</a> (Open Government Licence v3.0); <a href="https://travel.state.gov" target="_blank" rel="noopener">US State Department</a> (public domain).</li><li>Maps: Leaflet (BSD-2); basemaps © Esri and © OpenStreetMap contributors (ODbL; OSM tile usage policy applies).</li><li>Feed conversion: rss2json.com (public service, rate-limited) unless portal-server.js is used.</li><li>Israel Red Alert panel is built from news reports, not the Home Front Command siren feed — it is not a real-time siren alert.</li></ul></div></div></div>
 <div class="card"><div class="ch ch-blue" onclick="tog('loc')">📍 Location Details<span class="ch-count" id="locCount">48</span><span class="ch-arrow" id="arrow-loc">▼</span></div><div class="collapsible" id="col-loc"><div class="card-body"><ul class="location-list" id="locationDetails"></ul></div></div></div>
 </div>
 <script>
 /* =====================================================================
    SECTION: configuration  (edit here)
    proxy   : URL prefix of the internal feed proxy (see feedproxy.js), e.g. "https://intranet.example/feed?url="
-             Must return rss2json-shaped JSON. Empty = use public rss2json (rate-limited).
+             Must return rss2json-shaped JSON. Empty = use public rss2json (rate-limited, ~10 items per feed without a key).
    vendor  : folder holding self-hosted Leaflet files (run fetch-vendor.ps1); CDN used if missing.
    tiles   : internal tile URL template (optional), e.g. "https://tiles.corp/{z}/{x}/{y}.png" - tried before the public Esri/OSM basemaps
    api     : base URL of portal-server.js (auto-detected when the portal is served by it). Enables shared triage,
              server history, Teams alerts, MeteoAlarm and un-rate-limited feeds.
-   rss2jsonKey : optional rss2json API key (raises the public rate limit) when no server is available.
+   rss2jsonKey : optional rss2json API key (raises the public rate limit and allows 50 items/feed) when no server is available.
    cacheMin: minutes a fetched feed is reused from local cache (cuts public-proxy calls).
+   portalUrl : link added to copied briefings (leave empty to use the page address when hosted).
    ===================================================================== */
-var CFG={api:"",proxy:"",teams:false,vendor:"vendor/",tiles:"",tilesDark:"",radiusKm:50,feedTimeoutMs:12000,cacheMin:10,rss2jsonKey:""};
+var CFG={api:"",proxy:"",teams:false,vendor:"vendor/",tiles:"",tilesDark:"",radiusKm:50,feedTimeoutMs:12000,cacheMin:10,rss2jsonKey:"",portalUrl:""};
 var STAG=CFG.proxy?0:2500,WDELAY=CFG.proxy?0:16000; /* stagger only needed for the public proxy */
 var L0=[
 {name:"Dell - Cork (Ovens)",lat:51.8756,lng:-8.6492,address:"Ovens, Cork, P31 DP28",type:"Manufacturing",country:"Ireland",mgr:"jonathan"},
@@ -114,12 +115,28 @@ var MC={"jonathan":"#00A650","maciej":"#0076CE","vladimir":"#FFCC00","mehdi":"#E
 var MT={"jonathan":"white","maciej":"white","vladimir":"black","mehdi":"white","mohamed":"white"};
 var MN={"jonathan":"Jonathan","maciej":"Maciej","vladimir":"Vladimir","mehdi":"Mehdi","mohamed":"Mohamed"};
 var MGRS=["jonathan","maciej","vladimir","mehdi","mohamed"];
+
+/* Google News RSS search URL. Brackets group countries vs. topics; "when:1d" keeps results to the last 24h
+   (important: without an rss2json key only ~10 items per feed come back, so they must be the freshest). */
+function gn(q,ed,when){
+  ed=ed||"US:en";var p=ed.split(":");
+  return"https://news.google.com/rss/search?q="+encodeURIComponent(q+(when===""?"":" when:"+(when||"1d")))+"&hl="+p[1]+"&gl="+p[0]+"&ceid="+ed;
+}
+function isGN(u){return String(u||"").indexOf("news.google.")>-1}
+
 var SS=[
-{n:"Google Nordic",u:"https://news.google.com/rss/search?q=Poland+OR+Denmark+OR+Sweden+OR+Norway+OR+Finland+security+OR+crime+OR+police+OR+attack+OR+emergency&hl=en&gl=US&ceid=US:en",r:"maciej"},
-{n:"Google East EU",u:"https://news.google.com/rss/search?q=Austria+OR+Netherlands+OR+Belgium+OR+Switzerland+OR+Greece+OR+Turkey+OR+Romania+OR+Ukraine+OR+Hungary+OR+Czech+security+OR+crime+OR+attack+OR+emergency&hl=en&gl=US&ceid=US:en",r:"vladimir"},
-{n:"Google ME",u:"https://news.google.com/rss/search?q=Egypt+OR+Iraq+OR+Jordan+OR+Lebanon+OR+Saudi+OR+UAE+OR+Dubai+OR+Kuwait+OR+Bahrain+OR+Qatar+OR+Libya+security+OR+crime+OR+attack+OR+military&hl=en&gl=US&ceid=US:en",r:"mohamed"},
-{n:"Google Africa",u:"https://news.google.com/rss/search?q=South+Africa+OR+Nigeria+OR+Kenya+OR+Morocco+security+OR+crime+OR+attack+OR+emergency&hl=en&gl=US&ceid=US:en",r:"mehdi"},
-{n:"Google EMEA",u:"https://news.google.com/rss/search?q=Europe+OR+Middle+East+OR+Africa+security+OR+threat+OR+crime+OR+police+OR+attack+OR+arrest+OR+violence+OR+emergency&hl=en&gl=US&ceid=US:en",r:"all"},
+{n:"Google Ireland",u:gn('(Ireland OR Dublin OR Cork OR Limerick) (Garda OR attack OR explosion OR protest OR evacuation OR outage OR storm)',"IE:en"),r:"jonathan"},
+{n:"Google UK",u:gn('(UK OR London OR Glasgow OR Belfast OR Bracknell) (attack OR explosion OR evacuation OR terror OR riot OR outage)',"GB:en"),r:"jonathan"},
+{n:"Google Germany",u:gn('(Germany OR Frankfurt OR Munich OR Halle OR Stuttgart OR Nuremberg) (attack OR explosion OR strike OR evacuation OR police OR sabotage)'),r:"jonathan"},
+{n:"Google Israel",u:gn('(Israel OR Haifa OR Herzliya OR "Tel Aviv" OR Beersheba) (rocket OR missile OR sirens OR attack OR drone OR interception)'),r:"jonathan"},
+{n:"Google Nordic",u:gn('(Poland OR Denmark OR Sweden OR Norway OR Finland) (security OR crime OR police OR attack OR emergency OR sabotage)'),r:"maciej"},
+{n:"Google East EU",u:gn('(Austria OR Netherlands OR Belgium OR Switzerland OR Greece OR Turkey OR Romania OR Ukraine OR Hungary OR Czech) (security OR attack OR explosion OR emergency OR police)'),r:"vladimir"},
+{n:"Google East EU 2",u:gn('(Slovakia OR Slovenia OR Croatia OR Serbia OR "North Macedonia" OR Bulgaria OR Estonia OR Lithuania OR Kazakhstan OR Luxembourg) (security OR attack OR explosion OR protest OR emergency)'),r:"vladimir"},
+{n:"Google W. Europe",u:gn('(France OR Spain OR Italy OR Portugal) (attack OR riot OR strike OR explosion OR evacuation OR police)'),r:"mehdi"},
+{n:"Google Africa",u:gn('("South Africa" OR Nigeria OR Kenya OR Morocco OR Algeria OR Tunisia OR Ethiopia OR Senegal OR Angola OR Ghana) (security OR attack OR unrest OR explosion OR emergency)'),r:"mehdi"},
+{n:"Google ME",u:gn('(Egypt OR Iraq OR Jordan OR Lebanon OR Saudi OR UAE OR Dubai OR Kuwait OR Bahrain OR Qatar OR Oman OR Libya) (security OR attack OR military OR missile OR drone OR explosion)'),r:"mohamed"},
+{n:"Google EMEA",u:gn('(Europe OR "Middle East" OR Africa) (terror OR attack OR explosion OR "state of emergency" OR evacuation)'),r:"all"},
+{n:"Business continuity",u:gn('(Europe OR "Middle East" OR Africa) (ransomware OR cyberattack OR "power outage" OR "port strike" OR "airspace closed" OR "Red Sea shipping" OR "supply chain disruption")'),r:"all"},
 {n:"BBC News",u:"https://feeds.bbci.co.uk/news/rss.xml",r:"jonathan",g:1},
 {n:"BBC UK",u:"https://feeds.bbci.co.uk/news/uk/rss.xml",r:"jonathan",g:1},
 {n:"The Guardian",u:"https://www.theguardian.com/uk/rss",r:"jonathan",g:1},
@@ -130,88 +147,148 @@ var SS=[
 {n:"Al Jazeera",u:"https://www.aljazeera.com/xml/rss/all.xml",r:"mohamed",g:1},
 {n:"Times of Israel",u:"https://www.timesofisrael.com/feed/",r:"jonathan",g:1},
 /* local-language sources (headlines shown in original language with a translate link) */
-{n:"Lokalne PL",u:"https://news.google.com/rss/search?q=zamach+OR+wybuch+OR+strzelanina+OR+atak+OR+policja&hl=pl&gl=PL&ceid=PL:pl",r:"maciej",lang:"pl"},
-{n:"Lokal DE",u:"https://news.google.com/rss/search?q=Anschlag+OR+Explosion+OR+Schie%C3%9Ferei+OR+Messerangriff+OR+Polizeieinsatz&hl=de&gl=DE&ceid=DE:de",r:"jonathan",lang:"de"},
-{n:"Local FR",u:"https://news.google.com/rss/search?q=attentat+OR+explosion+OR+fusillade+OR+%C3%A9meutes+OR+manifestation&hl=fr&gl=FR&ceid=FR:fr",r:"mehdi",lang:"fr"},
-{n:"Local ES",u:"https://news.google.com/rss/search?q=atentado+OR+explosi%C3%B3n+OR+tiroteo+OR+huelga&hl=es&gl=ES&ceid=ES:es",r:"mehdi",lang:"es"},
-{n:"Locale IT",u:"https://news.google.com/rss/search?q=attentato+OR+esplosione+OR+sparatoria+OR+sciopero&hl=it&gl=IT&ceid=IT:it",r:"mehdi",lang:"it"},
-{n:"Yerel TR",u:"https://news.google.com/rss/search?q=sald%C4%B1r%C4%B1+OR+patlama+OR+ter%C3%B6r+OR+deprem&hl=tr&gl=TR&ceid=TR:tr",r:"vladimir",lang:"tr"},
-{n:"Local AR",u:"https://news.google.com/rss/search?q=%D8%A7%D9%86%D9%81%D8%AC%D8%A7%D8%B1+OR+%D9%87%D8%AC%D9%88%D9%85+OR+%D8%A7%D8%AD%D8%AA%D8%AC%D8%A7%D8%AC&hl=ar&gl=AE&ceid=AE:ar",r:"mohamed",lang:"ar"},
+{n:"Lokalne PL",u:gn("zamach OR wybuch OR strzelanina OR atak OR policja","PL:pl"),r:"maciej",lang:"pl"},
+{n:"Lokal DE",u:gn("Anschlag OR Explosion OR Schießerei OR Messerangriff OR Polizeieinsatz","DE:de"),r:"jonathan",lang:"de"},
+{n:"Local FR",u:gn("attentat OR explosion OR fusillade OR émeutes OR manifestation","FR:fr"),r:"mehdi",lang:"fr"},
+{n:"Local ES",u:gn("atentado OR explosión OR tiroteo OR huelga","ES:es"),r:"mehdi",lang:"es"},
+{n:"Locale IT",u:gn("attentato OR esplosione OR sparatoria OR sciopero","IT:it"),r:"mehdi",lang:"it"},
+{n:"Yerel TR",u:gn("saldırı OR patlama OR terör OR deprem","TR:tr"),r:"vladimir",lang:"tr"},
+{n:"Local AR",u:gn("انفجار OR هجوم OR احتجاج","AE:ar"),r:"mohamed",lang:"ar"},
 {n:"Jerusalem Post",u:"https://www.jpost.com/rss/rssfeedsfrontpage.aspx",r:"jonathan",g:1}
 ];
-var WS=[{n:"Google Weather",u:"https://news.google.com/rss/search?q=Europe+OR+Middle+East+OR+Africa+weather+warning+OR+storm+OR+flood+OR+earthquake+OR+wildfire+OR+heatwave+OR+snow+warning+OR+extreme+weather+OR+natural+disaster+OR+severe+weather&hl=en&gl=US&ceid=US:en",r:"all"}];
+var WS=[{n:"Google Weather",u:gn('(Europe OR "Middle East" OR Africa) ("weather warning" OR storm OR flood OR earthquake OR wildfire OR heatwave OR "snow warning" OR "severe weather")'),r:"all"}];
 /* MeteoAlarm national warnings (only loaded when a portal server/proxy is configured — 21 feeds) */
-var METEO=[{n:"MeteoAlarm United Kingdom",u:"https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-united-kingdom",r:"all",off:1,meteo:1},{n:"MeteoAlarm Ireland",u:"https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-ireland",r:"all",off:1,meteo:1},{n:"MeteoAlarm Germany",u:"https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-germany",r:"all",off:1,meteo:1},{n:"MeteoAlarm France",u:"https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-france",r:"all",off:1,meteo:1},{n:"MeteoAlarm Netherlands",u:"https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-netherlands",r:"all",off:1,meteo:1},{n:"MeteoAlarm Belgium",u:"https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-belgium",r:"all",off:1,meteo:1},{n:"MeteoAlarm Switzerland",u:"https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-switzerland",r:"all",off:1,meteo:1},{n:"MeteoAlarm Austria",u:"https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-austria",r:"all",off:1,meteo:1},{n:"MeteoAlarm Czechia",u:"https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-czechia",r:"all",off:1,meteo:1},{n:"MeteoAlarm Slovakia",u:"https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-slovakia",r:"all",off:1,meteo:1},{n:"MeteoAlarm Hungary",u:"https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-hungary",r:"all",off:1,meteo:1},{n:"MeteoAlarm Poland",u:"https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-poland",r:"all",off:1,meteo:1},{n:"MeteoAlarm Denmark",u:"https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-denmark",r:"all",off:1,meteo:1},{n:"MeteoAlarm Sweden",u:"https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-sweden",r:"all",off:1,meteo:1},{n:"MeteoAlarm Norway",u:"https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-norway",r:"all",off:1,meteo:1},{n:"MeteoAlarm Finland",u:"https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-finland",r:"all",off:1,meteo:1},{n:"MeteoAlarm Spain",u:"https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-spain",r:"all",off:1,meteo:1},{n:"MeteoAlarm Portugal",u:"https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-portugal",r:"all",off:1,meteo:1},{n:"MeteoAlarm Italy",u:"https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-italy",r:"all",off:1,meteo:1},{n:"MeteoAlarm Greece",u:"https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-greece",r:"all",off:1,meteo:1},{n:"MeteoAlarm Romania",u:"https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-romania",r:"all",off:1,meteo:1}];
+var METEO=["united-kingdom","ireland","germany","france","netherlands","belgium","switzerland","austria","czechia","slovakia","hungary","poland","denmark","sweden","norway","finland","spain","portugal","italy","greece","romania"].map(function(c){
+  return{n:"MeteoAlarm "+c.replace(/-/g," ").replace(/\b\w/g,function(x){return x.toUpperCase()}),u:"https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-"+c,r:"all",off:1,meteo:1};
+});
 var TS=[
 {n:"UK FCDO",u:"https://www.gov.uk/foreign-travel-advice.atom",r:"all",off:1,emea:1},
 {n:"US State Dept",u:"https://travel.state.gov/_res/rss/TAsTWs.xml",r:"all",off:1,emea:1,lvl:"state"},
-{n:"Google Travel",u:"https://news.google.com/rss/search?q=Europe+OR+Middle+East+OR+Africa+travel+warning+OR+travel+advisory+OR+flight+cancelled+OR+airport+disruption+OR+FCDO+OR+visa+OR+travel+ban+OR+airspace&hl=en&gl=US&ceid=US:en",r:"all"},
-{n:"Travel Nordic",u:"https://news.google.com/rss/search?q=Poland+OR+Sweden+OR+Denmark+OR+Norway+OR+Finland+flight+cancelled+OR+airport+OR+travel+warning&hl=en&gl=US&ceid=US:en",r:"maciej"},
-{n:"Travel East EU",u:"https://news.google.com/rss/search?q=Austria+OR+Netherlands+OR+Belgium+OR+Greece+OR+Turkey+OR+Romania+OR+Ukraine+flight+cancelled+OR+airport+OR+travel+warning&hl=en&gl=US&ceid=US:en",r:"vladimir"},
-{n:"Travel ME",u:"https://news.google.com/rss/search?q=Egypt+OR+Iraq+OR+Saudi+OR+UAE+OR+Dubai+OR+Lebanon+flight+cancelled+OR+airport+OR+travel+warning+OR+airspace&hl=en&gl=US&ceid=US:en",r:"mohamed"}
+{n:"Google Travel",u:gn('(Europe OR "Middle East" OR Africa) ("travel warning" OR "travel advisory" OR "flight cancelled" OR "airport disruption" OR FCDO OR "travel ban" OR airspace)'),r:"all"},
+{n:"Travel UK/IE/DE/IL",u:gn('(UK OR Ireland OR Germany OR Israel) ("flight cancelled" OR airport OR "travel warning" OR airspace OR "rail strike")'),r:"jonathan"},
+{n:"Travel Nordic",u:gn('(Poland OR Sweden OR Denmark OR Norway OR Finland) ("flight cancelled" OR airport OR "travel warning")'),r:"maciej"},
+{n:"Travel East EU",u:gn('(Austria OR Netherlands OR Belgium OR Greece OR Turkey OR Romania OR Ukraine) ("flight cancelled" OR airport OR "travel warning")'),r:"vladimir"},
+{n:"Travel South",u:gn('(France OR Spain OR Italy OR Portugal OR Morocco OR "South Africa" OR Nigeria OR Kenya) ("flight cancelled" OR airport OR "travel warning" OR strike)'),r:"mehdi"},
+{n:"Travel ME",u:gn('(Egypt OR Iraq OR Saudi OR UAE OR Dubai OR Lebanon OR Qatar) ("flight cancelled" OR airport OR "travel warning" OR airspace)'),r:"mohamed"}
 ];
 var PS=[
-{n:"Protest Nordic",u:"https://news.google.com/rss/search?q=Poland+OR+Sweden+OR+Denmark+OR+Norway+OR+Finland+protest+OR+strike+OR+demonstration+OR+rally&hl=en&gl=US&ceid=US:en",r:"maciej"},
-{n:"Protest East EU",u:"https://news.google.com/rss/search?q=Austria+OR+Netherlands+OR+Greece+OR+Turkey+OR+Romania+OR+Ukraine+OR+Hungary+protest+OR+strike+OR+demonstration&hl=en&gl=US&ceid=US:en",r:"vladimir"},
-{n:"Protest ME",u:"https://news.google.com/rss/search?q=Egypt+OR+Iraq+OR+Lebanon+OR+Jordan+OR+Saudi+OR+UAE+protest+OR+demonstration+OR+unrest&hl=en&gl=US&ceid=US:en",r:"mohamed"},
-{n:"Google Protest",u:"https://news.google.com/rss/search?q=Europe+OR+Middle+East+OR+Africa+protest+OR+demonstration+OR+rally+OR+riot+OR+clashes+OR+unrest+OR+strike+action+OR+walkout&hl=en&gl=US&ceid=US:en",r:"all"},
+{n:"Protest UK/IE/DE/IL",u:gn('(UK OR London OR Ireland OR Dublin OR Germany OR Berlin OR Israel OR "Tel Aviv") (protest OR strike OR demonstration OR riot)'),r:"jonathan"},
+{n:"Protest Nordic",u:gn('(Poland OR Sweden OR Denmark OR Norway OR Finland) (protest OR strike OR demonstration OR rally)'),r:"maciej"},
+{n:"Protest East EU",u:gn('(Austria OR Netherlands OR Greece OR Turkey OR Romania OR Ukraine OR Hungary OR Serbia) (protest OR strike OR demonstration)'),r:"vladimir"},
+{n:"Protest South",u:gn('(France OR Paris OR Spain OR Italy OR Portugal OR "South Africa" OR Nigeria OR Kenya OR Morocco) (protest OR strike OR demonstration OR riot)'),r:"mehdi"},
+{n:"Protest ME",u:gn('(Egypt OR Iraq OR Lebanon OR Jordan OR Saudi OR UAE) (protest OR demonstration OR unrest)'),r:"mohamed"},
+{n:"Google Protest",u:gn('(Europe OR "Middle East" OR Africa) (protest OR demonstration OR riot OR clashes OR unrest OR "strike action" OR walkout)'),r:"all"},
 {n:"Guardian Protest",u:"https://www.theguardian.com/world/protest/rss",r:"jonathan"}
 ];
-var PK=["protest","demonstration","rally","march","riot","clashes","unrest","blockade","occupation","sit-in","strike","walkout","industrial action","picket","union","workers","activists","demonstrators","protesters","barricade","tear gas","water cannon","dispersed","shutdown","road blocked"];
-var CRIT_KW=["terror attack","terrorist attack","explosion","bomb","bombing","mass shooting","active shooter","hostage","kidnap","mass casualty","earthquake","tsunami","flood emergency","coup","state of emergency","martial law","embassy evacuation","airspace closed","plane crash","chemical attack","assassination"];
-var HIGH_KW=["shooting","stabbing","knife attack","vehicle attack","riot","evacuation","bomb threat","suspicious package","armed police","lockdown","siege","gunman","arson","derailment","collapse"];
-var MED_KW=["arrest","arrested","detained","protest","strike","security incident","suspicious","threat","warning","investigation","manhunt","raid","disorder","clashes"];
-var CK={jonathan:["ireland","irish","dublin","cork","limerick","garda","eireann","taoiseach","uk","u.k.","britain","british","england","scotland","scottish","wales","welsh","london","manchester","birmingham","glasgow","edinburgh","heathrow","bbc","mi5","nhs","home office","downing street","germany","german","berlin","frankfurt","munich","hamburg","stuttgart","dusseldorf","bundeswehr","bfv","bundestag","scholz","polizei","cologne","nuremberg","dresden","dortmund","essen","halle","israel","israeli","tel aviv","jerusalem","gaza","hamas","hezbollah","idf","iron dome","netanyahu","west bank","rocket","siren","mossad","shin bet","knesset"],maciej:["poland","polish","warsaw","krakow","lodz","gdansk","wroclaw","poznan","denmark","danish","copenhagen","sweden","swedish","stockholm","malmo","gothenburg","norway","norwegian","oslo","finland","finnish","helsinki"],vladimir:["slovakia","slovak","bratislava","slovenia","slovenian","ljubljana","austria","austrian","vienna","salzburg","bulgaria","bulgarian","sofia","croatia","croatian","zagreb","czech","prague","brno","hungary","hungarian","budapest","estonia","estonian","tallinn","kazakhstan","kazakh","astana","almaty","lithuania","lithuanian","vilnius","macedonia","north macedonia","skopje","ukraine","ukrainian","kyiv","kiev","kharkiv","odesa","serbia","serbian","belgrade","romania","romanian","bucharest","greece","greek","athens","thessaloniki","turkey","turkish","istanbul","ankara","erdogan","switzerland","swiss","zurich","geneva","bern","netherlands","dutch","amsterdam","rotterdam","schiphol","hague","belgium","belgian","brussels","nato hq","luxembourg"],mehdi:["algeria","algerian","algiers","tunisia","tunisian","tunis","morocco","moroccan","casablanca","rabat","south africa","johannesburg","cape town","pretoria","ramaphosa","kenya","kenyan","nairobi","nigeria","nigerian","lagos","abuja","ethiopia","ethiopian","addis ababa","senegal","senegalese","dakar","angola","angolan","luanda","ghana","ghanaian","accra","spain","spanish","madrid","barcelona","seville","portugal","portuguese","lisbon","porto","italy","italian","rome","milan","naples","carabinieri","france","french","paris","lyon","marseille","macron","gendarmerie","nice","toulouse"],mohamed:["bahrain","bahraini","manama","egypt","egyptian","cairo","suez","alexandria","iraq","iraqi","baghdad","jordan","jordanian","amman","libya","libyan","tripoli","benghazi","kuwait","kuwaiti","lebanon","lebanese","beirut","oman","omani","muscat","qatar","qatari","doha","saudi","riyadh","jeddah","mecca","mbs","uae","dubai","abu dhabi","emirates","sharjah"]};
+/* Keywords. Matching is whole-word (plural/tense endings allowed); a trailing * means "word stem" (e.g. evacuat* = evacuate/evacuation). */
+var PK=["protest*","demonstrat*","rally","rallies","protest march","riot","clash","unrest","blockade","occupation","sit-in","strike","walkout","industrial action","picket*","trade union","workers","activist*","barricade*","tear gas","water cannon","dispersed","shutdown","road blocked","roadblock*","manifestation","grève","strajk","streik","huelga","sciopero"];
+var CRIT_KW=["terror attack","terrorist attack","explosion","bomb","mass shooting","active shooter","hostage","kidnap*","mass casualty","earthquake","tsunami","flood emergency","coup","state of emergency","martial law","embassy evacuation","airspace closed","plane crash","chemical attack","assassinat*",
+ "zamach*","wybuch*","attentat*","anschlag","anschläge","atentado","explosión","attentato","esplosione","patlama","terör saldırısı","انفجار"];
+var HIGH_KW=["shooting","stabbing","knife attack","vehicle attack","ramming","riot","rioters","evacuation","evacuated","bomb threat","suspicious package","armed police","lockdown","siege","gunman","gunmen","arson","derailment","building collapse","bridge collapse",
+ "rocket fire","rockets","rocket attack","missile*","airstrike*","air strike","drone attack","drone strike","sirens","shelling","interceptor*",
+ "ransomware","cyberattack","cyber attack","data breach","power outage","blackout","airport closed","airport closure","airspace clos*","port strike","rail strike","general strike",
+ "strzelanina","schießerei","messerangriff","fusillade","émeutes","tiroteo","sparatoria","saldırı","هجوم"];
+var MED_KW=["arrest","detained","protest","strike","security incident","suspicious","threat","warning","investigation","manhunt","raid","disorder","clash","curfew","loot*",
+ "manifestation","grève","demonstracja","strajk","streik","huelga","sciopero","protesto","احتجاج","polizeieinsatz"];
+/* Region keywords (whole-word match). Review quarterly: named leaders go stale. */
+var CK={jonathan:["ireland","irish","dublin","cork","limerick","garda","eireann","taoiseach","uk","u.k.","britain","british","england","scotland","scottish","wales","welsh","london","manchester","birmingham","glasgow","edinburgh","heathrow","belfast","bracknell","mi5","nhs","home office","downing street","germany","german","germans","berlin","frankfurt","munich","hamburg","stuttgart","dusseldorf","bundeswehr","bfv","bundestag","merz","polizei","cologne","nuremberg","nürnberg","dresden","dortmund","essen","halle","israel","israeli","israelis","tel aviv","jerusalem","haifa","herzliya","beersheba","be'er sheva","gaza","hamas","hezbollah","idf","iron dome","netanyahu","west bank","rocket","rockets","siren","sirens","mossad","shin bet","knesset"],maciej:["poland","polish","warsaw","krakow","lodz","gdansk","wroclaw","poznan","denmark","danish","copenhagen","sweden","swedish","stockholm","malmo","gothenburg","norway","norwegian","oslo","finland","finnish","helsinki","espoo"],vladimir:["slovakia","slovak","bratislava","slovenia","slovenian","ljubljana","austria","austrian","vienna","salzburg","bulgaria","bulgarian","sofia","croatia","croatian","zagreb","czech","prague","brno","hungary","hungarian","budapest","estonia","estonian","tallinn","kazakhstan","kazakh","astana","almaty","lithuania","lithuanian","vilnius","macedonia","north macedonia","skopje","ukraine","ukrainian","kyiv","kiev","kharkiv","odesa","serbia","serbian","belgrade","romania","romanian","bucharest","greece","greek","athens","thessaloniki","turkey","türkiye","turkish","istanbul","ankara","erdogan","switzerland","swiss","zurich","geneva","bern","netherlands","dutch","amsterdam","rotterdam","schiphol","hague","belgium","belgian","brussels","nato hq","luxembourg"],mehdi:["algeria","algerian","algiers","tunisia","tunisian","tunis","morocco","moroccan","casablanca","rabat","south africa","johannesburg","cape town","pretoria","ramaphosa","kenya","kenyan","nairobi","nigeria","nigerian","lagos","abuja","ethiopia","ethiopian","addis ababa","senegal","senegalese","dakar","angola","angolan","luanda","ghana","ghanaian","accra","spain","spanish","madrid","barcelona","seville","portugal","portuguese","lisbon","porto","italy","italian","rome","milan","naples","carabinieri","france","french","paris","lyon","marseille","macron","gendarmerie","toulouse","montpellier"],mohamed:["bahrain","bahraini","manama","egypt","egyptian","cairo","suez","alexandria","iraq","iraqi","baghdad","jordanian","amman","libya","libyan","tripoli","benghazi","kuwait","kuwaiti","lebanon","lebanese","beirut","oman","omani","muscat","qatar","qatari","doha","saudi","riyadh","jeddah","mecca","mbs","uae","dubai","abu dhabi","emirates","sharjah"]};
 var CITY_COORDS={espoo:{lat:60.205,lng:24.655},bratislava:{lat:48.149,lng:17.107},budapest:{lat:47.498,lng:19.04},doha:{lat:25.285,lng:51.531},bracknell:{lat:51.416,lng:-.754},montpellier:{lat:43.611,lng:3.877},london:{lat:51.507,lng:-.128},paris:{lat:48.857,lng:2.352},berlin:{lat:52.52,lng:13.405},madrid:{lat:40.417,lng:-3.704},rome:{lat:41.903,lng:12.496},dublin:{lat:53.35,lng:-6.26},amsterdam:{lat:52.37,lng:4.895},brussels:{lat:50.85,lng:4.357},vienna:{lat:48.208,lng:16.374},warsaw:{lat:52.23,lng:21.012},prague:{lat:50.075,lng:14.438},stockholm:{lat:59.329,lng:18.069},oslo:{lat:59.914,lng:10.752},copenhagen:{lat:55.676,lng:12.568},helsinki:{lat:60.17,lng:24.941},lisbon:{lat:38.722,lng:-9.139},barcelona:{lat:41.386,lng:2.17},milan:{lat:45.464,lng:9.19},athens:{lat:37.984,lng:23.728},istanbul:{lat:41.009,lng:28.978},cairo:{lat:30.044,lng:31.236},dubai:{lat:25.205,lng:55.271},riyadh:{lat:24.713,lng:46.675},tel_aviv:{lat:32.085,lng:34.782},jerusalem:{lat:31.769,lng:35.216},beirut:{lat:33.889,lng:35.495},baghdad:{lat:33.315,lng:44.366},amman:{lat:31.952,lng:35.934},johannesburg:{lat:-26.205,lng:28.05},casablanca:{lat:33.573,lng:-7.589},nairobi:{lat:-1.286,lng:36.817},lagos:{lat:6.455,lng:3.384},bucharest:{lat:44.426,lng:26.103},sofia:{lat:42.698,lng:23.322},zagreb:{lat:45.815,lng:15.982},belgrade:{lat:44.787,lng:20.457},kyiv:{lat:50.45,lng:30.524},munich:{lat:48.135,lng:11.582},frankfurt:{lat:50.11,lng:8.682},hamburg:{lat:53.551,lng:9.994},cologne:{lat:50.938,lng:6.957},lyon:{lat:45.764,lng:4.836},marseille:{lat:43.296,lng:5.369},glasgow:{lat:55.861,lng:-4.251},edinburgh:{lat:55.949,lng:-3.202},manchester:{lat:53.481,lng:-2.243},birmingham:{lat:52.486,lng:-1.89},cork:{lat:51.876,lng:-8.649},limerick:{lat:52.668,lng:-8.63}};
+/* Every Dell site city is matchable in headlines (Haifa, Herzliya, Be'er Sheva, Halle, Stuttgart, Belfast, Lodz, Geneva...), plus common spellings */
+L0.forEach(function(s){var k=siteCity(s).toLowerCase().trim().replace(/\s+/g,"_");if(k&&!CITY_COORDS[k])CITY_COORDS[k]={lat:s.lat,lng:s.lng}});
+(function(a){for(var k in a)if(CITY_COORDS[a[k]]&&!CITY_COORDS[k])CITY_COORDS[k]=CITY_COORDS[a[k]]})({beersheba:"be'er_sheva",beer_sheva:"be'er_sheva",nuremberg:"nurnberg","nürnberg":"nurnberg","łódź":"lodz",porto_salvo:"lisbon",oeiras:"lisbon",tel_aviv_yafo:"tel_aviv"});
 var SD=[],WD=[],TD=[],PD=[],SF="all",WF="all",TF="all",PF="all";
 var loaded={tv:false,pr:false,ra:false,loc:false,crit:false};
 var notifiedTitles={},notifEnabled=false;
+try{notifiedTitles=JSON.parse(localStorage.getItem("ntf")||"{}")}catch(e){}
 var focusQuery="",focusData=[];
+function byDate(a,b){return new Date(b.pubDate)-new Date(a.pubDate)}
+function uniq(a){var s={};return a.filter(function(x){var k=ikey(x);if(s[k])return false;s[k]=1;return true})}
+function portalLink(){return CFG.portalUrl||(location.protocol==="file:"?"(Dell EMEA Security Portal)":location.href.replace(/#.*$/,""))}
 function haversine(a,b,c,d){var R=6371,dL=(c-a)*Math.PI/180,dN=(d-b)*Math.PI/180,x=Math.sin(dL/2)*Math.sin(dL/2)+Math.cos(a*Math.PI/180)*Math.cos(c*Math.PI/180)*Math.sin(dN/2)*Math.sin(dN/2);return R*2*Math.atan2(Math.sqrt(x),Math.sqrt(1-x))}
 function detectCities(t){if(!t)return[];var f=[];var l=t.toLowerCase();for(var c in CITY_COORDS){var n=c.replace(/_/g," ");if(wb(l,n))f.push({name:n,coords:CITY_COORDS[c]})}return f}
 function getProximity(t){var cs=detectCities(t);if(!cs.length)return null;var cl=null,cd=99999;for(var i=0;i<cs.length;i++){for(var j=0;j<L0.length;j++){var d=haversine(cs[i].coords.lat,cs[i].coords.lng,L0[j].lat,L0[j].lng);if(d<cd){cd=d;cl={city:cs[i].name,site:L0[j],dist:Math.round(d)}}}}return cl}
-function proxBadge(p){if(!p)return"";if(p.dist<25)return'<span class="prox-badge prox-close">📍 '+p.site.name+" "+p.dist+"km</span>";if(p.dist<100)return'<span class="prox-badge prox-near">📍 '+p.site.name+" "+p.dist+"km</span>";return""}
+function proxBadge(p){if(!p)return"";if(p.dist<25)return'<span class="prox-badge prox-close">📍 '+esc(p.site.name)+" "+p.dist+"km</span>";if(p.dist<100)return'<span class="prox-badge prox-near">📍 '+esc(p.site.name)+" "+p.dist+"km</span>";return""}
 function closeBM(){document.getElementById("briefMenu").classList.remove("open")}
 document.addEventListener("click",function(e){var m=document.getElementById("briefMenu"),b=document.getElementById("briefBtn");if(m&&!m.contains(e.target)&&e.target!==b)m.classList.remove("open")});
 function toggleNotif(){if(!("Notification" in window))return;if(Notification.permission==="denied")return;if(Notification.permission==="default"){Notification.requestPermission().then(function(p){notifEnabled=p==="granted";updateNB()});return}notifEnabled=!notifEnabled;updateNB();if(notifEnabled){try{new Notification("🔒 EMEA Portal",{body:"On",icon:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Dell_Logo.png/220px-Dell_Logo.png"})}catch(e){}}}
 function updateNB(){var b=document.getElementById("notifBtn");if(notifEnabled&&Notification.permission==="granted"){b.textContent="🔔 On";b.classList.add("notif-on")}else{b.textContent="🔔 Off";b.classList.remove("notif-on")}}
-function sendN(t,b,u,l){if(!notifEnabled||!("Notification" in window)||Notification.permission!=="granted")return;var k=t.substring(0,40).toLowerCase();if(notifiedTitles[k])return;notifiedTitles[k]=true;try{var n=new Notification((l==="crit"?"🔴":"🟠")+" EMEA",{body:t+"\n"+b,icon:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Dell_Logo.png/220px-Dell_Logo.png",tag:k,requireInteraction:l==="crit"});n.onclick=function(){window.focus();if(u)window.open(u,"_blank");n.close()};setTimeout(function(){n.close()},l==="crit"?30000:15000)}catch(e){}}
-function checkNA(items){if(!notifEnabled)return;for(var i=0;i<items.length;i++){var it=items[i],s=sevI(it);if((s.level==="crit"||s.level==="high")&&ib(it.pubDate))sendN(it.title,(MN[it.region]||"EMEA")+" • "+s.label,it.link,s.level)}}
+/* de-duplicated across reloads (24h memory) so the same alert does not pop up every refresh */
+function sendN(t,b,u,l){
+  if(!notifEnabled||!("Notification" in window)||Notification.permission!=="granted")return;
+  var k=t.substring(0,40).toLowerCase(),now=Date.now();if(notifiedTitles[k])return;
+  notifiedTitles[k]=now;for(var x in notifiedTitles)if(now-notifiedTitles[x]>864e5)delete notifiedTitles[x];
+  try{localStorage.setItem("ntf",JSON.stringify(notifiedTitles))}catch(e){}
+  try{var n=new Notification((l==="crit"?"🔴":"🟠")+" EMEA",{body:t+"\n"+b,icon:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Dell_Logo.png/220px-Dell_Logo.png",tag:k,requireInteraction:l==="crit"});n.onclick=function(){window.focus();if(u)window.open(u,"_blank");n.close()};setTimeout(function(){n.close()},l==="crit"?30000:15000)}catch(e){}
+}
+function checkNA(items){if(!notifEnabled)return;for(var i=0;i<items.length;i++){var it=items[i],s=sevI(it);if((s.level==="crit"||s.level==="high")&&ib(it.pubDate)&&!isDis(it))sendN(it.title,(MN[it.region]||"EMEA")+" • "+s.label,it.link,s.level)}}
 function toggleDark(){dk=!dk;document.body.classList.toggle("dark",dk);document.getElementById("darkBtn").textContent=dk?"☀️ Light":"🌙 Dark";try{localStorage.setItem("dm",dk?"1":"0")}catch(e){}if(typeof MAP!=="undefined"&&MAP){var sv=null;try{sv=localStorage.getItem("basemap")}catch(e){}if(!sv)setBasemap()}}
 function loadDP(){try{if(localStorage.getItem("dm")==="1"){dk=true;document.body.classList.add("dark");document.getElementById("darkBtn").textContent="☀️ Light"}}catch(e){}}
-function runFocus(){var q=document.getElementById("focusInput").value.trim();if(!q||q.length<2)return;focusQuery=q;document.getElementById("focusClearBtn").style.display="inline-block";document.getElementById("focusPanel").classList.add("active");document.getElementById("focusTitle").textContent="🎯 "+q;document.getElementById("focusArticleList").innerHTML='<div style="text-align:center;padding:20px;color:#888">Searching...</div>';var ql=q.toLowerCase(),allI=SD.concat(WD).concat(TD).concat(PD);focusData=[];var seen={};for(var i=0;i<allI.length;i++){var it=allI[i],txt=(it.title||"")+" "+(it.description||"");if(txt.toLowerCase().indexOf(ql)>-1){var tk=(it.title||"").toLowerCase().substring(0,50);if(!seen[tk]){seen[tk]=true;focusData.push(it)}}}
-fj("https://news.google.com/rss/search?q="+encodeURIComponent(q)+"&hl=en&gl=US&ceid=US:en").then(function(d){if(d.status==="ok"&&d.items){for(var i=0;i<d.items.length;i++){var it=d.items[i];if(!iv(it.pubDate))continue;var tk=(it.title||"").toLowerCase().substring(0,50);if(seen[tk])continue;seen[tk]=true;var rg=dc(it.title,it.description,"all");focusData.push({title:clean(it.title),link:it.link||"#",description:clean(it.description),pubDate:it.pubDate||"",author:clean(it.author)||"News",source:"Google",region:rg,regionLabel:MN[rg]||"EMEA"})}}focusData.sort(function(a,b){return new Date(b.pubDate)-new Date(a.pubDate)});renderFocus()}).catch(function(){focusData.sort(function(a,b){return new Date(b.pubDate)-new Date(a.pubDate)});renderFocus()})}
+function runFocus(){var q=document.getElementById("focusInput").value.trim();if(!q||q.length<2)return;focusQuery=q;document.getElementById("focusClearBtn").style.display="inline-block";document.getElementById("focusPanel").classList.add("active");document.getElementById("focusTitle").textContent="🎯 "+q;document.getElementById("focusArticleList").innerHTML='<div style="text-align:center;padding:20px;color:#888">Searching...</div>';var ql=q.toLowerCase(),allI=SD.concat(WD,TD,PD);focusData=[];var seen={};for(var i=0;i<allI.length;i++){var it=allI[i],txt=(it.title||"")+" "+(it.description||"");if(txt.toLowerCase().indexOf(ql)>-1){var tk=(it.title||"").toLowerCase().substring(0,50);if(!seen[tk]){seen[tk]=true;focusData.push(it)}}}
+fj(gn(q,"US:en","3d")).then(function(d){(d.items||[]).forEach(function(raw){var o=normItem(raw,true);if(!o.pd||!iv(o.pd)||!o.title)return;var tk=o.title.toLowerCase().substring(0,50);if(seen[tk])return;seen[tk]=true;var rg=dc(o.title,o.desc,"all");focusData.push({title:o.title,link:raw.link||"#",description:o.desc,pubDate:o.pd,author:o.author||"News",source:"Google",region:rg,regionLabel:MN[rg]||"EMEA"})});focusData.sort(byDate);renderFocus()}).catch(function(){focusData.sort(byDate);renderFocus()})}
 function fetchFocusFeed(){if(focusQuery)runFocus()}
 function renderFocus(){var ct=focusData.length,cc=0,hc=0,ea=null,la=null,mgrs={},ns=[];for(var i=0;i<focusData.length;i++){var it=focusData[i],s=sevI(it);if(s.level==="crit")cc++;if(s.level==="high")hc++;var d=new Date(it.pubDate);if(!ea||d<ea)ea=d;if(!la||d>la)la=d;if(it.region&&it.region!=="all"&&MN[it.region])mgrs[it.region]=true;var px=getProximityI(it);if(px&&px.dist<200){var f=false;for(var s2=0;s2<ns.length;s2++){if(ns[s2].site.name===px.site.name)f=true}if(!f)ns.push(px)}}ns.sort(function(a,b){return a.dist-b.dist});
-document.getElementById("focusArticles").textContent="📰 "+ct;var sv="";if(cc)sv+="🔴 "+cc+" ";if(hc)sv+="🟠 "+hc;document.getElementById("focusSeverity").textContent=sv;document.getElementById("focusTimeline").textContent=ea?"🕐 "+ta(ea.toISOString())+" — "+ta(la.toISOString()):"";var ml=[];for(var m in mgrs)ml.push(MN[m]);document.getElementById("focusManager").textContent=ml.length?"👤 "+ml.join(", "):"";
+document.getElementById("focusArticles").textContent="📰 "+ct;var sv="";if(cc)sv+="🔴 "+cc+" ";if(hc)sv+="🟠 "+hc;document.getElementById("focusSeverity").textContent=sv;document.getElementById("focusTimeline").textContent=ea?"🕐 "+(ta(ea.toISOString())||"")+" — "+(ta(la.toISOString())||""):"";var ml=[];for(var m in mgrs)ml.push(MN[m]);document.getElementById("focusManager").textContent=ml.length?"👤 "+ml.join(", "):"";
 var sh='<div class="sitrep-section"><div class="sitrep-label">Overview</div><div class="sitrep-text">'+ct+' articles (72hrs).';if(cc)sh+=" <strong>"+cc+" critical.</strong>";sh+="</div></div>";
 if(focusData.length){sh+='<div class="sitrep-section"><div class="sitrep-label">Timeline</div><ul class="sitrep-timeline">';var shown=0;for(var t=0;t<focusData.length&&shown<8;t++){var ag=ta(focusData[t].pubDate);if(ag){sh+="<li><strong>"+ag+":</strong> "+esc(focusData[t].title)+"</li>";shown++}}sh+="</ul></div>"}
-if(ns.length){sh+='<div class="sitrep-section"><div class="sitrep-label">Dell Sites</div><ul class="sitrep-sites">';for(var n=0;n<ns.length;n++){var dc2=ns[n].dist<25?"dist-close":ns[n].dist<100?"dist-near":"dist-far";sh+='<li><span class="site-dist '+dc2+'">'+ns[n].dist+'km</span> '+ns[n].site.name+' — '+MN[ns[n].site.mgr]+'</li>'}sh+="</ul></div>"}
+if(ns.length){sh+='<div class="sitrep-section"><div class="sitrep-label">Dell Sites</div><ul class="sitrep-sites">';for(var n=0;n<ns.length;n++){var dc2=ns[n].dist<25?"dist-close":ns[n].dist<100?"dist-near":"dist-far";sh+='<li><span class="site-dist '+dc2+'">'+ns[n].dist+'km</span> '+esc(ns[n].site.name)+' — '+esc(MN[ns[n].site.mgr])+'</li>'}sh+="</ul></div>"}
 document.getElementById("focusSitrep").innerHTML=sh;
-var ah="";for(var j=0;j<focusData.length;j++){var it2=focusData[j],sn="";if(it2.description){sn=it2.description.replace(/<[^>]*>/g,"");if(sn.length>120)sn=sn.substring(0,120)+"..."}var ag2=ta(it2.pubDate),s3=sevI(it2),px2=getProximityI(it2);ah+='<div class="ni"><div style="display:flex;gap:6px"><span class="sev sev-'+s3.level+'" role="img" aria-label="Severity '+s3.label+'" style="margin-top:5px"></span><div style="flex:1"><a href="'+eurl(it2.link)+'" target="_blank" style="color:#0076CE">'+esc(it2.title)+'</a>'+proxBadge(px2)+'<div class="src">'+(MN[it2.region]||"EMEA")+" • "+esc(it2.author||"")+"</div>";if(ag2)ah+='<div class="age">🕐 '+ag2+"</div>";if(sn)ah+='<div class="snip">'+esc(sn)+"</div>";ah+="</div></div></div>"}
+var ah="";for(var j=0;j<focusData.length;j++){var it2=focusData[j],sn="";if(it2.description){sn=it2.description.replace(/<[^>]*>/g,"");if(sn.length>120)sn=sn.substring(0,120)+"..."}var ag2=ta(it2.pubDate),s3=sevI(it2),px2=getProximityI(it2);ah+='<div class="ni"><div style="display:flex;gap:6px"><span class="sev sev-'+s3.level+'" role="img" aria-label="Severity '+s3.label+'" style="margin-top:5px"></span><div style="flex:1"><a href="'+eurl(it2.link)+'" target="_blank" rel="noopener" style="color:#0076CE">'+esc(it2.title)+'</a>'+proxBadge(px2)+'<div class="src">'+(MN[it2.region]||"EMEA")+" • "+esc(it2.author||"")+"</div>";if(ag2)ah+='<div class="age">🕐 '+ag2+"</div>";if(sn)ah+='<div class="snip">'+esc(sn)+"</div>";ah+="</div></div></div>"}
 document.getElementById("focusArticleList").innerHTML=ah||'<div style="text-align:center;padding:20px;color:#888">No articles.</div>'}
-function copySitrep(){if(!focusData.length)return;var b="DELL EMEA SITREP\n"+focusQuery+"\n"+new Date().toLocaleDateString("en-GB")+"\n"+"=".repeat(50)+"\nArticles: "+focusData.length+"\n\n";for(var t=0;t<Math.min(10,focusData.length);t++){b+="• "+(ta(focusData[t].pubDate)||"")+": "+focusData[t].title+"\n  "+focusData[t].link+"\n"}b+="\n"+window.location.href+"\n";copyBrief(b)}
+function copySitrep(){if(!focusData.length)return;var b="DELL EMEA SITREP\n"+focusQuery+"\n"+new Date().toLocaleDateString("en-GB")+"\n"+"=".repeat(50)+"\nArticles: "+focusData.length+"\n\n";for(var t=0;t<Math.min(10,focusData.length);t++){b+="• "+(ta(focusData[t].pubDate)||"")+": "+focusData[t].title+"\n  "+focusData[t].link+"\n"}b+="\n"+portalLink()+"\n";copyBrief(b)}
 function clearFocus(){document.getElementById("focusInput").value="";document.getElementById("focusPanel").classList.remove("active");document.getElementById("focusClearBtn").style.display="none";focusQuery="";focusData=[]}
-function copyBrief(b){try{navigator.clipboard.writeText(b).then(function(){var btn=document.getElementById("briefBtn");btn.textContent="✅ Copied!";btn.classList.add("copied");setTimeout(function(){btn.textContent="📋 Briefing ▾";btn.classList.remove("copied")},3000)})}catch(e){var t=document.createElement("textarea");t.value=b;document.body.appendChild(t);t.select();document.execCommand("copy");document.body.removeChild(t);document.getElementById("briefBtn").textContent="✅ Copied!"}}
-function genBrief(type){var allI=SD.concat(WD).concat(TD).concat(PD);var items=type==="all"?SD:type==="critical"?SD:SD.filter(function(x){return x.region===type});var title=type==="all"?"FULL EMEA":type==="critical"?"CRITICAL":MN[type];var b="DELL EMEA — "+title+"\n"+new Date().toLocaleDateString("en-GB")+"\n"+"=".repeat(55)+"\n\n";var crits=[];for(var i=0;i<items.length;i++){var s=sevI(items[i]);if(s.level==="crit"||s.level==="high")crits.push({item:items[i],severity:s})}b+="Critical/High: "+crits.length+"\n";if(!crits.length)b+="✅ None.\n\n";else{for(var c=0;c<crits.length;c++)b+=(crits[c].severity.level==="crit"?"🔴":"🟠")+" "+crits[c].item.title+"\n   "+(ta(crits[c].item.pubDate)||"")+"\n\n"}if(type==="critical"){copyBrief(b);return}b+="Summary:\n";var sm=type==="all"?MGRS:[type];for(var m=0;m<sm.length;m++){var id=sm[m],ct=0,ld=null;for(var j=0;j<allI.length;j++){if(allI[j].region===id){ct++;var d=new Date(allI[j].pubDate);if(!ld||d>ld)ld=d}}b+=MN[id]+": "+ct+" | "+(ld?ta(ld.toISOString()):"—")+"\n"}b+="\nHeadlines:\n";var sorted=items.slice().sort(function(a,b2){return new Date(b2.pubDate)-new Date(a.pubDate)});for(var k=0;k<Math.min(10,sorted.length);k++)b+=(k+1)+". "+sorted[k].title+"\n   "+sorted[k].link+"\n";b+="\n"+window.location.href+"\n";copyBrief(b)}
-function openReport(){var items=SD.slice().sort(function(a,b){return new Date(b.pubDate)-new Date(a.pubDate)});var allI=SD.concat(WD).concat(TD).concat(PD);var w=window.open("","_blank");var h='<!DOCTYPE html><html><head><title>EMEA Briefing</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Segoe UI,sans-serif;padding:40px;max-width:900px;margin:auto;color:#333}h1{font-size:1.5rem;color:#0076CE}h2{font-size:1.1rem;margin:24px 0 8px;color:#1B3A5C;border-bottom:2px solid #0076CE;padding-bottom:4px}table{width:100%;border-collapse:collapse;margin:10px 0}th,td{padding:8px 12px;text-align:left;border-bottom:1px solid #eee;font-size:.85rem}th{background:#f0f2f5}.ar{padding:8px 0;border-bottom:1px solid #eee}.ar a{color:#0076CE;text-decoration:none;font-weight:600}.sv2{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.7rem;font-weight:700;color:#fff;margin-right:6px}.sc2{background:#DC3545}.sh2{background:#E67E22}.sm2{background:#FFC107;color:#333}.sl2{background:#28A745}.pb{background:#0076CE;color:#fff;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-weight:600;margin:20px 8px 20px 0}@media print{.pb{display:none}}</style></head><body>';h+='<h1>🔒 EMEA Briefing</h1><p style="color:#888;margin-bottom:20px">'+new Date().toLocaleDateString("en-GB")+'</p><button class="pb" onclick="window.print()">🖨️ Print</button>';h+='<h2>Summary</h2><table><tr><th>Manager</th><th>Articles</th><th>Latest</th></tr>';for(var m=0;m<MGRS.length;m++){var id=MGRS[m],ct=0,ld=null;for(var j=0;j<allI.length;j++){if(allI[j].region===id){ct++;var d=new Date(allI[j].pubDate);if(!ld||d>ld)ld=d}}h+='<tr><td><strong>'+MN[id]+'</strong></td><td>'+ct+'</td><td>'+(ld?ta(ld.toISOString()):"—")+'</td></tr>'}h+='</table><h2>Top 15</h2>';for(var k=0;k<Math.min(15,items.length);k++){var it=items[k],s=sevI(it);h+='<div class="ar"><span class="sv2 s'+(s.level==="crit"?"c2":s.level==="high"?"h2":s.level==="med"?"m2":"l2")+'">'+s.label+'</span><a href="'+eurl(it.link)+'" target="_blank">'+esc(it.title)+'</a></div>'}h+='</body></html>';w.document.write(h);w.document.close()}
+function copyFallback(b){var t=document.createElement("textarea");t.value=b;t.style.position="fixed";t.style.opacity="0";document.body.appendChild(t);t.select();var ok=false;try{ok=document.execCommand("copy")}catch(e){}document.body.removeChild(t);return ok}
+function copyBrief(b){
+  var btn=document.getElementById("briefBtn");
+  function done(ok){btn.textContent=ok?"✅ Copied!":"⚠️ Copy failed";btn.classList.add("copied");setTimeout(function(){btn.textContent="📋 Briefing ▾";btn.classList.remove("copied")},3000)}
+  if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(b).then(function(){done(true)},function(){done(copyFallback(b))});
+  else done(copyFallback(b));
+}
+/* Briefings now cover all panels (security, weather, travel, protest), de-duplicated, excluding dismissed items */
+function genBrief(type){var allI=uniq(SD.concat(WD,TD,PD)).filter(function(x){return!isDis(x)});var items=(type==="all"||type==="critical")?allI:allI.filter(function(x){return x.region===type});var title=type==="all"?"FULL EMEA":type==="critical"?"CRITICAL":MN[type];var b="DELL EMEA — "+title+"\n"+new Date().toLocaleDateString("en-GB")+"\n"+"=".repeat(55)+"\n\n";var crits=[];for(var i=0;i<items.length;i++){var s=sevI(items[i]);if(s.level==="crit"||s.level==="high")crits.push({item:items[i],severity:s})}crits.sort(function(a,b2){return LVN[b2.severity.level]-LVN[a.severity.level]||byDate(a.item,b2.item)});b+="Critical/High: "+crits.length+"\n";if(!crits.length)b+="✅ None.\n\n";else{for(var c=0;c<crits.length;c++)b+=(crits[c].severity.level==="crit"?"🔴":"🟠")+" "+crits[c].item.title+"\n   "+(ta(crits[c].item.pubDate)||"")+" · "+crits[c].item.link+"\n\n"}if(type==="critical"){b+=portalLink()+"\n";copyBrief(b);return}b+="Summary:\n";var sm=type==="all"?MGRS:[type];for(var m=0;m<sm.length;m++){var id=sm[m],ct=0,ld=null;for(var j=0;j<allI.length;j++){if(allI[j].region===id){ct++;var d=new Date(allI[j].pubDate);if(!ld||d>ld)ld=d}}b+=MN[id]+": "+ct+" | "+(ld?ta(ld.toISOString()):"—")+"\n"}b+="\nHeadlines:\n";var sorted=items.slice().sort(byDate);for(var k=0;k<Math.min(10,sorted.length);k++)b+=(k+1)+". "+sorted[k].title+"\n   "+sorted[k].link+"\n";b+="\n"+portalLink()+"\n";copyBrief(b)}
+function openReport(){var allI=uniq(SD.concat(WD,TD,PD)).filter(function(x){return!isDis(x)});var items=allI.slice().sort(function(a,b){return LVN[sevI(b).level]-LVN[sevI(a).level]||byDate(a,b)});var w=window.open("","_blank");if(!w)return;var h='<!DOCTYPE html><html><head><title>EMEA Briefing</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Segoe UI,sans-serif;padding:40px;max-width:900px;margin:auto;color:#333}h1{font-size:1.5rem;color:#0076CE}h2{font-size:1.1rem;margin:24px 0 8px;color:#1B3A5C;border-bottom:2px solid #0076CE;padding-bottom:4px}table{width:100%;border-collapse:collapse;margin:10px 0}th,td{padding:8px 12px;text-align:left;border-bottom:1px solid #eee;font-size:.85rem}th{background:#f0f2f5}.ar{padding:8px 0;border-bottom:1px solid #eee}.ar a{color:#0076CE;text-decoration:none;font-weight:600}.sv2{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.7rem;font-weight:700;color:#fff;margin-right:6px}.sc2{background:#DC3545}.sh2{background:#E67E22}.sm2{background:#FFC107;color:#333}.sl2{background:#28A745}.pb{background:#0076CE;color:#fff;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-weight:600;margin:20px 8px 20px 0}@media print{.pb{display:none}}</style></head><body>';h+='<h1>🔒 EMEA Briefing</h1><p style="color:#888;margin-bottom:20px">'+new Date().toLocaleDateString("en-GB")+'</p><button class="pb" onclick="window.print()">🖨️ Print</button>';h+='<h2>Summary</h2><table><tr><th>Manager</th><th>Articles</th><th>Latest</th></tr>';for(var m=0;m<MGRS.length;m++){var id=MGRS[m],ct=0,ld=null;for(var j=0;j<allI.length;j++){if(allI[j].region===id){ct++;var d=new Date(allI[j].pubDate);if(!ld||d>ld)ld=d}}h+='<tr><td><strong>'+MN[id]+'</strong></td><td>'+ct+'</td><td>'+(ld?ta(ld.toISOString()):"—")+'</td></tr>'}h+='</table><h2>Top 15 (by severity)</h2>';for(var k=0;k<Math.min(15,items.length);k++){var it=items[k],s=sevI(it);h+='<div class="ar"><span class="sv2 s'+(s.level==="crit"?"c2":s.level==="high"?"h2":s.level==="med"?"m2":"l2")+'">'+s.label+'</span><a href="'+eurl(it.link)+'" target="_blank" rel="noopener">'+esc(it.title)+'</a> <small style="color:#888">'+esc(it.source||"")+'</small></div>'}h+='</body></html>';w.document.write(h);w.document.close()}
 function tog(id){var col=document.getElementById("col-"+id),ar=document.getElementById("arrow-"+id),op=col.classList.contains("open");col.classList.toggle("open");ar.classList.toggle("open");if(col.previousElementSibling)col.previousElementSibling.setAttribute("aria-expanded",String(!op));if(id==="crit"&&op)loaded.critUser=true;if(!op){if(id==="hi")loadHist();if(id==="sh")rshift();if(id==="trv")rtrav()}if(!op&&!loaded[id]){loaded[id]=true;if(id==="tv")lms(TS,TD,rtf);if(id==="pr")lms(PS,PD,rpf);if(id==="ra")lra();if(id==="loc")bld();if(id==="crit")ucrit()}}
-function ip(t){if(!t)return false;var l=t.toLowerCase();for(var i=0;i<PK.length;i++){if(l.indexOf(PK[i])>-1)return true}return false}
-function ta(d){var x=new Date(d),n=new Date(),m=Math.floor((n-x)/60000),h=Math.floor((n-x)/3600000);if(m<1)return"Just now";if(m<60)return m+"m ago";if(h===1)return"1hr ago";if(h<24)return h+"hr ago";if(h<48)return"Yesterday";if(h<72)return"2d ago";return null}
-function iv(d){return(new Date()-new Date(d))/36e5<=MX}
-function ib(d){return(new Date()-new Date(d))/36e5<=BH}
+function ip(t){if(!t)return false;var l=t.toLowerCase();for(var i=0;i<PK.length;i++){if(kwm(l,PK[i]))return true}return false}
+function ta(d){var x=new Date(d),n=new Date(),m=Math.floor((n-x)/60000),h=Math.floor((n-x)/3600000);if(isNaN(m))return null;if(m<1)return"Just now";if(m<60)return m+"m ago";if(h===1)return"1hr ago";if(h<24)return h+"hr ago";if(h<48)return"Yesterday";if(h<72)return"2d ago";return null}
+function iv(d){var a=(new Date()-new Date(d))/36e5;return a<=MX&&a>-1}
+function ib(d){var a=(new Date()-new Date(d))/36e5;return a<=BH&&a>-1}
 
 
-function renderList(items,cid,filter,linkColor,tagClass,tagLabel){var c=document.getElementById(cid),fl=[];for(var i=0;i<items.length;i++){if((filter==="all"||items[i].region===filter)&&!isDis(items[i]))fl.push(items[i])}if(!fl.length){c.innerHTML='<li style="color:#888;text-align:center;padding:20px">No items.</li>';return 0}var h="";for(var j=0;j<fl.length;j++){var it=fl[j],sn="";if(it.description){sn=it.description.replace(/<[^>]*>/g,"");if(sn.length>100)sn=sn.substring(0,100)+"..."}var ag=ta(it.pubDate),s=sevI(it),bt=ib(it.pubDate)?'<span style="background:#DC3545;color:#fff;font-size:.55rem;padding:1px 4px;border-radius:5px;margin-left:4px;font-weight:700">NEW</span>':"",px=getProximityI(it);h+='<li class="ni"><div style="display:flex;gap:6px"><span class="sev sev-'+s.level+'" role="img" aria-label="Severity '+s.label+'" style="margin-top:5px"></span><div style="flex:1"><a href="'+eurl(it.link)+'" target="_blank" style="color:'+linkColor+'">'+esc(it.title)+'</a>'+bt+offBadge(it)+langBadge(it)+proxBadge(px)+'<div class="src">'+(MN[it.region]||"EMEA")+" • "+esc(it.author)+'<span class="src-badge">'+esc(it.source)+"</span></div>";if(ag)h+='<div class="age">🕐 '+ag+"</div>";if(sn)h+='<div class="snip">'+esc(sn)+"</div>";h+='<span class="tag '+tagClass+'">'+tagLabel+"</span></div></div></li>"}c.innerHTML=h;return fl.length}
-function rsf(){if(!SD.length){document.getElementById("fd-sec").innerHTML='<li style="color:#E67E22;padding:20px;text-align:center">Loading...</li>';return}var ct=renderList(SD,"fd-sec",SF,"#0076CE","t-sec","Security");document.getElementById("secCount").textContent=ct}
-function rwf(){if(!WD.length){document.getElementById("fd-wx").innerHTML='<li style="color:#17A2B8;padding:20px;text-align:center">Loading weather...</li>';return}var ct=renderList(WD,"fd-wx",WF,"#17A2B8","t-weather","Weather");document.getElementById("wxCount").textContent=ct;document.getElementById("hd-wx").innerHTML='🌦️ EMEA Critical Weather<span class="ch-count">'+ct+"</span>"}
-function rtf(){var ct=renderList(TD,"fd-tv",TF,"#6F42C1","t-travel","Travel");document.getElementById("tvCount").textContent=ct}
-function rpf(){var c=document.getElementById("fd-pr"),fl=[];for(var i=0;i<PD.length;i++){var txt=(PD[i].title||"")+" "+(PD[i].description||"");if(!ip(txt))continue;if(PF==="all"||PD[i].region===PF)fl.push(PD[i])}if(!fl.length){c.innerHTML='<li style="color:#888;text-align:center;padding:20px">No items.</li>';document.getElementById("prCount").textContent=0;return}var h="";for(var j=0;j<fl.length;j++){var it=fl[j],sn="";if(it.description){sn=it.description.replace(/<[^>]*>/g,"");if(sn.length>100)sn=sn.substring(0,100)+"..."}var ag=ta(it.pubDate);h+='<li class="ni"><a href="'+eurl(it.link)+'" target="_blank" style="color:#E67E22">'+esc(it.title)+'</a><div class="src">'+(MN[it.region]||"EMEA")+" • "+esc(it.author)+"</div>";if(ag)h+='<div class="age">🕐 '+ag+"</div>";if(sn)h+='<div class="snip">'+esc(sn)+"</div>";h+='<span class="tag t-protest">Protest</span></li>'}c.innerHTML=h;document.getElementById("prCount").textContent=fl.length}
+var EMPTY='<li style="color:#888;text-align:center;padding:20px">No items in the last 72 hours. If this persists, open the <strong>Feeds</strong> panel in the header.</li>';
+function loadingLi(c,t){return'<li style="color:'+c+';padding:20px;text-align:center">'+t+'</li>'}
+function renderList(items,cid,filter,linkColor,tagClass,tagLabel){var c=document.getElementById(cid),fl=[];for(var i=0;i<items.length;i++){if((filter==="all"||items[i].region===filter)&&!isDis(items[i]))fl.push(items[i])}if(!fl.length){c.innerHTML=EMPTY;return 0}var h="";for(var j=0;j<fl.length;j++){var it=fl[j],sn="";if(it.description){sn=it.description.replace(/<[^>]*>/g,"");if(sn.length>100)sn=sn.substring(0,100)+"..."}var ag=ta(it.pubDate),s=sevI(it),bt=ib(it.pubDate)?'<span style="background:#DC3545;color:#fff;font-size:.55rem;padding:1px 4px;border-radius:5px;margin-left:4px;font-weight:700">NEW</span>':"",px=getProximityI(it);h+='<li class="ni"><div style="display:flex;gap:6px"><span class="sev sev-'+s.level+'" role="img" aria-label="Severity '+s.label+'" style="margin-top:5px"></span><div style="flex:1"><a href="'+eurl(it.link)+'" target="_blank" rel="noopener" style="color:'+linkColor+'">'+esc(it.title)+'</a>'+bt+offBadge(it)+langBadge(it)+proxBadge(px)+'<div class="src">'+(MN[it.region]||"EMEA")+" • "+esc(it.author)+'<span class="src-badge">'+esc(it.source)+"</span></div>";if(ag)h+='<div class="age">🕐 '+ag+"</div>";if(sn)h+='<div class="snip">'+esc(sn)+"</div>";h+='<span class="tag '+tagClass+'">'+tagLabel+"</span></div></div></li>"}c.innerHTML=h;return fl.length}
+function rsf(){if(!SD.length&&!SD._done){document.getElementById("fd-sec").innerHTML=loadingLi("#E67E22","Loading...");return}var ct=renderList(SD,"fd-sec",SF,"#0076CE","t-sec","Security");document.getElementById("secCount").textContent=ct}
+/* FIX: no longer rewrites the header (which deleted #wxCount and crashed every later refresh) */
+function rwf(){if(!WD.length&&!WD._done){document.getElementById("fd-wx").innerHTML=loadingLi("#17A2B8","Loading weather...");return}var ct=renderList(WD,"fd-wx",WF,"#17A2B8","t-weather","Weather");document.getElementById("wxCount").textContent=ct}
+function rtf(){if(!TD.length&&!TD._done){document.getElementById("fd-tv").innerHTML=loadingLi("#6F42C1","Loading...");return}var ct=renderList(TD,"fd-tv",TF,"#6F42C1","t-travel","Travel");document.getElementById("tvCount").textContent=ct}
+function rpf(){var c=document.getElementById("fd-pr"),fl=[];if(!PD.length&&!PD._done){c.innerHTML=loadingLi("#E67E22","Loading...");return}for(var i=0;i<PD.length;i++){var txt=(PD[i].title||"")+" "+(PD[i].description||"");if(!ip(txt)||isDis(PD[i]))continue;if(PF==="all"||PD[i].region===PF)fl.push(PD[i])}if(!fl.length){c.innerHTML=EMPTY;document.getElementById("prCount").textContent=0;return}var h="";for(var j=0;j<fl.length;j++){var it=fl[j],sn="",s=sevI(it);if(it.description){sn=it.description.replace(/<[^>]*>/g,"");if(sn.length>100)sn=sn.substring(0,100)+"..."}var ag=ta(it.pubDate);h+='<li class="ni"><div style="display:flex;gap:6px"><span class="sev sev-'+s.level+'" role="img" aria-label="Severity '+s.label+'" style="margin-top:5px"></span><div style="flex:1"><a href="'+eurl(it.link)+'" target="_blank" rel="noopener" style="color:#E67E22">'+esc(it.title)+'</a>'+proxBadge(getProximityI(it))+'<div class="src">'+(MN[it.region]||"EMEA")+" • "+esc(it.author)+'<span class="src-badge">'+esc(it.source)+"</span></div>";if(ag)h+='<div class="age">🕐 '+ag+"</div>";if(sn)h+='<div class="snip">'+esc(sn)+"</div>";h+='<span class="tag t-protest">Protest</span></div></div></li>'}c.innerHTML=h;document.getElementById("prCount").textContent=fl.length}
 function sw(k,r,btn,ac){if(k==="sec")SF=r;if(k==="wx")WF=r;if(k==="tv")TF=r;if(k==="pr")PF=r;var bs=document.getElementById("tabs-"+k).getElementsByTagName("button");for(var t=0;t<bs.length;t++){bs[t].className="ft";bs[t].setAttribute("aria-pressed","false")}btn.className="ft "+ac;btn.setAttribute("aria-pressed","true");if(k==="sec")rsf();if(k==="wx")rwf();if(k==="tv")rtf();if(k==="pr")rpf()}
-function lra(){var p=document.getElementById("alertPanel"),dt=document.getElementById("statusDot"),tx=document.getElementById("statusText");fj("https://news.google.com/rss/search?q=Israel+red+alert+rocket+siren+iron+dome&hl=en&gl=US&ceid=US:en").then(function(d){var nw=new Date(),h="",rc=0,total=0;if(d.status==="ok"&&d.items&&d.items.length>0){for(var i=0;i<d.items.length;i++){var it=d.items[i],dd=new Date(it.pubDate),hr=Math.round((nw-dd)/36e5);if(hr>72)continue;total++;var t=hr<1?"<1hr":hr===1?"1hr":hr<24?hr+"hr":hr<48?"Yesterday":"2d ago";if(hr<6)rc++;var ds="";if(it.description){ds=clean(it.description);if(ds.length>140)ds=ds.substring(0,140)+"..."}h+='<div class="alert-item"><div class="atime">🕐 '+t+'</div><div class="atitle"><a href="'+eurl(it.link)+'" target="_blank">'+esc(it.title)+'</a></div><div class="adesc">'+esc(ds)+"</div></div>"}if(rc>0){dt.className="sdot sr";tx.innerHTML="<strong style='color:#DC3545'>"+rc+" alerts</strong>"}else{dt.className="sdot sg";tx.innerHTML="Clear"}}else{h='<div style="text-align:center;padding:14px;color:#888">No alerts.</div>';dt.className="sdot sg";tx.innerHTML="Clear";total=0}p.innerHTML=h;document.getElementById("raCount").textContent=total}).catch(function(){p.innerHTML='<div style="text-align:center;padding:14px;color:#DC3545">Error.</div>';dt.className="sdot sg";document.getElementById("raCount").textContent="!"})}
-function uls(){var d=document.getElementById("liveDot"),t=document.getElementById("liveStatus");if(SD.length>0){d.className="live-dot live-dot-green";t.textContent="LIVE"}else{d.className="live-dot live-dot-red";t.textContent="CONNECTING..."}}
+/* Israel Red Alert — NOTE: news-based (Google News), not the Home Front Command siren feed. Now loaded at start-up and on every refresh. */
+function lra(){
+  var p=document.getElementById("alertPanel"),dt=document.getElementById("statusDot"),tx=document.getElementById("statusText");
+  fj(gn('Israel ("red alert" OR sirens OR rocket OR "iron dome" OR interception)')).then(function(d){
+    var nw=Date.now(),h="",rc=0,total=0;
+    (d.items||[]).forEach(function(raw){
+      var o=normItem(raw,true);if(!o.pd||!o.title)return;
+      var hr=Math.round((nw-new Date(o.pd).getTime())/36e5);if(hr>72)return;
+      total++;var t=hr<1?"<1hr":hr===1?"1hr":hr<24?hr+"hr":hr<48?"Yesterday":"2d ago";if(hr<6)rc++;
+      h+='<div class="alert-item"><div class="atime">🕐 '+t+(o.author?" · "+esc(o.author):"")+'</div><div class="atitle"><a href="'+eurl(raw.link)+'" target="_blank" rel="noopener">'+esc(o.title)+'</a></div>'+(o.desc?'<div class="adesc">'+esc(trunc(o.desc,140))+"</div>":"")+"</div>";
+    });
+    if(!total){h='<div style="text-align:center;padding:14px;color:#888">No alerts.</div>'}
+    if(rc>0){dt.className="sdot sr";tx.innerHTML="<strong style='color:#DC3545'>"+rc+" reports in last 6h</strong>"}else{dt.className="sdot sg";tx.innerHTML="Clear (last 6h)"}
+    p.innerHTML=h;document.getElementById("raCount").textContent=total;
+  }).catch(function(e){
+    p.innerHTML='<div style="text-align:center;padding:14px;color:#DC3545">Feed unavailable: '+esc(String((e&&e.message)||e))+'</div>';
+    dt.className="sdot sg";tx.textContent="Unknown — feed failed";document.getElementById("raCount").textContent="!";
+  });
+}
+function uls(){
+  var d=document.getElementById("liveDot"),t=document.getElementById("liveStatus"),k=Object.keys(FH),ok=k.filter(function(n){return FH[n].ok||FH[n].stale}).length;
+  if(ok){d.className="live-dot live-dot-green";t.textContent="LIVE"}
+  else if(SD._done){d.className="live-dot live-dot-red";t.textContent="FEEDS DOWN"}
+  else{d.className="live-dot live-dot-red";t.textContent="CONNECTING..."}
+}
 /* =====================================================================
-   SECTION: utilities (sanitising, escaping, network)
+   SECTION: utilities (sanitising, escaping, dates, keyword matching)
    ===================================================================== */
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 /* Decode entities + strip all markup from feed text (inert DOMParser: nothing executes or loads) */
@@ -223,19 +300,57 @@ function clean(s){
 /* Only allow http(s) links from feeds (blocks javascript: URLs); returns HTML-escaped value */
 function eurl(u){u=String(u||"");return/^https?:\/\//i.test(u)?esc(u):"#"}
 function trunc(s,n){s=String(s||"");return s.length>n?s.substring(0,n)+"...":s}
+/* FIX: rss2json returns "YYYY-MM-DD HH:MM:SS" in UTC with no zone marker; browsers read it as LOCAL time,
+   which made items look hours older outside the UK/IE (e.g. 4h in Dubai, killing the "breaking" window). */
+function normDate(d){
+  var s=String(d||"").trim();if(!s)return"";
+  if(/^\d{4}-\d\d-\d\d[ T]\d\d:\d\d(:\d\d)?$/.test(s))s=s.replace(" ","T")+"Z";
+  var t=new Date(s);return isNaN(t.getTime())?"":t.toISOString();
+}
+/* Normalise a feed item. Google News: publisher is the " - Publisher" suffix of the headline, and the
+   description just repeats the headline, so split the former and drop the latter. */
+function normItem(it,google){
+  var o={title:clean(it.title),author:clean(it.author),desc:clean(it.description),pd:normDate(it.pubDate)};
+  if(google){
+    var m=/^(.*\S)\s+-\s+([^-]{2,60})$/.exec(o.title);if(m){o.title=m[1];o.author=o.author||m[2].trim()}
+    if(o.desc&&o.desc.toLowerCase().indexOf(o.title.toLowerCase().substring(0,30))===0)o.desc="";
+  }
+  return o;
+}
 var KWR={};
-/* Whole-word match so "uk" doesn't hit "duke", "rome" doesn't hit "chrome" */
+function reEsc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}
+/* Whole-word match (Unicode-aware) so "uk" doesn't hit "duke", "omani" doesn't hit "romania", "halle" doesn't hit "challenge" */
 function wb(l,w){
-  var r=KWR[w]||(KWR[w]=new RegExp("(^|[^a-z])"+w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"($|[^a-z])"));
+  var k="w:"+w,r=KWR[k]||(KWR[k]=new RegExp("(^|[^\\p{L}\\p{N}])"+reEsc(w)+"($|[^\\p{L}\\p{N}])","u"));
   return r.test(l);
 }
-function kwm(l,w){return w.length>4?l.indexOf(w)>-1:wb(l,w)}
-
-/* Fetch a feed as rss2json-shaped JSON. Tries the internal proxy first (if configured), then rss2json; 12s timeout each. */
+/* Keyword match: whole word + plural/tense endings ("riot" -> riots/rioting, but "strike" no longer matches "striker",
+   "eased" no longer matches "increased"). Trailing * = stem. Non-Latin scripts (Arabic) keep substring matching. */
+function kwm(l,w){
+  if(/[^\x00-\u024f]/.test(w))return l.indexOf(w)>-1;
+  var k="k:"+w,r=KWR[k];
+  if(!r){
+    var stem=w.charAt(w.length-1)==="*",b=stem?w.slice(0,-1):w,suf=stem?"\\p{L}*":(/e$/.test(b)?"(?:s|d)?":"(?:s|es|ed|ing)?");
+    r=KWR[k]=new RegExp("(^|[^\\p{L}\\p{N}])"+reEsc(b)+suf+"($|[^\\p{L}\\p{N}])","u");
+  }
+  return r.test(l);
+}
 
 /* =====================================================================
-   SECTION: feed loading + health
+   SECTION: storage housekeeping
    ===================================================================== */
+/* Feed caches ("fc:" keys — one per URL, including every Event Focus search) were never deleted and slowly filled
+   localStorage until saves failed silently. Remove anything older than 24h on start-up. */
+function purgeStorage(){
+  try{
+    var cut=Date.now()-864e5;
+    for(var i=localStorage.length-1;i>=0;i--){
+      var k=localStorage.key(i);if(!k||k.indexOf("fc:")!==0)continue;
+      var c=null;try{c=JSON.parse(localStorage.getItem(k))}catch(e){}
+      if(!c||!c.t||c.t<cut)localStorage.removeItem(k);
+    }
+  }catch(e){}
+}
 
 /* =====================================================================
    SECTION: locations list (grouped by country, any order)
@@ -321,10 +436,10 @@ function setBasemap(idx){
   }
   if(idx>=list.length){var n=document.getElementById("mapNote");if(n)n.style.display="block";return}
   if(MAPTILE)MAP.removeLayer(MAPTILE);
-  BMIDX=idx;var bm=list[idx],errs=0,loaded=0;
+  BMIDX=idx;var bm=list[idx],errs=0,tl=0;
   MAPTILE=L.tileLayer(bm.u,bm.o);
-  MAPTILE.on("tileerror",function(){errs++;if(errs===6&&loaded===0)setBasemap(idx+1)}); /* auto-fallback to next provider */
-  MAPTILE.on("tileload",function(){loaded++;var n=document.getElementById("mapNote");if(n)n.style.display="none"});
+  MAPTILE.on("tileerror",function(){errs++;if(errs===6&&tl===0)setBasemap(idx+1)}); /* auto-fallback to next provider */
+  MAPTILE.on("tileload",function(){tl++;var n=document.getElementById("mapNote");if(n)n.style.display="none"});
   MAPTILE.addTo(MAP);MAPTILE.bringToBack();
   var sel=document.getElementById("bmSel");if(sel)sel.value=String(idx);
 }
@@ -355,7 +470,6 @@ function focusSite(i){
   runFocus();
   var p=document.getElementById("focusPanel");if(p&&p.scrollIntoView)p.scrollIntoView({behavior:"smooth",block:"start"});
 }
-/* Colour each site's ring by the worst incident within CFG.radiusKm; draw proximity rings for HIGH/CRITICAL */
 
 /* =====================================================================
    SECTION: accessibility
@@ -421,18 +535,12 @@ function rawJson(u){
 var LVN={low:0,med:1,high:2,crit:3},LVA=["low","med","high","crit"],
     LVLAB={low:"LOW",med:"MEDIUM",high:"HIGH",crit:"CRITICAL"},
     LVBG={low:"#28A745",med:"#FFC107",high:"#E67E22",crit:"#DC3545"};
-/* local-language keywords (PL, DE, FR, ES, IT, TR, AR) */
-CRIT_KW=CRIT_KW.concat(["zamach","wybuch","attentat","anschlag","atentado","explosión","attentato","esplosione","patlama","terör saldırısı","انفجار"]);
-/* inflections: short keywords match whole words only */
-CRIT_KW=CRIT_KW.concat(["bombs","bombed","explosions","hostages"]);
-HIGH_KW=HIGH_KW.concat(["riots","rioting","rioters","shootings","stabbings","gunmen"]);
-MED_KW=MED_KW.concat(["raids","arrests","threats","strikes"]);
-HIGH_KW=HIGH_KW.concat(["strzelanina","schießerei","messerangriff","fusillade","émeutes","tiroteo","sparatoria","saldırı","هجوم"]);
-MED_KW=MED_KW.concat(["curfew","looting","looted","manifestation","grève","demonstracja","strajk","streik","huelga","sciopero","protesto","احتجاج","polizeieinsatz"]);
-/* phrases that indicate the situation is calming / historical -> one level lower */
-var DEESC=["passed calmly","passes calmly","calm night","calm returns","quiet night","restrictions lifted","curfew lifted","lifted","eased","easing","called off","all clear","no injuries","no one injured","nobody injured","false alarm","drill","exercise","anniversary","memorial","commemorat","sentenced","convicted","jailed","on trial","verdict","inquiry","inquest","years after","documentary","film ","review:","insurance claims"];
+/* phrases that indicate the situation is calming / historical -> one level lower (whole-word match) */
+var DEESC=["passed calmly","passes calmly","calm night","calm returns","quiet night","restrictions lifted","curfew lifted","lifted","eased","easing","called off","all clear","no injuries","no one injured","nobody injured","false alarm","drill","exercise","anniversary","memorial","commemorat*","sentenced","convicted","jailed","on trial","verdict","inquiry","inquest","years after","documentary","review:","insurance claims"];
+/* sport / entertainment noise: "striker", "shootout", "box office" etc. drop two levels */
+var NOISE=["striker","premier league","champions league","europa league","penalty shootout","box office","transfer window","fantasy football","netflix","trailer"];
 /* words that make a general-news headline security-relevant */
-var SECKW=["riots","rioting","looting","fires","wildfire","killing","attacks","explosions","protesters","strikes","shooting","stabbing","police","security","attack","military","army","missile","drone","troops","terror","killed","dead","injured","wounded","fire","blaze","flood","storm","earthquake","evacuat","airport","border","cyber","hack","outage","blackout","sanction","war","hostage","crime","murder","gang","explosion","riot","protest","strike","curfew","emergency","warning","threat","spy","sabotage","shot","stabbed","crash","collapse","loot","unrest","clash"];
+var SECKW=["riot","looting","wildfire","killing","attack","explosion","protester*","strike","shooting","stabbing","police","security","military","army","missile*","drone","troops","terror*","killed","dead","injured","wounded","fire","blaze","flood","storm","earthquake","evacuat*","airport","border","cyber*","hack","hacker*","outage","blackout","sanction","war","hostage","crime","murder","gang","curfew","emergency","warning","threat","spy","sabotage","shot","stabbed","crash","collapse","loot*","unrest","clash","ransomware","rocket*","sirens"];
 function kwLevel(l){
   var i;
   for(i=0;i<CRIT_KW.length;i++)if(kwm(l,CRIT_KW[i]))return 3;
@@ -440,28 +548,31 @@ function kwLevel(l){
   for(i=0;i<MED_KW.length;i++)if(kwm(l,MED_KW[i]))return 1;
   return 0;
 }
+function noisy(l){for(var i=0;i<NOISE.length;i++)if(wb(l,NOISE[i]))return true;return false}
 function mkSev(n){var k=LVA[Math.max(0,Math.min(3,n))];return{level:k,label:LVLAB[k],bg:LVBG[k]}}
 /* Severity is driven by the HEADLINE. The description can lift it to MEDIUM at most. */
 function sev(title,desc){
   var t=(title||"").toLowerCase(),n=kwLevel(t);
   if(desc!==undefined&&n<1&&kwLevel(String(desc||"").toLowerCase())>0)n=1;
-  if(n>0){for(var i=0;i<DEESC.length;i++)if(t.indexOf(DEESC[i])>-1){n--;break}}
+  if(n>0){for(var i=0;i<DEESC.length;i++)if(kwm(t,DEESC[i])){n--;break}}
+  if(n>0&&noisy(t))n=Math.max(0,n-2);
   return mkSev(n);
 }
 function sevI(it){return it.fixedLv?mkSev(LVN[it.fixedLv]):sev(it.title,it.description||"")}
-/* Manager assignment: headline hits x3, description hits x1; ties go to the source's own region. */
+/* Manager assignment: headline hits x3, description hits x1; ties go to the source's own region. Whole-word only. */
 function dc(title,desc,fb){
   var t=(title||"").toLowerCase(),d=(desc||"").toLowerCase(),best=fb||"all",bs=0;
   for(var m in CK){
     var ws=CK[m],sc=0;
-    for(var i=0;i<ws.length;i++){if(kwm(t,ws[i]))sc+=3;else if(d&&kwm(d,ws[i]))sc+=1}
+    for(var i=0;i<ws.length;i++){if(wb(t,ws[i]))sc+=3;else if(d&&wb(d,ws[i]))sc+=1}
     if(sc>bs||(sc===bs&&sc>0&&m===fb)){bs=sc;best=m}
   }
   return bs>0?best:(fb||"all");
 }
 function relevant(title){
-  var l=(title||"").toLowerCase();
-  if(kwLevel(l)>0)return true;
+  var l=(title||"").toLowerCase(),lv=kwLevel(l);
+  if(noisy(l)&&lv<3)return false;
+  if(lv>0)return true;
   for(var i=0;i<SECKW.length;i++)if(kwm(l,SECKW[i]))return true;
   return false;
 }
@@ -487,7 +598,7 @@ function langBadge(it){
 var PLACES={
  france:"france|french|paris|lyon|marseille|toulouse|nice|montpellier",uk:"uk|u.k.|britain|british|england|english|london|manchester|birmingham|scotland|scottish|glasgow|edinburgh|wales|welsh|belfast|bracknell",
  ireland:"ireland|irish|dublin|cork|limerick",germany:"germany|german|berlin|munich|frankfurt|hamburg|cologne|stuttgart|halle|nuremberg|deutschland",
- israel:"israel|israeli|tel aviv|jerusalem|haifa|herzliya|be'er sheva|gaza|west bank",poland:"poland|polish|warsaw|krakow|lodz|gdansk|polska",
+ israel:"israel|israeli|tel aviv|jerusalem|haifa|herzliya|be'er sheva|beersheba|gaza|west bank",poland:"poland|polish|warsaw|krakow|lodz|gdansk|polska",
  nordics:"sweden|swedish|stockholm|denmark|danish|copenhagen|norway|norwegian|oslo|finland|finnish|helsinki|espoo",
  netherlands:"netherlands|dutch|amsterdam|rotterdam|hague",belgium:"belgium|belgian|brussels",switzerland:"switzerland|swiss|geneva|zurich|bern",
  austria:"austria|austrian|vienna",czech:"czech|prague|brno",slovakia:"slovakia|slovak|bratislava",hungary:"hungary|hungarian|budapest",
@@ -502,7 +613,7 @@ var TOPICS={unrest:["riot","rioting","rioters","loot","curfew","protest","unrest
  attack:["attack","shooting","stabbing","bomb","explosion","gunman","terror","hostage","knife"],
  conflict:["missile","rocket","drone","airstrike","air strike","idf","hamas","troops","shelling","ceasefire","siren"],
  hazard:["storm","flood","wildfire","heatwave","snow","earthquake","quake","tsunami","landslide","weather"],
- transport:["airport","flight","airspace","rail","train","derail","walkout"],crime:["arrest","murder","police","gang","raid","manhunt"]};
+ transport:["airport","flight","airspace","rail","train","derail","walkout"],cyber:["ransomware","cyber","hack","outage","blackout"],crime:["arrest","murder","police","gang","raid","manhunt"]};
 var STOP=["after","with","from","that","this","have","been","were","into","over","says","said","their","they","about","what","when","more","than","amid","will","year","week","first","night","calls","could","would","under","near"];
 function placeOf(t){var l=(t||"").toLowerCase();for(var p in PLACEW){for(var i=0;i<PLACEW[p].length;i++)if(wb(l,PLACEW[p][i]))return p}return""}
 function topicOf(t){var l=(t||"").toLowerCase();for(var p in TOPICS){for(var i=0;i<TOPICS[p].length;i++)if(l.indexOf(TOPICS[p][i])>-1)return p}return""}
@@ -530,36 +641,38 @@ function clusterItems(items){
    SECTION: feed loading + health
    ===================================================================== */
 var FH={};
+/* FIX: results are built in a temporary array and swapped in when every source has answered, so panels no longer
+   go blank for ~1 minute on each refresh. A newer refresh supersedes an older one still in flight. */
 function lms(sources,arr,fn){
-  arr.length=0;
-  var dn=0,tt=sources.length,seen={};
-  if(!tt){fn();return}
+  var run=arr._run=(arr._run||0)+1,tmp=[],dn=0,tt=sources.length,seen={};
+  if(!tt){arr._done=true;fn();return}
   function fin(){
-    dn++;
-    if(dn>=tt){arr.sort(function(a,b){return new Date(b.pubDate)-new Date(a.pubDate)});fn();refreshAll();checkNA(arr)}
+    if(++dn<tt||run!==arr._run)return;
+    tmp.sort(byDate);arr.length=0;Array.prototype.push.apply(arr,tmp);arr._done=true;
+    fn();refreshAll();checkNA(arr);
   }
   sources.forEach(function(sr,ix){
     setTimeout(function(){
-      var done=false;
       fj(sr.u).then(function(d){
-        var n=0,f=0;
+        var n=0,f=0,google=isGN(sr.u);
         (d.items||[]).forEach(function(it){
-          if(!iv(it.pubDate))return;
-          var title=clean(it.title),tk=title.toLowerCase().substring(0,50);
+          var o=normItem(it,google);
+          if(!o.pd||!iv(o.pd))return;
+          var title=o.title,tk=title.toLowerCase().substring(0,50);
           if(!title||seen[tk])return;
           if(sr.g&&!relevant(title)){f++;return}           /* general-news feed: keep only security-relevant headlines */
-          var desc=clean(it.description),rg=dc(title,desc,sr.r),lv=null;
+          var desc=o.desc,rg=dc(title,desc,sr.r),lv=null;
           if(sr.emea&&rg==="all"){f++;return}              /* official worldwide feeds: EMEA countries only */
           if(sr.lvl==="state"){var m=/level\s*(\d)/i.exec(title);lv=m?["low","low","med","high","crit"][+m[1]]:null}
           if(sr.meteo){var c=/\b(red|orange|yellow)\b/i.exec(title);lv=c?{red:"crit",orange:"high",yellow:"med"}[c[1].toLowerCase()]:"med"}
           seen[tk]=true;
-          arr.push({title:title,link:it.link||"#",description:desc,pubDate:it.pubDate||"",author:clean(it.author)||sr.n,source:sr.n,region:rg,regionLabel:MN[rg]||"EMEA",lang:sr.lang||"",off:sr.off||0,fixedLv:lv});
+          tmp.push({title:title,link:it.link||"#",description:desc,pubDate:o.pd,author:o.author||sr.n,source:sr.n,region:rg,regionLabel:MN[rg]||"EMEA",lang:sr.lang||"",off:sr.off||0,fixedLv:lv});
           n++;
         });
         FH[sr.n]={ok:!d.stale,stale:!!d.stale,cached:!!d.cached,n:n,f:f,err:d.err||"",t:Date.now()};
       }).catch(function(e){
         FH[sr.n]={ok:false,err:String((e&&e.message)||e),t:Date.now()};
-      }).then(function(){if(!done){done=true;fin()}});
+      }).then(fin);
     },ix*STAG);
   });
 }
@@ -573,7 +686,7 @@ function updHealth(){
   var bad=k.length-ok;
   el.textContent=(bad?"⚠️ ":"")+"Feeds "+ok+"/"+k.length+(last?" · updated "+new Date(last).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):"");
   el.style.borderColor=bad?"#FFC107":"rgba(255,255,255,.4)";
-  if(pn)pn.innerHTML=(h||"No feeds loaded yet.")+(CFG.api?"":'<div style="margin-top:4px;opacity:.85">Tip: failures are usually public rss2json rate limits — host the portal with portal-server.js to remove them.</div>');
+  if(pn)pn.innerHTML=(h||"No feeds loaded yet.")+(CFG.api?"":'<div style="margin-top:4px;opacity:.85">Tip: failures are usually public rss2json rate limits or publisher bot-protection — host the portal with portal-server.js (or set CFG.rss2jsonKey) to remove them.</div>');
 }
 function toggleFeedPanel(){
   var p=document.getElementById("feedPanel"),b=document.getElementById("feedHealth"),o=p.style.display==="none";
@@ -593,7 +706,7 @@ function loadOfficial(){
     var n=0;
     (d.features||[]).forEach(function(f){
       var c=f.geometry&&f.geometry.coordinates,p=f.properties||{};if(!c||!inEmea(c[1],c[0]))return;
-      var pd=new Date(p.time).toUTCString();if(!iv(pd))return;
+      var pd=new Date(p.time).toISOString();if(!iv(pd))return;
       var m=+p.mag||0;
       out.push(geoItem({title:"M"+m.toFixed(1)+" earthquake — "+(p.place||""),link:p.url||"#",description:"USGS magnitude "+m,pubDate:pd,author:"USGS",source:"USGS Earthquakes",lat:c[1],lng:c[0],fixedLv:m>=6.5?"crit":m>=5.5?"high":"med"}));n++;
     });
@@ -603,17 +716,17 @@ function loadOfficial(){
     var n=0;
     (d.features||[]).forEach(function(f){
       var c=f.geometry&&f.geometry.coordinates,p=f.properties||{};if(!c||!inEmea(c[1],c[0])||p.iscurrent==="false")return;
-      var ds=p.datemodified||p.todate||p.fromdate,pd=new Date(/Z|[+-]\d\d:?\d\d$/.test(ds)?ds:ds+"Z").toUTCString();if(!iv(pd))return;
+      var ds=String(p.datemodified||p.todate||p.fromdate||""),pd=normDate(/Z|[+-]\d\d:?\d\d$/.test(ds)?ds:ds+"Z");if(!pd||!iv(pd))return;
       out.push(geoItem({title:(p.alertlevel||"")+" alert: "+(p.name||p.eventname||"Event")+(p.country?" — "+p.country:""),link:(p.url&&p.url.report)||"https://www.gdacs.org",description:clean(p.htmldescription||p.description),pubDate:pd,author:"GDACS",source:"GDACS",lat:c[1],lng:c[0],fixedLv:{Red:"crit",Orange:"high",Green:"low"}[p.alertlevel]||"low"}));n++;
     });
     FH["GDACS"]={ok:true,n:n,t:Date.now()};
-  }).catch(function(e){FH["GDACS"]={ok:false,err:String(e.message||e),t:Date.now()}});
-  Promise.all([a,b]).then(function(){GEO=out;mergeGeo();rwf();refreshAll()});
+  }).catch(function(e){FH["GDACS"]={ok:false,err:String(e.message||e)+(CFG.api?"":" (likely blocked by browser CORS — needs portal-server.js)"),t:Date.now()}});
+  Promise.all([a,b]).then(function(){GEO=out;mergeGeo();WD._done=WD._done||!!out.length;rwf();refreshAll();checkNA(GEO)});
 }
 function mergeGeo(){
   for(var i=WD.length-1;i>=0;i--)if(WD[i].lat!=null)WD.splice(i,1);
   Array.prototype.push.apply(WD,GEO);
-  WD.sort(function(a,b){return new Date(b.pubDate)-new Date(a.pubDate)});
+  WD.sort(byDate);
 }
 
 /* =====================================================================
@@ -635,15 +748,18 @@ function clState(cl){
   else if(o.fresh<st.length)o.s="partial";
   return o;
 }
-function triage(i,a,v){
-  var cl=CLS[i];if(!cl)return;
+/* FIX: triage targets an incident by its stable item key, not its list position (which shifts when the list re-renders) */
+function triage(k,a,v){
+  var cl=null;
+  for(var i=0;i<CLS.length&&!cl;i++){if(CLS[i].items.some(function(x){return ikey(x)===k}))cl=CLS[i]}
+  if(!cl)return;
   var who=me(),now=Date.now();
   cl.items.forEach(function(it){
-    var k=ikey(it),o=TRI[k]||{};
+    var key=ikey(it),o=TRI[key]||{};
     if(a==="ack")o.s="ack";if(a==="dismiss")o.s="dismissed";if(a==="reopen")o.s="";if(a==="assign")o.as=v||"";
-    o.by=who;o.at=now;o.t=it.title;TRI[k]=o;
+    o.by=who;o.at=now;o.t=it.title;TRI[key]=o;
   });
-  saveTri();ucrit();rsf();utk();
+  saveTri();ucrit();rsf();rpf();utk();
 }
 function saveTri(){
   var cut=Date.now()-8*864e5;for(var k in TRI)if((TRI[k].at||0)<cut)delete TRI[k];
@@ -657,11 +773,12 @@ function pullTri(){
     if(ch){try{localStorage.setItem("tri",JSON.stringify(TRI))}catch(e){}ucrit();rsf();utk()}
   }).catch(function(){});
 }
-function triHtml(i,st){
+function triHtml(k,st){
+  var q="'"+k+"'";
   var opts='<option value="">Assign…</option>'+MGRS.map(function(g){return'<option value="'+g+'"'+(st.as===g?" selected":"")+">"+esc(MN[g])+"</option>"}).join("");
-  var b=st.s==="ack"||st.s==="dismissed"?'<button type="button" class="tri-btn" onclick="triage('+i+',\'reopen\')">↺ Reopen</button>':'<button type="button" class="tri-btn" onclick="triage('+i+',\'ack\')">✔ Ack</button><button type="button" class="tri-btn" onclick="triage('+i+',\'dismiss\')">✖ Dismiss</button>';
+  var b=st.s==="ack"||st.s==="dismissed"?'<button type="button" class="tri-btn" onclick="triage('+q+',\'reopen\')">↺ Reopen</button>':'<button type="button" class="tri-btn" onclick="triage('+q+',\'ack\')">✔ Ack</button><button type="button" class="tri-btn" onclick="triage('+q+',\'dismiss\')">✖ Dismiss</button>';
   var info=st.at?'<span class="tri-st">'+(st.s==="ack"?"acked":st.s==="dismissed"?"dismissed":st.s==="partial"?"new reports since ack":"updated")+" by "+esc(st.by)+" "+new Date(st.at).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})+(st.as?" · assigned "+esc(MN[st.as]||st.as):"")+"</span>":"";
-  return'<div class="tri">'+b+'<select class="tri-sel" aria-label="Assign to manager" onchange="triage('+i+',\'assign\',this.value)">'+opts+"</select>"+info+"</div>";
+  return'<div class="tri">'+b+'<select class="tri-sel" aria-label="Assign to manager" onchange="triage('+q+',\'assign\',this.value)">'+opts+"</select>"+info+"</div>";
 }
 
 /* =====================================================================
@@ -670,18 +787,18 @@ function triHtml(i,st){
 function ucrit(){
   var c=document.getElementById("fd-crit");if(!c)return;
   var pool=SD.concat(WD,TD,PD).filter(function(it){var l=sevI(it).level;return l==="crit"||l==="high"});
-  pool.sort(function(a,b){return new Date(b.pubDate)-new Date(a.pubDate)});
+  pool.sort(byDate);
   CLS=clusterItems(pool);
   var h="",dis=0,nc=0,nh=0;
-  CLS.forEach(function(cl,i){
+  CLS.forEach(function(cl){
     var st=clState(cl);
     if(st.s==="dismissed"&&!SHOWDIS){dis++;return}
     if(st.s!=="dismissed"){if(cl.sev.level==="crit")nc++;else nh++}
     var it=cl.lead,s=cl.sev,ag=ta(it.pubDate),px=getProximityI(it);
     h+='<li class="crit-item'+(st.s==="ack"?" tri-ack":"")+(st.s==="dismissed"?" tri-dis":"")+'" style="border-left-color:'+s.bg+'"><div><span class="sev sev-'+s.level+'" role="img" aria-label="Severity '+s.label+'"></span></div><div style="flex:1;min-width:0">';
     h+='<a href="'+eurl(it.link)+'" target="_blank" rel="noopener">'+esc(it.title)+"</a>"+offBadge(it)+proxBadge(px)+langBadge(it);
-    h+='<div class="crit-meta">'+esc(MN[it.region]||"EMEA")+(ag?" • "+ag:"")+" • "+esc(it.source||"")+(cl.items.length>1?" • <strong>"+cl.items.length+" reports</strong>":"")+"</div>";
-    h+='<span class="crit-sev" style="background:'+s.bg+'">'+s.label+"</span>"+triHtml(i,st);
+    h+='<div class="crit-meta">'+esc(MN[it.region]||"EMEA")+(ag?" • "+ag:"")+" • "+esc(it.source||"")+(it.author&&it.author!==it.source?" ("+esc(it.author)+")":"")+(cl.items.length>1?" • <strong>"+cl.items.length+" reports</strong>":"")+"</div>";
+    h+='<span class="crit-sev" style="background:'+s.bg+'">'+s.label+"</span>"+triHtml(ikey(it),st);
     if(cl.items.length>1){
       h+='<details class="rel"><summary>+'+(cl.items.length-1)+" related report"+(cl.items.length>2?"s":"")+"</summary><ul>";
       cl.items.forEach(function(x){if(x===it)return;h+='<li><a href="'+eurl(x.link)+'" target="_blank" rel="noopener">'+esc(x.title)+"</a> <span>"+esc(x.source||"")+" · "+esc(ta(x.pubDate)||"")+"</span></li>"});
@@ -701,7 +818,7 @@ function ucrit(){
 }
 function utk(){
   var br=SD.concat(WD,TD,PD).filter(function(it){return ib(it.pubDate)&&!isDis(it)});
-  br.sort(function(a,b){return new Date(b.pubDate)-new Date(a.pubDate)});
+  br.sort(byDate);
   var tk=document.getElementById("tickerContent");if(!tk)return;
   if(!br.length){tk.innerHTML='<span class="ticker-empty">No breaking news ('+BH+"hrs). Monitoring EMEA.</span>";return}
   var cls=clusterItems(br),h="";
@@ -738,7 +855,7 @@ function archive(){
     HIST.push({k:k,t:it.title,l:it.link,p:it.pubDate,s:it.source,r:it.region,v:sevI(it).level});
   });
   var cut=Date.now()-7*864e5;
-  HIST=HIST.filter(function(h){return new Date(h.p).getTime()>cut}).sort(function(a,b){return new Date(b.p)-new Date(a.p)}).slice(0,3000);
+  HIST=HIST.filter(function(h){return new Date(h.p).getTime()>cut}).sort(function(a,b){return new Date(b.p)-new Date(a.p)}).slice(0,2500);
   try{localStorage.setItem("hist",JSON.stringify(HIST))}catch(e){HIST=HIST.slice(0,1000);try{localStorage.setItem("hist",JSON.stringify(HIST))}catch(x){}}
 }
 function loadHist(){
@@ -748,7 +865,7 @@ function loadHist(){
     var idx={};HIST.forEach(function(h){idx[h.k]=1});
     (d.items||[]).forEach(function(it){
       var o={title:clean(it.title),description:clean(it.description)},k=ikey(o);if(idx[k]||!o.title)return;idx[k]=1;
-      HIST.push({k:k,t:o.title,l:it.link,p:it.pubDate,s:it.source||"",r:dc(o.title,o.description,"all"),v:sev(o.title,o.description).level});
+      HIST.push({k:k,t:o.title,l:it.link,p:normDate(it.pubDate)||it.pubDate,s:it.source||"",r:dc(o.title,o.description,"all"),v:sev(o.title,o.description).level});
     });
     HIST.sort(function(a,b){return new Date(b.p)-new Date(a.p)});rhist();
   }).catch(function(){});
@@ -780,7 +897,7 @@ function shiftSince(){
 }
 function startShift(){try{localStorage.setItem("shiftStart",Date.now())}catch(e){}rshift()}
 function shiftData(){
-  var sn=shiftSince(),items=SD.concat(WD,TD,PD).filter(function(it){return new Date(it.pubDate).getTime()>=sn.t});
+  var sn=shiftSince(),items=uniq(SD.concat(WD,TD,PD)).filter(function(it){return new Date(it.pubDate).getTime()>=sn.t});
   var cls=clusterItems(items.filter(function(it){var l=sevI(it).level;return l==="crit"||l==="high"}));
   var byM={},byL={low:0,med:0,high:0,crit:0};
   items.forEach(function(it){byL[sevI(it).level]++;var m=MN[it.region]||"EMEA";byM[m]=(byM[m]||0)+1});
@@ -811,14 +928,21 @@ function copyHandover(){
   b+="\nCRITICAL / HIGH INCIDENTS\n";
   if(!d.cls.length)b+="None.\n";
   d.cls.forEach(function(cl){var st=clState(cl);b+=(cl.sev.level==="crit"?"🔴 ":"🟠 ")+cl.lead.title+(cl.items.length>1?" ("+cl.items.length+" reports)":"")+" — "+(st.s==="ack"?"acked":st.s==="dismissed"?"dismissed":"OPEN")+(st.as?", assigned "+MN[st.as]:"")+"\n   "+cl.lead.link+"\n"});
+  b+="\n"+portalLink()+"\n";
   copyBrief(b);
 }
 
 /* =====================================================================
-   SECTION: travellers (CSV import, stays in this browser only)
+   SECTION: travellers (CSV import, stays in this browser only; auto-deleted after trip end — GDPR data minimisation)
    ===================================================================== */
 var TRAV=[];
 try{TRAV=JSON.parse(localStorage.getItem("trav")||"[]")}catch(e){}
+function trvPurge(){
+  var n=TRAV.length;
+  TRAV=TRAV.filter(function(t){var b=t.to?new Date(t.to).getTime():NaN;return isNaN(b)||b+864e5>Date.now()});
+  if(TRAV.length!==n){try{localStorage.setItem("trav",JSON.stringify(TRAV))}catch(e){}}
+}
+trvPurge();
 function csvRows(t){
   return t.split(/\r?\n/).filter(function(l){return l.trim()}).map(function(l){
     var out=[],cur="",q=false;
@@ -836,7 +960,8 @@ function trvImport(inp){
   var f=inp.files&&inp.files[0];if(!f)return;
   var r=new FileReader();
   r.onload=function(){
-    var rows=csvRows(String(r.result)),hd=rows[0].map(function(x){return x.toLowerCase()}),hasHd=hd.indexOf("name")>-1;
+    var rows=csvRows(String(r.result));if(!rows.length){inp.value="";return}
+    var hd=rows[0].map(function(x){return x.toLowerCase()}),hasHd=hd.indexOf("name")>-1;
     var ix=function(n,d){var i=hd.indexOf(n);return hasHd?i:d};
     var iN=ix("name",0),iC=ix("city",1),iA=ix("lat",2),iO=ix("lng",3),iF=ix("from",4),iT=ix("to",5),bad=0;
     TRAV=[];
@@ -846,6 +971,7 @@ function trvImport(inp){
       if(isNaN(lat)||isNaN(lng)||lat==null){bad++;return}
       TRAV.push({name:c[iN]||"Traveller",city:c[iC]||"",lat:lat,lng:lng,from:c[iF]||"",to:c[iT]||""});
     });
+    trvPurge();
     try{localStorage.setItem("trav",JSON.stringify(TRAV))}catch(e){}
     inp.value="";
     mapRisk();rtrav();
@@ -1006,25 +1132,33 @@ function detectServer(){
 }
 
 /* =====================================================================
-   SECTION: start-up
+   SECTION: start-up — every panel loads immediately and refreshes on a timer
    ===================================================================== */
 document.addEventListener("DOMContentLoaded",function(){
-loadDP();a11y();
+purgeStorage();loadDP();a11y();
 document.getElementById("siteCount").textContent=L0.length;
 document.getElementById("locCount").textContent=L0.length;
 loadLibs().then(initMap,initMap);
 rtrav();
+loaded.tv=loaded.pr=loaded.ra=true;   /* FIX: travel, protest and red-alert no longer wait for a click */
 detectServer().then(function(){
   if(CFG.api&&!CFG.proxy)CFG.proxy=CFG.api+"/feed?url=";
-  if(CFG.proxy){STAG=0;WDELAY=0;WS=WS.concat(METEO)}
+  if(CFG.proxy){STAG=0;WDELAY=0;WS=WS.concat(METEO);CFG.cacheMin=Math.min(CFG.cacheMin,4)}
   updHealth();
   function loadWx(){lms(WS,WD,function(){mergeGeo();rwf()})}
-  lms(SS,SD,rsf);
-  setTimeout(loadWx,WDELAY);
-  loadOfficial();
+  function loadAll(){
+    /* staggered after the security feeds so the public proxy is not hit in one burst */
+    lms(SS,SD,rsf);
+    setTimeout(loadWx,WDELAY);
+    setTimeout(function(){lms(TS,TD,rtf)},SS.length*STAG);
+    setTimeout(function(){lms(PS,PD,rpf)},(SS.length+TS.length)*STAG);
+    setTimeout(lra,(SS.length+TS.length+PS.length)*STAG);
+    loadOfficial();
+  }
+  loadAll();
   pullTri();
   setTimeout(uls,24000);
-  setInterval(function(){lms(SS,SD,rsf);setTimeout(loadWx,WDELAY);loadOfficial()},20*60*1000);
+  setInterval(function(){trvPurge();loadAll()},(CFG.proxy?5:20)*6e4);
   if(CFG.api)setInterval(pullTri,60000);
 });
 setInterval(utk,60000);
