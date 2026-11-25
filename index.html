@@ -1200,7 +1200,7 @@ function triage(k,a,v){
     if(a==="ack")o.s="ack";if(a==="dismiss")o.s="dismissed";if(a==="reopen")o.s="";if(a==="assign")o.as=v||"";
     o.by=who;o.at=now;o.t=it.title;TRI[key]=o;
   });
-  saveTri();ucrit();rsf();rpf();utk();
+  saveTri();afterTriage();   /* also refreshes the map, so a dismissed alert disappears straight away */
 }
 function saveTri(){
   var cut=Date.now()-8*864e5;for(var k in TRI)if((TRI[k].at||0)<cut)delete TRI[k];
@@ -1521,9 +1521,10 @@ function mapRisk(){
   /* official hazards with real coordinates */
   HAZ.clearLayers();
   WD.forEach(function(it){
-    if(it.lat==null)return;var s=sevI(it);
-    L.circleMarker([it.lat,it.lng],{radius:s.level==="crit"?10:s.level==="high"?8:6,color:"#fff",weight:1.5,fillColor:s.bg,fillOpacity:.9})
-      .bindPopup("<strong>"+esc(it.source)+"</strong><br><a href='"+eurl(it.link)+"' target='_blank' rel='noopener'>"+esc(it.title)+"</a><br><span style='font-size:.75em;color:#666'>"+esc(ta(it.pubDate)||"")+" · "+esc(s.label)+"</span>").addTo(HAZ);
+    if(it.lat==null)return;var s=sevI(it),dis=isDis(it);
+    if(dis&&!MAPSHOWDIS)return;   /* reviewed and dismissed */
+    L.circleMarker([it.lat,it.lng],{radius:s.level==="crit"?10:s.level==="high"?8:6,color:"#fff",weight:1.5,fillColor:s.bg,fillOpacity:dis?.3:.9,opacity:dis?.4:1})
+      .bindPopup(function(){return"<strong>"+esc(it.source)+"</strong><br><a href='"+eurl(it.link)+"' target='_blank' rel='noopener'>"+esc(it.title)+"</a><br><span style='font-size:.75em;color:#666'>"+esc(ta(it.pubDate)||"")+" · "+esc(s.label)+"</span>"+mapBtns(it,false)}).addTo(HAZ);
   });
   /* travellers */
   TRVL.clearLayers();
@@ -1568,12 +1569,14 @@ function initMap(){
       h+='<label><input type="checkbox" checked data-l="trv"> Travellers</label>';
       h+='<hr style="margin:4px 0"><strong>News incidents</strong> <select id="mapWin" aria-label="Incident time window" style="font-size:10px">'+[1,6,24,72].map(function(x){return'<option value="'+x+'"'+(x===MAPWIN?" selected":"")+">last "+x+"h</option>"}).join("")+"</select>";
       CATORD.concat(["other"]).forEach(function(c){h+='<label><input type="checkbox" checked data-c="'+c+'"> '+ic(CATI[c])+esc(CATS[c])+"</label>"});
+      h+='<label><input type="checkbox" data-x="dis"> Show dismissed (faded)</label>';
       h+='<hr style="margin:4px 0"><span class="legend-dot" style="background:#fff;border-color:#FFC107"></span>Med <span class="legend-dot" style="background:#fff;border-color:#E67E22"></span>High <span class="legend-dot" style="background:#fff;border-color:#DC3545"></span>Crit';
       h+='<br><a href="#" id="mapReset" style="color:#0076CE">Reset view</a>';
       d.innerHTML=h;L.DomEvent.disableClickPropagation(d);
       d.addEventListener("change",function(e){
         var t=e.target,g=t.getAttribute("data-m"),ly=t.getAttribute("data-l"),cat=t.getAttribute("data-c");
         if(t.id==="mapWin"){MAPWIN=+t.value;drawIncidents();return}
+        if(t.getAttribute("data-x")==="dis"){MAPSHOWDIS=t.checked;mapRisk();return}
         t.parentNode.style.opacity=t.checked?"1":".4";
         if(cat){MAPCAT[cat]=t.checked;drawIncidents();return}
         if(ly){var layer={rings:RINGS,haz:HAZ,trv:TRVL}[ly];if(t.checked)layer.addTo(MAP);else MAP.removeLayer(layer);return}
@@ -1600,7 +1603,7 @@ function initMap(){
 function fmtT(t){return new Date(t).toLocaleString([],{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit",hour12:false})}
 
 /* ---- news incidents plotted on the map (official USGS/GDACS hazards keep their own layer) ---- */
-var INCL=null,MAPWIN=24,MAPCAT={},CATI={conflict:"siren",attack:"alert",unrest:"flag",hazard:"storm",cyber:"monitor",infra:"bolt",transport:"plane",health:"info",crime:"lock",other:"info"};
+var INCL=null,MAPWIN=24,MAPCAT={},MAPSHOWDIS=false,CATI={conflict:"siren",attack:"alert",unrest:"flag",hazard:"storm",cyber:"monitor",infra:"bolt",transport:"plane",health:"info",crime:"lock",other:"info"};
 function jit(s){var n=parseInt(s||"0",36);return isNaN(n)?0:(n%100-50)/1500}   /* small fixed offset so stacked markers stay clickable */
 function drawIncidents(){
   if(!MAP||!INCL)return;
@@ -1608,20 +1611,42 @@ function drawIncidents(){
   var cut=Date.now()-MAPWIN*36e5,seen={};
   SD.concat(WD,TD,PD).forEach(function(it){
       var cat=catOf(it);if(MAPCAT[cat]===false)return;
-      if(it.lat!=null||isDis(it)||!inPatch(it))return;
+      var dis=isDis(it);
+      if(it.lat!=null||(dis&&!MAPSHOWDIS)||!inPatch(it))return;
       if(!(new Date(it.pubDate).getTime()>=cut))return;
       var k=ikey(it);if(seen[k])return;seen[k]=1;
       var s=sevI(it);if(s.level==="low")return;
       var cs=detectCities(it.title);if(!cs.length)return;
       var c=cs[0].coords;
-      L.marker([c.lat+jit(k.slice(4,7)),c.lng+jit(k.slice(1,4))],{icon:L.divIcon({className:"",html:'<div class="imk" style="background:'+s.bg+'">'+ic(CATI[cat])+"</div>",iconSize:[20,20],iconAnchor:[10,10]}),title:it.title,zIndexOffset:LVN[s.level]*100})
+      L.marker([c.lat+jit(k.slice(4,7)),c.lng+jit(k.slice(1,4))],{icon:L.divIcon({className:"",html:'<div class="imk" style="background:'+s.bg+(dis?';opacity:.35':'')+'">'+ic(CATI[cat])+"</div>",iconSize:[20,20],iconAnchor:[10,10]}),title:it.title,zIndexOffset:LVN[s.level]*100})
         .bindPopup(function(){return incPopup(it,s)},{maxWidth:300}).addTo(INCL);
   });
 }
 function incPopup(it,s){
   var im=impactOf(it);
-  return"<strong style='color:"+s.bg+"'>"+esc(s.label)+"</strong> · "+esc(CATS[catOf(it)])+" · "+esc(it.source||"")+" · "+esc(ta(it.pubDate)||"")+"<br><a href='"+eurl(it.link)+"' target='_blank' rel='noopener'>"+esc(it.title)+"</a><br>"+impBadge(im)+"<div style='margin-top:6px'><button type='button' class='tri-btn' onclick='incFromKey(\""+ikey(it)+"\")'>"+ic("folder")+"Open incident</button></div>";
+  return"<strong style='color:"+s.bg+"'>"+esc(s.label)+"</strong> · "+esc(CATS[catOf(it)])+" · "+esc(it.source||"")+" · "+esc(ta(it.pubDate)||"")+"<br><a href='"+eurl(it.link)+"' target='_blank' rel='noopener'>"+esc(it.title)+"</a><br>"+impBadge(im)+mapBtns(it,true);
 }
+/* popup buttons: open an incident, or dismiss a reviewed alert so it leaves the map, lists, rings and site status */
+function mapBtns(it,withInc){
+  var k=ikey(it),dis=isDis(it);
+  return"<div style='margin-top:6px;display:flex;gap:4px;flex-wrap:wrap'>"+(withInc&&!dis?"<button type='button' class='tri-btn' onclick='incFromKey(\""+k+"\")'>"+ic("folder")+"Open incident</button>":"")+
+    (dis?"<button type='button' class='tri-btn' onclick='restoreItem(\""+k+"\")'>↺ Restore</button><span style='font-size:.72em;color:#888;align-self:center'>Dismissed by "+esc((TRI[k]||{}).by||"")+"</span>"
+        :"<button type='button' class='tri-btn' onclick='dismissItem(\""+k+"\")' title='Reviewed — remove from the map and lists (kept 8 days, can be restored)'>"+ic("x")+"Dismiss</button>")+"</div>";
+}
+function findItem(k){var all=SD.concat(WD,TD,PD);for(var i=0;i<all.length;i++)if(ikey(all[i])===k)return all[i];return null}
+function inCluster(k){for(var i=0;i<CLS.length;i++)if(CLS[i].items.some(function(x){return ikey(x)===k}))return true;return false}
+function dismissItem(k){
+  if(MAP)MAP.closePopup();
+  if(inCluster(k)){triage(k,"dismiss");return}   /* critical/high: dismiss the whole incident group */
+  var it=findItem(k);if(!it)return;
+  TRI[k]={s:"dismissed",by:me(),at:Date.now(),t:it.title};saveTri();afterTriage();
+}
+function restoreItem(k){
+  if(MAP)MAP.closePopup();
+  if(inCluster(k)){triage(k,"reopen");return}
+  var o=TRI[k];if(o){o.s="";o.by=me();o.at=Date.now()}saveTri();afterTriage();
+}
+function afterTriage(){ucrit();rsf();rwf();rtf();rpf();utk();mapRisk()}
 /* notification rule: "near" = only within a site's alert radius */
 function nearOk(it){if(RULES.notify!=="near")return true;var im=impactOf(it);return!!(im.site&&im.dist<=siteRadius(im.site))}
 
