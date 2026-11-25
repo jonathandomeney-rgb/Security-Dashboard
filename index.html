@@ -173,7 +173,8 @@ body.wall .kpi-v{font-size:2.1rem}
 <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></symbol>
 <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></symbol>
 <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6-5.5-6-11a6 6 0 0 1 12 0c0 5.5-6 11-6 11z"/><circle cx="12" cy="10" r="2"/></symbol>
-<symbol id="i-upload" viewBox="0 0 24 24"><path d="M4 17v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-2M7 9l5-5l5 5M12 4v12"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24"><path d="M4 17v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-2M7 11l5 5l5-5M12 4v12"/></symbol>
+<symbol id="i-upload"viewBox="0 0 24 24"><path d="M4 17v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-2M7 9l5-5l5 5M12 4v12"/></symbol>
 <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></symbol>
 <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></symbol>
 <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
@@ -216,7 +217,7 @@ body.wall .kpi-v{font-size:2.1rem}
 <div class="card"><div class="ch ch-dark" onclick="tog('src')"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg>Sources and terms<span class="ch-arrow" id="arrow-src">▼</span></div><div class="collapsible" id="col-src"><div class="card-body sitrep-text" style="font-size:.78rem">
 <p>Headlines link to the original publisher; article content is not republished. Before wider internal rollout, confirm with Legal/Procurement that this use complies with each provider's terms (especially Google News RSS, rss2json and public map tiles).</p>
 <ul style="margin:6px 0 0 18px"><li>News: Google News RSS, BBC, The Guardian, Sky News, France 24, DW, Al Jazeera, Times of Israel, Jerusalem Post — © respective publishers.</li><li>Hazards: <a href="https://earthquake.usgs.gov" target="_blank" rel="noopener">USGS</a> (public domain); <a href="https://www.gdacs.org" target="_blank" rel="noopener">GDACS</a> (European Commission JRC / UN OCHA); <a href="https://meteoalarm.org" target="_blank" rel="noopener">MeteoAlarm</a> (CC BY 4.0 with additional terms).</li><li>Travel: <a href="https://www.gov.uk/foreign-travel-advice" target="_blank" rel="noopener">UK FCDO</a> (Open Government Licence v3.0); <a href="https://travel.state.gov" target="_blank" rel="noopener">US State Department</a> (public domain).</li><li>Maps: Leaflet (BSD-2); basemaps © Esri and © OpenStreetMap contributors (ODbL; OSM tile usage policy applies).</li><li>Feed conversion: rss2json.com (public service, rate-limited) unless portal-server.js is used.</li><li>Israel Red Alert panel is built from news reports, not the Home Front Command siren feed — it is not a real-time siren alert.</li></ul></div></div></div>
-<div class="card"><div class="ch ch-blue" onclick="tog('loc')"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Location details<span class="ch-count" id="locCount">48</span><span class="ch-arrow" id="arrow-loc">▼</span></div><div class="collapsible" id="col-loc"><div class="card-body"><ul class="location-list" id="locationDetails"></ul></div></div></div>
+<div class="card"><div class="ch ch-blue" onclick="tog('loc')"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Location details<span class="ch-count" id="locCount">48</span><span class="ch-arrow" id="arrow-loc">▼</span></div><div class="collapsible" id="col-loc"><div class="card-body"><div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:8px"><button type="button" class="tri-btn" onclick="sitesExport()"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg>Export sites CSV</button><label class="tri-btn" style="display:inline-block;cursor:pointer"><svg class="ic" aria-hidden="true"><use href="#i-upload"/></svg>Import sites CSV<input type="file" accept=".csv,text/csv" onchange="sitesImport(this)" class="sr-only"></label><button type="button" class="tri-btn" onclick="sitesReset()">Reset to built-in list</button></div><p class="sitrep-text" id="sitesMeta" style="font-size:.8rem;margin-bottom:4px"></p><p class="sitrep-text" style="font-size:.74rem;margin-bottom:6px">Export downloads the current Dell sites as a spreadsheet (columns <code>name, city, country, address, type, manager, importance, lat, lng, verified</code>). Edit it in Excel and import it back to replace the site list in this browser. <em>importance</em> 1–3 is optional (blank = worked out from <em>type</em>: Manufacturing/R&amp;D ★★★, HQ/Engineering ★★); <em>verified</em> is yes/no; lat/lng can be left blank if the city is known.</p><ul class="location-list" id="locationDetails"></ul></div></div></div>
 </div>
 <script>
 /* =====================================================================
@@ -286,6 +287,8 @@ var L0=[
 {name:"Dell - Doha",lat:25.3220,lng:51.5300,address:"Al Fardan Office Tower, West Bay, Doha (third-party listing, unconfirmed)",type:"Office",country:"Qatar",mgr:"mohamed",approx:true}
 ];
 /* Other assets imported via CSV (data centres, logistics hubs, suppliers...) are treated like sites everywhere */
+/* A Dell site list imported from CSV (Location details → Import sites CSV) replaces the built-in list above */
+try{var _ss=JSON.parse(localStorage.getItem("sites")||"null");if(_ss&&_ss.length){L0.length=0;_ss.forEach(function(x){L0.push(x)})}}catch(e){}
 var ASSETS=[];
 try{ASSETS=JSON.parse(localStorage.getItem("assets")||"[]")}catch(e){}
 ASSETS.forEach(function(a){a.custom=true;L0.push(a)});
@@ -723,7 +726,7 @@ function mapFit(){
   MAPMK.forEach(function(m,i){if(!MAPHIDDEN[L0[i].mgr])b.push(m.getLatLng())});
   if(b.length)MAP.fitBounds(L.latLngBounds(b).pad(.1),{maxZoom:6});
 }
-function siteCity(s){if(s.custom)return s.city||s.name;var m=/-\s*([^(]+?)\s*(\(|$)/.exec(s.name);return m?m[1]:s.country}
+function siteCity(s){if(s.city)return s.city;if(s.custom)return s.name;var m=/-\s*([^(]+?)\s*(\(|$)/.exec(s.name);return m?m[1]:s.country}
 function mkIcon(lo,lv){
   var bg=MC[lo.mgr]||"#0076CE",tx=MT[lo.mgr]||"white",rc=RINGC[lv||"none"],w=(lv==="crit"||lv==="high")?3:2;
   return L.divIcon({className:"",html:'<div class="mk'+(lv==="crit"?" mk-pulse":"")+'" style="background:'+bg+";border:"+w+"px solid "+rc+";color:"+tx+(lo.custom?";border-radius:3px":"")+'">'+(lo.custom?"A":"D")+'</div>',iconSize:[22,22],iconAnchor:[11,11],popupAnchor:[0,-12]});
@@ -1407,10 +1410,11 @@ function trvPurge(){
   if(TRAV.length!==n){try{localStorage.setItem("trav",JSON.stringify(TRAV))}catch(e){}}
 }
 trvPurge();
-function csvRows(t){
+function csvRows(t,dl){
+  dl=dl||",";t=String(t).replace(/^﻿/,"");
   return t.split(/\r?\n/).filter(function(l){return l.trim()}).map(function(l){
     var out=[],cur="",q=false;
-    for(var i=0;i<l.length;i++){var ch=l[i];if(ch==='"'){if(q&&l[i+1]==='"'){cur+='"';i++}else q=!q}else if(ch===","&&!q){out.push(cur.trim());cur=""}else cur+=ch}
+    for(var i=0;i<l.length;i++){var ch=l[i];if(ch==='"'){if(q&&l[i+1]==='"'){cur+='"';i++}else q=!q}else if(ch===dl&&!q){out.push(cur.trim());cur=""}else cur+=ch}
     out.push(cur.trim());return out;
   });
 }
@@ -1824,6 +1828,68 @@ function ras(){
   document.getElementById("asCount").textContent=ASSETS.length;
 }
 
+/* ---- Dell site list: export to CSV, edit in Excel, import back (replaces the built-in list in this browser) ---- */
+var SITECOLS=["name","city","country","address","type","manager","importance","lat","lng","verified"];
+function csvCell(v){v=String(v==null?"":v);return/[",;\r\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v}
+function dlFile(name,text){
+  var b=new Blob(["﻿"+text],{type:"text/csv;charset=utf-8"}),a=document.createElement("a");   /* BOM so Excel keeps ü, ł, ş etc. */
+  a.href=URL.createObjectURL(b);a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500);
+}
+function sitesExport(){
+  var rows=[SITECOLS.join(",")];
+  L0.filter(function(s){return!s.custom}).forEach(function(s){rows.push([s.name,siteCity(s),s.country,s.address,s.type,MN[s.mgr]||s.mgr,s.imp||"",s.lat,s.lng,s.approx?"no":"yes"].map(csvCell).join(","))});
+  dlFile("dell-emea-sites-"+new Date().toISOString().slice(0,10)+".csv",rows.join("\r\n"));
+}
+function sitesImport(inp){
+  var f=inp.files&&inp.files[0];if(!f)return;
+  var rd=new FileReader();
+  rd.onload=function(){
+    inp.value="";
+    var txt=String(rd.result).replace(/^﻿/,""),first=txt.split(/\r?\n/)[0]||"";
+    var dl=first.indexOf(";")>-1&&first.indexOf(",")<0?";":",";   /* Excel in many EU locales saves with semicolons */
+    var rows=csvRows(txt,dl);if(rows.length<2){alert("The file has no site rows.");return}
+    var hd=rows[0].map(function(x){return x.toLowerCase().trim()}),ix={};SITECOLS.forEach(function(c){ix[c]=hd.indexOf(c)});
+    if(ix.name<0){alert("The file needs a 'name' column. Use 'Export sites CSV' to get a template with the right columns.");return}
+    var out=[],errs=[],seen={};
+    rows.slice(1).forEach(function(c,r){
+      var g=function(k){return ix[k]>-1&&c[ix[k]]!=null?String(c[ix[k]]).trim():""},row=r+2,name=g("name");
+      if(!name)return;
+      if(seen[name.toLowerCase()]){errs.push("Row "+row+" ("+name+"): duplicate name");return}
+      var city=g("city")||(name.indexOf(" - ")>-1?name.split(" - ").slice(1).join(" - ").replace(/\s*\(.*$/,""):name);
+      var lat=parseFloat(g("lat").replace(",",".")),lng=parseFloat(g("lng").replace(",","."));
+      if(isNaN(lat)||isNaN(lng)){var cc=cityCoords(city);if(cc){lat=cc.lat;lng=cc.lng}else{errs.push("Row "+row+" ("+name+"): no lat/lng and the city isn't recognised");return}}
+      if(lat<-90||lat>90||lng<-180||lng>180){errs.push("Row "+row+" ("+name+"): lat/lng out of range");return}
+      var m=g("manager").toLowerCase();
+      if(!MN[m]){var hit="";for(var k in MN)if(MN[k].toLowerCase()===m)hit=k;if(hit)m=hit;else{errs.push("Row "+row+" ("+name+"): manager '"+g("manager")+"' not recognised (use "+MGRS.map(function(x){return MN[x]}).join(", ")+")");return}}
+      var imp=parseInt(g("importance"),10),ver=g("verified").toLowerCase();
+      var o={name:name,city:city,country:g("country"),address:g("address")||city,type:g("type")||"Office",mgr:m,lat:lat,lng:lng};
+      if(imp>=1&&imp<=3)o.imp=imp;
+      if(ver&&!/^(y|yes|true|1|verified)$/.test(ver))o.approx=true;
+      seen[name.toLowerCase()]=1;out.push(o);
+    });
+    if(!out.length){alert("No valid sites found.\n\n"+errs.slice(0,15).join("\n"));return}
+    var msg=out.length+" site(s) ready to import"+(errs.length?" — "+errs.length+" row(s) will be skipped:\n\n"+errs.slice(0,15).join("\n")+(errs.length>15?"\n…":""):".")+"\n\nReplace the current Dell site list with this file? (Use 'Export sites CSV' first if you want a backup.)";
+    if(!confirm(msg))return;
+    try{localStorage.setItem("sites",JSON.stringify(out));localStorage.setItem("sitesMeta",JSON.stringify({at:Date.now(),by:me(),file:f.name,n:out.length,skipped:errs.length}))}
+    catch(e){alert("Couldn't save the site list in this browser.");return}
+    location.reload();
+  };
+  rd.readAsText(f);
+}
+function sitesReset(){
+  var m=null;try{m=localStorage.getItem("sites")}catch(e){}
+  if(!m){alert("You're already using the built-in site list.");return}
+  if(!confirm("Go back to the built-in Dell site list? Your imported list will be removed from this browser."))return;
+  try{localStorage.removeItem("sites");localStorage.removeItem("sitesMeta")}catch(e){}location.reload();
+}
+function rsitesMeta(){
+  var e=document.getElementById("sitesMeta");if(!e)return;
+  var m=null;try{m=JSON.parse(localStorage.getItem("sitesMeta")||"null")}catch(x){}
+  var ds=L0.filter(function(s){return!s.custom}),ap=ds.filter(function(s){return s.approx}).length;
+  e.innerHTML=(m?"Using an <strong>imported list</strong> ("+esc(m.file||"CSV")+", imported "+esc(fmtT(m.at))+" by "+esc(m.by||"")+(m.skipped?", "+m.skipped+" row(s) skipped":"")+").":"Using the <strong>built-in list</strong>.")+" "+ds.length+" Dell sites"+(ap?" · "+ap+" marked unverified":"")+".";
+}
+
 /* ---- alert rules & settings ---- */
 function rset(){
   var g=document.getElementById("setGrid");if(!g)return;
@@ -1908,7 +1974,7 @@ function detectServer(){
    SECTION: start-up — every panel loads immediately and refreshes on a timer
    ===================================================================== */
 document.addEventListener("DOMContentLoaded",function(){
-purgeStorage();loadDP();a11y();applyPatch();ras();
+purgeStorage();loadDP();a11y();applyPatch();ras();rsitesMeta();
 try{if(localStorage.getItem("wall")==="1")toggleWall(true)}catch(e){}
 wallClock();setInterval(wallClock,10000);setInterval(fresh,30000);
 document.getElementById("siteCount").textContent=L0.length;
