@@ -232,7 +232,7 @@ body.wall .kpi-v{font-size:2.1rem}
    portalUrl : link added to copied briefings (leave empty to use the page address when hosted).
    ===================================================================== */
 var CFG={api:"",proxy:"",teams:false,vendor:"vendor/",tiles:"",tilesDark:"",radiusKm:50,feedTimeoutMs:12000,cacheMin:10,rss2jsonKey:"",portalUrl:""};
-var STAG=CFG.proxy?0:2500,WDELAY=CFG.proxy?0:16000; /* stagger only needed for the public proxy */
+var STAG=0,WDELAY=0; /* request spacing is handled by the converter queue (rqSend) */
 var L0=[
 {name:"Dell - Cork (Ovens)",lat:51.8756,lng:-8.6492,address:"Ovens, Cork, P31 DP28",type:"Manufacturing",country:"Ireland",mgr:"jonathan"},
 {name:"Dell - Cork (Carrigtwohill)",lat:51.909,lng:-8.276,address:"Carrigtwohill, Cork, T45 HW28",type:"Sales",country:"Ireland",mgr:"jonathan"},
@@ -394,7 +394,7 @@ var SS=[
 {n:"BBC UK",u:"https://feeds.bbci.co.uk/news/uk/rss.xml",r:"jonathan",g:1},
 {n:"Sky News",u:"https://feeds.skynews.com/feeds/rss/home.xml",r:"jonathan",g:1},
 {n:"France 24",u:"https://www.france24.com/en/rss",r:"mehdi",g:1},
-{n:"DW Germany",u:"https://rss.dw.com/rss/en/germany",r:"jonathan",g:1},
+{n:"DW Germany",u:"https://rss.dw.com/rdf/rss-en-ger",r:"jonathan",g:1},   /* DW feeds use rss.dw.com/rdf/rss-en-<section>; the old /rss/en/germany address returned 422 */
 {n:"Al Jazeera",u:"https://www.aljazeera.com/xml/rss/all.xml",r:"mohamed",g:1},
 {n:"Times of Israel",u:"https://www.timesofisrael.com/feed/",r:"jonathan",g:1},
 /* local-language sources (headlines shown in original language with a translate link) */
@@ -415,20 +415,20 @@ var METEO=["united-kingdom","ireland","germany","france","netherlands","belgium"
 var TS=[
 {n:"UK FCDO",u:"https://www.gov.uk/foreign-travel-advice.atom",r:"all",off:1,emea:1},
 {n:"US State Dept",u:"https://travel.state.gov/_res/rss/TAsTWs.xml",r:"all",off:1,emea:1,lvl:"state"},
-{n:"Google Travel",u:gn('(Europe OR "Middle East" OR Africa) ("travel warning" OR "travel advisory" OR "flight cancelled" OR "airport disruption" OR FCDO OR "travel ban" OR airspace)'),r:"all"},
-{n:"Travel UK/IE/DE/IL",u:gn('(UK OR Ireland OR Germany OR Israel) ("flight cancelled" OR airport OR "travel warning" OR airspace OR "rail strike")'),r:"jonathan"},
-{n:"Travel Nordic",u:gn('(Poland OR Sweden OR Denmark OR Norway OR Finland) ("flight cancelled" OR airport OR "travel warning")'),r:"maciej"},
-{n:"Travel East EU",u:gn('(Austria OR Netherlands OR Belgium OR Greece OR Turkey OR Romania OR Ukraine) ("flight cancelled" OR airport OR "travel warning")'),r:"vladimir"},
-{n:"Travel South",u:gn('(France OR Spain OR Italy OR Portugal OR Morocco OR "South Africa" OR Nigeria OR Kenya) ("flight cancelled" OR airport OR "travel warning" OR strike)'),r:"mehdi"},
-{n:"Travel ME",u:gn('(Egypt OR Iraq OR Saudi OR UAE OR Dubai OR Lebanon OR Qatar) ("flight cancelled" OR airport OR "travel warning" OR airspace)'),r:"mohamed"}
+{n:"Google Travel",u:gn('(Europe OR "Middle East" OR Africa) ("travel warning" OR "travel advisory" OR "flight cancelled" OR "airport disruption" OR FCDO OR "travel ban" OR airspace)',"US:en","3d"),r:"all"},
+{n:"Travel UK/IE/DE/IL",u:gn('(UK OR Ireland OR Germany OR Israel) ("flight cancelled" OR airport OR "travel warning" OR airspace OR "rail strike")',"US:en","3d"),r:"jonathan"},
+{n:"Travel Nordic",u:gn('(Poland OR Sweden OR Denmark OR Norway OR Finland) ("flight cancelled" OR airport OR "travel warning")',"US:en","3d"),r:"maciej"},
+{n:"Travel East EU",u:gn('(Austria OR Netherlands OR Belgium OR Greece OR Turkey OR Romania OR Ukraine) ("flight cancelled" OR airport OR "travel warning")',"US:en","3d"),r:"vladimir"},
+{n:"Travel South",u:gn('(France OR Spain OR Italy OR Portugal OR Morocco OR "South Africa" OR Nigeria OR Kenya) ("flight cancelled" OR airport OR "travel warning" OR strike)',"US:en","3d"),r:"mehdi"},
+{n:"Travel ME",u:gn('(Egypt OR Iraq OR Saudi OR UAE OR Dubai OR Lebanon OR Qatar) ("flight cancelled" OR airport OR "travel warning" OR airspace)',"US:en","3d"),r:"mohamed"}
 ];
 var PS=[
-{n:"Protest UK/IE/DE/IL",u:gn('(UK OR London OR Ireland OR Dublin OR Germany OR Berlin OR Israel OR "Tel Aviv") (protest OR strike OR demonstration OR riot)'),r:"jonathan"},
-{n:"Protest Nordic",u:gn('(Poland OR Sweden OR Denmark OR Norway OR Finland) (protest OR strike OR demonstration OR rally)'),r:"maciej"},
-{n:"Protest East EU",u:gn('(Austria OR Netherlands OR Greece OR Turkey OR Romania OR Ukraine OR Hungary OR Serbia) (protest OR strike OR demonstration)'),r:"vladimir"},
-{n:"Protest South",u:gn('(France OR Paris OR Spain OR Italy OR Portugal OR "South Africa" OR Nigeria OR Kenya OR Morocco) (protest OR strike OR demonstration OR riot)'),r:"mehdi"},
-{n:"Protest ME",u:gn('(Egypt OR Iraq OR Lebanon OR Jordan OR Saudi OR UAE) (protest OR demonstration OR unrest)'),r:"mohamed"},
-{n:"Google Protest",u:gn('(Europe OR "Middle East" OR Africa) (protest OR demonstration OR riot OR clashes OR unrest OR "strike action" OR walkout)'),r:"all"},
+{n:"Protest UK/IE/DE/IL",u:gn('(UK OR London OR Ireland OR Dublin OR Germany OR Berlin OR Israel OR "Tel Aviv") (protest OR strike OR demonstration OR riot)',"US:en","3d"),r:"jonathan"},
+{n:"Protest Nordic",u:gn('(Poland OR Sweden OR Denmark OR Norway OR Finland) (protest OR strike OR demonstration OR rally)',"US:en","3d"),r:"maciej"},
+{n:"Protest East EU",u:gn('(Austria OR Netherlands OR Greece OR Turkey OR Romania OR Ukraine OR Hungary OR Serbia) (protest OR strike OR demonstration)',"US:en","3d"),r:"vladimir"},
+{n:"Protest South",u:gn('(France OR Paris OR Spain OR Italy OR Portugal OR "South Africa" OR Nigeria OR Kenya OR Morocco) (protest OR strike OR demonstration OR riot)',"US:en","3d"),r:"mehdi"},
+{n:"Protest ME",u:gn('(Egypt OR Iraq OR Lebanon OR Jordan OR Saudi OR UAE) (protest OR demonstration OR unrest)',"US:en","3d"),r:"mohamed"},
+{n:"Google Protest",u:gn('(Europe OR "Middle East" OR Africa) (protest OR demonstration OR riot OR clashes OR unrest OR "strike action" OR walkout)',"US:en","3d"),r:"all"},
 {n:"Guardian Protest",u:"https://www.theguardian.com/world/protest/rss",r:"jonathan"}
 ];
 /* Keywords. Matching is whole-word (plural/tense endings allowed); a trailing * means "word stem" (e.g. evacuat* = evacuate/evacuation). */
@@ -505,13 +505,23 @@ function ib(d){var a=(new Date()-new Date(d))/36e5;return a<=BH&&a>-1}
 
 
 var EMPTY='<li style="color:#888;text-align:center;padding:20px">No items in the last 72 hours. If this persists, open the <strong>Feeds</strong> panel in the header.</li>';
+/* say WHY a panel is empty: all its feeds failed, items exist outside the selected manager, or genuinely quiet */
+function emptyMsg(items,filter,cid){
+  var src={"fd-sec":SS,"fd-wx":WS,"fd-tv":TS,"fd-pr":PS}[cid]||[],fail=0,paused=0,last="";
+  src.forEach(function(x){var f=FH[x.n];if(f&&!f.ok&&!f.stale){fail++;if(f.paused)paused++;last=f.err||last}});
+  var m;
+  if(src.length&&fail===src.length)m="None of the "+src.length+" feeds for this panel could be loaded"+(paused?" ("+paused+" paused after repeated failures)":"")+".<br>Last error: "+esc(whyErr(last))+'<br><a href="#" onclick="toggleFeedPanel();return false">Open Feeds</a> · <a href="#" onclick="retryFeeds();return false">Retry now</a>';
+  else if(filter!=="all"&&items.length)m="Nothing for "+esc(MN[filter]||filter)+" right now — "+items.length+' item(s) elsewhere in EMEA. <a href="#" onclick="setPatch(\'\');return false">Show all EMEA</a>';
+  else m="No items in the last 72 hours"+(fail?" ("+fail+" of "+src.length+" feeds failed — see Feeds)":"")+".";
+  return'<li style="color:var(--tx2);text-align:center;padding:20px;font-size:.82rem;line-height:1.6">'+m+"</li>";
+}
 function loadingLi(c,t){return'<li style="color:'+c+';padding:20px;text-align:center">'+t+'</li>'}
-function renderList(items,cid,filter,linkColor,tagClass,tagLabel){var c=document.getElementById(cid),fl=[];for(var i=0;i<items.length;i++){if((filter==="all"||items[i].region===filter)&&!isDis(items[i]))fl.push(items[i])}if(!fl.length){c.innerHTML=EMPTY;return 0}var h="";for(var j=0;j<fl.length;j++){var it=fl[j],sn="";if(it.description){sn=it.description.replace(/<[^>]*>/g,"");if(sn.length>100)sn=sn.substring(0,100)+"..."}var ag=ta(it.pubDate),s=sevI(it),bt=ib(it.pubDate)?'<span style="background:#DC3545;color:#fff;font-size:.55rem;padding:1px 4px;border-radius:5px;margin-left:4px;font-weight:700">NEW</span>':"",px=getProximityI(it);h+='<li class="ni"><div style="display:flex;gap:6px"><span class="sev sev-'+s.level+'" role="img" aria-label="Severity '+s.label+'" style="margin-top:5px"></span><div style="flex:1"><a href="'+eurl(it.link)+'" target="_blank" rel="noopener" style="color:'+linkColor+'">'+esc(it.title)+'</a>'+bt+offBadge(it)+tierBadge(it)+langBadge(it)+proxBadge(px)+'<div class="src">'+(MN[it.region]||"EMEA")+" • "+esc(it.author)+'<span class="src-badge">'+esc(it.source)+"</span></div>";if(ag)h+='<div class="age">'+ic("clock")+ag+"</div>";if(sn)h+='<div class="snip">'+esc(sn)+"</div>";h+='<span class="tag '+tagClass+'">'+esc(CATS[catOf(it)])+"</span></div></div></li>"}c.innerHTML=h;return fl.length}
+function renderList(items,cid,filter,linkColor,tagClass,tagLabel){var c=document.getElementById(cid),fl=[];for(var i=0;i<items.length;i++){if((filter==="all"||items[i].region===filter)&&!isDis(items[i]))fl.push(items[i])}if(!fl.length){c.innerHTML=emptyMsg(items,filter,cid);return 0}var h="";for(var j=0;j<fl.length;j++){var it=fl[j],sn="";if(it.description){sn=it.description.replace(/<[^>]*>/g,"");if(sn.length>100)sn=sn.substring(0,100)+"..."}var ag=ta(it.pubDate),s=sevI(it),bt=ib(it.pubDate)?'<span style="background:#DC3545;color:#fff;font-size:.55rem;padding:1px 4px;border-radius:5px;margin-left:4px;font-weight:700">NEW</span>':"",px=getProximityI(it);h+='<li class="ni"><div style="display:flex;gap:6px"><span class="sev sev-'+s.level+'" role="img" aria-label="Severity '+s.label+'" style="margin-top:5px"></span><div style="flex:1"><a href="'+eurl(it.link)+'" target="_blank" rel="noopener" style="color:'+linkColor+'">'+esc(it.title)+'</a>'+bt+offBadge(it)+tierBadge(it)+langBadge(it)+proxBadge(px)+'<div class="src">'+(MN[it.region]||"EMEA")+" • "+esc(it.author)+'<span class="src-badge">'+esc(it.source)+"</span></div>";if(ag)h+='<div class="age">'+ic("clock")+ag+"</div>";if(sn)h+='<div class="snip">'+esc(sn)+"</div>";h+='<span class="tag '+tagClass+'">'+esc(CATS[catOf(it)])+"</span></div></div></li>"}c.innerHTML=h;return fl.length}
 function rsf(){if(!SD.length&&!SD._done){document.getElementById("fd-sec").innerHTML=loadingLi("#E67E22","Loading...");return}var ct=renderList(SD,"fd-sec",SF,"#0076CE","t-sec","Security");document.getElementById("secCount").textContent=ct}
 /* FIX: no longer rewrites the header (which deleted #wxCount and crashed every later refresh) */
 function rwf(){if(!WD.length&&!WD._done){document.getElementById("fd-wx").innerHTML=loadingLi("#17A2B8","Loading weather...");return}var ct=renderList(WD,"fd-wx",WF,"#17A2B8","t-weather","Weather");document.getElementById("wxCount").textContent=ct}
 function rtf(){if(!TD.length&&!TD._done){document.getElementById("fd-tv").innerHTML=loadingLi("#6F42C1","Loading...");return}var ct=renderList(TD,"fd-tv",TF,"#6F42C1","t-travel","Travel");document.getElementById("tvCount").textContent=ct}
-function rpf(){var c=document.getElementById("fd-pr"),fl=[];if(!PD.length&&!PD._done){c.innerHTML=loadingLi("#E67E22","Loading...");return}for(var i=0;i<PD.length;i++){var txt=(PD[i].title||"")+" "+(PD[i].description||"");if(!ip(txt)||isDis(PD[i]))continue;if(PF==="all"||PD[i].region===PF)fl.push(PD[i])}if(!fl.length){c.innerHTML=EMPTY;document.getElementById("prCount").textContent=0;return}var h="";for(var j=0;j<fl.length;j++){var it=fl[j],sn="",s=sevI(it);if(it.description){sn=it.description.replace(/<[^>]*>/g,"");if(sn.length>100)sn=sn.substring(0,100)+"..."}var ag=ta(it.pubDate);h+='<li class="ni"><div style="display:flex;gap:6px"><span class="sev sev-'+s.level+'" role="img" aria-label="Severity '+s.label+'" style="margin-top:5px"></span><div style="flex:1"><a href="'+eurl(it.link)+'" target="_blank" rel="noopener" style="color:#E67E22">'+esc(it.title)+'</a>'+proxBadge(getProximityI(it))+'<div class="src">'+(MN[it.region]||"EMEA")+" • "+esc(it.author)+'<span class="src-badge">'+esc(it.source)+"</span></div>";if(ag)h+='<div class="age">'+ic("clock")+ag+"</div>";if(sn)h+='<div class="snip">'+esc(sn)+"</div>";h+='<span class="tag t-protest">'+esc(CATS[catOf(it)])+'</span></div></div></li>'}c.innerHTML=h;document.getElementById("prCount").textContent=fl.length}
+function rpf(){var c=document.getElementById("fd-pr"),fl=[];if(!PD.length&&!PD._done){c.innerHTML=loadingLi("#E67E22","Loading...");return}for(var i=0;i<PD.length;i++){var txt=(PD[i].title||"")+" "+(PD[i].description||"");if(!ip(txt)||isDis(PD[i]))continue;if(PF==="all"||PD[i].region===PF)fl.push(PD[i])}if(!fl.length){c.innerHTML=emptyMsg(PD,PF,"fd-pr");document.getElementById("prCount").textContent=0;return}var h="";for(var j=0;j<fl.length;j++){var it=fl[j],sn="",s=sevI(it);if(it.description){sn=it.description.replace(/<[^>]*>/g,"");if(sn.length>100)sn=sn.substring(0,100)+"..."}var ag=ta(it.pubDate);h+='<li class="ni"><div style="display:flex;gap:6px"><span class="sev sev-'+s.level+'" role="img" aria-label="Severity '+s.label+'" style="margin-top:5px"></span><div style="flex:1"><a href="'+eurl(it.link)+'" target="_blank" rel="noopener" style="color:#E67E22">'+esc(it.title)+'</a>'+proxBadge(getProximityI(it))+'<div class="src">'+(MN[it.region]||"EMEA")+" • "+esc(it.author)+'<span class="src-badge">'+esc(it.source)+"</span></div>";if(ag)h+='<div class="age">'+ic("clock")+ag+"</div>";if(sn)h+='<div class="snip">'+esc(sn)+"</div>";h+='<span class="tag t-protest">'+esc(CATS[catOf(it)])+'</span></div></div></li>'}c.innerHTML=h;document.getElementById("prCount").textContent=fl.length}
 function sw(k,r,btn,ac){if(k==="sec")SF=r;if(k==="wx")WF=r;if(k==="tv")TF=r;if(k==="pr")PF=r;var bs=document.getElementById("tabs-"+k).getElementsByTagName("button");for(var t=0;t<bs.length;t++){bs[t].className="ft";bs[t].setAttribute("aria-pressed","false")}btn.className="ft "+ac;btn.setAttribute("aria-pressed","true");if(k==="sec")rsf();if(k==="wx")rwf();if(k==="tv")rtf();if(k==="pr")rpf()}
 /* Israel Red Alert — NOTE: news-based (Google News), not the Home Front Command siren feed. Now loaded at start-up and on every refresh. */
 function lra(){
@@ -748,26 +758,65 @@ function a11y(){
 function fetchT(u,opt){
   var ac=window.AbortController?new AbortController():null,tm=setTimeout(function(){if(ac)ac.abort()},CFG.feedTimeoutMs);
   opt=opt||{};if(ac)opt.signal=ac.signal;
-  return fetch(u,opt).then(function(r){clearTimeout(tm);if(!r.ok)throw new Error("HTTP "+r.status);return r.json()},function(e){clearTimeout(tm);throw e});
+  /* on an error, keep the converter's own message (e.g. "Cannot download this RSS feed") instead of just the code */
+  return fetch(u,opt).then(function(r){
+    clearTimeout(tm);
+    if(!r.ok)return r.json().catch(function(){return{}}).then(function(j){throw new Error("HTTP "+r.status+(j&&j.message?" — "+j.message:""))});
+    return r.json();
+  },function(e){clearTimeout(tm);throw e});
+}
+/* plain-English reason for a feed failure, shown in the Feeds panel */
+function whyErr(e){
+  e=String(e||"");
+  if(/paused/i.test(e))return e;
+  if(/422/.test(e))return e+" → the converter couldn't read this feed: the address may have changed, or the publisher blocks the converter";
+  if(/429/.test(e))return e+" → converter rate limit reached; it will retry next cycle (an rss2json key or the portal server removes this)";
+  if(/HTTP 5\d\d/.test(e))return e+" → the converter or publisher is temporarily down";
+  if(/abort/i.test(e))return "Timed out after "+Math.round(CFG.feedTimeoutMs/1000)+"s → slow publisher or converter";
+  if(/failed to fetch|networkerror|load failed/i.test(e))return e+" → blocked by your network, proxy or browser";
+  return e;
 }
 function slimFeed(d){
   return{status:"ok",items:(d.items||[]).map(function(it){return{title:it.title,link:it.link,pubDate:it.pubDate,author:it.author,description:String(it.description||"").substring(0,600)}})};
 }
-/* rss2json-shaped feed. Order: fresh local cache -> internal proxy -> rss2json -> rss2json again after 4s -> stale cache. */
-function fj(u){
+/* ---- polite queue for the public converter (rss2json): one request at a time, spaced out, panels take turns
+        (so Travel and Protest are no longer always last), and ONE shared 90-second back-off when it answers 429 ---- */
+var RQ={g:{},order:[],rr:0,busy:false,next:0,until:0};
+function rqGap(){return CFG.rss2jsonKey?600:3000}
+function rqSend(grp,url){
+  return new Promise(function(res,rej){
+    if(!RQ.g[grp]){RQ.g[grp]=[];RQ.order.push(grp)}
+    RQ.g[grp].push({url:url,res:res,rej:rej});rqPump();
+  });
+}
+function rqPump(){
+  if(RQ.busy)return;
+  var job=null;
+  for(var i=0;i<RQ.order.length&&!job;i++){var k=RQ.order[(RQ.rr+i)%RQ.order.length];if(RQ.g[k].length){job=RQ.g[k].shift();RQ.rr=(RQ.rr+i+1)%RQ.order.length}}
+  if(!job)return;
+  RQ.busy=true;
+  setTimeout(function(){
+    fetchT(job.url).then(job.res,function(e){if(/HTTP 429/.test(String(e&&e.message)))RQ.until=Date.now()+9e4;job.rej(e)})
+      .then(function(){RQ.busy=false;RQ.next=Date.now()+rqGap();rqPump()});
+  },Math.max(0,RQ.next-Date.now(),RQ.until-Date.now()));
+}
+function rqStatus(){var n=0;for(var k in RQ.g)n+=RQ.g[k].length;return{queued:n,backoff:Math.max(0,RQ.until-Date.now())}}
+/* rss2json-shaped feed. Order: fresh local cache -> internal proxy -> rss2json (queued) -> one queued retry -> stale cache. */
+function fj(u,grp){
+  grp=grp||"misc";
   var ck="fc:"+u,c=null;
   try{c=JSON.parse(localStorage.getItem(ck)||"null")}catch(e){}
   if(c&&Date.now()-c.t<CFG.cacheMin*6e4){var r0=slimFeed(c.d);r0.cached=true;return Promise.resolve(r0)}
   var ps=[];
-  if(CFG.proxy)ps.push(CFG.proxy+encodeURIComponent(u));
+  if(CFG.proxy)ps.push({u:CFG.proxy+encodeURIComponent(u),q:false});
   var rj=AP+encodeURIComponent(u)+(CFG.rss2jsonKey?"&api_key="+encodeURIComponent(CFG.rss2jsonKey)+"&count=50":"");
-  ps.push(rj,rj);
+  ps.push({u:rj,q:true},{u:rj,q:true,retry:true});
   var i=0;
   function attempt(){
-    var url=ps[i],wait=(i>0&&ps[i]===ps[i-1])?4000:0;i++;
-    return new Promise(function(res){setTimeout(res,wait)}).then(function(){return fetchT(url)})
+    var p=ps[i++];
+    return(p.q?rqSend(grp,p.u):fetchT(p.u))
       .then(function(d){if(!d||d.status!=="ok")throw new Error((d&&d.message)||"Bad feed response");return d})
-      .catch(function(e){if(i<ps.length)return attempt();throw e});
+      .catch(function(e){var nx=ps[i];if(nx&&!(nx.retry&&/HTTP 422/.test(String(e&&e.message))))return attempt();throw e});   /* never retry a permanent 422 */
   }
   return attempt().then(function(d){
     var s=slimFeed(d);try{localStorage.setItem(ck,JSON.stringify({t:Date.now(),d:s}))}catch(e){}
@@ -1002,7 +1051,7 @@ function catChip(it){return'<span class="cat">'+esc(CATS[catOf(it)])+"</span>"}
 
 /* -- failing feeds pause themselves for an hour after 3 failures (saves the public converter's quota) -- */
 var FAILS={};
-try{FAILS=JSON.parse(localStorage.getItem("fails")||"{}")}catch(e){}
+try{FAILS=JSON.parse(localStorage.getItem("fails")||"{}");if(localStorage.getItem("failsv")!=="2"){FAILS={};localStorage.setItem("fails","{}");localStorage.setItem("failsv","2")}}catch(e){}
 function feedPaused(n){var f=FAILS[n];return f&&f.until&&f.until>Date.now()?f.until:0}
 function feedResult(n,ok){
   if(ok)delete FAILS[n];
@@ -1016,7 +1065,7 @@ var FH={};
 /* FIX: results are built in a temporary array and swapped in when every source has answered, so panels no longer
    go blank for ~1 minute on each refresh. A newer refresh supersedes an older one still in flight. */
 function lms(sources,arr,fn){
-  var run=arr._run=(arr._run||0)+1,tmp=[],dn=0,tt=sources.length,seen={},slot=0;
+  var run=arr._run=(arr._run||0)+1,tmp=[],dn=0,tt=sources.length,seen={},slot=0,grp=arr===SD?"sec":arr===WD?"wx":arr===TD?"tv":arr===PD?"pr":"misc";
   if(!tt){arr._done=true;fn();return}
   function fin(){
     if(++dn<tt||run!==arr._run)return;
@@ -1053,12 +1102,12 @@ function lms(sources,arr,fn){
         FH[sr.n]={ok:false,stale:!!c,paused:true,n:r.n,f:r.f,err:"paused after 3 failures, retrying at "+hhmm(pu),t:Date.now()};
         fin();return;
       }
-      fj(sr.u).then(function(d){
+      fj(sr.u,grp).then(function(d){
         var r=proc(sr,d);
         FH[sr.n]={ok:!d.stale,stale:!!d.stale,cached:!!d.cached,n:r.n,f:r.f,err:d.err||"",t:Date.now()};
-        if(!d.cached)feedResult(sr.n,!d.stale);
+        if(!d.cached&&!/429/.test(d.err||""))feedResult(sr.n,!d.stale);   /* a rate limit is not the feed's fault */
       }).catch(function(e){
-        FH[sr.n]={ok:false,err:String((e&&e.message)||e),t:Date.now()};feedResult(sr.n,false);
+        FH[sr.n]={ok:false,err:String((e&&e.message)||e),t:Date.now()};if(!/429/.test(String(e&&e.message)))feedResult(sr.n,false);
       }).then(fin);
     },pu?0:(slot++)*STAG);
   });
@@ -1068,12 +1117,15 @@ function updHealth(){
   var k=Object.keys(FH),ok=0,last=0,h="";
   k.sort().forEach(function(n){
     var f=FH[n];if(f.ok)ok++;if(f.t>last)last=f.t;
-    h+="<div>"+'<span class="dot '+(f.ok?"d-low":f.stale?"d-high":"d-crit")+'"></span>'+esc(n)+" — "+(f.ok||f.stale?f.n+" items"+(f.f?" ("+f.f+" filtered)":"")+(f.cached?" · cached":"")+(f.stale?" · STALE cache, live fetch failed: "+esc(f.err):""):esc(f.err))+"</div>";
+    h+="<div>"+'<span class="dot '+(f.ok?"d-low":f.stale?"d-high":"d-crit")+'"></span>'+esc(n)+" — "+(f.ok||f.stale?f.n+" items"+(f.f?" ("+f.f+" filtered)":"")+(f.cached?" · cached":"")+(f.stale?" · showing saved items, live fetch failed: "+esc(whyErr(f.err)):""):esc(whyErr(f.err)))+"</div>";
   });
   var bad=k.length-ok;
   el.textContent="Feeds "+ok+"/"+k.length+(last?" · updated "+new Date(last).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit",hour12:false}):"");
   el.style.borderColor=bad?"#FFC107":"rgba(255,255,255,.4)";
   rkpi();
+  var rq=rqStatus();
+  if(rq.backoff)h='<div style="color:var(--high);font-weight:600">Converter rate limit hit — all requests paused for '+Math.ceil(rq.backoff/1000)+'s, then resuming automatically.</div>'+h;
+  if(rq.queued)h='<div style="color:var(--tx2)">'+rq.queued+' feed request(s) queued.</div>'+h;
   if(k.some(function(n){return FH[n].paused}))h+='<div style="margin-top:4px"><button type="button" class="tri-btn" onclick="retryFeeds()">Retry paused feeds now</button></div>';
   if(pn)pn.innerHTML=(h||"No feeds loaded yet.")+(CFG.api?"":'<div style="margin-top:4px;opacity:.85">Tip: failures are usually public rss2json rate limits or publisher bot-protection — host the portal with portal-server.js (or set CFG.rss2jsonKey) to remove them.</div>');
 }
@@ -1842,6 +1894,7 @@ loaded.tv=loaded.pr=loaded.ra=true;   /* FIX: travel, protest and red-alert no l
 detectServer().then(function(){
   if(CFG.api&&!CFG.proxy)CFG.proxy=CFG.api+"/feed?url=";
   if(CFG.proxy){STAG=0;WDELAY=0;WS=WS.concat(METEO);CFG.cacheMin=Math.min(CFG.cacheMin,4)}
+  else if(!CFG.rss2jsonKey)CFG.cacheMin=Math.max(CFG.cacheMin,19);
   updHealth();
   function loadWx(){lms(WS,WD,function(){mergeGeo();rwf()})}
   function loadAll(){
